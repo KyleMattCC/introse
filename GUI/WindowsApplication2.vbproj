@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45FCE407-6305-4045-ABF2-196A6B24B4A1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>WindowsApplication2.My.MyApplication</StartupObject>
+    <RootNamespace>WindowsApplication2</RootNamespace>
+    <AssemblyName>WindowsApplication2</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>WindowsApplication2.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>WindowsApplication2.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmailNoticesServiceRec.Designer.vb">
+      <DependentUpon>EmailNoticesServiceRec.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EmailNoticesServiceRec.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailNoticesAbsNotice.Designer.vb">
+      <DependentUpon>EmailNoticesAbsNotice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EmailNoticesAbsNotice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailNoticesTardNotice.Designer.vb">
+      <DependentUpon>EmailNoticesTardNotice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EmailNoticesTardNotice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailReportGen.Designer.vb">
+      <DependentUpon>EmailReportGen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EmailReportGen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popDailyGen.Designer.vb">
+      <DependentUpon>popDailyGen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popDailyGen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popMonthlyGen.Designer.vb">
+      <DependentUpon>popMonthlyGen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popMonthlyGen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popTermEndGen.Designer.vb">
+      <DependentUpon>popTermEndGen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popTermEndGen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwGenServiceReport.Designer.vb">
+      <DependentUpon>wdwGenServiceReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwGenServiceReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popNoticeOfAbsence.Designer.vb">
+      <DependentUpon>popNoticeOfAbsence.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popNoticeOfAbsence.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popFacSearch.Designer.vb">
+      <DependentUpon>popFacSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popFacSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popAddMakeUp.Designer.vb">
+      <DependentUpon>popAddMakeUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popAddMakeUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popNoticeOfTardiness.Designer.vb">
+      <DependentUpon>popNoticeOfTardiness.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popNoticeOfTardiness.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popServiceRecord.Designer.vb">
+      <DependentUpon>popServiceRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popServiceRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwEncodeFacMakeUp.Designer.vb">
+      <DependentUpon>wdwEncodeFacMakeUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwEncodeFacMakeUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popFindCourse.Designer.vb">
+      <DependentUpon>popFindCourse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popFindCourse.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwClassInfo.Designer.vb">
+      <DependentUpon>wdwClassInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwClassInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwDailyAttendanceLog.Designer.vb">
+      <DependentUpon>wdwDailyAttendanceLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwDailyAttendanceLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popAddFacultyDaily.Designer.vb">
+      <DependentUpon>popAddFacultyDaily.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popAddFacultyDaily.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwGenAbsNotice.Designer.vb">
+      <DependentUpon>wdwGenAbsNotice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwGenAbsNotice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwGenTardiness.Designer.vb">
+      <DependentUpon>wdwGenTardiness.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwGenTardiness.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwMainMenu.Designer.vb">
+      <DependentUpon>wdwMainMenu.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popFindFacAtt.Designer.vb">
+      <DependentUpon>popFindFacAtt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popFindFacAtt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popEncFacDaily.Designer.vb">
+      <DependentUpon>popEncFacDaily.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popEncFacDaily.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popModFacDaily.Designer.vb">
+      <DependentUpon>popModFacDaily.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popModFacDaily.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwFacultyMakeUp.Designer.vb">
+      <DependentUpon>wdwFacultyMakeUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwFacultyMakeUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwFacDailyAtt.Designer.vb">
+      <DependentUpon>wdwFacDailyAtt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwFacDailyAtt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwSelectReport.Designer.vb">
+      <DependentUpon>wdwSelectReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwSelectReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="popModMakeup.Designer.vb">
+      <DependentUpon>popModMakeup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popModMakeup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwNotices.Designer.vb">
+      <DependentUpon>wdwNotices.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwNotices.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwReportGen.Designer.vb">
+      <DependentUpon>wdwReportGen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwReportGen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EmailNoticesAbsNotice.resx">
+      <DependentUpon>EmailNoticesAbsNotice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailNoticesServiceRec.resx">
+      <DependentUpon>EmailNoticesServiceRec.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailNoticesTardNotice.resx">
+      <DependentUpon>EmailNoticesTardNotice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailReportGen.resx">
+      <DependentUpon>EmailReportGen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popDailyGen.resx">
+      <DependentUpon>popDailyGen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popMonthlyGen.resx">
+      <DependentUpon>popMonthlyGen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popFacSearch.resx">
+      <DependentUpon>popFacSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popAddMakeUp.resx">
+      <DependentUpon>popAddMakeUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popNoticeOfAbsence.resx">
+      <DependentUpon>popNoticeOfAbsence.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popNoticeOfTardiness.resx">
+      <DependentUpon>popNoticeOfTardiness.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popServiceRecord.resx">
+      <DependentUpon>popServiceRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popTermEndGen.resx">
+      <DependentUpon>popTermEndGen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwEncodeFacMakeUp.resx">
+      <DependentUpon>wdwEncodeFacMakeUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popFindCourse.resx">
+      <DependentUpon>popFindCourse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwClassInfo.resx">
+      <DependentUpon>wdwClassInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwDailyAttendanceLog.resx">
+      <DependentUpon>wdwDailyAttendanceLog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popAddFacultyDaily.resx">
+      <DependentUpon>popAddFacultyDaily.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwGenAbsNotice.resx">
+      <DependentUpon>wdwGenAbsNotice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwGenServiceReport.resx">
+      <DependentUpon>wdwGenServiceReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwGenTardiness.resx">
+      <DependentUpon>wdwGenTardiness.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwMainMenu.resx">
+      <DependentUpon>wdwMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popFindFacAtt.resx">
+      <DependentUpon>popFindFacAtt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popEncFacDaily.resx">
+      <DependentUpon>popEncFacDaily.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popModFacDaily.resx">
+      <DependentUpon>popModFacDaily.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwFacultyMakeUp.resx">
+      <DependentUpon>wdwFacultyMakeUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwFacDailyAtt.resx">
+      <DependentUpon>wdwFacDailyAtt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwSelectReport.resx">
+      <DependentUpon>wdwSelectReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popModMakeup.resx">
+      <DependentUpon>popModMakeup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwNotices.resx">
+      <DependentUpon>wdwNotices.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwReportGen.resx">
+      <DependentUpon>wdwReportGen.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
