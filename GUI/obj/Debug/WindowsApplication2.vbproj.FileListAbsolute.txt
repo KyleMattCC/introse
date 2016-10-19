@@ -158,3 +158,43 @@ C:\Users\gedrite\Desktop\INTROSE\GUI 10-19\WindowsApplication2\obj\Debug\Windows
 C:\Users\gedrite\Desktop\INTROSE\GUI 10-19\WindowsApplication2\obj\Debug\WindowsApplication2.EmailNoticesServiceRec.resources
 C:\Users\gedrite\Desktop\INTROSE\GUI 10-19\WindowsApplication2\obj\Debug\WindowsApplication2.EmailNoticesTardNotice.resources
 C:\Users\gedrite\Desktop\INTROSE\GUI 10-19\WindowsApplication2\obj\Debug\WindowsApplication2.EmailReportGen.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\bin\Debug\WindowsApplication2.exe.config
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.exe
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.xml
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.pdb
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\bin\Debug\WindowsApplication2.exe
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\bin\Debug\WindowsApplication2.pdb
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\bin\Debug\WindowsApplication2.xml
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.vbprojResolveAssemblyReference.cache
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.EmailNoticesAbsNotice.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.EmailNoticesServiceRec.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.EmailNoticesTardNotice.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.EmailReportGen.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popDailyGen.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popMonthlyGen.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popFacSearch.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popAddMakeUp.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popNoticeOfAbsence.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popNoticeOfTardiness.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popServiceRecord.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popTermEndGen.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwEncodeFacMakeUp.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.Find.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwClassInfo.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwDailyAttendanceLog.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popAddFacultyDaily.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwGenAbsNotice.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwGenServiceReport.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwGenTardiness.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwMainMenu.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popFindFacAtt.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popEncFacDaily.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwModFacultyDaily.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwFacultyMakeUp.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwFacDailyAtt.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwSelectReport.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.Resources.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.popModMakeup.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwNotices.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.wdwReportGen.resources
+C:\Users\gedrite\Desktop\New folder (6)\GUI\introse\GUI\obj\Debug\WindowsApplication2.vbproj.GenerateResource.Cache
