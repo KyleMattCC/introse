@@ -33,17 +33,17 @@ Partial Class wdwDailyAttendanceLog
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Back = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.SectionSearchText = New System.Windows.Forms.TextBox()
+        Me.CourseSearchText = New System.Windows.Forms.TextBox()
         Me.Search = New System.Windows.Forms.Button()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.FacultyIDButton = New System.Windows.Forms.RadioButton()
+        Me.FacultyIDSearchText = New System.Windows.Forms.TextBox()
+        Me.CourseSectionButton = New System.Windows.Forms.RadioButton()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.DepartmentNameText = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.FacultyIDText = New System.Windows.Forms.TextBox()
+        Me.FacultyNameText = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,12 +129,12 @@ Partial Class wdwDailyAttendanceLog
         '
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.Back)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.SectionSearchText)
+        Me.GroupBox1.Controls.Add(Me.CourseSearchText)
         Me.GroupBox1.Controls.Add(Me.Search)
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.RadioButton3)
+        Me.GroupBox1.Controls.Add(Me.FacultyIDButton)
+        Me.GroupBox1.Controls.Add(Me.FacultyIDSearchText)
+        Me.GroupBox1.Controls.Add(Me.CourseSectionButton)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(31, 48)
         Me.GroupBox1.Name = "GroupBox1"
@@ -162,21 +162,21 @@ Partial Class wdwDailyAttendanceLog
         Me.Back.Text = "Cancel"
         Me.Back.UseVisualStyleBackColor = True
         '
-        'TextBox3
+        'SectionSearchText
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(394, 35)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(114, 20)
-        Me.TextBox3.TabIndex = 10
+        Me.SectionSearchText.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SectionSearchText.Location = New System.Drawing.Point(394, 35)
+        Me.SectionSearchText.Name = "SectionSearchText"
+        Me.SectionSearchText.Size = New System.Drawing.Size(114, 20)
+        Me.SectionSearchText.TabIndex = 10
         '
-        'TextBox2
+        'CourseSearchText
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(273, 35)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(114, 20)
-        Me.TextBox2.TabIndex = 9
+        Me.CourseSearchText.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CourseSearchText.Location = New System.Drawing.Point(273, 35)
+        Me.CourseSearchText.Name = "CourseSearchText"
+        Me.CourseSearchText.Size = New System.Drawing.Size(114, 20)
+        Me.CourseSearchText.TabIndex = 9
         '
         'Search
         '
@@ -188,44 +188,44 @@ Partial Class wdwDailyAttendanceLog
         Me.Search.Text = "Search"
         Me.Search.UseVisualStyleBackColor = True
         '
-        'RadioButton1
+        'FacultyIDButton
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Checked = True
-        Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(40, 18)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(73, 17)
-        Me.RadioButton1.TabIndex = 4
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Faculty ID"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.FacultyIDButton.AutoSize = True
+        Me.FacultyIDButton.Checked = True
+        Me.FacultyIDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FacultyIDButton.Location = New System.Drawing.Point(40, 18)
+        Me.FacultyIDButton.Name = "FacultyIDButton"
+        Me.FacultyIDButton.Size = New System.Drawing.Size(73, 17)
+        Me.FacultyIDButton.TabIndex = 4
+        Me.FacultyIDButton.TabStop = True
+        Me.FacultyIDButton.Text = "Faculty ID"
+        Me.FacultyIDButton.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'FacultyIDSearchText
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(40, 35)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(223, 20)
-        Me.TextBox1.TabIndex = 7
+        Me.FacultyIDSearchText.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FacultyIDSearchText.Location = New System.Drawing.Point(40, 35)
+        Me.FacultyIDSearchText.Name = "FacultyIDSearchText"
+        Me.FacultyIDSearchText.Size = New System.Drawing.Size(223, 20)
+        Me.FacultyIDSearchText.TabIndex = 7
         '
-        'RadioButton3
+        'CourseSectionButton
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton3.Location = New System.Drawing.Point(273, 17)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(99, 17)
-        Me.RadioButton3.TabIndex = 6
-        Me.RadioButton3.Text = "Course/Section"
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.CourseSectionButton.AutoSize = True
+        Me.CourseSectionButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CourseSectionButton.Location = New System.Drawing.Point(273, 17)
+        Me.CourseSectionButton.Name = "CourseSectionButton"
+        Me.CourseSectionButton.Size = New System.Drawing.Size(99, 17)
+        Me.CourseSectionButton.TabIndex = 6
+        Me.CourseSectionButton.Text = "Course/Section"
+        Me.CourseSectionButton.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.TextBox6)
+        Me.GroupBox4.Controls.Add(Me.DepartmentNameText)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Controls.Add(Me.TextBox4)
-        Me.GroupBox4.Controls.Add(Me.TextBox5)
+        Me.GroupBox4.Controls.Add(Me.FacultyIDText)
+        Me.GroupBox4.Controls.Add(Me.FacultyNameText)
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -236,13 +236,13 @@ Partial Class wdwDailyAttendanceLog
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Faculty Information:"
         '
-        'TextBox6
+        'DepartmentNameText
         '
-        Me.TextBox6.Enabled = False
-        Me.TextBox6.Location = New System.Drawing.Point(185, 66)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(300, 21)
-        Me.TextBox6.TabIndex = 177
+        Me.DepartmentNameText.Enabled = False
+        Me.DepartmentNameText.Location = New System.Drawing.Point(185, 66)
+        Me.DepartmentNameText.Name = "DepartmentNameText"
+        Me.DepartmentNameText.Size = New System.Drawing.Size(300, 21)
+        Me.DepartmentNameText.TabIndex = 177
         '
         'Label3
         '
@@ -254,21 +254,21 @@ Partial Class wdwDailyAttendanceLog
         Me.Label3.TabIndex = 176
         Me.Label3.Text = "Department:"
         '
-        'TextBox4
+        'FacultyIDText
         '
-        Me.TextBox4.Enabled = False
-        Me.TextBox4.Location = New System.Drawing.Point(185, 20)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(300, 21)
-        Me.TextBox4.TabIndex = 175
+        Me.FacultyIDText.Enabled = False
+        Me.FacultyIDText.Location = New System.Drawing.Point(185, 20)
+        Me.FacultyIDText.Name = "FacultyIDText"
+        Me.FacultyIDText.Size = New System.Drawing.Size(300, 21)
+        Me.FacultyIDText.TabIndex = 175
         '
-        'TextBox5
+        'FacultyNameText
         '
-        Me.TextBox5.Enabled = False
-        Me.TextBox5.Location = New System.Drawing.Point(185, 43)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(300, 21)
-        Me.TextBox5.TabIndex = 174
+        Me.FacultyNameText.Enabled = False
+        Me.FacultyNameText.Location = New System.Drawing.Point(185, 43)
+        Me.FacultyNameText.Name = "FacultyNameText"
+        Me.FacultyNameText.Size = New System.Drawing.Size(300, 21)
+        Me.FacultyNameText.TabIndex = 174
         '
         'Label1
         '
@@ -327,18 +327,18 @@ Partial Class wdwDailyAttendanceLog
     Friend WithEvents Label7 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Back As Button
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents SectionSearchText As TextBox
+    Friend WithEvents CourseSearchText As TextBox
     Friend WithEvents Search As Button
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents FacultyIDButton As RadioButton
+    Friend WithEvents FacultyIDSearchText As TextBox
+    Friend WithEvents CourseSectionButton As RadioButton
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents DepartmentNameText As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents FacultyIDText As TextBox
+    Friend WithEvents FacultyNameText As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
 End Class

@@ -203,3 +203,85 @@ E:\DownloadsChrome\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\Window
 E:\DownloadsChrome\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.exe
 E:\DownloadsChrome\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.xml
 E:\DownloadsChrome\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.xml
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\WindowsApplication2.xml
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.vbprojResolveAssemblyReference.cache
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.EmailNotices.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwEmailReports.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popDailyGen.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popMonthlyGen.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popFacSearch.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popAddMakeUp.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popNoticeOfAbsence.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popNoticeOfTardiness.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popServiceRecord.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popTermEndGen.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwEncodeFacMakeUp.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.Find.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwClassInfo.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwDailyAttendanceLog.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popAddFacultyDaily.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwFacPlantilia.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwGenAbsNotice.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwGenServiceReport.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwEmailNotice.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwMainMenu.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popFindFacAtt.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popEncFacDaily.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwModFacultyDaily.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwFacultyMakeUp.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwFacDailyAtt.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwSearchByName.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwSelectReport.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.Resources.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popModMakeup.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwNotices.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwReportGen.resources
+C:\Users\Sony\Downloads\introse-master (1)\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.vbproj.GenerateResource.Cache
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.xml
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.vbprojResolveAssemblyReference.cache
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.EmailNotices.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwEmailReports.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popDailyGen.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popMonthlyGen.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popFacSearch.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popAddMakeUp.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popNoticeOfAbsence.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popNoticeOfTardiness.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popServiceRecord.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popTermEndGen.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwEncodeFacMakeUp.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.Find.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwClassInfo.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwDailyAttendanceLog.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popAddFacultyDaily.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwFacPlantilia.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwGenAbsNotice.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwGenServiceReport.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwEmailNotice.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwMainMenu.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popFindFacAtt.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popEncFacDaily.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwModFacultyDaily.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwFacultyMakeUp.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwFacDailyAtt.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwSearchByName.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwSelectReport.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.Resources.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.popModMakeup.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwNotices.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.wdwReportGen.resources
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\obj\Debug\WindowsApplication2.vbproj.GenerateResource.Cache
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\WindowsApplication2.xml
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\MySql.Data.dll
+C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\MySql.Data.xml

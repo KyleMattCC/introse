@@ -13,7 +13,7 @@
 
     End Sub
 
-    Private Sub Add_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
+    Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
         popAddMakeUp.Show()
 
     End Sub
@@ -62,6 +62,10 @@
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Hide()
         wdwSearchByName.Show()
+
+    End Sub
+
+    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
 
     End Sub
 End Class

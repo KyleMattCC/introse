@@ -38,6 +38,7 @@ Partial Class wdwFacultyMakeUp
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Back = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -48,7 +49,6 @@ Partial Class wdwFacultyMakeUp
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.dtp = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -202,6 +202,16 @@ Partial Class wdwFacultyMakeUp
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Search Attendance By:"
         '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(390, 63)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(168, 23)
+        Me.Button1.TabIndex = 173
+        Me.Button1.Text = "More Search Options"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'GroupBox2
         '
         Me.GroupBox2.Location = New System.Drawing.Point(6, 93)
@@ -265,7 +275,7 @@ Partial Class wdwFacultyMakeUp
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(40, 35)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(223, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(226, 20)
         Me.TextBox1.TabIndex = 7
         '
         'RadioButton3
@@ -295,16 +305,6 @@ Partial Class wdwFacultyMakeUp
         Me.Label5.Size = New System.Drawing.Size(49, 17)
         Me.Label5.TabIndex = 173
         Me.Label5.Text = "Date:"
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(390, 63)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(168, 23)
-        Me.Button1.TabIndex = 173
-        Me.Button1.Text = "More Search Options"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'wdwFacultyMakeUp
         '

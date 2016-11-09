@@ -1,4 +1,6 @@
 ﻿Public Class popEncFacDaily
+    Dim dbAccess As New DatabaseAccessor
+
     Private Sub TextBox44_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
@@ -31,5 +33,9 @@
 
     Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
 
+    End Sub
+
+    Private Sub bttnEncode_Click(sender As Object, e As EventArgs) Handles bttnEncode.Click
+        ' dbAccess.addData("INSERT INTO `introse`.`attendance` (`attendanceid`, `courseoffering_id`, `statusid`, `remarks`, `date`, `timeset`, `encoder`, `checker`) VALUES ('" + AttendanceID.ToString + "', '" + CourseOfferingID.ToString + "', 'A', '" + RemarksText1.Text + "', '" + DateTimePicker1.Text + "', '" + StartText1.Text + "', 'a', '" + CheckerText.Text + "');")
     End Sub
 End Class
