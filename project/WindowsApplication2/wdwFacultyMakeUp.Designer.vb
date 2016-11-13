@@ -29,7 +29,7 @@ Partial Class wdwFacultyMakeUp
         Me.bttnDelete = New System.Windows.Forms.Button()
         Me.bttnModify = New System.Windows.Forms.Button()
         Me.bttnAdd = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.grid = New System.Windows.Forms.DataGridView()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -50,7 +50,7 @@ Partial Class wdwFacultyMakeUp
         Me.dtp = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -105,13 +105,13 @@ Partial Class wdwFacultyMakeUp
         Me.bttnAdd.Text = "Add"
         Me.bttnAdd.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'grid
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(25, 265)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1085, 350)
-        Me.DataGridView1.TabIndex = 24
+        Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grid.Location = New System.Drawing.Point(25, 265)
+        Me.grid.Name = "grid"
+        Me.grid.Size = New System.Drawing.Size(1085, 350)
+        Me.grid.TabIndex = 24
         '
         'GroupBox4
         '
@@ -315,7 +315,7 @@ Partial Class wdwFacultyMakeUp
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dtp)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.grid)
         Me.Controls.Add(Me.bttnAdd)
         Me.Controls.Add(Me.bttnModify)
         Me.Controls.Add(Me.bttnDelete)
@@ -324,7 +324,7 @@ Partial Class wdwFacultyMakeUp
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Faculty Makeup Schedule"
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -340,7 +340,7 @@ Partial Class wdwFacultyMakeUp
     Friend WithEvents bttnModify As Button
     Friend WithEvents bttnDelete As Button
     Friend WithEvents bttnBack As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents grid As DataGridView
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents Label3 As Label
