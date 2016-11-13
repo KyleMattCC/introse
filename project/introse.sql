@@ -242,14 +242,15 @@ DROP TABLE IF EXISTS `makeup`;
 CREATE TABLE `makeup` (
   `makeupid` int(11) NOT NULL,
   `courseoffering_id` int(11) NOT NULL,
-  `date` varchar(45) NOT NULL,
+  `absent_date` varchar(45) NOT NULL,
   `timestart` varchar(45) NOT NULL,
   `timeend` varchar(45) NOT NULL,
   `room` varchar(45) NOT NULL,
   `reason_cd` varchar(2) NOT NULL,
-  `date_filed` varchar(45) NOT NULL,
+  `makeup_date` varchar(45) NOT NULL,
   `date_encoded` varchar(45) NOT NULL,
   `encoder` varchar(45) NOT NULL,
+  `status` varchar(1) NOT NULL,
   PRIMARY KEY (`makeupid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -260,7 +261,7 @@ CREATE TABLE `makeup` (
 
 LOCK TABLES `makeup` WRITE;
 /*!40000 ALTER TABLE `makeup` DISABLE KEYS */;
-INSERT INTO `makeup` VALUES (401,112131141,'9/11/2016','11:00','12:30','Y405','no','9/13/2016','9/11/2016','Ralph Bravante');
+INSERT INTO `makeup` VALUES (401,112131141,'9/11/2016','11:00','12:30','Y405','no','9/13/2016','9/11/2016','Ralph Bravante','');
 /*!40000 ALTER TABLE `makeup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -347,4 +348,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-13 18:54:56
+-- Dump completed on 2016-11-13 22:08:37
