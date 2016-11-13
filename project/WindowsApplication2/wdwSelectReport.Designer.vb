@@ -276,6 +276,7 @@ Partial Class wdwSelectReport
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "wdwSelectReport"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Report"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

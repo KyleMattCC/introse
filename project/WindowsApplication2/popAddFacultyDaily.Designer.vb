@@ -330,6 +330,7 @@ Partial Class popAddFacultyDaily
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "popAddFacultyDaily"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Faculty Daily Attendance"
         Me.ResumeLayout(False)
         Me.PerformLayout()

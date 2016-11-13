@@ -35,6 +35,7 @@ Partial Class wdwClassInfo
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Back = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -42,7 +43,6 @@ Partial Class wdwClassInfo
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -184,6 +184,15 @@ Partial Class wdwClassInfo
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Search Attendance By:"
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Location = New System.Drawing.Point(6, 93)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(552, 100)
+        Me.GroupBox2.TabIndex = 172
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "GroupBox2"
+        '
         'Back
         '
         Me.Back.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -252,15 +261,6 @@ Partial Class wdwClassInfo
         Me.RadioButton3.Text = "Course/Section"
         Me.RadioButton3.UseVisualStyleBackColor = True
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Location = New System.Drawing.Point(6, 93)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(552, 100)
-        Me.GroupBox2.TabIndex = 172
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "GroupBox2"
-        '
         'wdwClassInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -274,6 +274,7 @@ Partial Class wdwClassInfo
         Me.Controls.Add(Me.bttnBack)
         Me.Controls.Add(Me.grid)
         Me.Name = "wdwClassInfo"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Class Info"
         CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)

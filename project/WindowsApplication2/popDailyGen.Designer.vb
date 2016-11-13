@@ -75,6 +75,7 @@ Partial Class popDailyGen
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtp)
         Me.Name = "popDailyGen"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "popDailyGen"
         Me.ResumeLayout(False)
         Me.PerformLayout()

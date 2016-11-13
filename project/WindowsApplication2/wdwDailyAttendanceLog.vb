@@ -1,10 +1,8 @@
-﻿Imports MySql.Data.MySqlClient
-Public Class wdwDailyAttendanceLog
+﻿Public Class wdwDailyAttendanceLog
     Dim dbAccess As DatabaseAccessor = New DatabaseAccessor
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
-        Me.Hide()
-        wdwMainMenu.Show()
+        Me.Close()
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs)
@@ -29,11 +27,15 @@ Public Class wdwDailyAttendanceLog
     End Sub
 
     Private Sub wdwDailyAttendanceLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbAccess.fillDataGrid("select * from attendance", grid)
+        Load_form()
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
+        Load_form()
+    End Sub
 
+    Private Sub Load_form()
+        dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', a.absent_date 'Absent Date', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', concat(cl.course_cd, ' ', c.section) 'Course/Section', concat(c.daysched, ' ', c.timestart, ' - ', c.timeend) 'Day/Time', c.room 'Room', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.absent_date = '" & dtp.Value.Date & "' order by 4;", grid)
     End Sub
 
     Private Sub Search_Click(sender As Object, e As EventArgs) Handles Search.Click

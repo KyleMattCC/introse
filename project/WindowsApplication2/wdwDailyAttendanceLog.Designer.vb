@@ -54,17 +54,19 @@ Partial Class wdwDailyAttendanceLog
         'grid
         '
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grid.Location = New System.Drawing.Point(31, 271)
+        Me.grid.Location = New System.Drawing.Point(25, 265)
         Me.grid.Name = "grid"
-        Me.grid.Size = New System.Drawing.Size(558, 342)
+        Me.grid.RowTemplate.ReadOnly = True
+        Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.grid.Size = New System.Drawing.Size(1085, 350)
         Me.grid.TabIndex = 47
         '
         'bttnAdd
         '
         Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAdd.Location = New System.Drawing.Point(43, 630)
+        Me.bttnAdd.Location = New System.Drawing.Point(45, 630)
         Me.bttnAdd.Name = "bttnAdd"
-        Me.bttnAdd.Size = New System.Drawing.Size(97, 23)
+        Me.bttnAdd.Size = New System.Drawing.Size(175, 35)
         Me.bttnAdd.TabIndex = 46
         Me.bttnAdd.Text = "Add"
         Me.bttnAdd.UseVisualStyleBackColor = True
@@ -72,9 +74,9 @@ Partial Class wdwDailyAttendanceLog
         'bttnModify
         '
         Me.bttnModify.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnModify.Location = New System.Drawing.Point(188, 630)
+        Me.bttnModify.Location = New System.Drawing.Point(335, 630)
         Me.bttnModify.Name = "bttnModify"
-        Me.bttnModify.Size = New System.Drawing.Size(97, 23)
+        Me.bttnModify.Size = New System.Drawing.Size(175, 35)
         Me.bttnModify.TabIndex = 45
         Me.bttnModify.Text = "Modify"
         Me.bttnModify.UseVisualStyleBackColor = True
@@ -82,9 +84,9 @@ Partial Class wdwDailyAttendanceLog
         'bttnDelete
         '
         Me.bttnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnDelete.Location = New System.Drawing.Point(333, 630)
+        Me.bttnDelete.Location = New System.Drawing.Point(625, 630)
         Me.bttnDelete.Name = "bttnDelete"
-        Me.bttnDelete.Size = New System.Drawing.Size(97, 23)
+        Me.bttnDelete.Size = New System.Drawing.Size(175, 35)
         Me.bttnDelete.TabIndex = 44
         Me.bttnDelete.Text = "Delete"
         Me.bttnDelete.UseVisualStyleBackColor = True
@@ -92,9 +94,9 @@ Partial Class wdwDailyAttendanceLog
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(478, 630)
+        Me.bttnBack.Location = New System.Drawing.Point(915, 630)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(97, 23)
+        Me.bttnBack.Size = New System.Drawing.Size(175, 35)
         Me.bttnBack.TabIndex = 43
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
@@ -229,9 +231,9 @@ Partial Class wdwDailyAttendanceLog
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(31, 146)
+        Me.GroupBox4.Location = New System.Drawing.Point(290, 150)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(558, 106)
+        Me.GroupBox4.Size = New System.Drawing.Size(560, 110)
         Me.GroupBox4.TabIndex = 172
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Faculty Information:"
@@ -294,7 +296,7 @@ Partial Class wdwDailyAttendanceLog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(622, 669)
+        Me.ClientSize = New System.Drawing.Size(1134, 671)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label7)
@@ -306,6 +308,7 @@ Partial Class wdwDailyAttendanceLog
         Me.Controls.Add(Me.bttnDelete)
         Me.Controls.Add(Me.bttnBack)
         Me.Name = "wdwDailyAttendanceLog"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Daily Attendance Log"
         CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

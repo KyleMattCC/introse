@@ -1185,6 +1185,7 @@ Partial Class popEncFacDaily
         Me.Controls.Add(Me.TextBox83)
         Me.Controls.Add(Me.TextBox82)
         Me.Name = "popEncFacDaily"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Encode Faculty Daily Attendance"
         Me.ResumeLayout(False)
         Me.PerformLayout()

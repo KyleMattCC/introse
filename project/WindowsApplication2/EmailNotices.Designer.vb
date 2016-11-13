@@ -106,6 +106,7 @@ Partial Class EmailNotices
         Me.Controls.Add(Me.txtSubject)
         Me.Controls.Add(Me.txtTo)
         Me.Name = "EmailNotices"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "EmailNotices"
         Me.ResumeLayout(False)
         Me.PerformLayout()
