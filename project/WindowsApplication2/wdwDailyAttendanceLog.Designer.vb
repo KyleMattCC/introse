@@ -54,11 +54,11 @@ Partial Class wdwDailyAttendanceLog
         'grid
         '
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grid.Location = New System.Drawing.Point(31, 271)
+        Me.grid.Location = New System.Drawing.Point(31, 266)
         Me.grid.Name = "grid"
         Me.grid.RowTemplate.ReadOnly = True
         Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grid.Size = New System.Drawing.Size(558, 342)
+        Me.grid.Size = New System.Drawing.Size(1085, 350)
         Me.grid.TabIndex = 47
         '
         'bttnAdd
@@ -231,9 +231,9 @@ Partial Class wdwDailyAttendanceLog
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(31, 146)
+        Me.GroupBox4.Location = New System.Drawing.Point(290, 150)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(558, 106)
+        Me.GroupBox4.Size = New System.Drawing.Size(560, 110)
         Me.GroupBox4.TabIndex = 172
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Faculty Information:"
@@ -296,7 +296,7 @@ Partial Class wdwDailyAttendanceLog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(622, 669)
+        Me.ClientSize = New System.Drawing.Size(1134, 671)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label7)
