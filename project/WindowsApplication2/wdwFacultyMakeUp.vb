@@ -1,11 +1,11 @@
 ﻿Public Class wdwFacultyMakeUp
+    Dim dbAccess As DatabaseAccessor = New DatabaseAccessor
     Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Hide()
-        wdwMainMenu.Show()
 
     End Sub
 
@@ -37,8 +37,11 @@
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
+    Private Sub Load_form()
+        dbAccess.fillDataGrid("")
+    End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
 
     End Sub
 

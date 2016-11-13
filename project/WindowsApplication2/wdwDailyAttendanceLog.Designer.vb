@@ -54,7 +54,7 @@ Partial Class wdwDailyAttendanceLog
         'grid
         '
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grid.Location = New System.Drawing.Point(31, 266)
+        Me.grid.Location = New System.Drawing.Point(25, 265)
         Me.grid.Name = "grid"
         Me.grid.RowTemplate.ReadOnly = True
         Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -64,9 +64,9 @@ Partial Class wdwDailyAttendanceLog
         'bttnAdd
         '
         Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAdd.Location = New System.Drawing.Point(43, 630)
+        Me.bttnAdd.Location = New System.Drawing.Point(45, 630)
         Me.bttnAdd.Name = "bttnAdd"
-        Me.bttnAdd.Size = New System.Drawing.Size(97, 23)
+        Me.bttnAdd.Size = New System.Drawing.Size(175, 35)
         Me.bttnAdd.TabIndex = 46
         Me.bttnAdd.Text = "Add"
         Me.bttnAdd.UseVisualStyleBackColor = True
@@ -74,9 +74,9 @@ Partial Class wdwDailyAttendanceLog
         'bttnModify
         '
         Me.bttnModify.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnModify.Location = New System.Drawing.Point(188, 630)
+        Me.bttnModify.Location = New System.Drawing.Point(335, 630)
         Me.bttnModify.Name = "bttnModify"
-        Me.bttnModify.Size = New System.Drawing.Size(97, 23)
+        Me.bttnModify.Size = New System.Drawing.Size(175, 35)
         Me.bttnModify.TabIndex = 45
         Me.bttnModify.Text = "Modify"
         Me.bttnModify.UseVisualStyleBackColor = True
@@ -84,9 +84,9 @@ Partial Class wdwDailyAttendanceLog
         'bttnDelete
         '
         Me.bttnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnDelete.Location = New System.Drawing.Point(333, 630)
+        Me.bttnDelete.Location = New System.Drawing.Point(625, 630)
         Me.bttnDelete.Name = "bttnDelete"
-        Me.bttnDelete.Size = New System.Drawing.Size(97, 23)
+        Me.bttnDelete.Size = New System.Drawing.Size(175, 35)
         Me.bttnDelete.TabIndex = 44
         Me.bttnDelete.Text = "Delete"
         Me.bttnDelete.UseVisualStyleBackColor = True
@@ -94,9 +94,9 @@ Partial Class wdwDailyAttendanceLog
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(478, 630)
+        Me.bttnBack.Location = New System.Drawing.Point(915, 630)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(97, 23)
+        Me.bttnBack.Size = New System.Drawing.Size(175, 35)
         Me.bttnBack.TabIndex = 43
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
