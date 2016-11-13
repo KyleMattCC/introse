@@ -3,8 +3,7 @@ Public Class wdwDailyAttendanceLog
     Dim dbAccess As DatabaseAccessor = New DatabaseAccessor
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
-        Me.Hide()
-        wdwMainMenu.Show()
+        Me.Close()
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs)
@@ -29,11 +28,15 @@ Public Class wdwDailyAttendanceLog
     End Sub
 
     Private Sub wdwDailyAttendanceLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', a.absent_date 'Absent Date', f.facultyid 'Faculty ID', concat(f.f_firstname, ' ', f_middlename, ' ', f_lastname) 'Name', c.course_cd 'Course Code', c.section 'Section', concat(c.daysched, ' ', c.timestart, ' - ', c.timeend) 'Day/Time', c.room 'Room', a.remarks 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' from introse.attendance a, introse.faculty f, introse.courseoffering c where a.courseoffering_id = c.courseoffering_id and c.facultyid = f.facref_no and a.absent_date = '" & dtp.Value.Date & "';", grid)
+        Load_table()
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
+        Load_table()
+    End Sub
 
+    Private Sub Load_table()
+        dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', a.absent_date 'Absent Date', f.facultyid 'Faculty ID', concat(f.f_firstname, ' ', f_middlename, ' ', f_lastname) 'Name', c.course_cd 'Course Code', c.section 'Section', concat(c.daysched, ' ', c.timestart, ' - ', c.timeend) 'Day/Time', c.room 'Room', a.remarks 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' from introse.attendance a, introse.faculty f, introse.courseoffering c where a.courseoffering_id = c.courseoffering_id and c.facultyid = f.facref_no and a.absent_date = '" & dtp.Value.Date & "';", grid)
     End Sub
 
     Private Sub Search_Click(sender As Object, e As EventArgs) Handles Search.Click
