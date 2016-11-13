@@ -285,3 +285,7 @@ C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplicat
 C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\WindowsApplication2.xml
 C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\MySql.Data.dll
 C:\Users\Sony\Downloads\Kyle\INTROSEGUI-master\INTROSEGUI-master\WindowsApplication2\bin\Debug\MySql.Data.xml
+E:\introse\project\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+E:\introse\project\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+E:\introse\project\WindowsApplication2\obj\Debug\WindowsApplication2.xml
+E:\introse\project\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
