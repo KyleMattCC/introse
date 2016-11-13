@@ -5,12 +5,12 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
-        Me.Hide()
+        Me.Close()
 
     End Sub
 
     Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Load_form()
     End Sub
 
     Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
@@ -38,7 +38,7 @@
 
     End Sub
     Private Sub Load_form()
-        dbAccess.fillDataGrid("")
+        dbAccess.fillDataGrid("Select m.makeupid 'Reference', m.absent_date 'Absent Date', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', concat(cl.course_cd, ' ', c.section) 'Course/Section', m.makeup_date 'Make Up Date', concat(m.timestart, ' - ', m.timeend) 'Time', m.room 'Room', r.reason_desc 'Reason', m.date_encoded 'Date Encoded', m.encoder 'Encoder' from introse.makeup m, introse.faculty f, introse.course cl, introse.courseoffering c, introse.reason r where m.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and m.reason_cd = r.reason_cd and m.status = 'A' and m.absent_date = '" & dtp.Value.Date & "' order by 4;", grid)
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
@@ -62,13 +62,13 @@
 
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
         Me.Hide()
         wdwSearchByName.Show()
 
     End Sub
 
-    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
+    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacultyID.TextChanged
 
     End Sub
 End Class
