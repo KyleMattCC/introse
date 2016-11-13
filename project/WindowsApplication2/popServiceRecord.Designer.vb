@@ -118,6 +118,7 @@ Partial Class popServiceRecord
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "popServiceRecord"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "popServiceRecord"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

@@ -99,6 +99,7 @@ Partial Class popMonthlyGen
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Name = "popMonthlyGen"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Input"
         Me.ResumeLayout(False)
         Me.PerformLayout()

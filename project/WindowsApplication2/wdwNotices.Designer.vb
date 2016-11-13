@@ -197,6 +197,7 @@ Partial Class wdwNotices
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "wdwNotices"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = " "
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

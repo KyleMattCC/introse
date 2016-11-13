@@ -106,6 +106,7 @@ Partial Class wdwEmailNotice
         Me.Controls.Add(Me.txtSubject)
         Me.Controls.Add(Me.txtTo)
         Me.Name = "wdwEmailNotice"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Email Notice"
         Me.ResumeLayout(False)
         Me.PerformLayout()

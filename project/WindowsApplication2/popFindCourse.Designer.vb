@@ -131,6 +131,7 @@ Partial Class Find
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Find"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Find"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

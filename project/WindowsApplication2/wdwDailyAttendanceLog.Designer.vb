@@ -56,6 +56,8 @@ Partial Class wdwDailyAttendanceLog
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grid.Location = New System.Drawing.Point(31, 271)
         Me.grid.Name = "grid"
+        Me.grid.RowTemplate.ReadOnly = True
+        Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grid.Size = New System.Drawing.Size(558, 342)
         Me.grid.TabIndex = 47
         '
@@ -306,6 +308,7 @@ Partial Class wdwDailyAttendanceLog
         Me.Controls.Add(Me.bttnDelete)
         Me.Controls.Add(Me.bttnBack)
         Me.Name = "wdwDailyAttendanceLog"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Daily Attendance Log"
         CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

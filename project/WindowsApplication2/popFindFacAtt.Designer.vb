@@ -23,8 +23,6 @@ Partial Class popFindFacAtt
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.bttnCancel = New System.Windows.Forms.Button()
-        Me.bttnSearch = New System.Windows.Forms.Button()
         Me.txtFirstname = New System.Windows.Forms.TextBox()
         Me.txtLastname = New System.Windows.Forms.TextBox()
         Me.rbttnName = New System.Windows.Forms.RadioButton()
@@ -33,6 +31,8 @@ Partial Class popFindFacAtt
         Me.rbttnID = New System.Windows.Forms.RadioButton()
         Me.txtFacID = New System.Windows.Forms.TextBox()
         Me.rbttnCourse = New System.Windows.Forms.RadioButton()
+        Me.bttnCancel = New System.Windows.Forms.Button()
+        Me.bttnSearch = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -55,26 +55,6 @@ Partial Class popFindFacAtt
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Search Attendance By:"
-        '
-        'bttnCancel
-        '
-        Me.bttnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnCancel.Location = New System.Drawing.Point(134, 206)
-        Me.bttnCancel.Name = "bttnCancel"
-        Me.bttnCancel.Size = New System.Drawing.Size(90, 23)
-        Me.bttnCancel.TabIndex = 54
-        Me.bttnCancel.Text = "Cancel"
-        Me.bttnCancel.UseVisualStyleBackColor = True
-        '
-        'bttnSearch
-        '
-        Me.bttnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(28, 206)
-        Me.bttnSearch.Name = "bttnSearch"
-        Me.bttnSearch.Size = New System.Drawing.Size(90, 23)
-        Me.bttnSearch.TabIndex = 48
-        Me.bttnSearch.Text = "Search"
-        Me.bttnSearch.UseVisualStyleBackColor = True
         '
         'txtFirstname
         '
@@ -151,6 +131,26 @@ Partial Class popFindFacAtt
         Me.rbttnCourse.Text = "Course/Section"
         Me.rbttnCourse.UseVisualStyleBackColor = True
         '
+        'bttnCancel
+        '
+        Me.bttnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnCancel.Location = New System.Drawing.Point(134, 206)
+        Me.bttnCancel.Name = "bttnCancel"
+        Me.bttnCancel.Size = New System.Drawing.Size(90, 23)
+        Me.bttnCancel.TabIndex = 54
+        Me.bttnCancel.Text = "Cancel"
+        Me.bttnCancel.UseVisualStyleBackColor = True
+        '
+        'bttnSearch
+        '
+        Me.bttnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnSearch.Location = New System.Drawing.Point(28, 206)
+        Me.bttnSearch.Name = "bttnSearch"
+        Me.bttnSearch.Size = New System.Drawing.Size(90, 23)
+        Me.bttnSearch.TabIndex = 48
+        Me.bttnSearch.Text = "Search"
+        Me.bttnSearch.UseVisualStyleBackColor = True
+        '
         'popFindFacAtt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -158,6 +158,7 @@ Partial Class popFindFacAtt
         Me.ClientSize = New System.Drawing.Size(284, 261)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "popFindFacAtt"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Find Faculty Attendance"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

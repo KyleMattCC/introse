@@ -29,7 +29,7 @@ Public Class wdwDailyAttendanceLog
     End Sub
 
     Private Sub wdwDailyAttendanceLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbAccess.fillDataGrid("select * from attendance", grid)
+        dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', a.absent_date 'Absent Date', f.facultyid 'Faculty ID', concat(f.f_firstname, ' ', f_middlename, ' ', f_lastname) 'Name', c.course_cd 'Course Code', c.section 'Section', concat(c.daysched, ' ', c.timestart, ' - ', c.timeend) 'Day/Time', c.room 'Room', a.remarks 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' from introse.attendance a, introse.faculty f, introse.courseoffering c where a.courseoffering_id = c.courseoffering_id and c.facultyid = f.facref_no and a.absent_date = '" & dtp.Value.Date & "';", grid)
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
@@ -47,7 +47,7 @@ Public Class wdwDailyAttendanceLog
         If FacultyIDButton.Checked = True Then
 
             FirstName = dbAccess.getStringData("Select f_firstname from faculty where facultyid = '" & FacultyIDSearchText.Text & "';", "f_firstname")
-            MiddleName = dbAccess.getStringData("Select f_middlename from faculty where facultyid = '" & FacultyIDSearchText.Text & "';", "f_middlename")
+        MiddleName = dbAccess.getStringData("Select f_middlename from faculty where facultyid = '" & FacultyIDSearchText.Text & "';", "f_middlename")
             LastName = dbAccess.getStringData("Select f_lastname from faculty where facultyid = '" & FacultyIDSearchText.Text & "';", "f_lastname")
             FacultyID = dbAccess.getStringData("Select facultyid from faculty where facultyid = '" & FacultyIDSearchText.Text & "';", "facultyid")
 
