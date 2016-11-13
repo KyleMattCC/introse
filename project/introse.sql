@@ -24,7 +24,8 @@ DROP TABLE IF EXISTS `academicyear`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `academicyear` (
   `yearid` int(11) NOT NULL AUTO_INCREMENT,
-  `yearname` varchar(45) NOT NULL,
+  `yearstart` year(4) NOT NULL,
+  `yearend` year(4) NOT NULL,
   PRIMARY KEY (`yearid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -35,7 +36,7 @@ CREATE TABLE `academicyear` (
 
 LOCK TABLES `academicyear` WRITE;
 /*!40000 ALTER TABLE `academicyear` DISABLE KEYS */;
-INSERT INTO `academicyear` VALUES (1,'2016'),(2,'2015');
+INSERT INTO `academicyear` VALUES (1,2016,0000),(2,2015,0000);
 /*!40000 ALTER TABLE `academicyear` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,7 +53,7 @@ CREATE TABLE `account` (
   `password` varchar(45) NOT NULL,
   `accounttype` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +62,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (101,'Jason Sy','123','Lead'),(102,'Ralph Bravante','456','Regular');
+INSERT INTO `account` VALUES (101,'Jason Sy','123','Lead'),(102,'Ralph Bravante','456','Regular'),(103,'Ged','111','Regular');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,6 +82,7 @@ CREATE TABLE `attendance` (
   `encoder` varchar(45) NOT NULL,
   `checker` varchar(45) NOT NULL,
   `status` varchar(1) NOT NULL,
+  `report_status` varchar(45) NOT NULL,
   PRIMARY KEY (`attendanceid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -91,7 +93,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,'',1,'34','Sunday, October 23, 2016','a','Jason','A'),(2,'',2,'34','Sunday, October 23, 2016','a','Jason','A'),(3,'',3,'ds','Tuesday, October 25, 2016','a','ged','A');
+INSERT INTO `attendance` VALUES (1,'Monday, November 14, 2016',1,'AB','Sunday, October 23, 2016','Jason Sy','Jason','A',''),(2,'Monday, November 14, 2016',2,'AB','Sunday, October 23, 2016','Ralph Bravante','Jason','A',''),(3,'Monday, November 14, 2016',3,'LA','Tuesday, October 25, 2016','Ged','ged','A','');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,11 +131,11 @@ DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
   `course_id` int(11) NOT NULL AUTO_INCREMENT,
   `course_cd` varchar(7) NOT NULL,
-  `course_name` varchar(45) NOT NULL,
+  `course_name` varchar(150) NOT NULL,
   `units` int(11) NOT NULL,
   `offered_to` varchar(1) NOT NULL,
   PRIMARY KEY (`course_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,6 +144,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
+INSERT INTO `course` VALUES (1,'OBJECTP','Object Oriented Programming ',3,'U'),(2,'PERSEF1','Personal Effectiveness 1',2,'U'),(3,'COMPRO1','Computer Programming 1',3,'U');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +157,7 @@ DROP TABLE IF EXISTS `courseoffering`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `courseoffering` (
   `courseoffering_id` int(11) NOT NULL AUTO_INCREMENT,
-  `course_id` int(11) DEFAULT NULL,
+  `course_id` int(11) NOT NULL,
   `termid` int(11) NOT NULL,
   `facref_no` varchar(45) NOT NULL,
   `section` varchar(45) NOT NULL,
@@ -164,7 +167,7 @@ CREATE TABLE `courseoffering` (
   `timeend` varchar(45) NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`courseoffering_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,6 +176,7 @@ CREATE TABLE `courseoffering` (
 
 LOCK TABLES `courseoffering` WRITE;
 /*!40000 ALTER TABLE `courseoffering` DISABLE KEYS */;
+INSERT INTO `courseoffering` VALUES (1,1,1,'1','S17','G202','MW','9:15','10:45','A'),(2,1,1,'2','K42','V501','TH','4:15','5:45','A'),(3,2,1,'3','EJ','A1107','MW','7:30','9:00','A');
 /*!40000 ALTER TABLE `courseoffering` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,7 +265,7 @@ CREATE TABLE `makeup` (
 
 LOCK TABLES `makeup` WRITE;
 /*!40000 ALTER TABLE `makeup` DISABLE KEYS */;
-INSERT INTO `makeup` VALUES (401,112131141,'9/11/2016','11:00','12:30','Y405','no','9/13/2016','9/11/2016','Ralph Bravante','');
+INSERT INTO `makeup` VALUES (1,1,'9/11/2016','11:00','12:30','Y405','no','9/13/2016','9/11/2016','Ralph Bravante','');
 /*!40000 ALTER TABLE `makeup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -308,6 +312,7 @@ CREATE TABLE `remarks` (
 
 LOCK TABLES `remarks` WRITE;
 /*!40000 ALTER TABLE `remarks` DISABLE KEYS */;
+INSERT INTO `remarks` VALUES ('AB','Absent'),('ED','Early Dismissal'),('LA','Late'),('VR','Vacant Room');
 /*!40000 ALTER TABLE `remarks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -335,7 +340,7 @@ CREATE TABLE `term` (
 
 LOCK TABLES `term` WRITE;
 /*!40000 ALTER TABLE `term` DISABLE KEYS */;
-INSERT INTO `term` VALUES (10001,1000001,2,'07/1/2016','10/14/2016','F');
+INSERT INTO `term` VALUES (1,1,2,'07/1/2016','10/14/2016','F');
 /*!40000 ALTER TABLE `term` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -348,4 +353,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-13 22:08:37
+-- Dump completed on 2016-11-14  2:02:52

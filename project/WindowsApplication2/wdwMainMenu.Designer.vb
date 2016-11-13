@@ -41,9 +41,11 @@ Partial Class wdwMainMenu
         Me.GroupBox1.Controls.Add(Me.bttnDailyAtt)
         Me.GroupBox1.Controls.Add(Me.bttnMakeUp)
         Me.GroupBox1.Controls.Add(Me.bttnCourse)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox1.Size = New System.Drawing.Size(760, 140)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
@@ -51,8 +53,9 @@ Partial Class wdwMainMenu
         '
         'bttnPlantilla
         '
-        Me.bttnPlantilla.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnPlantilla.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnPlantilla.Location = New System.Drawing.Point(594, 25)
+        Me.bttnPlantilla.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnPlantilla.Name = "bttnPlantilla"
         Me.bttnPlantilla.Size = New System.Drawing.Size(160, 100)
         Me.bttnPlantilla.TabIndex = 15
@@ -61,8 +64,9 @@ Partial Class wdwMainMenu
         '
         'bttnDailyAtt
         '
-        Me.bttnDailyAtt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnDailyAtt.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnDailyAtt.Location = New System.Drawing.Point(6, 25)
+        Me.bttnDailyAtt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnDailyAtt.Name = "bttnDailyAtt"
         Me.bttnDailyAtt.Size = New System.Drawing.Size(160, 100)
         Me.bttnDailyAtt.TabIndex = 10
@@ -71,8 +75,9 @@ Partial Class wdwMainMenu
         '
         'bttnMakeUp
         '
-        Me.bttnMakeUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnMakeUp.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnMakeUp.Location = New System.Drawing.Point(204, 25)
+        Me.bttnMakeUp.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnMakeUp.Name = "bttnMakeUp"
         Me.bttnMakeUp.Size = New System.Drawing.Size(160, 100)
         Me.bttnMakeUp.TabIndex = 12
@@ -81,8 +86,9 @@ Partial Class wdwMainMenu
         '
         'bttnCourse
         '
-        Me.bttnCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnCourse.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnCourse.Location = New System.Drawing.Point(396, 25)
+        Me.bttnCourse.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnCourse.Name = "bttnCourse"
         Me.bttnCourse.Size = New System.Drawing.Size(160, 100)
         Me.bttnCourse.TabIndex = 14
@@ -95,9 +101,11 @@ Partial Class wdwMainMenu
         Me.GroupBox3.Controls.Add(Me.bttnNotice)
         Me.GroupBox3.Controls.Add(Me.bttnReport)
         Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(12, 158)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox3.Size = New System.Drawing.Size(370, 140)
         Me.GroupBox3.TabIndex = 11
         Me.GroupBox3.TabStop = False
@@ -105,8 +113,9 @@ Partial Class wdwMainMenu
         '
         'bttnNotice
         '
-        Me.bttnNotice.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnNotice.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnNotice.Location = New System.Drawing.Point(204, 25)
+        Me.bttnNotice.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnNotice.Name = "bttnNotice"
         Me.bttnNotice.Size = New System.Drawing.Size(160, 100)
         Me.bttnNotice.TabIndex = 17
@@ -115,8 +124,9 @@ Partial Class wdwMainMenu
         '
         'bttnReport
         '
-        Me.bttnReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnReport.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnReport.Location = New System.Drawing.Point(6, 25)
+        Me.bttnReport.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnReport.Name = "bttnReport"
         Me.bttnReport.Size = New System.Drawing.Size(160, 100)
         Me.bttnReport.TabIndex = 15
@@ -125,8 +135,9 @@ Partial Class wdwMainMenu
         '
         'bttnExit
         '
-        Me.bttnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnExit.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnExit.Location = New System.Drawing.Point(319, 304)
+        Me.bttnExit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnExit.Name = "bttnExit"
         Me.bttnExit.Size = New System.Drawing.Size(175, 35)
         Me.bttnExit.TabIndex = 18
@@ -141,6 +152,7 @@ Partial Class wdwMainMenu
         Me.Controls.Add(Me.bttnExit)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Name = "wdwMainMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main Menu"
