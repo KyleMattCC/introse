@@ -5,15 +5,15 @@
         wdwGenAbsNotice.Show()
     End Sub
 
-    Private Sub RadAbsence_CheckedChanged(sender As Object, e As EventArgs) Handles RadAbsence.CheckedChanged
+    Private Sub RadAbsence_CheckedChanged(sender As Object, e As EventArgs)
         choice = 1
     End Sub
 
-    Private Sub RadTardiness_CheckedChanged(sender As Object, e As EventArgs) Handles RadTardiness.CheckedChanged
+    Private Sub RadTardiness_CheckedChanged(sender As Object, e As EventArgs)
         choice = 2
     End Sub
 
-    Private Sub RadService_CheckedChanged(sender As Object, e As EventArgs) Handles RadService.CheckedChanged
+    Private Sub RadService_CheckedChanged(sender As Object, e As EventArgs)
         choice = 3
     End Sub
 
@@ -27,7 +27,11 @@
 
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
 
     End Sub
 End Class
