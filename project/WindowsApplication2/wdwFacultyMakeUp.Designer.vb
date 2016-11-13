@@ -68,9 +68,9 @@ Partial Class wdwFacultyMakeUp
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(507, 585)
+        Me.bttnBack.Location = New System.Drawing.Point(915, 630)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(117, 23)
+        Me.bttnBack.Size = New System.Drawing.Size(175, 35)
         Me.bttnBack.TabIndex = 20
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
@@ -78,9 +78,9 @@ Partial Class wdwFacultyMakeUp
         'bttnDelete
         '
         Me.bttnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnDelete.Location = New System.Drawing.Point(370, 585)
+        Me.bttnDelete.Location = New System.Drawing.Point(625, 630)
         Me.bttnDelete.Name = "bttnDelete"
-        Me.bttnDelete.Size = New System.Drawing.Size(117, 23)
+        Me.bttnDelete.Size = New System.Drawing.Size(175, 35)
         Me.bttnDelete.TabIndex = 21
         Me.bttnDelete.Text = "Delete"
         Me.bttnDelete.UseVisualStyleBackColor = True
@@ -88,9 +88,9 @@ Partial Class wdwFacultyMakeUp
         'bttnModify
         '
         Me.bttnModify.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnModify.Location = New System.Drawing.Point(224, 585)
+        Me.bttnModify.Location = New System.Drawing.Point(335, 630)
         Me.bttnModify.Name = "bttnModify"
-        Me.bttnModify.Size = New System.Drawing.Size(117, 23)
+        Me.bttnModify.Size = New System.Drawing.Size(175, 35)
         Me.bttnModify.TabIndex = 22
         Me.bttnModify.Text = "Modify"
         Me.bttnModify.UseVisualStyleBackColor = True
@@ -98,9 +98,9 @@ Partial Class wdwFacultyMakeUp
         'bttnAdd
         '
         Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAdd.Location = New System.Drawing.Point(81, 585)
+        Me.bttnAdd.Location = New System.Drawing.Point(45, 630)
         Me.bttnAdd.Name = "bttnAdd"
-        Me.bttnAdd.Size = New System.Drawing.Size(117, 23)
+        Me.bttnAdd.Size = New System.Drawing.Size(175, 35)
         Me.bttnAdd.TabIndex = 23
         Me.bttnAdd.Text = "Add"
         Me.bttnAdd.UseVisualStyleBackColor = True
@@ -108,9 +108,9 @@ Partial Class wdwFacultyMakeUp
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(13, 252)
+        Me.DataGridView1.Location = New System.Drawing.Point(25, 265)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(685, 313)
+        Me.DataGridView1.Size = New System.Drawing.Size(1085, 350)
         Me.DataGridView1.TabIndex = 24
         '
         'GroupBox4
@@ -122,9 +122,9 @@ Partial Class wdwFacultyMakeUp
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(62, 138)
+        Me.GroupBox4.Location = New System.Drawing.Point(290, 150)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(558, 106)
+        Me.GroupBox4.Size = New System.Drawing.Size(560, 110)
         Me.GroupBox4.TabIndex = 176
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Faculty Information:"
@@ -310,7 +310,7 @@ Partial Class wdwFacultyMakeUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(710, 613)
+        Me.ClientSize = New System.Drawing.Size(1134, 671)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dtp)
