@@ -330,6 +330,7 @@ Partial Class wdwModFacultyDaily
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "wdwModFacultyDaily"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Modify Faculty Daily Attendance"
         Me.ResumeLayout(False)
         Me.PerformLayout()

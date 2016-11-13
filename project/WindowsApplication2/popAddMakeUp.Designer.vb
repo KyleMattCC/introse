@@ -262,6 +262,7 @@ Partial Class popAddMakeUp
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Name = "popAddMakeUp"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Make Up Schedule"
         Me.ResumeLayout(False)
         Me.PerformLayout()

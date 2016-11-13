@@ -159,6 +159,7 @@ Partial Class popFacSearch
         Me.ClientSize = New System.Drawing.Size(284, 261)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "popFacSearch"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Find Daily Faculty Attendance"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

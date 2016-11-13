@@ -106,6 +106,7 @@ Partial Class wdwEmailReports
         Me.Controls.Add(Me.txtSubject)
         Me.Controls.Add(Me.txtTo)
         Me.Name = "wdwEmailReports"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Email Reports"
         Me.ResumeLayout(False)
         Me.PerformLayout()

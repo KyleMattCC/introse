@@ -128,6 +128,7 @@ Partial Class wdwEncodeFacMakeUp
         Me.Controls.Add(Me.Back)
         Me.Controls.Add(Me.Label6)
         Me.Name = "wdwEncodeFacMakeUp"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

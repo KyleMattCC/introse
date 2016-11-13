@@ -118,6 +118,7 @@ Partial Class popNoticeOfTardiness
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "popNoticeOfTardiness"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "popNoticeOfTardiness"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

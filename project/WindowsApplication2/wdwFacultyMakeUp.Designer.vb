@@ -321,6 +321,7 @@ Partial Class wdwFacultyMakeUp
         Me.Controls.Add(Me.bttnDelete)
         Me.Controls.Add(Me.bttnBack)
         Me.Name = "wdwFacultyMakeUp"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Faculty Makeup Schedule"
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -262,6 +262,7 @@ Partial Class popModMakeup
         Me.Controls.Add(Me.bttnBack)
         Me.Controls.Add(Me.bttnModify)
         Me.Name = "popModMakeup"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Modify Make Up Schedule"
         Me.ResumeLayout(False)
         Me.PerformLayout()

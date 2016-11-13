@@ -167,6 +167,7 @@ Partial Class wdwFacDailyAtt
         Me.Controls.Add(Me.bttnBack)
         Me.Controls.Add(Me.Label6)
         Me.Name = "wdwFacDailyAtt"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Faculty Daily Attendance"
         CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

@@ -95,6 +95,7 @@ Partial Class wdwSearchByName
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnBack)
         Me.Name = "wdwSearchByName"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "wdwSearchByName"
         Me.ResumeLayout(False)
         Me.PerformLayout()
