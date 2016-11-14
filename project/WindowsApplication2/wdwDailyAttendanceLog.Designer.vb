@@ -56,7 +56,7 @@ Partial Class wdwDailyAttendanceLog
         '
         'bttnAdd
         '
-        Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAdd.Location = New System.Drawing.Point(45, 530)
         Me.bttnAdd.Name = "bttnAdd"
         Me.bttnAdd.Size = New System.Drawing.Size(175, 35)
@@ -66,7 +66,7 @@ Partial Class wdwDailyAttendanceLog
         '
         'bttnModify
         '
-        Me.bttnModify.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnModify.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnModify.Location = New System.Drawing.Point(335, 530)
         Me.bttnModify.Name = "bttnModify"
         Me.bttnModify.Size = New System.Drawing.Size(175, 35)
@@ -76,7 +76,7 @@ Partial Class wdwDailyAttendanceLog
         '
         'bttnDelete
         '
-        Me.bttnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnDelete.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnDelete.Location = New System.Drawing.Point(625, 530)
         Me.bttnDelete.Name = "bttnDelete"
         Me.bttnDelete.Size = New System.Drawing.Size(175, 35)
@@ -86,7 +86,7 @@ Partial Class wdwDailyAttendanceLog
         '
         'bttnBack
         '
-        Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(915, 530)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(175, 35)
@@ -97,10 +97,10 @@ Partial Class wdwDailyAttendanceLog
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Lucida Fax", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(24, 17)
+        Me.Label5.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(21, 15)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(49, 17)
+        Me.Label5.Size = New System.Drawing.Size(56, 20)
         Me.Label5.TabIndex = 160
         Me.Label5.Text = "Date:"
         '
@@ -122,7 +122,7 @@ Partial Class wdwDailyAttendanceLog
         '
         'bttnCancel
         '
-        Me.bttnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnCancel.Location = New System.Drawing.Point(1020, 12)
         Me.bttnCancel.Name = "bttnCancel"
         Me.bttnCancel.Size = New System.Drawing.Size(90, 25)
@@ -132,7 +132,7 @@ Partial Class wdwDailyAttendanceLog
         '
         'bttnSearch
         '
-        Me.bttnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnSearch.Location = New System.Drawing.Point(924, 12)
         Me.bttnSearch.Name = "bttnSearch"
         Me.bttnSearch.Size = New System.Drawing.Size(90, 25)
@@ -142,10 +142,10 @@ Partial Class wdwDailyAttendanceLog
         '
         'FacultyIDSearchText
         '
-        Me.FacultyIDSearchText.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FacultyIDSearchText.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FacultyIDSearchText.Location = New System.Drawing.Point(658, 15)
         Me.FacultyIDSearchText.Name = "FacultyIDSearchText"
-        Me.FacultyIDSearchText.Size = New System.Drawing.Size(260, 20)
+        Me.FacultyIDSearchText.Size = New System.Drawing.Size(260, 21)
         Me.FacultyIDSearchText.TabIndex = 7
         '
         'GroupBox4
@@ -156,7 +156,7 @@ Partial Class wdwDailyAttendanceLog
         Me.GroupBox4.Controls.Add(Me.FacultyNameText)
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label6)
-        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox4.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox4.Location = New System.Drawing.Point(25, 55)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(560, 110)
@@ -167,7 +167,8 @@ Partial Class wdwDailyAttendanceLog
         'DepartmentNameText
         '
         Me.DepartmentNameText.Enabled = False
-        Me.DepartmentNameText.Location = New System.Drawing.Point(185, 66)
+        Me.DepartmentNameText.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DepartmentNameText.Location = New System.Drawing.Point(185, 69)
         Me.DepartmentNameText.Name = "DepartmentNameText"
         Me.DepartmentNameText.Size = New System.Drawing.Size(300, 21)
         Me.DepartmentNameText.TabIndex = 177
@@ -175,17 +176,18 @@ Partial Class wdwDailyAttendanceLog
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(63, 68)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 18)
+        Me.Label3.Size = New System.Drawing.Size(120, 20)
         Me.Label3.TabIndex = 176
         Me.Label3.Text = "Department:"
         '
         'FacultyIDText
         '
         Me.FacultyIDText.Enabled = False
-        Me.FacultyIDText.Location = New System.Drawing.Point(185, 20)
+        Me.FacultyIDText.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FacultyIDText.Location = New System.Drawing.Point(185, 22)
         Me.FacultyIDText.Name = "FacultyIDText"
         Me.FacultyIDText.Size = New System.Drawing.Size(300, 21)
         Me.FacultyIDText.TabIndex = 175
@@ -193,7 +195,8 @@ Partial Class wdwDailyAttendanceLog
         'FacultyNameText
         '
         Me.FacultyNameText.Enabled = False
-        Me.FacultyNameText.Location = New System.Drawing.Point(185, 43)
+        Me.FacultyNameText.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FacultyNameText.Location = New System.Drawing.Point(185, 46)
         Me.FacultyNameText.Name = "FacultyNameText"
         Me.FacultyNameText.Size = New System.Drawing.Size(300, 21)
         Me.FacultyNameText.TabIndex = 174
@@ -201,20 +204,20 @@ Partial Class wdwDailyAttendanceLog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(51, 45)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(127, 18)
+        Me.Label1.Size = New System.Drawing.Size(133, 20)
         Me.Label1.TabIndex = 173
         Me.Label1.Text = "Faculty Name:"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(80, 22)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(98, 18)
+        Me.Label6.Size = New System.Drawing.Size(102, 20)
         Me.Label6.TabIndex = 172
         Me.Label6.Text = "Faculty ID:"
         '
