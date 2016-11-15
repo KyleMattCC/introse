@@ -15,7 +15,7 @@
         wdwFacultyMakeUp.Show()
     End Sub
 
-    Private Sub bttn_Click(sender As Object, e As EventArgs) Handles bttnCourse.Click
+    Private Sub bttn_Click(sender As Object, e As EventArgs) 
         wdwClassInfo.Show()
     End Sub
 

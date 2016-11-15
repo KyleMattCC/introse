@@ -1,15 +1,9 @@
 *.suo
-project/.vs/WindowsApplication2/v14/.suo
-project/.vs/WindowsApplication2/v14/.suo
-*.suo
-project/.vs/WindowsApplication2/v14/.suo
-*.suo
-project/WindowsApplication2/bin/Debug/WindowsApplication2.exe
 *.cache
-project/WindowsApplication2/obj/Debug/TempPE/My Project.Resources.Designer.vb.dll
 *.exe
-project/WindowsApplication2/obj/Debug/WindowsApplication2.Find.resources
 *.resources
-project/WindowsApplication2/obj/Debug/WindowsApplication2.xml
 *.txt
 *.pdb
+*.config
+*.dll
+*.sln

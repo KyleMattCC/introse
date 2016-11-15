@@ -28,6 +28,10 @@ Partial Class wdwSelectReport
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.rbttnChair = New System.Windows.Forms.RadioButton()
+        Me.rbttnDean = New System.Windows.Forms.RadioButton()
+        Me.rbttnVCA = New System.Windows.Forms.RadioButton()
+        Me.rbttnRegistrar = New System.Windows.Forms.RadioButton()
         Me.cmbChair = New System.Windows.Forms.ComboBox()
         Me.cmbDean = New System.Windows.Forms.ComboBox()
         Me.rbttnTermEnd = New System.Windows.Forms.RadioButton()
@@ -35,10 +39,6 @@ Partial Class wdwSelectReport
         Me.rbttnDaily = New System.Windows.Forms.RadioButton()
         Me.bttnGen = New System.Windows.Forms.Button()
         Me.bttnBack = New System.Windows.Forms.Button()
-        Me.rbttnRegistrar = New System.Windows.Forms.RadioButton()
-        Me.rbttnVCA = New System.Windows.Forms.RadioButton()
-        Me.rbttnDean = New System.Windows.Forms.RadioButton()
-        Me.rbttnChair = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -123,6 +123,55 @@ Partial Class wdwSelectReport
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Report to"
         '
+        'rbttnChair
+        '
+        Me.rbttnChair.AutoSize = True
+        Me.rbttnChair.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnChair.Location = New System.Drawing.Point(12, 95)
+        Me.rbttnChair.Name = "rbttnChair"
+        Me.rbttnChair.Size = New System.Drawing.Size(153, 20)
+        Me.rbttnChair.TabIndex = 23
+        Me.rbttnChair.TabStop = True
+        Me.rbttnChair.Text = "Department Chair"
+        Me.rbttnChair.UseVisualStyleBackColor = True
+        '
+        'rbttnDean
+        '
+        Me.rbttnDean.AutoSize = True
+        Me.rbttnDean.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnDean.Location = New System.Drawing.Point(12, 70)
+        Me.rbttnDean.Name = "rbttnDean"
+        Me.rbttnDean.Size = New System.Drawing.Size(121, 20)
+        Me.rbttnDean.TabIndex = 22
+        Me.rbttnDean.TabStop = True
+        Me.rbttnDean.Text = "College Dean"
+        Me.rbttnDean.UseVisualStyleBackColor = True
+        '
+        'rbttnVCA
+        '
+        Me.rbttnVCA.AutoSize = True
+        Me.rbttnVCA.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnVCA.Location = New System.Drawing.Point(12, 45)
+        Me.rbttnVCA.Name = "rbttnVCA"
+        Me.rbttnVCA.Size = New System.Drawing.Size(56, 20)
+        Me.rbttnVCA.TabIndex = 21
+        Me.rbttnVCA.TabStop = True
+        Me.rbttnVCA.Text = "VCA"
+        Me.rbttnVCA.UseVisualStyleBackColor = True
+        '
+        'rbttnRegistrar
+        '
+        Me.rbttnRegistrar.AutoSize = True
+        Me.rbttnRegistrar.Checked = True
+        Me.rbttnRegistrar.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnRegistrar.Location = New System.Drawing.Point(12, 20)
+        Me.rbttnRegistrar.Name = "rbttnRegistrar"
+        Me.rbttnRegistrar.Size = New System.Drawing.Size(91, 20)
+        Me.rbttnRegistrar.TabIndex = 20
+        Me.rbttnRegistrar.TabStop = True
+        Me.rbttnRegistrar.Text = "Registrar"
+        Me.rbttnRegistrar.UseVisualStyleBackColor = True
+        '
         'cmbChair
         '
         Me.cmbChair.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -198,54 +247,6 @@ Partial Class wdwSelectReport
         Me.bttnBack.TabIndex = 6
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
-        '
-        'rbttnRegistrar
-        '
-        Me.rbttnRegistrar.AutoSize = True
-        Me.rbttnRegistrar.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnRegistrar.Location = New System.Drawing.Point(12, 20)
-        Me.rbttnRegistrar.Name = "rbttnRegistrar"
-        Me.rbttnRegistrar.Size = New System.Drawing.Size(91, 20)
-        Me.rbttnRegistrar.TabIndex = 20
-        Me.rbttnRegistrar.TabStop = True
-        Me.rbttnRegistrar.Text = "Registrar"
-        Me.rbttnRegistrar.UseVisualStyleBackColor = True
-        '
-        'rbttnVCA
-        '
-        Me.rbttnVCA.AutoSize = True
-        Me.rbttnVCA.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnVCA.Location = New System.Drawing.Point(12, 45)
-        Me.rbttnVCA.Name = "rbttnVCA"
-        Me.rbttnVCA.Size = New System.Drawing.Size(56, 20)
-        Me.rbttnVCA.TabIndex = 21
-        Me.rbttnVCA.TabStop = True
-        Me.rbttnVCA.Text = "VCA"
-        Me.rbttnVCA.UseVisualStyleBackColor = True
-        '
-        'rbttnDean
-        '
-        Me.rbttnDean.AutoSize = True
-        Me.rbttnDean.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnDean.Location = New System.Drawing.Point(12, 70)
-        Me.rbttnDean.Name = "rbttnDean"
-        Me.rbttnDean.Size = New System.Drawing.Size(121, 20)
-        Me.rbttnDean.TabIndex = 22
-        Me.rbttnDean.TabStop = True
-        Me.rbttnDean.Text = "College Dean"
-        Me.rbttnDean.UseVisualStyleBackColor = True
-        '
-        'rbttnChair
-        '
-        Me.rbttnChair.AutoSize = True
-        Me.rbttnChair.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnChair.Location = New System.Drawing.Point(12, 95)
-        Me.rbttnChair.Name = "rbttnChair"
-        Me.rbttnChair.Size = New System.Drawing.Size(153, 20)
-        Me.rbttnChair.TabIndex = 23
-        Me.rbttnChair.TabStop = True
-        Me.rbttnChair.Text = "Department Chair"
-        Me.rbttnChair.UseVisualStyleBackColor = True
         '
         'wdwSelectReport
         '

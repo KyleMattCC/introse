@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class popEncFacDaily
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,12 @@ Partial Class popEncFacDaily
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TextBox82 = New System.Windows.Forms.TextBox()
         Me.TextBox83 = New System.Windows.Forms.TextBox()
         Me.TextBox100 = New System.Windows.Forms.TextBox()
-        Me.bttnEncode = New System.Windows.Forms.Button()
+        Me.bttnAdd = New System.Windows.Forms.Button()
         Me.bttnBack = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.TextBox18 = New System.Windows.Forms.TextBox()
@@ -163,22 +163,22 @@ Partial Class popEncFacDaily
         Me.TextBox100.Size = New System.Drawing.Size(200, 20)
         Me.TextBox100.TabIndex = 99
         '
-        'bttnEncode
+        'bttnAdd
         '
-        Me.bttnEncode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnEncode.Location = New System.Drawing.Point(172, 493)
-        Me.bttnEncode.Name = "bttnEncode"
-        Me.bttnEncode.Size = New System.Drawing.Size(95, 70)
-        Me.bttnEncode.TabIndex = 100
-        Me.bttnEncode.Text = "Encode"
-        Me.bttnEncode.UseVisualStyleBackColor = True
+        Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAdd.Location = New System.Drawing.Point(179, 527)
+        Me.bttnAdd.Name = "bttnAdd"
+        Me.bttnAdd.Size = New System.Drawing.Size(90, 30)
+        Me.bttnAdd.TabIndex = 100
+        Me.bttnAdd.Text = "Add"
+        Me.bttnAdd.UseVisualStyleBackColor = True
         '
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(313, 493)
+        Me.bttnBack.Location = New System.Drawing.Point(384, 527)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(95, 70)
+        Me.bttnBack.Size = New System.Drawing.Size(90, 30)
         Me.bttnBack.TabIndex = 101
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
@@ -882,9 +882,9 @@ Partial Class popEncFacDaily
         Me.Label2.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(17, 86)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(101, 18)
+        Me.Label2.Size = New System.Drawing.Size(93, 18)
         Me.Label2.TabIndex = 199
-        Me.Label2.Text = "ID Number"
+        Me.Label2.Text = "Faculty ID"
         '
         'Label3
         '
@@ -1180,13 +1180,13 @@ Partial Class popEncFacDaily
         Me.Controls.Add(Me.TextBox19)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.bttnBack)
-        Me.Controls.Add(Me.bttnEncode)
+        Me.Controls.Add(Me.bttnAdd)
         Me.Controls.Add(Me.TextBox100)
         Me.Controls.Add(Me.TextBox83)
         Me.Controls.Add(Me.TextBox82)
         Me.Name = "popEncFacDaily"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Encode Faculty Daily Attendance"
+        Me.Text = "Add Faculty Daily Attendance"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1194,7 +1194,7 @@ Partial Class popEncFacDaily
     Friend WithEvents TextBox82 As TextBox
     Friend WithEvents TextBox83 As TextBox
     Friend WithEvents TextBox100 As TextBox
-    Friend WithEvents bttnEncode As Button
+    Friend WithEvents bttnAdd As Button
     Friend WithEvents bttnBack As Button
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents TextBox18 As TextBox

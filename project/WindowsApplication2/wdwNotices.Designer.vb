@@ -25,12 +25,12 @@ Partial Class wdwNotices
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnGenerate = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dtp = New System.Windows.Forms.DateTimePicker()
+        Me.txtbxSearch = New System.Windows.Forms.TextBox()
+        Me.grid = New System.Windows.Forms.DataGridView()
+        Me.bttnSearch = New System.Windows.Forms.Button()
+        Me.bttnClear = New System.Windows.Forms.Button()
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBack
@@ -63,65 +63,68 @@ Partial Class wdwNotices
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Date:"
         '
-        'DateTimePicker1
+        'dtp
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(60, 10)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 4
+        Me.dtp.Location = New System.Drawing.Point(60, 10)
+        Me.dtp.Name = "dtp"
+        Me.dtp.Size = New System.Drawing.Size(200, 20)
+        Me.dtp.TabIndex = 4
         '
-        'TextBox1
+        'txtbxSearch
         '
-        Me.TextBox1.Location = New System.Drawing.Point(16, 45)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(218, 20)
-        Me.TextBox1.TabIndex = 5
+        Me.txtbxSearch.Location = New System.Drawing.Point(16, 45)
+        Me.txtbxSearch.Name = "txtbxSearch"
+        Me.txtbxSearch.Size = New System.Drawing.Size(218, 20)
+        Me.txtbxSearch.TabIndex = 5
         '
-        'DataGridView1
+        'grid
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(16, 84)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(380, 260)
-        Me.DataGridView1.TabIndex = 7
+        Me.grid.AllowUserToAddRows = False
+        Me.grid.AllowUserToDeleteRows = False
+        Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grid.Location = New System.Drawing.Point(16, 84)
+        Me.grid.Name = "grid"
+        Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.grid.Size = New System.Drawing.Size(380, 260)
+        Me.grid.TabIndex = 7
         '
-        'Button1
+        'bttnSearch
         '
-        Me.Button1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(240, 42)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 25)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Search"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnSearch.Location = New System.Drawing.Point(240, 42)
+        Me.bttnSearch.Name = "bttnSearch"
+        Me.bttnSearch.Size = New System.Drawing.Size(75, 25)
+        Me.bttnSearch.TabIndex = 8
+        Me.bttnSearch.Text = "Search"
+        Me.bttnSearch.UseVisualStyleBackColor = True
         '
-        'Button2
+        'bttnClear
         '
-        Me.Button2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(321, 42)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 25)
-        Me.Button2.TabIndex = 9
-        Me.Button2.Text = "Clear"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnClear.Location = New System.Drawing.Point(321, 42)
+        Me.bttnClear.Name = "bttnClear"
+        Me.bttnClear.Size = New System.Drawing.Size(75, 25)
+        Me.bttnClear.TabIndex = 9
+        Me.bttnClear.Text = "Clear"
+        Me.bttnClear.UseVisualStyleBackColor = True
         '
         'wdwNotices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(409, 401)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.bttnClear)
+        Me.Controls.Add(Me.bttnSearch)
+        Me.Controls.Add(Me.grid)
+        Me.Controls.Add(Me.txtbxSearch)
+        Me.Controls.Add(Me.dtp)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.btnBack)
         Me.Name = "wdwNotices"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = " "
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -129,9 +132,9 @@ Partial Class wdwNotices
     Friend WithEvents btnBack As Button
     Friend WithEvents btnGenerate As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents dtp As DateTimePicker
+    Friend WithEvents txtbxSearch As TextBox
+    Friend WithEvents grid As DataGridView
+    Friend WithEvents bttnSearch As Button
+    Friend WithEvents bttnClear As Button
 End Class

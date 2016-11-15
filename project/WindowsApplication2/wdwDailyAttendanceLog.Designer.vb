@@ -30,7 +30,7 @@ Partial Class wdwDailyAttendanceLog
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dtp = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.bttnCancel = New System.Windows.Forms.Button()
+        Me.bttnClear = New System.Windows.Forms.Button()
         Me.bttnSearch = New System.Windows.Forms.Button()
         Me.FacultyIDSearchText = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -46,9 +46,14 @@ Partial Class wdwDailyAttendanceLog
         '
         'grid
         '
+        Me.grid.AllowUserToAddRows = False
+        Me.grid.AllowUserToDeleteRows = False
+        Me.grid.AllowUserToOrderColumns = True
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grid.Location = New System.Drawing.Point(25, 170)
         Me.grid.Name = "grid"
+        Me.grid.ReadOnly = True
+        Me.grid.RowHeadersWidth = 45
         Me.grid.RowTemplate.ReadOnly = True
         Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grid.Size = New System.Drawing.Size(1085, 350)
@@ -120,15 +125,16 @@ Partial Class wdwDailyAttendanceLog
         Me.Label7.Size = New System.Drawing.Size(0, 18)
         Me.Label7.TabIndex = 162
         '
-        'bttnCancel
+        'bttnClear
         '
-        Me.bttnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnCancel.Location = New System.Drawing.Point(1020, 12)
-        Me.bttnCancel.Name = "bttnCancel"
-        Me.bttnCancel.Size = New System.Drawing.Size(90, 25)
-        Me.bttnCancel.TabIndex = 11
-        Me.bttnCancel.Text = "Cancel"
-        Me.bttnCancel.UseVisualStyleBackColor = True
+        Me.bttnClear.BackColor = System.Drawing.SystemColors.Control
+        Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnClear.Location = New System.Drawing.Point(1020, 12)
+        Me.bttnClear.Name = "bttnClear"
+        Me.bttnClear.Size = New System.Drawing.Size(90, 25)
+        Me.bttnClear.TabIndex = 11
+        Me.bttnClear.Text = "Clear"
+        Me.bttnClear.UseVisualStyleBackColor = False
         '
         'bttnSearch
         '
@@ -157,7 +163,7 @@ Partial Class wdwDailyAttendanceLog
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(25, 55)
+        Me.GroupBox4.Location = New System.Drawing.Point(25, 43)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(560, 110)
         Me.GroupBox4.TabIndex = 172
@@ -227,7 +233,7 @@ Partial Class wdwDailyAttendanceLog
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1134, 581)
         Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.bttnCancel)
+        Me.Controls.Add(Me.bttnClear)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.dtp)
         Me.Controls.Add(Me.bttnSearch)
@@ -257,7 +263,7 @@ Partial Class wdwDailyAttendanceLog
     Friend WithEvents Label5 As Label
     Friend WithEvents dtp As DateTimePicker
     Friend WithEvents Label7 As Label
-    Friend WithEvents bttnCancel As Button
+    Friend WithEvents bttnClear As Button
     Friend WithEvents bttnSearch As Button
     Friend WithEvents FacultyIDSearchText As TextBox
     Friend WithEvents GroupBox4 As GroupBox

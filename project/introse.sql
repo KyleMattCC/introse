@@ -36,7 +36,7 @@ CREATE TABLE `academicyear` (
 
 LOCK TABLES `academicyear` WRITE;
 /*!40000 ALTER TABLE `academicyear` DISABLE KEYS */;
-INSERT INTO `academicyear` VALUES (1,2016,0000),(2,2015,0000);
+INSERT INTO `academicyear` VALUES (1,2015,2016),(2,2016,2017);
 /*!40000 ALTER TABLE `academicyear` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,14 +75,14 @@ DROP TABLE IF EXISTS `attendance`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attendance` (
   `attendanceid` int(11) NOT NULL AUTO_INCREMENT,
-  `absent_date` varchar(45) NOT NULL,
+  `absent_date` date NOT NULL,
   `courseoffering_id` int(11) NOT NULL,
   `remarks_cd` varchar(2) NOT NULL,
-  `enc_date` varchar(45) NOT NULL,
+  `enc_date` date NOT NULL,
   `encoder` varchar(45) NOT NULL,
   `checker` varchar(45) NOT NULL,
   `status` varchar(1) NOT NULL,
-  `report_status` varchar(45) NOT NULL,
+  `report_status` varchar(45) NOT NULL DEFAULT 'Pending',
   PRIMARY KEY (`attendanceid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -93,7 +93,6 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,'Monday, November 14, 2016',1,'AB','Sunday, October 23, 2016','Jason Sy','Jason','A',''),(2,'Monday, November 14, 2016',2,'AB','Sunday, October 23, 2016','Ralph Bravante','Jason','A',''),(3,'Monday, November 14, 2016',3,'LA','Tuesday, October 25, 2016','Ged','ged','A','');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,13 +245,13 @@ DROP TABLE IF EXISTS `makeup`;
 CREATE TABLE `makeup` (
   `makeupid` int(11) NOT NULL,
   `courseoffering_id` int(11) NOT NULL,
-  `absent_date` varchar(45) NOT NULL,
+  `absent_date` date NOT NULL,
   `timestart` varchar(45) NOT NULL,
   `timeend` varchar(45) NOT NULL,
   `room` varchar(45) NOT NULL,
   `reason_cd` varchar(2) NOT NULL,
-  `makeup_date` varchar(45) NOT NULL,
-  `date_encoded` varchar(45) NOT NULL,
+  `makeup_date` date NOT NULL,
+  `enc_date` date NOT NULL,
   `encoder` varchar(45) NOT NULL,
   `status` varchar(1) NOT NULL,
   PRIMARY KEY (`makeupid`)
@@ -265,7 +264,6 @@ CREATE TABLE `makeup` (
 
 LOCK TABLES `makeup` WRITE;
 /*!40000 ALTER TABLE `makeup` DISABLE KEYS */;
-INSERT INTO `makeup` VALUES (1,1,'9/11/2016','11:00','12:30','Y405','no','9/13/2016','9/11/2016','Ralph Bravante','');
 /*!40000 ALTER TABLE `makeup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -327,11 +325,11 @@ CREATE TABLE `term` (
   `termid` int(11) NOT NULL AUTO_INCREMENT,
   `yearid` int(11) NOT NULL,
   `term_no` int(1) NOT NULL,
-  `start` varchar(45) NOT NULL,
-  `end` varchar(45) NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
   `status` varchar(1) NOT NULL,
   PRIMARY KEY (`termid`)
-) ENGINE=InnoDB AUTO_INCREMENT=10002 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -340,7 +338,6 @@ CREATE TABLE `term` (
 
 LOCK TABLES `term` WRITE;
 /*!40000 ALTER TABLE `term` DISABLE KEYS */;
-INSERT INTO `term` VALUES (1,1,2,'07/1/2016','10/14/2016','F');
 /*!40000 ALTER TABLE `term` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -353,4 +350,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-14  2:02:52
+-- Dump completed on 2016-11-15  1:42:06
