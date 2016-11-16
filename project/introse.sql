@@ -23,10 +23,11 @@ DROP TABLE IF EXISTS `academicyear`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `academicyear` (
-  `yearid` int(11) NOT NULL AUTO_INCREMENT,
+  `yearid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `yearstart` year(4) NOT NULL,
   `yearend` year(4) NOT NULL,
-  PRIMARY KEY (`yearid`)
+  PRIMARY KEY (`yearid`),
+  UNIQUE KEY `yearid_UNIQUE` (`yearid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,11 +49,12 @@ DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `account` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `encodername` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `accounttype` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -74,16 +76,17 @@ DROP TABLE IF EXISTS `attendance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attendance` (
-  `attendanceid` int(11) NOT NULL AUTO_INCREMENT,
+  `attendanceid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `absent_date` date NOT NULL,
-  `courseoffering_id` int(11) NOT NULL,
+  `courseoffering_id` int(11) unsigned NOT NULL,
   `remarks_cd` varchar(2) NOT NULL,
   `enc_date` date NOT NULL,
   `encoder` varchar(45) NOT NULL,
   `checker` varchar(45) NOT NULL,
   `status` varchar(1) NOT NULL,
   `report_status` varchar(45) NOT NULL DEFAULT 'Pending',
-  PRIMARY KEY (`attendanceid`)
+  PRIMARY KEY (`attendanceid`),
+  UNIQUE KEY `attendanceid_UNIQUE` (`attendanceid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -128,12 +131,13 @@ DROP TABLE IF EXISTS `course`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `course` (
-  `course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `course_cd` varchar(7) NOT NULL,
   `course_name` varchar(150) NOT NULL,
-  `units` int(11) NOT NULL,
+  `units` int(11) unsigned NOT NULL,
   `offered_to` varchar(1) NOT NULL,
-  PRIMARY KEY (`course_id`)
+  PRIMARY KEY (`course_id`),
+  UNIQUE KEY `course_id_UNIQUE` (`course_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -155,9 +159,9 @@ DROP TABLE IF EXISTS `courseoffering`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `courseoffering` (
-  `courseoffering_id` int(11) NOT NULL AUTO_INCREMENT,
-  `course_id` int(11) NOT NULL,
-  `termid` int(11) NOT NULL,
+  `courseoffering_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `course_id` int(11) unsigned NOT NULL,
+  `termid` int(11) unsigned NOT NULL,
   `facref_no` varchar(45) NOT NULL,
   `section` varchar(45) NOT NULL,
   `room` varchar(45) NOT NULL,
@@ -165,7 +169,8 @@ CREATE TABLE `courseoffering` (
   `timestart` varchar(45) NOT NULL,
   `timeend` varchar(45) NOT NULL,
   `status` varchar(45) NOT NULL,
-  PRIMARY KEY (`courseoffering_id`)
+  PRIMARY KEY (`courseoffering_id`),
+  UNIQUE KEY `courseoffering_id_UNIQUE` (`courseoffering_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -187,10 +192,11 @@ DROP TABLE IF EXISTS `department`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `department` (
-  `departmentid` int(11) NOT NULL,
+  `departmentid` int(11) unsigned NOT NULL,
   `departmentname` varchar(45) NOT NULL,
   `college_code` varchar(3) NOT NULL,
-  PRIMARY KEY (`departmentid`)
+  PRIMARY KEY (`departmentid`),
+  UNIQUE KEY `departmentid_UNIQUE` (`departmentid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -212,16 +218,17 @@ DROP TABLE IF EXISTS `faculty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `faculty` (
-  `facref_no` int(11) NOT NULL AUTO_INCREMENT,
+  `facref_no` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `facultyid` varchar(45) NOT NULL,
   `f_firstname` varchar(45) NOT NULL,
   `f_middlename` varchar(45) NOT NULL,
   `f_lastname` varchar(45) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
-  `mobilenumber` int(11) DEFAULT NULL,
-  `departmentid` int(11) NOT NULL,
+  `mobilenumber` int(11) unsigned DEFAULT NULL,
+  `departmentid` int(11) unsigned NOT NULL,
   `status` varchar(1) NOT NULL,
-  PRIMARY KEY (`facref_no`)
+  PRIMARY KEY (`facref_no`),
+  UNIQUE KEY `facref_no_UNIQUE` (`facref_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -243,8 +250,8 @@ DROP TABLE IF EXISTS `makeup`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `makeup` (
-  `makeupid` int(11) NOT NULL,
-  `courseoffering_id` int(11) NOT NULL,
+  `makeupid` int(11) unsigned NOT NULL,
+  `courseoffering_id` int(11) unsigned NOT NULL,
   `absent_date` date NOT NULL,
   `timestart` varchar(45) NOT NULL,
   `timeend` varchar(45) NOT NULL,
@@ -254,7 +261,8 @@ CREATE TABLE `makeup` (
   `enc_date` date NOT NULL,
   `encoder` varchar(45) NOT NULL,
   `status` varchar(1) NOT NULL,
-  PRIMARY KEY (`makeupid`)
+  PRIMARY KEY (`makeupid`),
+  UNIQUE KEY `makeupid_UNIQUE` (`makeupid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -277,7 +285,8 @@ DROP TABLE IF EXISTS `reason`;
 CREATE TABLE `reason` (
   `reason_cd` varchar(2) NOT NULL,
   `reason_desc` varchar(45) NOT NULL,
-  PRIMARY KEY (`reason_cd`)
+  PRIMARY KEY (`reason_cd`),
+  UNIQUE KEY `reason_cd_UNIQUE` (`reason_cd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -300,7 +309,8 @@ DROP TABLE IF EXISTS `remarks`;
 CREATE TABLE `remarks` (
   `remark_cd` varchar(2) NOT NULL,
   `remark_des` varchar(45) NOT NULL,
-  PRIMARY KEY (`remark_cd`)
+  PRIMARY KEY (`remark_cd`),
+  UNIQUE KEY `remark_cd_UNIQUE` (`remark_cd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -322,13 +332,14 @@ DROP TABLE IF EXISTS `term`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `term` (
-  `termid` int(11) NOT NULL AUTO_INCREMENT,
-  `yearid` int(11) NOT NULL,
-  `term_no` int(1) NOT NULL,
+  `termid` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `yearid` int(11) unsigned NOT NULL,
+  `term_no` int(1) unsigned NOT NULL,
   `start` date NOT NULL,
   `end` date NOT NULL,
   `status` varchar(1) NOT NULL,
-  PRIMARY KEY (`termid`)
+  PRIMARY KEY (`termid`),
+  UNIQUE KEY `termid_UNIQUE` (`termid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -350,4 +361,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-15  1:42:06
+-- Dump completed on 2016-11-16 20:47:40

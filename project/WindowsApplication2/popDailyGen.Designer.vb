@@ -30,37 +30,38 @@ Partial Class popDailyGen
         '
         'dtp
         '
-        Me.dtp.Location = New System.Drawing.Point(75, 12)
+        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp.Location = New System.Drawing.Point(90, 34)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(197, 20)
+        Me.dtp.Size = New System.Drawing.Size(217, 22)
         Me.dtp.TabIndex = 162
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(7, 14)
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(32, 34)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 18)
+        Me.Label1.Size = New System.Drawing.Size(56, 20)
         Me.Label1.TabIndex = 163
-        Me.Label1.Text = "Date"
+        Me.Label1.Text = "Date:"
         '
         'btnBack
         '
-        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(181, 40)
+        Me.btnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.Location = New System.Drawing.Point(185, 69)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(91, 23)
+        Me.btnBack.Size = New System.Drawing.Size(90, 30)
         Me.btnBack.TabIndex = 165
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = True
         '
         'btnGenerate
         '
-        Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(74, 40)
+        Me.btnGenerate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGenerate.Location = New System.Drawing.Point(65, 69)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(89, 23)
+        Me.btnGenerate.Size = New System.Drawing.Size(90, 30)
         Me.btnGenerate.TabIndex = 164
         Me.btnGenerate.Text = "Generate"
         Me.btnGenerate.UseVisualStyleBackColor = True
@@ -69,14 +70,14 @@ Partial Class popDailyGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 70)
+        Me.ClientSize = New System.Drawing.Size(344, 131)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtp)
         Me.Name = "popDailyGen"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "popDailyGen"
+        Me.Text = "Select Date"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

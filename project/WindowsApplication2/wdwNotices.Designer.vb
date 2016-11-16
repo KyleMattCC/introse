@@ -36,9 +36,9 @@ Partial Class wdwNotices
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(260, 360)
+        Me.btnBack.Location = New System.Drawing.Point(280, 365)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(90, 25)
+        Me.btnBack.Size = New System.Drawing.Size(90, 30)
         Me.btnBack.TabIndex = 1
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = True
@@ -46,9 +46,9 @@ Partial Class wdwNotices
         'btnGenerate
         '
         Me.btnGenerate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(60, 360)
+        Me.btnGenerate.Location = New System.Drawing.Point(100, 365)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(90, 25)
+        Me.btnGenerate.Size = New System.Drawing.Size(90, 30)
         Me.btnGenerate.TabIndex = 2
         Me.btnGenerate.Text = "Generate"
         Me.btnGenerate.UseVisualStyleBackColor = True
@@ -56,25 +56,28 @@ Partial Class wdwNotices
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(13, 10)
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(41, 15)
+        Me.Label1.Size = New System.Drawing.Size(56, 20)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Date:"
         '
         'dtp
         '
-        Me.dtp.Location = New System.Drawing.Point(60, 10)
+        Me.dtp.CalendarFont = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp.Location = New System.Drawing.Point(74, 9)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(200, 20)
+        Me.dtp.Size = New System.Drawing.Size(200, 22)
         Me.dtp.TabIndex = 4
         '
         'txtbxSearch
         '
-        Me.txtbxSearch.Location = New System.Drawing.Point(16, 45)
+        Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxSearch.Location = New System.Drawing.Point(16, 42)
         Me.txtbxSearch.Name = "txtbxSearch"
-        Me.txtbxSearch.Size = New System.Drawing.Size(218, 20)
+        Me.txtbxSearch.Size = New System.Drawing.Size(258, 22)
         Me.txtbxSearch.TabIndex = 5
         '
         'grid
@@ -85,15 +88,15 @@ Partial Class wdwNotices
         Me.grid.Location = New System.Drawing.Point(16, 84)
         Me.grid.Name = "grid"
         Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grid.Size = New System.Drawing.Size(380, 260)
+        Me.grid.Size = New System.Drawing.Size(445, 260)
         Me.grid.TabIndex = 7
         '
         'bttnSearch
         '
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(240, 42)
+        Me.bttnSearch.Location = New System.Drawing.Point(280, 40)
         Me.bttnSearch.Name = "bttnSearch"
-        Me.bttnSearch.Size = New System.Drawing.Size(75, 25)
+        Me.bttnSearch.Size = New System.Drawing.Size(90, 25)
         Me.bttnSearch.TabIndex = 8
         Me.bttnSearch.Text = "Search"
         Me.bttnSearch.UseVisualStyleBackColor = True
@@ -101,9 +104,9 @@ Partial Class wdwNotices
         'bttnClear
         '
         Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnClear.Location = New System.Drawing.Point(321, 42)
+        Me.bttnClear.Location = New System.Drawing.Point(371, 40)
         Me.bttnClear.Name = "bttnClear"
-        Me.bttnClear.Size = New System.Drawing.Size(75, 25)
+        Me.bttnClear.Size = New System.Drawing.Size(90, 25)
         Me.bttnClear.TabIndex = 9
         Me.bttnClear.Text = "Clear"
         Me.bttnClear.UseVisualStyleBackColor = True
@@ -112,7 +115,7 @@ Partial Class wdwNotices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(409, 401)
+        Me.ClientSize = New System.Drawing.Size(474, 401)
         Me.Controls.Add(Me.bttnClear)
         Me.Controls.Add(Me.bttnSearch)
         Me.Controls.Add(Me.grid)

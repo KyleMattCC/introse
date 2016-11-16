@@ -6,7 +6,7 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub TextBox82_TextChanged(sender As Object, e As EventArgs) Handles TextBox82.TextChanged
@@ -41,5 +41,9 @@
 
     Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
 
+    End Sub
+
+    Private Sub popEndFacDaily_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
+        wdwDailyAttendanceLog.Enable_Form()
     End Sub
 End Class
