@@ -6,7 +6,7 @@ Public Class DatabaseAccessor
     'insert into "TABLENAME" ((COLUMNS)) values ((VALUES))
     Public Sub addData(query As String)
         MysqlConn = New MySqlConnection
-        MysqlConn.ConnectionString = "Server=localhost; Uid=root; Pwd=p@ssword;"
+        MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
         Dim Reader As MySqldataReader
 
 	    Try
@@ -27,7 +27,7 @@ Public Class DatabaseAccessor
     'delete from "TABLENAME" where (CONDITION)
     Public Sub deleteData(query As String)
         MysqlConn = New MySqlConnection
-        MysqlConn.ConnectionString = "Server=localhost; Uid=root; Pwd=p@ssword;"
+        MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
         Dim Reader As MySqldataReader
 
 	    Try
@@ -48,7 +48,7 @@ Public Class DatabaseAccessor
     'update "TABLENAME" set (COLUMNS = VALUES) where (CONDITION)
     Public Sub updateData(query As String)
         MysqlConn = New MySqlConnection
-        MysqlConn.ConnectionString = "Server=localhost; Uid=root; Pwd=p@ssword;"
+        MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
         Dim Reader As MySqldataReader
 
 	    Try
@@ -69,7 +69,7 @@ Public Class DatabaseAccessor
     'Select Case Case_ from _ where _
     Public Function getStringData(query As String, column As String) As String
         MysqlConn = New MySqlConnection
-        MysqlConn.ConnectionString = "Server=localhost; Uid=root; Pwd=p@ssword;"
+        MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
         Dim Reader As MySqlDataReader
         Dim Temp As String
         Temp = Nothing
@@ -94,7 +94,7 @@ Public Class DatabaseAccessor
 
     Public Sub fillDataGrid(query As String, dbGrid As DataGridView) 'Insert In form_load Sub
         MysqlConn = New MySqlConnection
-        MysqlConn.ConnectionString = "Server=localhost; Uid=root; Pwd=p@ssword;"
+        MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
 
         Dim SDA As New MySqlDataAdapter
         Dim dbDataSet As New DataTable
