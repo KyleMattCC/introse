@@ -26,4 +26,8 @@
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
+        wdwDailyAttendanceLog.Enable_Form()
+    End Sub
 End Class
