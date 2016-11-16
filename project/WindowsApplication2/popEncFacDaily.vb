@@ -35,7 +35,11 @@
 
     End Sub
 
-    Private Sub bttnEncode_Click(sender As Object, e As EventArgs) Handles bttnEncode.Click
+    Private Sub bttnEncode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
         ' dbAccess.addData("INSERT INTO `introse`.`attendance` (`attendanceid`, `courseoffering_id`, `statusid`, `remarks`, `date`, `timeset`, `encoder`, `checker`) VALUES ('" + AttendanceID.ToString + "', '" + CourseOfferingID.ToString + "', 'A', '" + RemarksText1.Text + "', '" + DateTimePicker1.Text + "', '" + StartText1.Text + "', 'a', '" + CheckerText.Text + "');")
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+
     End Sub
 End Class

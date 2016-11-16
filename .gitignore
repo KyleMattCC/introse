@@ -1,3 +1,9 @@
 *.suo
-project/.vs/WindowsApplication2/v14/.suo
-project/.vs/WindowsApplication2/v14/.suo
+*.cache
+*.exe
+*.resources
+*.txt
+*.pdb
+*.config
+*.dll
+*.sln

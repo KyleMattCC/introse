@@ -6,7 +6,8 @@
     End Sub
 
     Private Sub Form7_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        cmbChair.Enabled = False
+        cmbDean.Enabled = False
     End Sub
 
     Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
@@ -14,13 +15,14 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
-        Me.Hide()
+        Me.Close()
         wdwMainMenu.Show()
 
     End Sub
 
     Private Sub Generate_Click(sender As Object, e As EventArgs) Handles bttnGen.Click
-        Me.Hide()
+        Me.Enabled = False
+
         If ReportChoice = 1 Then
             popDailyGen.Show()
         End If
@@ -52,6 +54,27 @@
     End Sub
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnRegistrar.CheckedChanged
+        cmbChair.Enabled = False
+        cmbDean.Enabled = False
+    End Sub
 
+    Private Sub rbttnDean_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnDean.CheckedChanged
+        cmbDean.Enabled = True
+        cmbChair.Enabled = False
+    End Sub
+
+    Private Sub rbttnChair_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnChair.CheckedChanged
+        cmbChair.Enabled = True
+        cmbDean.Enabled = False
+    End Sub
+
+    Private Sub rbttnVCA_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnVCA.CheckedChanged
+        cmbChair.Enabled = False
+        cmbDean.Enabled = False
+    End Sub
+
+    Public Sub Enable_Form()
+        Me.Enabled = True
+        Me.Focus()
     End Sub
 End Class

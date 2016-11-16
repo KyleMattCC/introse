@@ -293,15 +293,15 @@ Partial Class popAddFacultyDaily
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Label1.Location = New System.Drawing.Point(31, 26)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(126, 18)
+        Me.Label1.Size = New System.Drawing.Size(98, 18)
         Me.Label1.TabIndex = 40
-        Me.Label1.Text = "Faculty ID No:"
+        Me.Label1.Text = "Faculty ID:"
         '
         'popAddFacultyDaily
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(534, 369)
+        Me.ClientSize = New System.Drawing.Size(584, 331)
         Me.Controls.Add(Me.txtEnd)
         Me.Controls.Add(Me.dtpDate)
         Me.Controls.Add(Me.bttnBack)

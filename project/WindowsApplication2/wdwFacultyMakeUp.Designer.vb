@@ -37,7 +37,7 @@ Partial Class wdwFacultyMakeUp
         Me.txtbxFacultyName = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.bttnCancel = New System.Windows.Forms.Button()
+        Me.bttnClear = New System.Windows.Forms.Button()
         Me.bttnSearch = New System.Windows.Forms.Button()
         Me.searchBox = New System.Windows.Forms.TextBox()
         Me.dtp = New System.Windows.Forms.DateTimePicker()
@@ -99,9 +99,14 @@ Partial Class wdwFacultyMakeUp
         '
         'grid
         '
+        Me.grid.AllowUserToAddRows = False
+        Me.grid.AllowUserToDeleteRows = False
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grid.Location = New System.Drawing.Point(25, 170)
         Me.grid.Name = "grid"
+        Me.grid.ReadOnly = True
+        Me.grid.RowHeadersWidth = 45
+        Me.grid.RowTemplate.ReadOnly = True
         Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grid.Size = New System.Drawing.Size(1085, 350)
         Me.grid.TabIndex = 24
@@ -179,15 +184,15 @@ Partial Class wdwFacultyMakeUp
         Me.Label6.TabIndex = 172
         Me.Label6.Text = "Faculty ID:"
         '
-        'bttnCancel
+        'bttnClear
         '
-        Me.bttnCancel.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnCancel.Location = New System.Drawing.Point(1020, 12)
-        Me.bttnCancel.Name = "bttnCancel"
-        Me.bttnCancel.Size = New System.Drawing.Size(90, 25)
-        Me.bttnCancel.TabIndex = 11
-        Me.bttnCancel.Text = "Cancel"
-        Me.bttnCancel.UseVisualStyleBackColor = True
+        Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnClear.Location = New System.Drawing.Point(1020, 12)
+        Me.bttnClear.Name = "bttnClear"
+        Me.bttnClear.Size = New System.Drawing.Size(90, 25)
+        Me.bttnClear.TabIndex = 11
+        Me.bttnClear.Text = "Clear"
+        Me.bttnClear.UseVisualStyleBackColor = True
         '
         'bttnSearch
         '
@@ -230,7 +235,7 @@ Partial Class wdwFacultyMakeUp
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1134, 581)
         Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.bttnCancel)
+        Me.Controls.Add(Me.bttnClear)
         Me.Controls.Add(Me.dtp)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.grid)
@@ -258,7 +263,6 @@ Partial Class wdwFacultyMakeUp
     Friend WithEvents bttnModify As Button
     Friend WithEvents bttnDelete As Button
     Friend WithEvents bttnBack As Button
-    Friend WithEvents grid As DataGridView
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents txtbxDepartment As TextBox
     Friend WithEvents Label3 As Label
@@ -266,9 +270,10 @@ Partial Class wdwFacultyMakeUp
     Friend WithEvents txtbxFacultyName As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents bttnCancel As Button
+    Friend WithEvents bttnClear As Button
     Friend WithEvents bttnSearch As Button
     Friend WithEvents searchBox As TextBox
     Friend WithEvents dtp As DateTimePicker
     Friend WithEvents Label5 As Label
+    Friend WithEvents grid As DataGridView
 End Class

@@ -11,7 +11,7 @@
         Me.Close()
     End Sub
 
-    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
+    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxRemarks.SelectedIndexChanged
 
     End Sub
 
