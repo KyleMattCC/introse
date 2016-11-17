@@ -41,7 +41,6 @@
         currentdate = DateTime.Now.Date
 
         If Convert.ToInt32(ref) > 0 Then
-            'ref = wdwDailyAttendanceLog.dgAttID
             absentdate = dtp.Value.Date.ToString("yyyy-MM-dd")
             remarks = cmbbxRemarks.SelectedItem
             encoder = txtbxEncoder.Text

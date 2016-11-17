@@ -47,6 +47,8 @@ Partial Class popAddMakeUp
         Me.txtbxFacName = New System.Windows.Forms.TextBox()
         Me.cmbbxCourse = New System.Windows.Forms.ComboBox()
         Me.cmbbxSec = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dtpAbsent = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'dtpMakeUpDate
@@ -61,7 +63,7 @@ Partial Class popAddMakeUp
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(335, 293)
+        Me.bttnBack.Location = New System.Drawing.Point(335, 328)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(90, 30)
         Me.bttnBack.TabIndex = 61
@@ -71,7 +73,7 @@ Partial Class popAddMakeUp
         'bttnAdd
         '
         Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAdd.Location = New System.Drawing.Point(180, 293)
+        Me.bttnAdd.Location = New System.Drawing.Point(180, 328)
         Me.bttnAdd.Name = "bttnAdd"
         Me.bttnAdd.Size = New System.Drawing.Size(90, 30)
         Me.bttnAdd.TabIndex = 60
@@ -81,7 +83,7 @@ Partial Class popAddMakeUp
         'txtStart
         '
         Me.txtStart.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStart.Location = New System.Drawing.Point(216, 185)
+        Me.txtStart.Location = New System.Drawing.Point(216, 211)
         Me.txtStart.Name = "txtStart"
         Me.txtStart.Size = New System.Drawing.Size(120, 22)
         Me.txtStart.TabIndex = 59
@@ -91,7 +93,7 @@ Partial Class popAddMakeUp
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label13.Location = New System.Drawing.Point(105, 185)
+        Me.Label13.Location = New System.Drawing.Point(105, 210)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(107, 20)
         Me.Label13.TabIndex = 58
@@ -100,7 +102,7 @@ Partial Class popAddMakeUp
         'txtEnd
         '
         Me.txtEnd.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEnd.Location = New System.Drawing.Point(216, 210)
+        Me.txtEnd.Location = New System.Drawing.Point(216, 236)
         Me.txtEnd.Name = "txtEnd"
         Me.txtEnd.Size = New System.Drawing.Size(120, 22)
         Me.txtEnd.TabIndex = 57
@@ -108,7 +110,7 @@ Partial Class popAddMakeUp
         'txtEncoder
         '
         Me.txtEncoder.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEncoder.Location = New System.Drawing.Point(215, 262)
+        Me.txtEncoder.Location = New System.Drawing.Point(215, 287)
         Me.txtEncoder.Name = "txtEncoder"
         Me.txtEncoder.Size = New System.Drawing.Size(121, 22)
         Me.txtEncoder.TabIndex = 56
@@ -116,7 +118,7 @@ Partial Class popAddMakeUp
         'txtRoom
         '
         Me.txtRoom.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRoom.Location = New System.Drawing.Point(216, 160)
+        Me.txtRoom.Location = New System.Drawing.Point(216, 188)
         Me.txtRoom.Name = "txtRoom"
         Me.txtRoom.Size = New System.Drawing.Size(120, 22)
         Me.txtRoom.TabIndex = 52
@@ -126,7 +128,7 @@ Partial Class popAddMakeUp
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label10.Location = New System.Drawing.Point(126, 260)
+        Me.Label10.Location = New System.Drawing.Point(126, 286)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(86, 20)
         Me.Label10.TabIndex = 51
@@ -137,7 +139,7 @@ Partial Class popAddMakeUp
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label9.Location = New System.Drawing.Point(115, 210)
+        Me.Label9.Location = New System.Drawing.Point(115, 235)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(97, 20)
         Me.Label9.TabIndex = 50
@@ -148,7 +150,7 @@ Partial Class popAddMakeUp
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label7.Location = New System.Drawing.Point(148, 160)
+        Me.Label7.Location = New System.Drawing.Point(148, 186)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(64, 20)
         Me.Label7.TabIndex = 49
@@ -169,7 +171,7 @@ Partial Class popAddMakeUp
         '
         Me.txtReason.Enabled = False
         Me.txtReason.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtReason.Location = New System.Drawing.Point(294, 235)
+        Me.txtReason.Location = New System.Drawing.Point(294, 260)
         Me.txtReason.Name = "txtReason"
         Me.txtReason.ReadOnly = True
         Me.txtReason.Size = New System.Drawing.Size(235, 22)
@@ -191,7 +193,7 @@ Partial Class popAddMakeUp
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(19, 235)
+        Me.Label2.Location = New System.Drawing.Point(19, 259)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(193, 20)
         Me.Label2.TabIndex = 41
@@ -201,7 +203,7 @@ Partial Class popAddMakeUp
         '
         Me.cmbbxReason.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxReason.FormattingEnabled = True
-        Me.cmbbxReason.Location = New System.Drawing.Point(216, 235)
+        Me.cmbbxReason.Location = New System.Drawing.Point(216, 260)
         Me.cmbbxReason.Name = "cmbbxReason"
         Me.cmbbxReason.Size = New System.Drawing.Size(72, 23)
         Me.cmbbxReason.TabIndex = 64
@@ -241,7 +243,7 @@ Partial Class popAddMakeUp
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label8.Location = New System.Drawing.Point(135, 110)
+        Me.Label8.Location = New System.Drawing.Point(135, 138)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(77, 20)
         Me.Label8.TabIndex = 69
@@ -252,7 +254,7 @@ Partial Class popAddMakeUp
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label11.Location = New System.Drawing.Point(132, 135)
+        Me.Label11.Location = New System.Drawing.Point(132, 164)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(80, 20)
         Me.Label11.TabIndex = 70
@@ -280,7 +282,7 @@ Partial Class popAddMakeUp
         '
         Me.cmbbxCourse.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxCourse.FormattingEnabled = True
-        Me.cmbbxCourse.Location = New System.Drawing.Point(216, 110)
+        Me.cmbbxCourse.Location = New System.Drawing.Point(216, 137)
         Me.cmbbxCourse.Name = "cmbbxCourse"
         Me.cmbbxCourse.Size = New System.Drawing.Size(120, 23)
         Me.cmbbxCourse.TabIndex = 73
@@ -289,16 +291,37 @@ Partial Class popAddMakeUp
         '
         Me.cmbbxSec.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSec.FormattingEnabled = True
-        Me.cmbbxSec.Location = New System.Drawing.Point(216, 135)
+        Me.cmbbxSec.Location = New System.Drawing.Point(216, 163)
         Me.cmbbxSec.Name = "cmbbxSec"
         Me.cmbbxSec.Size = New System.Drawing.Size(120, 23)
         Me.cmbbxSec.TabIndex = 74
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label1.Location = New System.Drawing.Point(89, 111)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(123, 20)
+        Me.Label1.TabIndex = 75
+        Me.Label1.Text = "Absent Date:"
+        '
+        'dtpAbsent
+        '
+        Me.dtpAbsent.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpAbsent.Location = New System.Drawing.Point(216, 113)
+        Me.dtpAbsent.Name = "dtpAbsent"
+        Me.dtpAbsent.Size = New System.Drawing.Size(200, 22)
+        Me.dtpAbsent.TabIndex = 76
         '
         'popAddMakeUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(584, 331)
+        Me.ClientSize = New System.Drawing.Size(584, 373)
+        Me.Controls.Add(Me.dtpAbsent)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbbxSec)
         Me.Controls.Add(Me.cmbbxCourse)
         Me.Controls.Add(Me.txtbxFacName)
@@ -356,4 +379,6 @@ Partial Class popAddMakeUp
     Friend WithEvents txtbxFacName As TextBox
     Friend WithEvents cmbbxCourse As ComboBox
     Friend WithEvents cmbbxSec As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents dtpAbsent As DateTimePicker
 End Class
