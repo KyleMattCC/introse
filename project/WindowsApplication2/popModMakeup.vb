@@ -25,8 +25,8 @@
 
     Private Sub bttnModify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
         Dim reason_cd As String = ""
-        If String.IsNullOrEmpty(cmbReason.Text) Then
-            MsgBox("Select Reason!")
+        If String.IsNullOrEmpty(cmbReason.Text) Or String.IsNullOrEmpty(txtbxStart.Text) Or String.IsNullOrEmpty(txtbxEnd.Text) Or String.IsNullOrEmpty(txtbxRoom.Text) Or String.IsNullOrEmpty(txtbxEncoder.Text) Or String.IsNullOrEmpty(dtpMakeUpDate.Value.Date.ToString("yyyy-MM-dd")) Then
+            MsgBox("Incomplete Fields!")
         Else
             reason_cd = dbAccess.getStringData("select reason_cd from reason where reason_desc = '" & cmbReason.SelectedItem.ToString & "';", "reason_cd")
             MsgBox(wdwFacultyMakeUp.dgAttID + " " + reason_cd)
@@ -41,5 +41,33 @@
 
     Private Sub cmbReason_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbReason.SelectedIndexChanged
         txtbxReason.Text = cmbReason.SelectedItem.ToString
+    End Sub
+
+    Private Sub txtFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFacID.KeyPress
+        validateInput("1234567890", e)
+    End Sub
+
+    Private Sub txtbxRoom_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxRoom.KeyPress
+        validateInput("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", e)
+    End Sub
+
+    Private Sub txtbxStart_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxStart.KeyPress
+        validateInput("0123456789:", e)
+    End Sub
+    Private Sub txtbxEnd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxEnd.KeyPress
+        validateInput("0123456789:", e)
+    End Sub
+
+    Private Sub txtbxEncoder_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxEncoder.KeyPress
+        validateInput("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", e)
+    End Sub
+
+    Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
+        If Not (Asc(e.KeyChar) = 8) Then
+            If Not allowed.Contains(e.KeyChar.ToString) Then
+                e.KeyChar = ChrW(0)
+                e.Handled = True
+            End If
+        End If
     End Sub
 End Class

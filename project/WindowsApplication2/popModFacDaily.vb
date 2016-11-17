@@ -45,12 +45,14 @@
             remarks = cmbbxRemarks.SelectedItem
             encoder = txtbxEncoder.Text
             checker = txtbxChecker.Text
-
-            dbAccess.updateData("UPDATE `attendance` SET `absent_date` = '" & absentdate & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentdate.ToString("yyyy-MM-dd") & "', `encoder` = '" & encoder & "', `checker` = '" & checker & "' WHERE `attendanceid` = '" & ref & "';")
-            dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' 
+            If String.IsNullOrEmpty(remarks) Or String.IsNullOrEmpty(encoder) Or String.IsNullOrEmpty(checker) Then
+            Else
+                dbAccess.updateData("UPDATE `attendance` SET `absent_date` = '" & absentdate & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentdate.ToString("yyyy-MM-dd") & "', `encoder` = '" & encoder & "', `checker` = '" & checker & "' WHERE `attendanceid` = '" & ref & "';")
+                dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' 
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
                                 where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & wdwDailyAttendanceLog.dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
                                 order by 3, 12;", wdwDailyAttendanceLog.grid)
+            End If
 
             txtbxFacID.Clear()
             txtbxName.Clear()
@@ -76,8 +78,22 @@
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwDailyAttendanceLog.Enable_Form()
     End Sub
+    Private Sub txtbxFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxFacID.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+    Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
+        If Not (Asc(e.KeyChar) = 8) Then
+            If Not allowed.Contains(e.KeyChar.ToString) Then
+                e.KeyChar = ChrW(0)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+    Private Sub txtbxChecker_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxChecker.KeyPress
+        validateInput("abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", e)
+    End Sub
 
-    Private Sub txtbxName_TextChanged(sender As Object, e As EventArgs) Handles txtbxName.TextChanged
-
+    Private Sub txtbxEncoder_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxEncoder.KeyPress
+        validateInput("abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", e)
     End Sub
 End Class

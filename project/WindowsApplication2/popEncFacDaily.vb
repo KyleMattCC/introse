@@ -41,13 +41,16 @@
             section = arrayCourse(1)
         End If
 
-        If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course)) Then
+        If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark)) Then
             MsgBox("Incomplete Information on row " + row + "!")
         Else
             courseid = dbAccess.getStringData("SELECT course_id FROM course WHERE course_cd ='" & coursecode & "';", "course_id")
             fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
             courseofferingid = dbAccess.getStringData("select courseoffering_id from courseoffering  where course_id = " & courseid & " and facref_no = '" & fac & "' and status = 'A' and section = '" & section & "';", "courseoffering_id")
-            dbAccess.addData("INSERT INTO `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) VALUES('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
+            If (checkEntry(inputdate.ToString("yyyy-MM-dd"), courseofferingid, remark, currentdate.ToString("yyyy-MM-dd"), encoder, checker, "A", stat) = True) Then
+                dbAccess.addData("INSERT INTO `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) VALUES('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
+            End If
+
         End If
         text.Clear()
 
@@ -137,6 +140,26 @@
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
                                 where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & wdwDailyAttendanceLog.dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
                                 order by 3, 12;", wdwDailyAttendanceLog.grid)
+    End Sub
+    Private Function checkEntry(absent As String, courseofferingid As String, remarks As String, enc_date As String, encoder As String, checker As String, stat As String, rep_stat As String) As Boolean
+        '
+        Dim att As String = ""
+        Dim b As Boolean = False
+        att = dbAccess.getStringData("select attendanceid from attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and remarks_cd = '" & remarks & "' and enc_date = '" & enc_date & "' and encoder = '" & encoder & "' and checker = '" & checker & "' and status = '" & stat & "' and report_status = '" & rep_stat & "';", "attendanceid")
+        If String.IsNullOrEmpty(att) Then
+            b = True
+        Else
+            MsgBox("Attendance is already in the system!")
+        End If
+        Return b
+    End Function
+    Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
+        If Not (Asc(e.KeyChar) = 8) Then
+            If Not allowed.Contains(e.KeyChar.ToString) Then
+                e.KeyChar = ChrW(0)
+                e.Handled = True
+            End If
+        End If
     End Sub
     Private Sub popEndFacDaily_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwDailyAttendanceLog.Enable_Form()
@@ -475,5 +498,65 @@
         TextBox30.Clear()
         TextBox1.Clear()
         AddTime(TextBox16.Text, ComboBox45.SelectedItem, ComboBox30.SelectedItem, TextBox30, TextBox1)
+    End Sub
+
+    Private Sub TextBox2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox2.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox3.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox5_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox5.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox4.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox7_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox7.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox6_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox6.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox9_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox9.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox8_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox8.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox11_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox11.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox10_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox10.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox13_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox13.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox12_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox12.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox15_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox15.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox14_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox14.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox16_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox16.KeyPress
+        validateInput("0123456789", e)
     End Sub
 End Class
