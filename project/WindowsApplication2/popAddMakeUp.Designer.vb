@@ -167,6 +167,7 @@ Partial Class popAddMakeUp
         '
         'txtReason
         '
+        Me.txtReason.Enabled = False
         Me.txtReason.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtReason.Location = New System.Drawing.Point(294, 235)
         Me.txtReason.Name = "txtReason"
@@ -267,6 +268,7 @@ Partial Class popAddMakeUp
         '
         'txtbxFacName
         '
+        Me.txtbxFacName.Enabled = False
         Me.txtbxFacName.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacName.Location = New System.Drawing.Point(216, 35)
         Me.txtbxFacName.Name = "txtbxFacName"

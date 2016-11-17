@@ -174,7 +174,7 @@ Partial Class wdwSelectReport
         '
         'cmbChair
         '
-        Me.cmbChair.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbChair.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbChair.FormattingEnabled = True
         Me.cmbChair.Location = New System.Drawing.Point(171, 95)
         Me.cmbChair.Name = "cmbChair"
@@ -183,7 +183,7 @@ Partial Class wdwSelectReport
         '
         'cmbDean
         '
-        Me.cmbDean.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbDean.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbDean.FormattingEnabled = True
         Me.cmbDean.Location = New System.Drawing.Point(171, 67)
         Me.cmbDean.Name = "cmbDean"
@@ -230,10 +230,10 @@ Partial Class wdwSelectReport
         'bttnGen
         '
         Me.bttnGen.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnGen.Location = New System.Drawing.Point(125, 320)
+        Me.bttnGen.Location = New System.Drawing.Point(125, 325)
         Me.bttnGen.Name = "bttnGen"
         Me.bttnGen.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.bttnGen.Size = New System.Drawing.Size(90, 25)
+        Me.bttnGen.Size = New System.Drawing.Size(90, 30)
         Me.bttnGen.TabIndex = 5
         Me.bttnGen.Text = "Generate"
         Me.bttnGen.UseVisualStyleBackColor = True
@@ -241,9 +241,9 @@ Partial Class wdwSelectReport
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(325, 320)
+        Me.bttnBack.Location = New System.Drawing.Point(325, 325)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(90, 25)
+        Me.bttnBack.Size = New System.Drawing.Size(90, 30)
         Me.bttnBack.TabIndex = 6
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
@@ -252,7 +252,7 @@ Partial Class wdwSelectReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(539, 356)
+        Me.ClientSize = New System.Drawing.Size(539, 366)
         Me.Controls.Add(Me.bttnBack)
         Me.Controls.Add(Me.bttnGen)
         Me.Controls.Add(Me.GroupBox2)

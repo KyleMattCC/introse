@@ -77,4 +77,12 @@
         Me.Enabled = True
         Me.Focus()
     End Sub
+
+    Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
+        wdwMainMenu.Enable_Form()
+    End Sub
+
+    Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
+
+    End Sub
 End Class

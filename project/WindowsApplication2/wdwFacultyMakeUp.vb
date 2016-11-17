@@ -14,6 +14,7 @@
     End Sub
 
     Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
+        Me.Enabled = False
         popAddMakeUp.Show()
 
     End Sub
@@ -57,6 +58,7 @@
     End Sub
 
     Private Sub Modify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
+        Me.Enabled = False
         popModMakeup.Show()
     End Sub
 
@@ -66,7 +68,7 @@
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs)
-        Me.Hide()
+        Me.Close()
         wdwSearchByName.Show()
 
     End Sub
@@ -74,4 +76,15 @@
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacultyID.TextChanged
 
     End Sub
+
+    Public Sub Enable_Form()
+        Me.Enabled = True
+        Load_form()
+        Me.Focus()
+    End Sub
+
+    Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
+        wdwMainMenu.Enable_Form()
+    End Sub
+
 End Class

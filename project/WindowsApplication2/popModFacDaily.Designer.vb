@@ -94,6 +94,7 @@ Partial Class wdwModFacultyDaily
         '
         'txtbxName
         '
+        Me.txtbxName.Enabled = False
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxName.Location = New System.Drawing.Point(216, 35)
         Me.txtbxName.Name = "txtbxName"
@@ -168,6 +169,7 @@ Partial Class wdwModFacultyDaily
         '
         'txtbxStart
         '
+        Me.txtbxStart.Enabled = False
         Me.txtbxStart.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxStart.Location = New System.Drawing.Point(216, 184)
         Me.txtbxStart.Name = "txtbxStart"
@@ -195,6 +197,7 @@ Partial Class wdwModFacultyDaily
         '
         'TextBox9
         '
+        Me.TextBox9.Enabled = False
         Me.TextBox9.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox9.Location = New System.Drawing.Point(294, 234)
         Me.TextBox9.Name = "TextBox9"
@@ -237,6 +240,7 @@ Partial Class wdwModFacultyDaily
         '
         'txtbxEnd
         '
+        Me.txtbxEnd.Enabled = False
         Me.txtbxEnd.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxEnd.Location = New System.Drawing.Point(216, 209)
         Me.txtbxEnd.Name = "txtbxEnd"
@@ -303,6 +307,7 @@ Partial Class wdwModFacultyDaily
         '
         'txtbxDay
         '
+        Me.txtbxDay.Enabled = False
         Me.txtbxDay.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDay.Location = New System.Drawing.Point(216, 160)
         Me.txtbxDay.Name = "txtbxDay"
@@ -312,6 +317,7 @@ Partial Class wdwModFacultyDaily
         '
         'txtbxRoom
         '
+        Me.txtbxRoom.Enabled = False
         Me.txtbxRoom.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxRoom.Location = New System.Drawing.Point(216, 135)
         Me.txtbxRoom.Name = "txtbxRoom"
