@@ -46,6 +46,7 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         txtbxFacID.Clear()
         cmbbxReason.Items.Clear()
+        cmbbxReason.ResetText()
         Me.Close()
     End Sub
 
@@ -99,6 +100,8 @@ VALUES ('" & fac & "', '" & absentdate.ToString("yyyy-MM-dd") & "', '" & startTi
     Private Sub txtbxFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacID.TextChanged
         cmbbxCourse.Items.Clear()
         cmbbxSec.Items.Clear()
+        cmbbxCourse.ResetText()
+        cmbbxSec.ResetText()
         AddFacultyName(txtbxFacID.Text, txtbxFacName)
         AddCourse(txtbxFacID.Text, cmbbxCourse)
     End Sub

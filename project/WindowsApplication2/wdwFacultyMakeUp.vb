@@ -1,7 +1,6 @@
 ﻿Public Class wdwFacultyMakeUp
     Dim dbAccess As New DatabaseAccessor
-    Public dgAttID As String
-    Dim RData As List(Of String) = New List(Of String)
+    Public RData As List(Of String) = New List(Of String)
     Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
@@ -48,15 +47,8 @@
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
-        Dim value As Object = grid.Rows(e.RowIndex).Cells(0).Value
         Dim Temp As New List(Of String)
         Dim i, j As Integer
-
-        If IsDBNull(value) Then
-            dgAttID = ""
-        Else
-            dgAttID = CType(value, String)
-        End If
 
         i = grid.CurrentRow.Index
         j = grid.ColumnCount
@@ -138,12 +130,40 @@
     End Sub
 
     Private Sub bttnDelete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
-        If String.IsNullOrEmpty(dgAttID) Then
+        If String.IsNullOrEmpty(RData(0)) Then
             MsgBox("No selected attendance")
         Else
-            dbAccess.updateData("UPDATE `makeup` SET `status` = 'D' WHERE `makeupid` = '" & dgAttID & "';")
+            dbAccess.updateData("UPDATE `makeup` SET `status` = 'D' WHERE `makeupid` = '" & RData(0) & "';")
             Load_form()
         End If
 
+    End Sub
+
+    Private Sub grid_MouseClick(sender As Object, e As MouseEventArgs) Handles grid.MouseClick
+        Dim Temp As New List(Of String)
+        Dim i, j As Integer
+
+        i = grid.CurrentRow.Index
+        j = grid.ColumnCount
+
+        For k As Integer = 0 To j - 1
+            If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
+                MsgBox("Missing data!")
+                Temp.Add(grid.Item(k, i).Value.ToString)
+            Else
+                Temp.Add(grid.Item(k, i).Value.ToString)
+
+            End If
+        Next
+
+        If (RData.Count = 0) Then
+            For k As Integer = 0 To Temp.Count - 1
+                RData.Add(Temp(k))
+            Next
+        Else
+            For k As Integer = 0 To Temp.Count - 1
+                RData(k) = Temp(k)
+            Next
+        End If
     End Sub
 End Class
