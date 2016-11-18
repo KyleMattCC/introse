@@ -1,7 +1,7 @@
 ﻿Public Class wdwDailyAttendanceLog
     Dim dbAccess As DatabaseAccessor = New DatabaseAccessor
     Public dgAttID As String
-    Dim RData As List(Of String) = New List(Of String)
+    Public RData As List(Of String) = New List(Of String)
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Close()
@@ -12,11 +12,11 @@
     End Sub
 
     Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
-        If String.IsNullOrEmpty(dgAttID) Then
+        If String.IsNullOrEmpty(RData(0)) Then
             MsgBox("No selected attendance")
         Else
 
-            dbAccess.updateData("UPDATE `attendance` SET `status` = 'D' WHERE `attendanceid` = '" & dgAttID & "';")
+            dbAccess.updateData("UPDATE `attendance` SET `status` = 'D' WHERE `attendanceid` = '" & RData(0) & "';")
             Load_form()
 
 
@@ -47,7 +47,6 @@
                 wdwModFacultyDaily.txtbxEnd.Text = RData(9) ' end
                 wdwModFacultyDaily.txtbxEncoder.Text = RData(12) ' encoder
             Else
-                MsgBox(RData(3))
                 convertedDate = Convert.ToDateTime(RData(3))
                 day = convertedDate.Day.ToString()
                 month = convertedDate.Month.ToString()
@@ -152,15 +151,8 @@
     End Sub
 
     Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
-        Dim value As Object = grid.Rows(e.RowIndex).Cells(0).Value
         Dim Temp As New List(Of String)
         Dim i, j As Integer
-
-        If IsDBNull(value) Then
-            dgAttID = ""
-        Else
-            dgAttID = CType(value, String)
-        End If
 
         i = grid.CurrentRow.Index
         j = grid.ColumnCount
@@ -194,5 +186,33 @@
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwMainMenu.Enable_Form()
+    End Sub
+
+    Private Sub grid_MouseClick(sender As Object, e As MouseEventArgs) Handles grid.MouseClick
+        Dim Temp As New List(Of String)
+        Dim i, j As Integer
+
+        i = grid.CurrentRow.Index
+        j = grid.ColumnCount
+
+        For k As Integer = 0 To j - 1
+            If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
+                MsgBox("Missing data!")
+                Temp.Add(grid.Item(k, i).Value.ToString)
+            Else
+                Temp.Add(grid.Item(k, i).Value.ToString)
+
+            End If
+        Next
+
+        If (RData.Count = 0) Then
+            For k As Integer = 0 To Temp.Count - 1
+                RData.Add(Temp(k))
+            Next
+        Else
+            For k As Integer = 0 To Temp.Count - 1
+                RData(k) = Temp(k)
+            Next
+        End If
     End Sub
 End Class

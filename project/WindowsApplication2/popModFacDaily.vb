@@ -14,6 +14,9 @@
         cmbbxCourse.Items.Clear()
         cmbbxRemarks.Items.Clear()
         cmbbxSection.Items.Clear()
+        cmbbxCourse.ResetText()
+        cmbbxRemarks.ResetText()
+        cmbbxSection.ResetText()
         txtbxRoom.Clear()
         txtbxDay.Clear()
         txtbxStart.Clear()
@@ -36,7 +39,7 @@
         Dim remarks As String
         Dim encoder As String
         Dim checker As String
-        Dim ref As String = wdwDailyAttendanceLog.dgAttID
+        Dim ref As String = wdwDailyAttendanceLog.RData(0)
         Dim currentdate As Date
         currentdate = DateTime.Now.Date
 
@@ -46,6 +49,7 @@
             encoder = txtbxEncoder.Text
             checker = txtbxChecker.Text
             If String.IsNullOrEmpty(remarks) Or String.IsNullOrEmpty(encoder) Or String.IsNullOrEmpty(checker) Then
+                MsgBox("Incomplete fields!")
             Else
                 dbAccess.updateData("UPDATE `attendance` SET `absent_date` = '" & absentdate & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentdate.ToString("yyyy-MM-dd") & "', `encoder` = '" & encoder & "', `checker` = '" & checker & "' WHERE `attendanceid` = '" & ref & "';")
                 dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' 
@@ -59,6 +63,9 @@
             cmbbxCourse.Items.Clear()
             cmbbxRemarks.Items.Clear()
             cmbbxSection.Items.Clear()
+            cmbbxCourse.ResetText()
+            cmbbxRemarks.ResetText()
+            cmbbxSection.ResetText()
             txtbxRoom.Clear()
             txtbxDay.Clear()
             txtbxStart.Clear()
@@ -96,4 +103,5 @@
     Private Sub txtbxEncoder_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxEncoder.KeyPress
         validateInput("abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", e)
     End Sub
+
 End Class

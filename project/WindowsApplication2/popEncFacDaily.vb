@@ -42,7 +42,7 @@
         End If
 
         If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark)) Then
-            MsgBox("Incomplete Information on row " + row + "!")
+            'MsgBox("Incomplete Information on row " + row + "!")
         Else
             courseid = dbAccess.getStringData("SELECT course_id FROM course WHERE course_cd ='" & coursecode & "';", "course_id")
             fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
@@ -145,7 +145,7 @@
         '
         Dim att As String = ""
         Dim b As Boolean = False
-        att = dbAccess.getStringData("select attendanceid from attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and remarks_cd = '" & remarks & "' and enc_date = '" & enc_date & "' and encoder = '" & encoder & "' and checker = '" & checker & "' and status = '" & stat & "' and report_status = '" & rep_stat & "';", "attendanceid")
+        att = dbAccess.getStringData("select attendanceid from attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and enc_date = '" & enc_date & "' and encoder = '" & encoder & "' and checker = '" & checker & "' and status = '" & stat & "' and report_status = '" & rep_stat & "';", "attendanceid")
         If String.IsNullOrEmpty(att) Then
             b = True
         Else
@@ -177,9 +177,12 @@
     Private Sub TextBox2_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
         ComboBox31.Items.Clear()
         ComboBox16.Items.Clear()
+        ComboBox31.ResetText()
+        ComboBox16.ResetText()
         TextBox82.Clear()
         TextBox58.Clear()
         ComboBox1.Items.Clear()
+        ComboBox1.ResetText()
 
         AddFacultyName(TextBox2.Text, TextBox46)
         AddRoom(TextBox2.Text, ComboBox31)
@@ -187,6 +190,7 @@
     End Sub
     Private Sub ComboBox31_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox31.SelectedIndexChanged
         ComboBox16.Items.Clear()
+        ComboBox16.ResetText()
         AddCourse(TextBox2.Text, ComboBox31.SelectedItem, ComboBox16)
         AddRemarks(ComboBox1)
     End Sub
@@ -201,31 +205,37 @@
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
         ComboBox32.Items.Clear()
         ComboBox17.Items.Clear()
+        ComboBox32.ResetText()
+        ComboBox17.ResetText()
         TextBox83.Clear()
         TextBox57.Clear()
         ComboBox2.Items.Clear()
-
+        ComboBox2.ResetText()
         AddFacultyName(TextBox3.Text, TextBox45)
         AddRoom(TextBox3.Text, ComboBox32)
     End Sub
 
     Private Sub ComboBox32_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox32.SelectedIndexChanged
         ComboBox17.Items.Clear()
+        ComboBox17.ResetText()
         AddCourse(TextBox3.Text, ComboBox32.SelectedItem, ComboBox17)
         AddRemarks(ComboBox2)
     End Sub
     Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
         ComboBox34.Items.Clear()
         ComboBox19.Items.Clear()
+        ComboBox34.ResetText()
+        ComboBox19.ResetText()
         TextBox19.Clear()
         TextBox56.Clear()
         ComboBox3.Items.Clear()
-
+        ComboBox3.ResetText()
         AddFacultyName(TextBox5.Text, TextBox44)
         AddRoom(TextBox5.Text, ComboBox34)
     End Sub
     Private Sub ComboBox34_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox34.SelectedIndexChanged
         ComboBox19.Items.Clear()
+        ComboBox19.ResetText()
         AddCourse(TextBox5.Text, ComboBox34.SelectedItem, ComboBox19)
         AddRemarks(ComboBox3)
     End Sub
@@ -238,15 +248,18 @@
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
         ComboBox33.Items.Clear()
         ComboBox18.Items.Clear()
+        ComboBox33.ResetText()
+        ComboBox18.ResetText()
         TextBox18.Clear()
         TextBox55.Clear()
         ComboBox4.Items.Clear()
-
+        ComboBox4.ResetText()
         AddFacultyName(TextBox4.Text, TextBox43)
         AddRoom(TextBox4.Text, ComboBox33)
     End Sub
     Private Sub ComboBox33_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox33.SelectedIndexChanged
         ComboBox18.Items.Clear()
+        ComboBox18.ResetText()
         AddCourse(TextBox4.Text, ComboBox33.SelectedItem, ComboBox18)
         AddRemarks(ComboBox4)
     End Sub
@@ -260,16 +273,19 @@
     Private Sub TextBox7_TextChanged(sender As Object, e As EventArgs) Handles TextBox7.TextChanged
         ComboBox36.Items.Clear()
         ComboBox21.Items.Clear()
+        ComboBox36.ResetText()
+        ComboBox21.ResetText()
         TextBox21.Clear()
         TextBox54.Clear()
         ComboBox6.Items.Clear()
-
+        ComboBox6.ResetText()
         AddFacultyName(TextBox7.Text, TextBox42)
         AddRoom(TextBox7.Text, ComboBox36)
     End Sub
 
     Private Sub ComboBox36_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox36.SelectedIndexChanged
         ComboBox21.Items.Clear()
+        ComboBox21.ResetText()
         AddCourse(TextBox7.Text, ComboBox36.SelectedItem, ComboBox21)
         AddRemarks(ComboBox6)
 
@@ -283,15 +299,18 @@
     Private Sub TextBox6_TextChanged(sender As Object, e As EventArgs) Handles TextBox6.TextChanged
         ComboBox35.Items.Clear()
         ComboBox20.Items.Clear()
+        ComboBox35.ResetText()
+        ComboBox20.ResetText()
         TextBox20.Clear()
         TextBox53.Clear()
         ComboBox5.Items.Clear()
-
+        ComboBox5.ResetText()
         AddFacultyName(TextBox6.Text, TextBox41)
         AddRoom(TextBox6.Text, ComboBox35)
     End Sub
     Private Sub ComboBox35_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox35.SelectedIndexChanged
         ComboBox20.Items.Clear()
+        ComboBox20.ResetText()
         AddCourse(TextBox6.Text, ComboBox35.SelectedItem, ComboBox20)
         AddRemarks(ComboBox5)
 
@@ -305,15 +324,19 @@
     Private Sub TextBox9_TextChanged(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
         ComboBox38.Items.Clear()
         ComboBox23.Items.Clear()
+        ComboBox38.ResetText()
+        ComboBox23.ResetText()
         TextBox23.Clear()
         TextBox52.Clear()
         ComboBox8.Items.Clear()
+        ComboBox8.ResetText()
 
         AddFacultyName(TextBox9.Text, TextBox40)
         AddRoom(TextBox9.Text, ComboBox38)
     End Sub
     Private Sub ComboBox38_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox38.SelectedIndexChanged
         ComboBox23.Items.Clear()
+        ComboBox23.ResetText()
         AddCourse(TextBox9.Text, ComboBox38.SelectedItem, ComboBox23)
         AddRemarks(ComboBox8)
 
@@ -327,9 +350,12 @@
     Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
         ComboBox37.Items.Clear()
         ComboBox22.Items.Clear()
+        ComboBox37.ResetText()
+        ComboBox22.ResetText()
         TextBox22.Clear()
         TextBox51.Clear()
         ComboBox7.Items.Clear()
+        ComboBox7.ResetText()
 
         AddFacultyName(TextBox8.Text, TextBox39)
         AddRoom(TextBox8.Text, ComboBox37)
@@ -337,6 +363,7 @@
 
     Private Sub ComboBox37_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox37.SelectedIndexChanged
         ComboBox22.Items.Clear()
+        ComboBox22.ResetText()
         AddCourse(TextBox8.Text, ComboBox37.SelectedItem, ComboBox22)
         AddRemarks(ComboBox7)
 
@@ -351,15 +378,19 @@
     Private Sub TextBox11_TextChanged(sender As Object, e As EventArgs) Handles TextBox11.TextChanged
         ComboBox40.Items.Clear()
         ComboBox25.Items.Clear()
+        ComboBox40.ResetText()
+        ComboBox25.ResetText()
         TextBox25.Clear()
         TextBox50.Clear()
         ComboBox10.Items.Clear()
+        ComboBox10.ResetText()
 
         AddFacultyName(TextBox11.Text, TextBox38)
         AddRoom(TextBox11.Text, ComboBox40)
     End Sub
     Private Sub ComboBox40_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox40.SelectedIndexChanged
         ComboBox25.Items.Clear()
+        ComboBox25.ResetText()
         AddCourse(TextBox11.Text, ComboBox40.SelectedItem, ComboBox25)
         AddRemarks(ComboBox10)
     End Sub
@@ -372,15 +403,18 @@
     Private Sub TextBox10_TextChanged(sender As Object, e As EventArgs) Handles TextBox10.TextChanged
         ComboBox39.Items.Clear()
         ComboBox24.Items.Clear()
+        ComboBox39.ResetText()
+        ComboBox24.ResetText()
         TextBox24.Clear()
         TextBox49.Clear()
         ComboBox9.Items.Clear()
-
+        ComboBox9.ResetText()
         AddFacultyName(TextBox10.Text, TextBox37)
         AddRoom(TextBox10.Text, ComboBox39)
     End Sub
     Private Sub ComboBox39_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox39.SelectedIndexChanged
         ComboBox24.Items.Clear()
+        ComboBox24.ResetText()
         AddCourse(TextBox10.Text, ComboBox39.SelectedItem, ComboBox24)
         AddRemarks(ComboBox9)
 
@@ -394,15 +428,19 @@
     Private Sub TextBox13_TextChanged(sender As Object, e As EventArgs) Handles TextBox13.TextChanged
         ComboBox42.Items.Clear()
         ComboBox27.Items.Clear()
+        ComboBox42.ResetText()
+        ComboBox27.ResetText()
         TextBox27.Clear()
         TextBox48.Clear()
         ComboBox12.Items.Clear()
+        ComboBox12.ResetText()
 
         AddFacultyName(TextBox13.Text, TextBox36)
         AddRoom(TextBox13.Text, ComboBox42)
     End Sub
     Private Sub ComboBox42_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox42.SelectedIndexChanged
         ComboBox27.Items.Clear()
+        ComboBox27.ResetText()
         AddCourse(TextBox13.Text, ComboBox42.SelectedItem, ComboBox27)
         AddRemarks(ComboBox12)
 
@@ -416,15 +454,19 @@
     Private Sub TextBox12_TextChanged(sender As Object, e As EventArgs) Handles TextBox12.TextChanged
         ComboBox41.Items.Clear()
         ComboBox26.Items.Clear()
+        ComboBox41.ResetText()
+        ComboBox26.ResetText()
         TextBox26.Clear()
         TextBox47.Clear()
         ComboBox11.Items.Clear()
+        ComboBox11.ResetText()
 
         AddFacultyName(TextBox12.Text, TextBox35)
         AddRoom(TextBox12.Text, ComboBox41)
     End Sub
     Private Sub ComboBox41_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox41.SelectedIndexChanged
         ComboBox26.Items.Clear()
+        ComboBox26.ResetText()
         AddCourse(TextBox12.Text, ComboBox41.SelectedItem, ComboBox26)
         AddRemarks(ComboBox11)
 
@@ -438,6 +480,8 @@
     Private Sub TextBox15_TextChanged(sender As Object, e As EventArgs) Handles TextBox15.TextChanged
         ComboBox44.Items.Clear()
         ComboBox29.Items.Clear()
+        ComboBox44.ResetText()
+        ComboBox29.ResetText()
         TextBox29.Clear()
         TextBox33.Clear()
         ComboBox14.Items.Clear()
@@ -447,6 +491,7 @@
     End Sub
     Private Sub ComboBox44_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox44.SelectedIndexChanged
         ComboBox29.Items.Clear()
+        ComboBox29.ResetText()
         AddCourse(TextBox15.Text, ComboBox44.SelectedItem, ComboBox29)
         AddRemarks(ComboBox14)
 
@@ -459,15 +504,19 @@
     Private Sub TextBox14_TextChanged(sender As Object, e As EventArgs) Handles TextBox14.TextChanged
         ComboBox43.Items.Clear()
         ComboBox28.Items.Clear()
+        ComboBox43.ResetText()
+        ComboBox28.ResetText()
         TextBox28.Clear()
         TextBox17.Clear()
         ComboBox13.Items.Clear()
+        ComboBox13.ResetText()
 
         AddFacultyName(TextBox14.Text, TextBox32)
         AddRoom(TextBox14.Text, ComboBox43)
     End Sub
     Private Sub ComboBox43_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox43.SelectedIndexChanged
         ComboBox28.Items.Clear()
+        ComboBox28.ResetText()
         AddCourse(TextBox14.Text, ComboBox43.SelectedItem, ComboBox28)
         AddRemarks(ComboBox13)
 
@@ -481,15 +530,19 @@
     Private Sub TextBox16_TextChanged(sender As Object, e As EventArgs) Handles TextBox16.TextChanged
         ComboBox45.Items.Clear()
         ComboBox30.Items.Clear()
+        ComboBox45.ResetText()
+        ComboBox30.ResetText()
         TextBox30.Clear()
         TextBox1.Clear()
         ComboBox15.Items.Clear()
+        ComboBox15.ResetText()
 
         AddFacultyName(TextBox16.Text, TextBox31)
         AddRoom(TextBox16.Text, ComboBox43)
     End Sub
     Private Sub ComboBox45_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox45.SelectedIndexChanged
         ComboBox30.Items.Clear()
+        ComboBox30.ResetText()
         AddCourse(TextBox16.Text, ComboBox45.SelectedItem, ComboBox30)
         AddRemarks(ComboBox15)
     End Sub
