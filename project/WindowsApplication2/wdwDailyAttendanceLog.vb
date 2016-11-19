@@ -134,7 +134,8 @@
         Course = dbAccess.getStringData("Select course_cd from course c, courseoffering o 
                                     where c.course_id = o.course_id and ((course_cd LIKE '" + Search.ToString + "') or (course_name LIKE '" + Search.ToString + "') or (section LIKE '" + Search.ToString + "') or (room LIKE '" + Search.ToString + "'))", "course_cd")
 
-        If FacultyID <> Nothing Then
+
+        If FacultyID <> Nothing And SearchText.Text <> Nothing Then
             dbAccess.fillDataGrid("Select facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', email 'Email', mobilenumber 'Mobile Number', departmentname 'Department' 
                                     from faculty f, department d 
                                     where f.departmentid = d.departmentid and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + SearchText.Text + "') or (f_lastname LIKE '" + Search.ToString + "'))", grid)
@@ -149,7 +150,7 @@
             End If
 
 
-        Else
+        ElseIf SearchText.Text <> Nothing Then
             dbAccess.fillDataGrid("Select f.facultyid 'Faculty ID', concat(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) 'Name', c.course_cd 'Course Code', c.course_name 'Course Name', o.section 'Section', o.room 'Room', o.daysched 'Day Schedule', o.timestart 'Time Start', o.timeend 'Time End', o.status 'Status'
                                     from faculty f, course c, courseoffering o
                                     where f.facref_no = o.facref_no and c.course_id = o.course_id and ((course_cd = '" + Search.ToString + "') or (course_name LIKE '" + Search.ToString + "') or (section = '" + Search.ToString + "') or (room LIKE '" + Search.ToString + "'))", grid)
@@ -261,4 +262,5 @@
             Next
         End If
     End Sub
+
 End Class
