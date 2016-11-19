@@ -46,7 +46,22 @@
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
+        Dim value As Integer = e.RowIndex
+        Dim selectedRow As DataGridViewRow
+        Dim DeptValue As String
 
+
+        selectedRow = grid.Rows(value)
+        If IsDBNull(value) Then
+            txtbxFacultyID.Text = Nothing
+
+        Else
+            txtbxFacultyID.Text = selectedRow.Cells("Faculty ID").Value.ToString
+            txtbxFacultyName.Text = selectedRow.Cells("Name").Value.ToString
+            DeptValue = dbAccess.getStringData("Select departmentname from department, faculty where facultyid = '" + txtbxFacultyID.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
+            txtbxDepartment.Text = DeptValue.ToString
+
+        End If
     End Sub
 
     Private Sub Label6_Click(sender As Object, e As EventArgs)
