@@ -28,7 +28,9 @@
         Dim arrayCourse As String() = Array.CreateInstance(GetType(String), 0)
         Dim fac As String = ""
         Dim currentdate As Date
+        Dim result As Integer
         currentdate = DateTime.Now.Date
+        result = DateTime.Compare(inputdate, currentdate)
 
         courseid = ""
         courseofferingid = ""
@@ -41,18 +43,21 @@
             section = arrayCourse(1)
         End If
 
-        If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark)) Then
-            'MsgBox("Incomplete Information on row " + row + "!")
+        If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark) Or String.IsNullOrEmpty(checker)) Then
+            'MsgBox("Incomplete Information on row " + row + "!") 
+        ElseIf result > 0 Then
+            MsgBox("ERROR: Absent Date is earlier than the current date!")
         Else
             courseid = dbAccess.getStringData("SELECT course_id FROM course WHERE course_cd ='" & coursecode & "';", "course_id")
             fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
             courseofferingid = dbAccess.getStringData("select courseoffering_id from courseoffering  where course_id = " & courseid & " and facref_no = '" & fac & "' and status = 'A' and section = '" & section & "';", "courseoffering_id")
-            If (checkEntry(inputdate.ToString("yyyy-MM-dd"), courseofferingid, remark, currentdate.ToString("yyyy-MM-dd"), encoder, checker, "A", stat) = True) Then
+            If (checkEntry(inputdate.ToString("yyyy-MM-dd"), courseofferingid, "A") = True) Then
                 dbAccess.addData("INSERT INTO `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) VALUES('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
             End If
 
         End If
-        text.Clear()
+        ' text.Clear()
+        Me.Close()
 
     End Sub
     Private Sub AddCourse(facultyid As String, room As String, ByVal combo As ComboBox)
@@ -141,15 +146,15 @@
                                 where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & wdwDailyAttendanceLog.dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
                                 order by 3, 12;", wdwDailyAttendanceLog.grid)
     End Sub
-    Private Function checkEntry(absent As String, courseofferingid As String, remarks As String, enc_date As String, encoder As String, checker As String, stat As String, rep_stat As String) As Boolean
+    Private Function checkEntry(absent As String, courseofferingid As String, stat As String) As Boolean
         '
         Dim att As String = ""
         Dim b As Boolean = False
-        att = dbAccess.getStringData("select attendanceid from attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and enc_date = '" & enc_date & "' and encoder = '" & encoder & "' and checker = '" & checker & "' and status = '" & stat & "' and report_status = '" & rep_stat & "';", "attendanceid")
+        att = dbAccess.getStringData("select attendanceid from attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
         If String.IsNullOrEmpty(att) Then
             b = True
         Else
-            MsgBox("Attendance is already in the system!")
+            MsgBox("ERROR: Duplicate Attendance!")
         End If
         Return b
     End Function
@@ -485,6 +490,7 @@
         TextBox29.Clear()
         TextBox33.Clear()
         ComboBox14.Items.Clear()
+        ComboBox14.ResetText()
 
         AddFacultyName(TextBox15.Text, TextBox34)
         AddRoom(TextBox15.Text, ComboBox44)
@@ -538,7 +544,7 @@
         ComboBox15.ResetText()
 
         AddFacultyName(TextBox16.Text, TextBox31)
-        AddRoom(TextBox16.Text, ComboBox43)
+        AddRoom(TextBox16.Text, ComboBox45)
     End Sub
     Private Sub ComboBox45_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox45.SelectedIndexChanged
         ComboBox30.Items.Clear()

@@ -166,4 +166,8 @@
             Next
         End If
     End Sub
+
+    Private Sub dtp_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
+        Load_form()
+    End Sub
 End Class
