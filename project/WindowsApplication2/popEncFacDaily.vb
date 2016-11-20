@@ -57,7 +57,7 @@
 
         End If
         ' text.Clear()
-        Me.Close()
+        ' Me.Close()
 
     End Sub
     Private Sub AddCourse(facultyid As String, room As String, ByVal combo As ComboBox)
@@ -145,6 +145,7 @@
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
                                 where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & wdwDailyAttendanceLog.dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
                                 order by 3, 12;", wdwDailyAttendanceLog.grid)
+        Me.Close()
     End Sub
     Private Function checkEntry(absent As String, courseofferingid As String, stat As String) As Boolean
         '

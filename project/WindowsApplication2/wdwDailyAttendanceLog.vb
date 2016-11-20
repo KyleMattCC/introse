@@ -12,15 +12,20 @@
     End Sub
 
     Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
-        If String.IsNullOrEmpty(RData(0)) Then
-            MsgBox("No selected attendance")
-        Else
+        Try
+            If String.IsNullOrEmpty(RData(0)) Then
+                MsgBox("No selected attendance")
+            Else
 
-            dbAccess.updateData("UPDATE `attendance` SET `status` = 'D' WHERE `attendanceid` = '" & RData(0) & "';")
-            Load_form()
+                dbAccess.updateData("UPDATE `attendance` SET `status` = 'D' WHERE `attendanceid` = '" & RData(0) & "';")
+                Load_form()
 
 
-        End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
     End Sub
 
     Private Sub Modify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
@@ -154,28 +159,33 @@
         Dim Temp As New List(Of String)
         Dim i, j As Integer
 
-        i = grid.CurrentRow.Index
-        j = grid.ColumnCount
+        Try
+            i = grid.CurrentRow.Index
+            j = grid.ColumnCount
 
-        For k As Integer = 0 To j - 1
-            If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
-                MsgBox("Missing data!")
-                Temp.Add(grid.Item(k, i).Value.ToString)
+            For k As Integer = 0 To j - 1
+                If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
+                    MsgBox("Missing data!")
+                    Temp.Add(grid.Item(k, i).Value.ToString)
+                Else
+                    Temp.Add(grid.Item(k, i).Value.ToString)
+
+                End If
+            Next
+
+            If (RData.Count = 0) Then
+                For k As Integer = 0 To Temp.Count - 1
+                    RData.Add(Temp(k))
+                Next
             Else
-                Temp.Add(grid.Item(k, i).Value.ToString)
-
+                For k As Integer = 0 To Temp.Count - 1
+                    RData(k) = Temp(k)
+                Next
             End If
-        Next
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
-        If (RData.Count = 0) Then
-            For k As Integer = 0 To Temp.Count - 1
-                RData.Add(Temp(k))
-            Next
-        Else
-            For k As Integer = 0 To Temp.Count - 1
-                RData(k) = Temp(k)
-            Next
-        End If
     End Sub
 
     Public Sub Enable_Form()
@@ -192,27 +202,32 @@
         Dim Temp As New List(Of String)
         Dim i, j As Integer
 
-        i = grid.CurrentRow.Index
-        j = grid.ColumnCount
+        Try
+            i = grid.CurrentRow.Index
+            j = grid.ColumnCount
 
-        For k As Integer = 0 To j - 1
-            If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
-                MsgBox("Missing data!")
-                Temp.Add(grid.Item(k, i).Value.ToString)
+            For k As Integer = 0 To j - 1
+                If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
+                    MsgBox("Missing data!")
+                    Temp.Add(grid.Item(k, i).Value.ToString)
+                Else
+                    Temp.Add(grid.Item(k, i).Value.ToString)
+
+                End If
+            Next
+
+            If (RData.Count = 0) Then
+                For k As Integer = 0 To Temp.Count - 1
+                    RData.Add(Temp(k))
+                Next
             Else
-                Temp.Add(grid.Item(k, i).Value.ToString)
-
+                For k As Integer = 0 To Temp.Count - 1
+                    RData(k) = Temp(k)
+                Next
             End If
-        Next
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
-        If (RData.Count = 0) Then
-            For k As Integer = 0 To Temp.Count - 1
-                RData.Add(Temp(k))
-            Next
-        Else
-            For k As Integer = 0 To Temp.Count - 1
-                RData(k) = Temp(k)
-            Next
-        End If
     End Sub
 End Class
