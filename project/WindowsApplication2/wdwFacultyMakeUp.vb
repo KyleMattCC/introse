@@ -50,28 +50,33 @@
         Dim Temp As New List(Of String)
         Dim i, j As Integer
 
-        i = grid.CurrentRow.Index
-        j = grid.ColumnCount
+        Try
+            i = grid.CurrentRow.Index
+            j = grid.ColumnCount
 
-        For k As Integer = 0 To j - 1
-            If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
-                MsgBox("Missing data!")
-                Temp.Add(grid.Item(k, i).Value.ToString)
+            For k As Integer = 0 To j - 1
+                If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
+                    MsgBox("Missing data!")
+                    Temp.Add(grid.Item(k, i).Value.ToString)
+                Else
+                    Temp.Add(grid.Item(k, i).Value.ToString)
+
+                End If
+            Next
+
+            If (RData.Count = 0) Then
+                For k As Integer = 0 To Temp.Count - 1
+                    RData.Add(Temp(k))
+                Next
             Else
-                Temp.Add(grid.Item(k, i).Value.ToString)
-
+                For k As Integer = 0 To Temp.Count - 1
+                    RData(k) = Temp(k)
+                Next
             End If
-        Next
+        Catch ex As Exception
 
-        If (RData.Count = 0) Then
-            For k As Integer = 0 To Temp.Count - 1
-                RData.Add(Temp(k))
-            Next
-        Else
-            For k As Integer = 0 To Temp.Count - 1
-                RData(k) = Temp(k)
-            Next
-        End If
+        End Try
+
     End Sub
 
     Private Sub Label6_Click(sender As Object, e As EventArgs)
@@ -83,23 +88,27 @@
     End Sub
 
     Private Sub Modify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
-        If RData.Count > 0 Then
-            Dim reason_cd As List(Of String) = dbAccess.getMultipleData("SELECT reason_desc FROM reason;", "reason_desc")
+        Try
+            If RData.Count > 0 Then
+                Dim reason_cd As List(Of String) = dbAccess.getMultipleData("SELECT reason_desc FROM reason;", "reason_desc")
 
-            For j As Integer = 0 To reason_cd.Count - 1
-                popModMakeup.cmbReason.Items.Add(reason_cd(j))
-            Next
-            popModMakeup.dtpMakeUpDate.Value = RData(6)
-            popModMakeup.txtFacName.Text = RData(3)
-            popModMakeup.txtFacID.Text = RData(2)
-            popModMakeup.cmbbxCourse.Items.Add(RData(4))
-            popModMakeup.cmbbxSection.Items.Add(RData(5))
-            popModMakeup.txtbxRoom.Text = RData(9)
-            popModMakeup.txtbxStart.Text = RData(7)
-            popModMakeup.txtbxEnd.Text = RData(8)
-            popModMakeup.txtbxEncoder.Text = RData(12)
+                For j As Integer = 0 To reason_cd.Count - 1
+                    popModMakeup.cmbReason.Items.Add(reason_cd(j))
+                Next
+                popModMakeup.dtpMakeUpDate.Value = RData(6)
+                popModMakeup.txtFacName.Text = RData(3)
+                popModMakeup.txtFacID.Text = RData(2)
+                popModMakeup.cmbbxCourse.Items.Add(RData(4))
+                popModMakeup.cmbbxSection.Items.Add(RData(5))
+                popModMakeup.txtbxRoom.Text = RData(9)
+                popModMakeup.txtbxStart.Text = RData(7)
+                popModMakeup.txtbxEnd.Text = RData(8)
+                popModMakeup.txtbxEncoder.Text = RData(12)
 
-        End If
+            End If
+        Catch ex As Exception
+
+        End Try
         Me.Enabled = False
         popModMakeup.Show()
     End Sub
@@ -130,41 +139,50 @@
     End Sub
 
     Private Sub bttnDelete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
-        If String.IsNullOrEmpty(RData(0)) Then
-            MsgBox("No selected attendance")
-        Else
-            dbAccess.updateData("UPDATE `makeup` SET `status` = 'D' WHERE `makeupid` = '" & RData(0) & "';")
-            Load_form()
-        End If
+        Try
+            If String.IsNullOrEmpty(RData(0)) Then
+                MsgBox("No selected attendance")
+            Else
+                dbAccess.updateData("UPDATE `makeup` SET `status` = 'D' WHERE `makeupid` = '" & RData(0) & "';")
+                Load_form()
+            End If
 
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub grid_MouseClick(sender As Object, e As MouseEventArgs) Handles grid.MouseClick
         Dim Temp As New List(Of String)
         Dim i, j As Integer
+        Try
 
-        i = grid.CurrentRow.Index
-        j = grid.ColumnCount
+            i = grid.CurrentRow.Index
+            j = grid.ColumnCount
 
-        For k As Integer = 0 To j - 1
-            If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
-                MsgBox("Missing data!")
-                Temp.Add(grid.Item(k, i).Value.ToString)
+            For k As Integer = 0 To j - 1
+                If String.IsNullOrEmpty(grid.Item(k, i).Value.ToString) Then
+                    MsgBox("Missing data!")
+                    Temp.Add(grid.Item(k, i).Value.ToString)
+                Else
+                    Temp.Add(grid.Item(k, i).Value.ToString)
+
+                End If
+            Next
+
+            If (RData.Count = 0) Then
+                For k As Integer = 0 To Temp.Count - 1
+                    RData.Add(Temp(k))
+                Next
             Else
-                Temp.Add(grid.Item(k, i).Value.ToString)
-
+                For k As Integer = 0 To Temp.Count - 1
+                    RData(k) = Temp(k)
+                Next
             End If
-        Next
 
-        If (RData.Count = 0) Then
-            For k As Integer = 0 To Temp.Count - 1
-                RData.Add(Temp(k))
-            Next
-        Else
-            For k As Integer = 0 To Temp.Count - 1
-                RData(k) = Temp(k)
-            Next
-        End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub dtp_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged

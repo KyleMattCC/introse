@@ -16,14 +16,13 @@
             If String.IsNullOrEmpty(RData(0)) Then
                 MsgBox("No selected attendance")
             Else
-
                 dbAccess.updateData("UPDATE `attendance` SET `status` = 'D' WHERE `attendanceid` = '" & RData(0) & "';")
                 Load_form()
 
 
             End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("ERROR: No Selected Attendance!")
         End Try
 
     End Sub
@@ -34,50 +33,55 @@
         Dim remarks As List(Of String)
         Dim arrayCourse As String() = Array.CreateInstance(GetType(String), 0)
 
-        remarks = dbAccess.getMultipleData("SELECT remark_cd FROM remarks;", "remark_cd")
+        Try
+            remarks = dbAccess.getMultipleData("SELECT remark_cd FROM remarks;", "remark_cd")
 
-        If RData.Count > 0 Then
-            If String.IsNullOrEmpty(RData(3)) Then
-                wdwModFacultyDaily.txtbxFacID.Text = RData(1) ' fid
-                wdwModFacultyDaily.txtbxName.Text = RData(2) ' name
-                wdwModFacultyDaily.cmbbxCourse.Items.Add(RData(4)) ' course
-                For i As Integer = 0 To remarks.Count - 1
-                    wdwModFacultyDaily.cmbbxRemarks.Items.Add(remarks(i))
-                Next
-                wdwModFacultyDaily.cmbbxSection.Items.Add(RData(5)) ' section
+            If RData.Count > 0 Then
+                If String.IsNullOrEmpty(RData(3)) Then
+                    wdwModFacultyDaily.txtbxFacID.Text = RData(1) ' fid
+                    wdwModFacultyDaily.txtbxName.Text = RData(2) ' name
+                    wdwModFacultyDaily.cmbbxCourse.Items.Add(RData(4)) ' course
+                    For i As Integer = 0 To remarks.Count - 1
+                        wdwModFacultyDaily.cmbbxRemarks.Items.Add(remarks(i))
+                    Next
+                    wdwModFacultyDaily.cmbbxSection.Items.Add(RData(5)) ' section
 
-                wdwModFacultyDaily.txtbxRoom.Text = RData(6) ' room
-                wdwModFacultyDaily.txtbxDay.Text = RData(7)
-                wdwModFacultyDaily.txtbxStart.Text = RData(8) 'start
-                wdwModFacultyDaily.txtbxEnd.Text = RData(9) ' end
-                wdwModFacultyDaily.txtbxEncoder.Text = RData(12) ' encoder
-            Else
-                convertedDate = Convert.ToDateTime(RData(3))
-                day = convertedDate.Day.ToString()
-                month = convertedDate.Month.ToString()
-                year = convertedDate.Year.ToString()
+                    wdwModFacultyDaily.txtbxRoom.Text = RData(6) ' room
+                    wdwModFacultyDaily.txtbxDay.Text = RData(7)
+                    wdwModFacultyDaily.txtbxStart.Text = RData(8) 'start
+                    wdwModFacultyDaily.txtbxEnd.Text = RData(9) ' end
+                    wdwModFacultyDaily.txtbxEncoder.Text = RData(12) ' encoder
+                Else
+                    convertedDate = Convert.ToDateTime(RData(3))
+                    day = convertedDate.Day.ToString()
+                    month = convertedDate.Month.ToString()
+                    year = convertedDate.Year.ToString()
 
 
-                wdwModFacultyDaily.txtbxFacID.Text = RData(1) ' fid
-                wdwModFacultyDaily.txtbxName.Text = RData(2) ' name
-                wdwModFacultyDaily.cmbbxCourse.Items.Add(RData(4)) ' course
-                For i As Integer = 0 To remarks.Count - 1
-                    wdwModFacultyDaily.cmbbxRemarks.Items.Add(remarks(i))
-                Next
-                wdwModFacultyDaily.cmbbxSection.Items.Add(RData(5)) ' section
+                    wdwModFacultyDaily.txtbxFacID.Text = RData(1) ' fid
+                    wdwModFacultyDaily.txtbxName.Text = RData(2) ' name
+                    wdwModFacultyDaily.cmbbxCourse.Items.Add(RData(4)) ' course
+                    For i As Integer = 0 To remarks.Count - 1
+                        wdwModFacultyDaily.cmbbxRemarks.Items.Add(remarks(i))
+                    Next
+                    wdwModFacultyDaily.cmbbxSection.Items.Add(RData(5)) ' section
 
-                wdwModFacultyDaily.txtbxRoom.Text = RData(6) ' room
-                wdwModFacultyDaily.txtbxDay.Text = RData(7)
-                wdwModFacultyDaily.txtbxStart.Text = RData(8) 'start
-                wdwModFacultyDaily.txtbxEnd.Text = RData(9) ' end
-                wdwModFacultyDaily.txtbxEncoder.Text = RData(12) ' encoder
-                wdwModFacultyDaily.dtp.Value = New Date(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day))
+                    wdwModFacultyDaily.txtbxRoom.Text = RData(6) ' room
+                    wdwModFacultyDaily.txtbxDay.Text = RData(7)
+                    wdwModFacultyDaily.txtbxStart.Text = RData(8) 'start
+                    wdwModFacultyDaily.txtbxEnd.Text = RData(9) ' end
+                    wdwModFacultyDaily.txtbxEncoder.Text = RData(12) ' encoder
+                    wdwModFacultyDaily.dtp.Value = New Date(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day))
 
+                End If
             End If
-        End If
-        ' wdwModFacultyDaily.Show()
-        Me.Enabled = False
-        wdwModFacultyDaily.Show()
+            ' wdwModFacultyDaily.Show()
+            Me.Enabled = False
+            wdwModFacultyDaily.Show()
+        Catch ex As Exception
+
+        End Try
+
 
     End Sub
 

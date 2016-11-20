@@ -3,21 +3,31 @@
     Private Sub AddRoom(facultyid As String, ByVal combo As ComboBox)
         Dim room As New List(Of String)()
         Dim fac As String = ""
-        fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-        room = dbAccess.getMultipleData("SELECT DISTINCT(room) FROM courseoffering Where facref_no = '" & fac & "' AND status = 'A';", "room")
+        Try
+            fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
+            room = dbAccess.getMultipleData("SELECT DISTINCT(room) FROM courseoffering Where facref_no = '" & fac & "' AND status = 'A';", "room")
 
-        For j As Integer = 0 To room.Count - 1
-            combo.Items.Add(room(j))
-        Next
+            For j As Integer = 0 To room.Count - 1
+                combo.Items.Add(room(j))
+            Next
+        Catch ex As Exception
+
+        End Try
+
 
     End Sub
     Private Sub AddRemarks(ByVal combo As ComboBox)
         Dim remarks As New List(Of String)()
-        remarks = dbAccess.getMultipleData("SELECT remark_cd FROM remarks;", "remark_cd")
+        Try
+            remarks = dbAccess.getMultipleData("SELECT remark_cd FROM remarks;", "remark_cd")
 
-        For j As Integer = 0 To remarks.Count - 1
-            combo.Items.Add(remarks(j))
-        Next
+            For j As Integer = 0 To remarks.Count - 1
+                combo.Items.Add(remarks(j))
+            Next
+
+        Catch ex As Exception
+
+        End Try
 
     End Sub
     Private Sub SetAttendance(facultyid As String, course As String, remark As String, inputdate As Date, encoder As String, checker As String, ByVal text As TextBox, ByVal combo As ComboBox, row As String, stat As String)
@@ -29,48 +39,58 @@
         Dim fac As String = ""
         Dim currentdate As Date
         Dim result As Integer
-        currentdate = DateTime.Now.Date
-        result = DateTime.Compare(inputdate, currentdate)
+        Try
+            currentdate = DateTime.Now.Date
+            result = DateTime.Compare(inputdate, currentdate)
 
-        courseid = ""
-        courseofferingid = ""
-        coursecode = ""
-        section = ""
-        If (String.IsNullOrEmpty(course)) Then
-        Else
-            arrayCourse = course.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
-            coursecode = arrayCourse(0)
-            section = arrayCourse(1)
-        End If
-
-        If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark) Or String.IsNullOrEmpty(checker)) Then
-            'MsgBox("Incomplete Information on row " + row + "!") 
-        ElseIf result > 0 Then
-            MsgBox("ERROR: Absent Date is earlier than the current date!")
-        Else
-            courseid = dbAccess.getStringData("SELECT course_id FROM course WHERE course_cd ='" & coursecode & "';", "course_id")
-            fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            courseofferingid = dbAccess.getStringData("select courseoffering_id from courseoffering  where course_id = " & courseid & " and facref_no = '" & fac & "' and status = 'A' and section = '" & section & "';", "courseoffering_id")
-            If (checkEntry(inputdate.ToString("yyyy-MM-dd"), courseofferingid, "A") = True) Then
-                dbAccess.addData("INSERT INTO `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) VALUES('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
+            courseid = ""
+            courseofferingid = ""
+            coursecode = ""
+            section = ""
+            If (String.IsNullOrEmpty(course)) Then
+            Else
+                arrayCourse = course.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
+                coursecode = arrayCourse(0)
+                section = arrayCourse(1)
             End If
 
-        End If
-        ' text.Clear()
-        ' Me.Close()
+            If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark) Or String.IsNullOrEmpty(checker)) Then
+                'MsgBox("Incomplete Information on row " + row + "!") 
+            ElseIf result > 0 Then
+                MsgBox("ERROR: Absent Date is earlier than the current date!")
+            Else
+                courseid = dbAccess.getStringData("SELECT course_id FROM course WHERE course_cd ='" & coursecode & "';", "course_id")
+                fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
+                courseofferingid = dbAccess.getStringData("select courseoffering_id from courseoffering  where course_id = " & courseid & " and facref_no = '" & fac & "' and status = 'A' and section = '" & section & "';", "courseoffering_id")
+                If (checkEntry(inputdate.ToString("yyyy-MM-dd"), courseofferingid, "A") = True) Then
+                    dbAccess.addData("INSERT INTO `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) VALUES('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
+                End If
+
+            End If
+            ' text.Clear()
+            ' Me.Close()
+
+        Catch ex As Exception
+
+        End Try
 
     End Sub
     Private Sub AddCourse(facultyid As String, room As String, ByVal combo As ComboBox)
         Dim coursecode As New List(Of String)()
         Dim section As New List(Of String)()
         Dim fac As String = ""
-        fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-        coursecode = dbAccess.getMultipleData("SELECT c.course_cd FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.room = '" & room & "' AND co.course_id = c.course_id;", "course_cd")
-        section = dbAccess.getMultipleData("SELECT co.section FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.room = '" & room & "' AND co.course_id = c.course_id;", "section")
+        Try
+            fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
+            coursecode = dbAccess.getMultipleData("SELECT c.course_cd FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.room = '" & room & "' AND co.course_id = c.course_id;", "course_cd")
+            section = dbAccess.getMultipleData("SELECT co.section FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.room = '" & room & "' AND co.course_id = c.course_id;", "section")
 
-        For j As Integer = 0 To coursecode.Count - 1
-            combo.Items.Add(coursecode(j) & " " & section(j))
-        Next
+            For j As Integer = 0 To coursecode.Count - 1
+                combo.Items.Add(coursecode(j) & " " & section(j))
+            Next
+        Catch ex As Exception
+
+        End Try
+
 
     End Sub
     Private Sub AddTime(facultyid As String, room As String, course As String, ByVal TimeStart As TextBox, ByVal TimeEnd As TextBox)
@@ -88,19 +108,24 @@
         section = ""
 
         Dim arrayCourse As String() = Array.CreateInstance(GetType(String), 0)
-        If (String.IsNullOrEmpty(course)) Then
-        Else
-            arrayCourse = course.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
-            coursecode = arrayCourse(0)
-            section = arrayCourse(1)
-        End If
+        Try
+            If (String.IsNullOrEmpty(course)) Then
+            Else
+                arrayCourse = course.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
+                coursecode = arrayCourse(0)
+                section = arrayCourse(1)
+            End If
 
-        fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-        courseid = Convert.ToInt32(dbAccess.getStringData("SELECT course_id FROM course WHERE course_cd ='" & coursecode & "';", "course_id"))
-        starttime = dbAccess.getStringData("SELECT timestart FROM courseoffering WHERE course_id = '" & courseid & "' AND room = '" & room & "' AND facref_no = '" & fac & "' AND section = '" & section & "' AND status = 'A';", "timestart")
-        endtime = dbAccess.getStringData("SELECT timeend FROM courseoffering WHERE course_id = '" & courseid & "' AND room = '" & room & "' AND facref_no = '" & fac & "' AND section = '" & section & "' AND status = 'A';", "timeend")
-        TimeStart.Text = starttime
-        TimeEnd.Text = endtime
+            fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
+            courseid = Convert.ToInt32(dbAccess.getStringData("SELECT course_id FROM course WHERE course_cd ='" & coursecode & "';", "course_id"))
+            starttime = dbAccess.getStringData("SELECT timestart FROM courseoffering WHERE course_id = '" & courseid & "' AND room = '" & room & "' AND facref_no = '" & fac & "' AND section = '" & section & "' AND status = 'A';", "timestart")
+            endtime = dbAccess.getStringData("SELECT timeend FROM courseoffering WHERE course_id = '" & courseid & "' AND room = '" & room & "' AND facref_no = '" & fac & "' AND section = '" & section & "' AND status = 'A';", "timeend")
+            TimeStart.Text = starttime
+            TimeEnd.Text = endtime
+
+        Catch ex As Exception
+
+        End Try
 
     End Sub
     Private Sub AddFacultyName(facultyid As String, ByVal text As TextBox)
@@ -113,12 +138,16 @@
         fname = ""
         MI = ""
         lname = ""
+        Try
+            fname = dbAccess.getStringData("Select f_firstname from faculty where facultyid = '" & facultyid & "';", "f_firstname")
+            MI = dbAccess.getStringData("Select f_middlename from faculty where facultyid = '" & facultyid & "';", "f_middlename")
+            lname = dbAccess.getStringData("Select f_lastname from faculty where facultyid = '" & facultyid & "';", "f_lastname")
 
-        fname = dbAccess.getStringData("Select f_firstname from faculty where facultyid = '" & facultyid & "';", "f_firstname")
-        MI = dbAccess.getStringData("Select f_middlename from faculty where facultyid = '" & facultyid & "';", "f_middlename")
-        lname = dbAccess.getStringData("Select f_lastname from faculty where facultyid = '" & facultyid & "';", "f_lastname")
+            text.Text = fname + " " + MI + " " + lname
 
-        text.Text = fname + " " + MI + " " + lname
+        Catch ex As Exception
+
+        End Try
 
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
