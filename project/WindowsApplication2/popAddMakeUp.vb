@@ -22,13 +22,12 @@
         End Try
 
     End Sub
-    Private Sub AddCourse(facultyid As String, absentDate As String, ByVal combo As ComboBox)
+    Private Sub AddCourse(facultyid As String, ByVal combo As ComboBox)
         Dim coursecode As New List(Of String)()
         Dim fac As String = ""
         Try
             fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.getMultipleData("SELECT Distinct(c.course_cd) FROM introse.attendance as a, introse.courseoffering as co, introse.course as c where co.course_id = c.course_id and a.courseoffering_id = co.courseoffering_id and a.remarks_cd = 'AB' and co.facref_no = '" & fac & "' and a.absent_date = '" & absentDate & "' and a.status = 'A';
-", "course_cd")
+            coursecode = dbAccess.getMultipleData("SELECT Distinct(c.course_cd) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.course_id = c.course_id;", "course_cd")
 
             For j As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(j))
@@ -39,13 +38,12 @@
 
         End Try
     End Sub
-    Private Sub AddSection(facultyid As String, absentDate As String, ByVal combo As ComboBox)
+    Private Sub AddSection(facultyid As String, ByVal combo As ComboBox)
         Dim section As New List(Of String)()
         Dim fac As String = ""
         Try
             fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            section = dbAccess.getMultipleData("SELECT Distinct(co.section) FROM introse.attendance as a, introse.courseoffering as co, introse.course as c where co.course_id = c.course_id and a.courseoffering_id = co.courseoffering_id and a.remarks_cd = 'AB' and co.facref_no = '" & fac & "' and a.absent_date = '" & absentDate & "' and a.status = 'A';
-", "section")
+            section = dbAccess.getMultipleData("SELECT Distinct(co.section) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.course_id = c.course_id;", "section")
 
             For j As Integer = 0 To section.Count - 1
 
@@ -162,7 +160,7 @@ VALUES ('" & courseoffering_id & "', '" & absentdate.ToString("yyyy-MM-dd") & "'
         txtEnd.Clear()
         AddFacultyName(txtbxFacID.Text, txtbxFacName)
         'MsgBox(dtpAbsent.Value.Date.ToString("yyyy-MM-dd"))
-        AddCourse(txtbxFacID.Text, dtpAbsent.Value.Date.ToString("yyyy-MM-dd"), cmbbxCourse)
+        AddCourse(txtbxFacID.Text, cmbbxCourse)
     End Sub
 
     Private Sub cmbbxReason_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxReason.SelectedIndexChanged
@@ -170,7 +168,7 @@ VALUES ('" & courseoffering_id & "', '" & absentdate.ToString("yyyy-MM-dd") & "'
     End Sub
 
     Private Sub cmbbxCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxCourse.SelectedIndexChanged
-        AddSection(txtbxFacID.Text, dtpAbsent.Value.Date.ToString("yyyy-MM-dd"), cmbbxSec)
+        AddSection(txtbxFacID.Text, cmbbxSec)
     End Sub
     Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
         If Not (Asc(e.KeyChar) = 8) Then
@@ -204,16 +202,16 @@ VALUES ('" & courseoffering_id & "', '" & absentdate.ToString("yyyy-MM-dd") & "'
     End Sub
 
     Private Sub dtpAbsent_ValueChanged(sender As Object, e As EventArgs) Handles dtpAbsent.ValueChanged
-        cmbbxCourse.Items.Clear()
-        cmbbxSec.Items.Clear()
+        ' cmbbxCourse.Items.Clear()
+        'cmbbxSec.Items.Clear()
         ' cmbbxReason.Items.Clear()
         ' cmbbxReason.ResetText()
-        cmbbxCourse.ResetText()
-        cmbbxSec.ResetText()
+        ' cmbbxCourse.ResetText()
+        'cmbbxSec.ResetText()
         'txtEncoder.Clear()
         'txtRoom.Clear()
         'txtStart.Clear()
         'txtEnd.Clear()
-        AddCourse(txtbxFacID.Text, dtpAbsent.Value.Date.ToString("yyyy-MM-dd"), cmbbxCourse)
+        'AddCourse(txtbxFacID.Text, dtpAbsent.Value.Date.ToString("yyyy-MM-dd"), cmbbxCourse)
     End Sub
 End Class

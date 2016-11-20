@@ -81,8 +81,8 @@
         Dim fac As String = ""
         Try
             fac = dbAccess.getStringData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.getMultipleData("SELECT c.course_cd FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.room = '" & room & "' AND co.course_id = c.course_id;", "course_cd")
-            section = dbAccess.getMultipleData("SELECT co.section FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.room = '" & room & "' AND co.course_id = c.course_id;", "section")
+            coursecode = dbAccess.getMultipleData("SELECT DISTINCT(c.course_cd) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.room = '" & room & "' AND co.course_id = c.course_id;", "course_cd")
+            section = dbAccess.getMultipleData("SELECT DISTINCT(co.section) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.room = '" & room & "' AND co.course_id = c.course_id;", "section")
 
             For j As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(j) & " " & section(j))
