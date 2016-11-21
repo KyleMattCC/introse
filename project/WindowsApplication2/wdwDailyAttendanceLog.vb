@@ -92,7 +92,12 @@
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
 
-        Load_form()
+        If SearchText.Text = Nothing Then
+            Load_form()
+        Else
+            Search_Click(sender, e)
+        End If
+
 
     End Sub
 
@@ -103,11 +108,11 @@
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
                                 where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
                                 order by 3, 12;", grid)
-        If grid.Rows.Count <= 1 Then
+        If grid.Rows.Count < 1 Then
             FacultyIDText.Text = Nothing
             FacultyNameText.Text = Nothing
             DepartmentNameText.Text = Nothing
-        ElseIf grid.RowCount > 1 Then
+        ElseIf grid.RowCount >= 1 Then
             FacultyIDText.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
             FacultyNameText.Text = grid.Rows(0).Cells("Name").Value.ToString
             DeptValue = dbAccess.getStringData("Select departmentname from department, faculty where facultyid = '" + FacultyIDText.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
@@ -131,17 +136,19 @@
 
         FacultyID = dbAccess.getStringData("Select facultyid From faculty f, department d 
                                     Where f.departmentid = d.departmentid And ((facultyid Like '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "'))", "facultyid")
-        Course = dbAccess.getStringData("Select course_cd from course c, courseoffering o 
+        Course = dbAccess.getStringData("Select course_cd from course c, courseoffering o
                                     where c.course_id = o.course_id and ((course_cd LIKE '" + Search.ToString + "') or (course_name LIKE '" + Search.ToString + "') or (section LIKE '" + Search.ToString + "') or (room LIKE '" + Search.ToString + "'))", "course_cd")
 
         If FacultyID <> Nothing Then
-            dbAccess.fillDataGrid("Select facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', email 'Email', mobilenumber 'Mobile Number', departmentname 'Department' 
-                                    from faculty f, department d 
-                                    where f.departmentid = d.departmentid and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "'))", grid)
+            dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder'
+                                    from faculty f, department d , attendance a, courseoffering c, remarks r, course cl
+                                    where a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'and c.courseoffering_id = a.courseoffering_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and c.course_id = cl.course_id and a.status = 'A' and f.departmentid = d.departmentid and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "'))", grid)
 
-            If grid.Rows.Count = 1 Then
+            If grid.Rows.Count < 1 Then
                 FacultyIDText.Text = Nothing
-            ElseIf grid.RowCount > 1 Then
+                FacultyNameText.Text = Nothing
+                DepartmentNameText.Text = Nothing
+            ElseIf grid.RowCount >= 1 Then
                 FacultyIDText.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
                 FacultyNameText.Text = grid.Rows(0).Cells("Name").Value.ToString
                 DeptValue = dbAccess.getStringData("Select departmentname from department, faculty where facultyid = '" + FacultyIDText.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
@@ -150,16 +157,18 @@
 
 
         Else
-            dbAccess.fillDataGrid("Select f.facultyid 'Faculty ID', concat(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) 'Name', c.course_cd 'Course Code', c.course_name 'Course Name', o.section 'Section', o.room 'Room', o.daysched 'Day Schedule', o.timestart 'Time Start', o.timeend 'Time End', o.status 'Status'
-                                    from faculty f, course c, courseoffering o
-                                    where f.facref_no = o.facref_no and c.course_id = o.course_id and ((course_cd LIKE '" + Search.ToString + "') or (course_name LIKE '" + Search.ToString + "') or (section LIKE '" + Search.ToString + "') or (room LIKE '" + Search.ToString + "'))", grid)
-            If grid.Rows.Count = 1 Then
-                FacultyIDText.Text = Nothing
-            ElseIf grid.RowCount > 1 Then
+            dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder'
+                                    from faculty f, department d , attendance a, courseoffering c, remarks r, course cl
+                                    where a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'and c.courseoffering_id = a.courseoffering_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and c.course_id = cl.course_id and a.status = 'A' and f.departmentid = d.departmentid and ((cl.course_cd LIKE '" + Search.ToString + "') or (cl.course_name LIKE '" + Search.ToString + "') or (c.section LIKE '" + Search.ToString + "'))", grid)
+            If grid.Rows.Count < 1 Then
+                FacultyIDText.Text =
+                FacultyNameText.Text = Nothing
+                DepartmentNameText.Text = Nothing
+            ElseIf grid.RowCount >= 1 Then
                 FacultyIDText.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
                 FacultyNameText.Text = grid.Rows(0).Cells("Name").Value.ToString
                 DeptValue = dbAccess.getStringData("Select departmentname from department, faculty where facultyid = '" + FacultyIDText.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
-                DepartmentNameText.Text = DeptValue.ToString
+            DepartmentNameText.Text = DeptValue.ToString
             End If
         End If
 
@@ -260,5 +269,9 @@
                 RData(k) = Temp(k)
             Next
         End If
+    End Sub
+
+    Private Sub bttnClear_Click(sender As Object, e As EventArgs) Handles bttnClear.Click
+        SearchText.Text = Nothing
     End Sub
 End Class

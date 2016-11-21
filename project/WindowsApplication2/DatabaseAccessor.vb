@@ -110,7 +110,7 @@ Public Class DatabaseAccessor
 
             MysqlConn.Close()
         Catch ex As MySqlException
-            MsgBox("Error!", MsgBoxStyle.Critical, "")
+            MsgBox("Error! " & Err.Description, MsgBoxStyle.Critical, "")
         Finally
             MysqlConn.Dispose()
         End Try
