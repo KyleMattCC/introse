@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: introse
 -- ------------------------------------------------------
--- Server version	5.7.16-log
+-- Server version	5.7.14-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -87,7 +87,7 @@ CREATE TABLE `attendance` (
   `report_status` varchar(45) NOT NULL DEFAULT 'Pending',
   PRIMARY KEY (`attendanceid`),
   UNIQUE KEY `attendanceid_UNIQUE` (`attendanceid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,6 +96,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
+INSERT INTO `attendance` VALUES (1,'2016-11-21',1,'AB','2016-11-21','unknown','egul','A','pending'),(2,'2016-11-21',2,'ED','2016-11-21','unknown','egul2','A','pending'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','A','pending');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,4 +362,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-16 20:47:40
+-- Dump completed on 2016-11-21 21:40:00
