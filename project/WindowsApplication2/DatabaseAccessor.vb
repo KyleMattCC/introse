@@ -115,4 +115,30 @@ Public Class DatabaseAccessor
             MysqlConn.Dispose()
         End Try
     End Sub
+    Public Function getMultipleData(query As String, column As String) As List(Of String)
+        MysqlConn = New MySqlConnection
+        MysqlConn.ConnectionString = "Server=localhost; Database=introse; Uid=root; Pwd=p@ssword;"
+        Dim Reader As MySqlDataReader
+        Dim Temp As New List(Of String)
+
+        Try
+            MysqlConn.Open()
+            Command = New MySqlCommand(query, MysqlConn)
+            Reader = Command.ExecuteReader
+            While Reader.Read
+                If Reader.HasRows = True Then
+                    Temp.Add(Reader(column).ToString)
+                End If
+            End While
+
+            MysqlConn.Close()
+        Catch ex As MySqlException
+            MsgBox("Error!", MsgBoxStyle.Critical, "")
+        Finally
+            MysqlConn.Dispose()
+        End Try
+
+        Return Temp
+
+    End Function
 End Class
