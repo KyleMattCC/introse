@@ -16,4 +16,8 @@
     Private Sub bttnFind_Click(sender As Object, e As EventArgs) Handles bttnFind.Click
         popFacSearch.Show()
     End Sub
+
+    Private Sub wdwFacDailyAtt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

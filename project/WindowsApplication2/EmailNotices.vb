@@ -7,4 +7,8 @@
         Me.Hide()
         wdwGenAbsNotice.Show()
     End Sub
+
+    Private Sub EmailNotices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

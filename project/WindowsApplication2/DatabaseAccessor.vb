@@ -7,9 +7,9 @@ Public Class DatabaseAccessor
     Public Sub addData(query As String)
         MysqlConn = New MySqlConnection
         MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
-        Dim Reader As MySqlDataReader
+        Dim Reader As MySqldataReader
 
-        Try
+	    Try
             MysqlConn.Open()
             Command = New MySqlCommand(query, MysqlConn)
             Reader = Command.ExecuteReader
@@ -28,9 +28,9 @@ Public Class DatabaseAccessor
     Public Sub deleteData(query As String)
         MysqlConn = New MySqlConnection
         MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
-        Dim Reader As MySqlDataReader
+        Dim Reader As MySqldataReader
 
-        Try
+	    Try
             MysqlConn.Open()
             Command = New MySqlCommand(query, MysqlConn)
             Reader = Command.ExecuteReader
@@ -49,9 +49,9 @@ Public Class DatabaseAccessor
     Public Sub updateData(query As String)
         MysqlConn = New MySqlConnection
         MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
-        Dim Reader As MySqlDataReader
+        Dim Reader As MySqldataReader
 
-        Try
+	    Try
             MysqlConn.Open()
             Command = New MySqlCommand(query, MysqlConn)
             Reader = Command.ExecuteReader
