@@ -22,7 +22,7 @@ Partial Class wdwDailyAttendanceLog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grid = New System.Windows.Forms.DataGridView()
         Me.bttnAdd = New System.Windows.Forms.Button()
         Me.bttnModify = New System.Windows.Forms.Button()
@@ -33,7 +33,7 @@ Partial Class wdwDailyAttendanceLog
         Me.Label7 = New System.Windows.Forms.Label()
         Me.bttnClear = New System.Windows.Forms.Button()
         Me.bttnSearch = New System.Windows.Forms.Button()
-        Me.FacultyIDSearchText = New System.Windows.Forms.TextBox()
+        Me.SearchText = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.DepartmentNameText = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -51,14 +51,14 @@ Partial Class wdwDailyAttendanceLog
         Me.grid.AllowUserToDeleteRows = False
         Me.grid.AllowUserToOrderColumns = True
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grid.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grid.DefaultCellStyle = DataGridViewCellStyle2
         Me.grid.Location = New System.Drawing.Point(29, 196)
         Me.grid.Name = "grid"
         Me.grid.ReadOnly = True
@@ -156,13 +156,13 @@ Partial Class wdwDailyAttendanceLog
         Me.bttnSearch.Text = "Search"
         Me.bttnSearch.UseVisualStyleBackColor = True
         '
-        'FacultyIDSearchText
+        'SearchText
         '
-        Me.FacultyIDSearchText.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FacultyIDSearchText.Location = New System.Drawing.Point(768, 17)
-        Me.FacultyIDSearchText.Name = "FacultyIDSearchText"
-        Me.FacultyIDSearchText.Size = New System.Drawing.Size(303, 22)
-        Me.FacultyIDSearchText.TabIndex = 7
+        Me.SearchText.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SearchText.Location = New System.Drawing.Point(768, 17)
+        Me.SearchText.Name = "SearchText"
+        Me.SearchText.Size = New System.Drawing.Size(303, 22)
+        Me.SearchText.TabIndex = 7
         '
         'GroupBox4
         '
@@ -249,7 +249,7 @@ Partial Class wdwDailyAttendanceLog
         Me.Controls.Add(Me.bttnSearch)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.grid)
-        Me.Controls.Add(Me.FacultyIDSearchText)
+        Me.Controls.Add(Me.SearchText)
         Me.Controls.Add(Me.bttnAdd)
         Me.Controls.Add(Me.bttnModify)
         Me.Controls.Add(Me.bttnDelete)
@@ -276,7 +276,7 @@ Partial Class wdwDailyAttendanceLog
     Friend WithEvents Label7 As Label
     Friend WithEvents bttnClear As Button
     Friend WithEvents bttnSearch As Button
-    Friend WithEvents FacultyIDSearchText As TextBox
+    Friend WithEvents SearchText As TextBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents DepartmentNameText As TextBox
     Friend WithEvents Label3 As Label
