@@ -56,6 +56,7 @@
 
             If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark) Or String.IsNullOrEmpty(checker)) Then
                 'MsgBox("Incomplete Information on row " + row + "!") 
+                ' bttnAdd.Enabled = False
             ElseIf result > 0 Then
                 MsgBox("ERROR: Absent Date is earlier than the current date!")
             Else
@@ -69,12 +70,12 @@
             End If
             ' text.Clear()
             ' Me.Close()
-
         Catch ex As Exception
 
         End Try
 
     End Sub
+
     Private Sub AddCourse(facultyid As String, room As String, ByVal combo As ComboBox)
         Dim coursecode As New List(Of String)()
         Dim section As New List(Of String)()
@@ -170,6 +171,8 @@
         SetAttendance(TextBox14.Text, ComboBox28.SelectedItem, ComboBox13.SelectedItem, DateTimePicker1.Value.Date, "unknown", TextBox100.Text, TextBox14, ComboBox13, "14", "pending")
         SetAttendance(TextBox16.Text, ComboBox30.SelectedItem, ComboBox15.SelectedItem, DateTimePicker1.Value.Date, "unknown", TextBox100.Text, TextBox16, ComboBox15, "15", "pending")
 
+
+
         dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' 
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
                                 where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & wdwDailyAttendanceLog.dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
@@ -201,7 +204,7 @@
     End Sub
 
     Private Sub popEncFacDaily_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        bttnAdd.Enabled = False
     End Sub
     Private Sub ComboBox17_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox17.SelectedIndexChanged
         TextBox83.Clear()
@@ -647,5 +650,14 @@
 
     Private Sub TextBox16_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox16.KeyPress
         validateInput("0123456789", e)
+    End Sub
+
+    Private Sub TextBox100_TextChanged(sender As Object, e As EventArgs) Handles TextBox100.TextChanged
+        If String.IsNullOrEmpty(TextBox100.Text) Then
+            bttnAdd.Enabled = False
+        Else
+            bttnAdd.Enabled = True
+        End If
+
     End Sub
 End Class
