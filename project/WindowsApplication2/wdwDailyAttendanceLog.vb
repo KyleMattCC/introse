@@ -205,6 +205,7 @@
             DepartmentNameText.Text = Nothing
 
         Else
+
             FacultyIDText.Text = selectedRow.Cells("Faculty ID").Value.ToString
             FacultyNameText.Text = selectedRow.Cells("Name").Value.ToString
             DeptValue = dbAccess.getStringData("Select departmentname from department, faculty where facultyid = '" + FacultyIDText.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
