@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: introse
 -- ------------------------------------------------------
--- Server version	5.7.14-log
+-- Server version	5.7.16-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -96,7 +96,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,'2016-11-21',1,'AB','2016-11-21','unknown','egul','A','pending'),(2,'2016-11-21',2,'ED','2016-11-21','unknown','egul2','A','pending'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','A','pending');
+INSERT INTO `attendance` VALUES (1,'2016-11-21',1,'AB','2016-11-21','unknown','egul','A','Generated'),(2,'2016-11-21',2,'ED','2016-11-21','unknown','egul2','A','Generated'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','A','Pending');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,8 +167,8 @@ CREATE TABLE `courseoffering` (
   `section` varchar(45) NOT NULL,
   `room` varchar(45) NOT NULL,
   `daysched` varchar(2) NOT NULL,
-  `timestart` varchar(45) NOT NULL,
-  `timeend` varchar(45) NOT NULL,
+  `timestart` time NOT NULL,
+  `timeend` time NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`courseoffering_id`),
   UNIQUE KEY `courseoffering_id_UNIQUE` (`courseoffering_id`)
@@ -181,7 +181,7 @@ CREATE TABLE `courseoffering` (
 
 LOCK TABLES `courseoffering` WRITE;
 /*!40000 ALTER TABLE `courseoffering` DISABLE KEYS */;
-INSERT INTO `courseoffering` VALUES (1,1,1,'1','S17','G202','MW','9:15','10:45','A'),(2,1,1,'2','K42','V501','TH','4:15','5:45','A'),(3,2,1,'3','EJ','A1107','MW','7:30','9:00','A');
+INSERT INTO `courseoffering` VALUES (1,1,1,'1','S17','G202','MW','00:09:15','00:10:45','A'),(2,1,1,'2','K42','V501','TH','00:04:15','00:05:45','A'),(3,2,1,'3','EJ','A1107','MW','00:07:30','00:09:00','A');
 /*!40000 ALTER TABLE `courseoffering` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,7 +239,7 @@ CREATE TABLE `faculty` (
 
 LOCK TABLES `faculty` WRITE;
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
-INSERT INTO `faculty` VALUES (1,'112131141','Kevin','A.','Dumalay','kevin_dumalay@dlsu.edu.ph',1091239123,1001,''),(2,'11292828','Star','R.','Yu','star_yu@dlsu.edu.ph',918374719,1002,''),(3,'121411141','Kyle','B. ','Chua','kyle_chua@dlsu.edu.ph',1217418711,1004,''),(4,'21312441','Ted','C.','Lim','ted_lim@dlsu.edu.ph',1238128391,1003,'');
+INSERT INTO `faculty` VALUES (1,'112131141','Kevin','A.','Dumalay','kevin_dumalay@dlsu.edu.ph',1091239123,1001,'A'),(2,'11292828','Star','R.','Yu','star_yu@dlsu.edu.ph',918374719,1002,'A'),(3,'121411141','Kyle','B. ','Chua','kyle_chua@dlsu.edu.ph',1217418711,1004,'A'),(4,'21312441','Ted','C.','Lim','ted_lim@dlsu.edu.ph',1238128391,1003,'A');
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,9 +253,8 @@ DROP TABLE IF EXISTS `makeup`;
 CREATE TABLE `makeup` (
   `makeupid` int(11) unsigned NOT NULL,
   `courseoffering_id` int(11) unsigned NOT NULL,
-  `absent_date` date NOT NULL,
-  `timestart` varchar(45) NOT NULL,
-  `timeend` varchar(45) NOT NULL,
+  `timestart` time NOT NULL,
+  `timeend` time NOT NULL,
   `room` varchar(45) NOT NULL,
   `reason_cd` varchar(2) NOT NULL,
   `makeup_date` date NOT NULL,
@@ -362,4 +361,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-21 21:40:00
+-- Dump completed on 2016-11-27 14:48:22

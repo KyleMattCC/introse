@@ -40,7 +40,7 @@
 
     End Sub
     Private Sub Load_form()
-        dbAccess.fillDataGrid("Select m.makeupid 'Reference', m.absent_date 'Absent Date', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', cl.course_cd 'Course', c.section 'Section', m.makeup_date 'Make-up date', m.timestart 'Start time', m.timeend 'End time', m.room 'Room', r.reason_desc 'Reason', m.enc_date 'Date Encoded', m.encoder 'Encoder' 
+        dbAccess.fillDataGrid("Select m.makeupid 'Reference', m.makeup_date 'Make-up date', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', cl.course_cd 'Course', c.section 'Section', m.timestart 'Start time', m.timeend 'End time', m.room 'Room', r.reason_desc 'Reason', m.enc_date 'Date Encoded', m.encoder 'Encoder' 
                                 from introse.makeup m, introse.faculty f, introse.course cl, introse.courseoffering c, introse.reason r 
                                 where m.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and m.reason_cd = r.reason_cd and m.status = 'A' and m.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
                                 order by 4, 12;", grid)
@@ -90,20 +90,19 @@
     Private Sub Modify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
         Try
             If RData.Count > 0 Then
-                Dim reason_cd As List(Of String) = dbAccess.getMultipleData("SELECT reason_desc FROM reason;", "reason_desc")
+                Dim reason_cd As List(Of Object) = dbAccess.getMultipleData("SELECT reason_desc FROM reason;", "reason_desc")
 
                 For j As Integer = 0 To reason_cd.Count - 1
                     popModMakeup.cmbReason.Items.Add(reason_cd(j))
                 Next
-                popModMakeup.dtpMakeUpDate.Value = RData(6)
+                popModMakeup.dtpMakeUpDate.Value = RData(1)
                 popModMakeup.txtFacName.Text = RData(3)
                 popModMakeup.txtFacID.Text = RData(2)
                 popModMakeup.cmbbxCourse.Items.Add(RData(4))
                 popModMakeup.cmbbxSection.Items.Add(RData(5))
-                popModMakeup.txtbxRoom.Text = RData(9)
-                popModMakeup.txtbxStart.Text = RData(7)
-                popModMakeup.txtbxEnd.Text = RData(8)
-                popModMakeup.txtbxEncoder.Text = RData(12)
+                popModMakeup.txtbxRoom.Text = RData(8)
+                popModMakeup.txtbxStart.Text = RData(6)
+                popModMakeup.txtbxEnd.Text = RData(7)
 
             End If
         Catch ex As Exception
@@ -153,7 +152,7 @@
     End Sub
 
     Private Sub grid_MouseClick(sender As Object, e As MouseEventArgs) Handles grid.MouseClick
-        Dim Temp As New List(Of String)
+        Dim Temp As New List(Of Object)
         Dim i, j As Integer
         Try
 
