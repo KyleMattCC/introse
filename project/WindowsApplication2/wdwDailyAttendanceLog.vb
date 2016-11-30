@@ -108,12 +108,15 @@
     Private Sub Modify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
         With grid
             rowData.Clear()
-            Dim selectedRow As DataGridViewRow = grid.Rows(rindexValue)
+            Dim selectedRow As DataGridViewRow
             Dim colCount As Integer
             colCount = grid.ColumnCount
             MsgBox(colCount)
-            If .SelectedRows.Count = 1 Then
+            If .SelectedRows.Count = 0 Then
+                MsgBox("No rows selected!", MsgBoxStyle.Critical, "")
 
+            ElseIf .SelectedRows.Count = 1 Then
+                selectedRow = grid.Rows(rindexValue)
                 For ctr As Integer = 0 To colCount - 1
                     If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
                         MsgBox("Missing data!")
@@ -129,6 +132,7 @@
 
             Else
                 MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
+
             End If
         End With
     End Sub
