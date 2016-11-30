@@ -42,4 +42,8 @@
     Public Sub Enable_Form()
         Me.Focus()
     End Sub
+
+    Private Sub bttnHistory_Click(sender As Object, e As EventArgs) Handles bttnHistory.Click
+        wdwAttendanceHistoryLog.Show()
+    End Sub
 End Class
