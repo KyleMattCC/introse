@@ -88,9 +88,9 @@ Partial Class popEncFacDaily
         '
         'cmbbxRemarks
         '
+        Me.cmbbxRemarks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxRemarks.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxRemarks.FormattingEnabled = True
-        Me.cmbbxRemarks.Items.AddRange(New Object() {"AB", "lA", "SB", "SW", "VR", "ED", "US"})
         Me.cmbbxRemarks.Location = New System.Drawing.Point(198, 280)
         Me.cmbbxRemarks.Name = "cmbbxRemarks"
         Me.cmbbxRemarks.Size = New System.Drawing.Size(165, 28)
@@ -107,6 +107,7 @@ Partial Class popEncFacDaily
         '
         'cmbbxCourse
         '
+        Me.cmbbxCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxCourse.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxCourse.FormattingEnabled = True
         Me.cmbbxCourse.Location = New System.Drawing.Point(198, 100)
@@ -116,6 +117,7 @@ Partial Class popEncFacDaily
         '
         'cmbbxSection
         '
+        Me.cmbbxSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxSection.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSection.FormattingEnabled = True
         Me.cmbbxSection.Location = New System.Drawing.Point(198, 130)

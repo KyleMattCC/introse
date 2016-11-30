@@ -4,79 +4,13 @@
     Public rowData As List(Of String) = New List(Of String)
     Dim rindexValue As Integer
 
-    Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
-        Me.Close()
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
-        If String.IsNullOrEmpty(rowData(0)) Then
-            MsgBox("No selected attendance")
-        Else
-
-            dbAccess.updateData("UPDATE `attendance` SET `status` = 'D' WHERE `attendanceid` = '" & rowData(0) & "';")
-            Load_form()
-        End If
-    End Sub
-
-    Private Sub Modify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
-        With grid
-            rowData.Clear()
-            Dim selectedRow As DataGridViewRow = grid.Rows(rindexValue)
-            Dim colCount As Integer
-            colCount = grid.ColumnCount
-            MsgBox(colCount)
-            If .SelectedRows.Count = 1 Then
-
-                For ctr As Integer = 0 To colCount - 1
-                    If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
-                        MsgBox("Missing data!")
-                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
-                    Else
-                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
-
-                    End If
-                Next
-
-                Me.Enabled = False
-                wdwModFacultyDaily.Load_Form(rowData)
-
-            Else
-                MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
-            End If
-        End With
-    End Sub
-
-    Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
-        Me.Enabled = False
-        popEncFacDaily.Show()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        Me.Enabled = False
-        popFacSearch.Show()
-    End Sub
-
     Private Sub wdwDailyAttendanceLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Load_form()
     End Sub
 
-    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
-
-        If txtbxSearch.Text = Nothing Then
-            Load_form()
-        Else
-            Search_Click(sender, e)
-        End If
-
-
-    End Sub
-
     Private Sub Load_form()
         Dim DeptValue As String
+        bttnSearch.Enabled = False
 
         dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' , a.checker 'Checker'
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
@@ -93,6 +27,20 @@
             txtbxDept.Text = DeptValue.ToString
         End If
 
+    End Sub
+
+    Public Sub Enable_Form()
+        Me.Enabled = True
+        Load_form()
+        Me.Focus()
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
+        If txtbxSearch.Text = Nothing Then
+            Load_form()
+        Else
+            Search_Click(sender, e)
+        End If
 
     End Sub
 
@@ -109,9 +57,9 @@
         Search += "%"
 
         FacultyID = dbAccess.getData("Select facultyid From faculty f, department d 
-                                    Where f.departmentid = d.departmentid And ((facultyid Like '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "'))", "facultyid")
+                                    Where f.status = 'A' and f.departmentid = d.departmentid And ((facultyid Like '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "'))", "facultyid")
         Course = dbAccess.getData("Select course_cd from course c, courseoffering o
-                                    where c.course_id = o.course_id and ((course_cd LIKE '" + Search.ToString + "') or (course_name LIKE '" + Search.ToString + "') or (section LIKE '" + Search.ToString + "') or (room LIKE '" + Search.ToString + "'))", "course_cd")
+                                    where o.status = 'A' and c.course_id = o.course_id and ((course_cd LIKE '" + Search.ToString + "') or (course_name LIKE '" + Search.ToString + "') or (section LIKE '" + Search.ToString + "') or (room LIKE '" + Search.ToString + "'))", "course_cd")
 
         If FacultyID <> Nothing Then
             dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder', a.checker 'Checker'
@@ -147,18 +95,65 @@
         End If
     End Sub
 
-    Public Function getRefNo() As Integer
-        Return rowData(0)
-    End Function
-
-    Private Sub GroupBox4_Enter(sender As Object, e As EventArgs) Handles GroupBox4.Enter
-
+    Private Sub bttnClear_Click(sender As Object, e As EventArgs) Handles bttnClear.Click
+        txtbxSearch.Text = Nothing
+        Load_form()
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
-
+    Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
+        Me.Enabled = False
+        popEncFacDaily.Show()
     End Sub
 
+    Private Sub Modify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
+        With grid
+            rowData.Clear()
+            Dim selectedRow As DataGridViewRow = grid.Rows(rindexValue)
+            Dim colCount As Integer
+            colCount = grid.ColumnCount
+            MsgBox(colCount)
+            If .SelectedRows.Count = 1 Then
+
+                For ctr As Integer = 0 To colCount - 1
+                    If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
+                        MsgBox("Missing data!")
+                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+                    Else
+                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+
+                    End If
+                Next
+
+                Me.Enabled = False
+                wdwModFacultyDaily.Load_Form(rowData)
+
+            Else
+                MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
+            End If
+        End With
+    End Sub
+
+    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
+        With grid
+            Dim selectedRow As DataGridViewRow
+            If .SelectedRows.Count > 0 Then
+                For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
+                    selectedRow = grid.Rows(.SelectedRows(ctr).Index)
+                    dbAccess.updateData("UPDATE `attendance` SET `status` = 'D' WHERE `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
+                Next
+
+                Load_form()
+
+            Else
+                MsgBox("No selected attendance", MsgBoxStyle.Critical, "")
+
+            End If
+        End With
+    End Sub
+
+    Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
+        Me.Close()
+    End Sub
 
     Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
         rindexValue = e.RowIndex
@@ -182,22 +177,27 @@
         End If
     End Sub
 
-    Public Sub Enable_Form()
-        Me.Enabled = True
-        Load_form()
-        Me.Focus()
+    Private Sub grid_MouseClick(sender As Object, e As MouseEventArgs) Handles grid.MouseClick
+
     End Sub
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwMainMenu.Enable_Form()
     End Sub
 
-    Private Sub grid_MouseClick(sender As Object, e As MouseEventArgs) Handles grid.MouseClick
+    Public Function getRefNo() As Integer
+        Return rowData(0)
+    End Function
 
-    End Sub
+    Public Function getDTPValue() As Date
+        Return dtp.Value
+    End Function
 
-    Private Sub bttnClear_Click(sender As Object, e As EventArgs) Handles bttnClear.Click
-        txtbxSearch.Text = Nothing
-        Load_form()
+    Private Sub txtbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txtbxSearch.TextChanged
+        If (String.IsNullOrEmpty(txtbxSearch.Text) Or String.IsNullOrWhiteSpace(txtbxSearch.Text)) Then
+            bttnSearch.Enabled = False
+        Else
+            bttnSearch.Enabled = True
+        End If
     End Sub
 End Class
