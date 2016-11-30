@@ -12,7 +12,7 @@
         Dim DeptValue As String
         bttnSearch.Enabled = False
 
-        dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' , a.checker 'Checker'
+        dbAccess.fillDataGrid("Select a.attendanceid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date encoded', a.encoder 'Encoder' , a.checker 'Checker'
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
                                 where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
                                 order by 3, 12;", grid)
@@ -62,7 +62,7 @@
                                     where o.status = 'A' and c.course_id = o.course_id and ((course_cd LIKE '" + Search.ToString + "') or (course_name LIKE '" + Search.ToString + "') or (section LIKE '" + Search.ToString + "') or (room LIKE '" + Search.ToString + "'))", "course_cd")
 
         If FacultyID <> Nothing Then
-            dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder', a.checker 'Checker'
+            dbAccess.fillDataGrid("Select a.attendanceid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date encoded', a.encoder 'Encoder', a.checker 'Checker'
                                     from faculty f, department d , attendance a, courseoffering c, remarks r, course cl
                                     where a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'and c.courseoffering_id = a.courseoffering_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and c.course_id = cl.course_id and a.status = 'A' and f.departmentid = d.departmentid and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "'))", grid)
 
@@ -79,7 +79,7 @@
 
 
         Else
-            dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder', a.checker 'Checker'
+            dbAccess.fillDataGrid("Select a.attendanceid 'Reference no.', f.facultyid 'Faculty ID', concat(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) 'Name', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date encoded', a.encoder 'Encoder', a.checker 'Checker'
                                     from faculty f, department d , attendance a, courseoffering c, remarks r, course cl
                                     where a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'and c.courseoffering_id = a.courseoffering_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and c.course_id = cl.course_id and a.status = 'A' and f.departmentid = d.departmentid and ((cl.course_cd LIKE '" + Search.ToString + "') or (cl.course_name LIKE '" + Search.ToString + "') or (c.section LIKE '" + Search.ToString + "'))", grid)
             If grid.Rows.Count < 1 Then
@@ -119,7 +119,7 @@
                 selectedRow = grid.Rows(rindexValue)
                 For ctr As Integer = 0 To colCount - 1
                     If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
-                        MsgBox("Missing data!")
+                        MsgBox("Missing data!", MsgBoxStyle.Critical, "")
                         rowData.Add(selectedRow.Cells(ctr).Value.ToString)
                     Else
                         rowData.Add(selectedRow.Cells(ctr).Value.ToString)

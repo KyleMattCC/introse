@@ -145,11 +145,11 @@ Partial Class popEncFacDaily
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(34, 70)
+        Me.Label1.Location = New System.Drawing.Point(73, 70)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(160, 20)
+        Me.Label1.Size = New System.Drawing.Size(121, 20)
         Me.Label1.TabIndex = 198
-        Me.Label1.Text = "Date of Absence:"
+        Me.Label1.Text = "Absent date:"
         '
         'Label2
         '
@@ -185,11 +185,11 @@ Partial Class popEncFacDaily
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(61, 40)
+        Me.Label5.Location = New System.Drawing.Point(63, 40)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(133, 20)
+        Me.Label5.Size = New System.Drawing.Size(131, 20)
         Me.Label5.TabIndex = 202
-        Me.Label5.Text = "Faculty Name:"
+        Me.Label5.Text = "Faculty name:"
         '
         'Label6
         '
@@ -205,11 +205,11 @@ Partial Class popEncFacDaily
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(137, 220)
+        Me.Label7.Location = New System.Drawing.Point(91, 220)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 20)
+        Me.Label7.Size = New System.Drawing.Size(103, 20)
         Me.Label7.TabIndex = 204
-        Me.Label7.Text = "Start:"
+        Me.Label7.Text = "Start time:"
         '
         'Label8
         '
@@ -225,11 +225,11 @@ Partial Class popEncFacDaily
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(147, 250)
+        Me.Label9.Location = New System.Drawing.Point(101, 250)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(47, 20)
+        Me.Label9.Size = New System.Drawing.Size(93, 20)
         Me.Label9.TabIndex = 221
-        Me.Label9.Text = "End:"
+        Me.Label9.Text = "End time:"
         '
         'txtbxEnd
         '

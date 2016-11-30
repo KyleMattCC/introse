@@ -64,22 +64,22 @@ Partial Class wdwModFacultyDaily
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(61, 40)
+        Me.Label2.Location = New System.Drawing.Point(63, 40)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(133, 20)
+        Me.Label2.Size = New System.Drawing.Size(131, 20)
         Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Faculty Name:"
+        Me.Label2.Text = "Faculty name:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label4.Location = New System.Drawing.Point(34, 70)
+        Me.Label4.Location = New System.Drawing.Point(73, 70)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(160, 20)
+        Me.Label4.Size = New System.Drawing.Size(121, 20)
         Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Date of Absence:"
+        Me.Label4.Text = "Absent date:"
         '
         'txtbxFacID
         '
@@ -190,22 +190,22 @@ Partial Class wdwModFacultyDaily
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label13.Location = New System.Drawing.Point(87, 220)
+        Me.Label13.Location = New System.Drawing.Point(91, 220)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(107, 20)
+        Me.Label13.Size = New System.Drawing.Size(103, 20)
         Me.Label13.TabIndex = 31
-        Me.Label13.Text = "Start Time:"
+        Me.Label13.Text = "Start time:"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label14.Location = New System.Drawing.Point(97, 250)
+        Me.Label14.Location = New System.Drawing.Point(101, 250)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(97, 20)
+        Me.Label14.Size = New System.Drawing.Size(93, 20)
         Me.Label14.TabIndex = 32
-        Me.Label14.Text = "End Time:"
+        Me.Label14.Text = "End time:"
         '
         'txtbxEnd
         '

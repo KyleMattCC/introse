@@ -182,7 +182,7 @@
         If String.IsNullOrEmpty(att) Then
             b = True
         Else
-            MsgBox("ERROR: Duplicate Attendance!", MsgBoxStyle.Critical, "")
+            MsgBox("Duplicate attendance!", MsgBoxStyle.Critical, "")
         End If
         Return b
 
@@ -246,15 +246,20 @@
             result = DateTime.Compare(inputdate, currentdate)
             If days.Contains("M") Then
                 daySched.Add("Monday")
-            ElseIf days.Contains("T") Then
+            End If
+            If days.Contains("T") Then
                 daySched.Add("Tuesday")
-            ElseIf days.Contains("W") Then
+            End If
+            If days.Contains("W") Then
                 daySched.Add("Wednesday")
-            ElseIf days.Contains("H") Then
+            End If
+            If days.Contains("H") Then
                 daySched.Add("Thursday")
-            ElseIf days.Contains("F") Then
+            End If
+            If days.Contains("F") Then
                 daySched.Add("Friday")
-            ElseIf days.Contains("S") Then
+            End If
+            If days.Contains("S") Then
                 daySched.Add("Saturday")
             End If
 
@@ -268,7 +273,7 @@
                 MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
                 Return False
             ElseIf result > 0 Then
-                MsgBox("ERROR: Absent Date is earlier than the current date!", MsgBoxStyle.Critical, "")
+                MsgBox("Absent date is earlier than the current date!", MsgBoxStyle.Critical, "")
                 Return False
             ElseIf Not (tempBool) Then
                 MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
