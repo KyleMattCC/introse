@@ -36,7 +36,7 @@ Partial Class wdwNotices
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(280, 365)
+        Me.btnBack.Location = New System.Drawing.Point(280, 360)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(90, 30)
         Me.btnBack.TabIndex = 1
@@ -46,7 +46,7 @@ Partial Class wdwNotices
         'btnGenerate
         '
         Me.btnGenerate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(100, 365)
+        Me.btnGenerate.Location = New System.Drawing.Point(100, 360)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(90, 30)
         Me.btnGenerate.TabIndex = 2
@@ -126,7 +126,7 @@ Partial Class wdwNotices
         Me.Controls.Add(Me.btnBack)
         Me.Name = "wdwNotices"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = " "
+        Me.Text = " Notices"
         CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

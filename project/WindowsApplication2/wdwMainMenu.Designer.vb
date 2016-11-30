@@ -31,8 +31,8 @@ Partial Class wdwMainMenu
         Me.bttnReport = New System.Windows.Forms.Button()
         Me.bttnExit = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.bttnTermPlantilla = New System.Windows.Forms.Button()
+        Me.bttnHistory = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -138,8 +138,8 @@ Partial Class wdwMainMenu
         'GroupBox2
         '
         Me.GroupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox2.Controls.Add(Me.Button1)
-        Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Controls.Add(Me.bttnTermPlantilla)
+        Me.GroupBox2.Controls.Add(Me.bttnHistory)
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(211, 304)
@@ -151,27 +151,27 @@ Partial Class wdwMainMenu
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "View"
         '
-        'Button1
+        'bttnTermPlantilla
         '
-        Me.Button1.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(204, 25)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(160, 100)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "Term Plantilla"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.bttnTermPlantilla.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnTermPlantilla.Location = New System.Drawing.Point(204, 25)
+        Me.bttnTermPlantilla.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.bttnTermPlantilla.Name = "bttnTermPlantilla"
+        Me.bttnTermPlantilla.Size = New System.Drawing.Size(160, 100)
+        Me.bttnTermPlantilla.TabIndex = 17
+        Me.bttnTermPlantilla.Text = "Term Plantilla"
+        Me.bttnTermPlantilla.UseVisualStyleBackColor = True
         '
-        'Button2
+        'bttnHistory
         '
-        Me.Button2.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(6, 25)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(160, 100)
-        Me.Button2.TabIndex = 15
-        Me.Button2.Text = "Faculty Attendance History"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.bttnHistory.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnHistory.Location = New System.Drawing.Point(6, 25)
+        Me.bttnHistory.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.bttnHistory.Name = "bttnHistory"
+        Me.bttnHistory.Size = New System.Drawing.Size(160, 100)
+        Me.bttnHistory.TabIndex = 15
+        Me.bttnHistory.Text = "Faculty Attendance History"
+        Me.bttnHistory.UseVisualStyleBackColor = True
         '
         'wdwMainMenu
         '
@@ -201,6 +201,6 @@ Partial Class wdwMainMenu
     Friend WithEvents bttnReport As Button
     Friend WithEvents bttnExit As Button
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents bttnTermPlantilla As Button
+    Friend WithEvents bttnHistory As Button
 End Class

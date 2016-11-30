@@ -22,7 +22,7 @@ Partial Class wdwDailyAttendanceLog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grid = New System.Windows.Forms.DataGridView()
         Me.bttnAdd = New System.Windows.Forms.Button()
         Me.bttnModify = New System.Windows.Forms.Button()
@@ -33,12 +33,12 @@ Partial Class wdwDailyAttendanceLog
         Me.Label7 = New System.Windows.Forms.Label()
         Me.bttnClear = New System.Windows.Forms.Button()
         Me.bttnSearch = New System.Windows.Forms.Button()
-        Me.SearchText = New System.Windows.Forms.TextBox()
+        Me.txtbxSearch = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.DepartmentNameText = New System.Windows.Forms.TextBox()
+        Me.txtbxDept = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.FacultyIDText = New System.Windows.Forms.TextBox()
-        Me.FacultyNameText = New System.Windows.Forms.TextBox()
+        Me.txtbxFacID = New System.Windows.Forms.TextBox()
+        Me.txtbxName = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,15 +51,15 @@ Partial Class wdwDailyAttendanceLog
         Me.grid.AllowUserToDeleteRows = False
         Me.grid.AllowUserToOrderColumns = True
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grid.DefaultCellStyle = DataGridViewCellStyle2
-        Me.grid.Location = New System.Drawing.Point(29, 196)
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grid.DefaultCellStyle = DataGridViewCellStyle1
+        Me.grid.Location = New System.Drawing.Point(29, 192)
         Me.grid.Name = "grid"
         Me.grid.ReadOnly = True
         Me.grid.RowHeadersWidth = 45
@@ -120,10 +120,10 @@ Partial Class wdwDailyAttendanceLog
         '
         'dtp
         '
-        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp.Location = New System.Drawing.Point(92, 20)
+        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp.Location = New System.Drawing.Point(86, 17)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(233, 22)
+        Me.dtp.Size = New System.Drawing.Size(300, 26)
         Me.dtp.TabIndex = 161
         '
         'Label7
@@ -139,7 +139,7 @@ Partial Class wdwDailyAttendanceLog
         '
         Me.bttnClear.BackColor = System.Drawing.SystemColors.Control
         Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnClear.Location = New System.Drawing.Point(1190, 14)
+        Me.bttnClear.Location = New System.Drawing.Point(1189, 15)
         Me.bttnClear.Name = "bttnClear"
         Me.bttnClear.Size = New System.Drawing.Size(105, 29)
         Me.bttnClear.TabIndex = 11
@@ -149,27 +149,27 @@ Partial Class wdwDailyAttendanceLog
         'bttnSearch
         '
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(1078, 14)
+        Me.bttnSearch.Location = New System.Drawing.Point(1078, 15)
         Me.bttnSearch.Name = "bttnSearch"
         Me.bttnSearch.Size = New System.Drawing.Size(105, 29)
         Me.bttnSearch.TabIndex = 1
         Me.bttnSearch.Text = "Search"
         Me.bttnSearch.UseVisualStyleBackColor = True
         '
-        'SearchText
+        'txtbxSearch
         '
-        Me.SearchText.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SearchText.Location = New System.Drawing.Point(768, 17)
-        Me.SearchText.Name = "SearchText"
-        Me.SearchText.Size = New System.Drawing.Size(303, 22)
-        Me.SearchText.TabIndex = 7
+        Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxSearch.Location = New System.Drawing.Point(722, 17)
+        Me.txtbxSearch.Name = "txtbxSearch"
+        Me.txtbxSearch.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxSearch.TabIndex = 7
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.DepartmentNameText)
+        Me.GroupBox4.Controls.Add(Me.txtbxDept)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Controls.Add(Me.FacultyIDText)
-        Me.GroupBox4.Controls.Add(Me.FacultyNameText)
+        Me.GroupBox4.Controls.Add(Me.txtbxFacID)
+        Me.GroupBox4.Controls.Add(Me.txtbxName)
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -180,48 +180,48 @@ Partial Class wdwDailyAttendanceLog
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Faculty Information:"
         '
-        'DepartmentNameText
+        'txtbxDept
         '
-        Me.DepartmentNameText.Enabled = False
-        Me.DepartmentNameText.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DepartmentNameText.Location = New System.Drawing.Point(216, 80)
-        Me.DepartmentNameText.Name = "DepartmentNameText"
-        Me.DepartmentNameText.Size = New System.Drawing.Size(349, 22)
-        Me.DepartmentNameText.TabIndex = 177
+        Me.txtbxDept.Enabled = False
+        Me.txtbxDept.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxDept.Location = New System.Drawing.Point(216, 85)
+        Me.txtbxDept.Name = "txtbxDept"
+        Me.txtbxDept.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxDept.TabIndex = 177
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(73, 78)
+        Me.Label3.Location = New System.Drawing.Point(90, 85)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(120, 20)
         Me.Label3.TabIndex = 176
         Me.Label3.Text = "Department:"
         '
-        'FacultyIDText
+        'txtbxFacID
         '
-        Me.FacultyIDText.Enabled = False
-        Me.FacultyIDText.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FacultyIDText.Location = New System.Drawing.Point(216, 25)
-        Me.FacultyIDText.Name = "FacultyIDText"
-        Me.FacultyIDText.Size = New System.Drawing.Size(349, 22)
-        Me.FacultyIDText.TabIndex = 175
+        Me.txtbxFacID.Enabled = False
+        Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxFacID.Location = New System.Drawing.Point(216, 25)
+        Me.txtbxFacID.Name = "txtbxFacID"
+        Me.txtbxFacID.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxFacID.TabIndex = 175
         '
-        'FacultyNameText
+        'txtbxName
         '
-        Me.FacultyNameText.Enabled = False
-        Me.FacultyNameText.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FacultyNameText.Location = New System.Drawing.Point(216, 53)
-        Me.FacultyNameText.Name = "FacultyNameText"
-        Me.FacultyNameText.Size = New System.Drawing.Size(349, 22)
-        Me.FacultyNameText.TabIndex = 174
+        Me.txtbxName.Enabled = False
+        Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxName.Location = New System.Drawing.Point(216, 55)
+        Me.txtbxName.Name = "txtbxName"
+        Me.txtbxName.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxName.TabIndex = 174
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(59, 52)
+        Me.Label1.Location = New System.Drawing.Point(77, 55)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(133, 20)
         Me.Label1.TabIndex = 173
@@ -231,7 +231,7 @@ Partial Class wdwDailyAttendanceLog
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(93, 25)
+        Me.Label6.Location = New System.Drawing.Point(108, 25)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(102, 20)
         Me.Label6.TabIndex = 172
@@ -249,7 +249,7 @@ Partial Class wdwDailyAttendanceLog
         Me.Controls.Add(Me.bttnSearch)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.grid)
-        Me.Controls.Add(Me.SearchText)
+        Me.Controls.Add(Me.txtbxSearch)
         Me.Controls.Add(Me.bttnAdd)
         Me.Controls.Add(Me.bttnModify)
         Me.Controls.Add(Me.bttnDelete)
@@ -276,12 +276,12 @@ Partial Class wdwDailyAttendanceLog
     Friend WithEvents Label7 As Label
     Friend WithEvents bttnClear As Button
     Friend WithEvents bttnSearch As Button
-    Friend WithEvents SearchText As TextBox
+    Friend WithEvents txtbxSearch As TextBox
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents DepartmentNameText As TextBox
+    Friend WithEvents txtbxDept As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents FacultyIDText As TextBox
-    Friend WithEvents FacultyNameText As TextBox
+    Friend WithEvents txtbxFacID As TextBox
+    Friend WithEvents txtbxName As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
 End Class

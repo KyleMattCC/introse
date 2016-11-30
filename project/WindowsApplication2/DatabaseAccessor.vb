@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class DatabaseAccessor
+Public Class databaseAccessor
     Dim MysqlConn As MySqlConnection
     Dim Command As MySqlCommand
 
@@ -7,9 +7,9 @@ Public Class DatabaseAccessor
     Public Sub addData(query As String)
         MysqlConn = New MySqlConnection
         MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
-        Dim Reader As MySqldataReader
+        Dim Reader As MySqlDataReader
 
-	    Try
+        Try
             MysqlConn.Open()
             Command = New MySqlCommand(query, MysqlConn)
             Reader = Command.ExecuteReader
@@ -28,9 +28,9 @@ Public Class DatabaseAccessor
     Public Sub deleteData(query As String)
         MysqlConn = New MySqlConnection
         MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
-        Dim Reader As MySqldataReader
+        Dim Reader As MySqlDataReader
 
-	    Try
+        Try
             MysqlConn.Open()
             Command = New MySqlCommand(query, MysqlConn)
             Reader = Command.ExecuteReader
@@ -49,13 +49,12 @@ Public Class DatabaseAccessor
     Public Sub updateData(query As String)
         MysqlConn = New MySqlConnection
         MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
-        Dim Reader As MySqldataReader
+        Dim Reader As MySqlDataReader
 
-	    Try
+        Try
             MysqlConn.Open()
             Command = New MySqlCommand(query, MysqlConn)
             Reader = Command.ExecuteReader
-            MsgBox("Successfully Updated!", MsgBoxStyle.OkOnly, "")
 
             MysqlConn.Close()
         Catch ex As MySqlException
@@ -67,11 +66,36 @@ Public Class DatabaseAccessor
     End Sub
 
     'Select Case Case_ from _ where _
-    Public Function getStringData(query As String, column As String) As String
+    'Public Function getData(query As String, column As String) As String
+    '   MysqlConn = New MySqlConnection
+    '  MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
+    'Dim Reader As MySqlDataReader
+    'Dim Temp As String
+    '   Temp = Nothing
+    '
+    'Try
+    '      MysqlConn.Open()
+    '       Command = New MySqlCommand(query, MysqlConn)
+    '      Reader = Command.ExecuteReader
+    'If Reader.Read() Then
+    '           Temp = Reader(column).ToString
+    'End If
+
+    '       MysqlConn.Close()
+    'Catch ex As MySqlException
+    '       MsgBox("Error!", MsgBoxStyle.Critical, "")
+    'Finally
+    '       MysqlConn.Dispose()
+    'End Try
+    'Return Temp
+
+    'End Function
+
+    Public Function getData(query As String, column As String) As Object
         MysqlConn = New MySqlConnection
         MysqlConn.ConnectionString = "Server=localhost; Database = introse; Uid=root; Pwd=p@ssword;"
         Dim Reader As MySqlDataReader
-        Dim Temp As String
+        Dim Temp As Object
         Temp = Nothing
 
         Try
@@ -79,7 +103,7 @@ Public Class DatabaseAccessor
             Command = New MySqlCommand(query, MysqlConn)
             Reader = Command.ExecuteReader
             If Reader.Read() Then
-                Temp = Reader(column).ToString
+                Temp = Reader(column)
             End If
 
             MysqlConn.Close()
@@ -115,11 +139,11 @@ Public Class DatabaseAccessor
             MysqlConn.Dispose()
         End Try
     End Sub
-    Public Function getMultipleData(query As String, column As String) As List(Of String)
+    Public Function getMultipleData(query As String, column As String) As List(Of Object)
         MysqlConn = New MySqlConnection
         MysqlConn.ConnectionString = "Server=localhost; Database=introse; Uid=root; Pwd=p@ssword;"
         Dim Reader As MySqlDataReader
-        Dim Temp As New List(Of String)
+        Dim Temp As New List(Of Object)
 
         Try
             MysqlConn.Open()
@@ -127,7 +151,7 @@ Public Class DatabaseAccessor
             Reader = Command.ExecuteReader
             While Reader.Read
                 If Reader.HasRows = True Then
-                    Temp.Add(Reader(column).ToString)
+                    Temp.Add(Reader(column))
                 End If
             End While
 
