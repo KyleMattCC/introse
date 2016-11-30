@@ -86,7 +86,7 @@
 
         Try
             fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.getMultipleData("SELECT DISTINCT(c.course_cd) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.course_id = c.course_id;", "course_cd")
+            coursecode = dbAccess.getMultipleData("SELECT DISTINCT(c.course_cd) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.course_id = c.course_id order by 1;", "course_cd")
 
             For j As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(j))
@@ -106,7 +106,7 @@
 
         Try
             fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            section = dbAccess.getMultipleData("SELECT DISTINCT(co.section) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND c.course_cd = '" & course & "';", "section")
+            section = dbAccess.getMultipleData("SELECT DISTINCT(co.section) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND c.course_cd = '" & course & "' order by 1;", "section")
 
             For j As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(j))
@@ -123,7 +123,7 @@
         combo.ResetText()
 
         Try
-            remarks = dbAccess.getMultipleData("SELECT remark_des FROM remarks;", "remark_des")
+            remarks = dbAccess.getMultipleData("SELECT remark_des FROM remarks order by 1;", "remark_des")
 
             For j As Integer = 0 To remarks.Count - 1
                 combo.Items.Add(remarks(j))
@@ -280,6 +280,29 @@
         Dim result As Integer
         currentdate = DateTime.Now.Date
         result = DateTime.Compare(dtp.Value.Date, currentdate)
+        Dim daySched As New List(Of String)
+        Dim tempBool As Boolean = False
+
+        If txtbxDay.Text.Contains("M") Then
+            daySched.Add("Monday")
+        ElseIf txtbxDay.Text.Contains("T") Then
+            daySched.Add("Tuesday")
+        ElseIf txtbxDay.Text.Contains("W") Then
+            daySched.Add("Wednesday")
+        ElseIf txtbxDay.Text.Contains("H") Then
+            daySched.Add("Thursday")
+        ElseIf txtbxDay.Text.Contains("F") Then
+            daySched.Add("Friday")
+        ElseIf txtbxDay.Text.Contains("S") Then
+            daySched.Add("Saturday")
+        End If
+
+        For ctr As Integer = 0 To daySched.Count - 1
+            If (daySched(ctr) = dtp.Value.DayOfWeek.ToString) Then
+                tempBool = True
+            End If
+        Next
+
 
         If Convert.ToInt32(ref) > 0 Then
             absentdate = dtp.Value.Date.ToString("yyyy-MM-dd")
@@ -288,15 +311,13 @@
             remarks = dbAccess.getData("SELECT remark_cd FROM remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
             checker = txtbxChecker.Text
             If String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(section) Or String.IsNullOrEmpty(remarks) Or String.IsNullOrEmpty(checker) Then
-                MsgBox("Incomplete fields!")
+                MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
             ElseIf result > 0 Then
-                MsgBox("ERROR: Absent Date is earlier than the current date!")
+                MsgBox("Absent Date is earlier than the current date!", MsgBoxStyle.Critical, "")
+            ElseIf Not (tempBool) Then
+                MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
             Else
                 dbAccess.updateData("UPDATE `attendance` SET `absent_date` = '" & absentdate & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentdate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "' WHERE `attendanceid` = '" & ref & "' and status = 'A';")
-                dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' 
-                                from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
-                                where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & wdwDailyAttendanceLog.dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
-                                order by 3, 12;", wdwDailyAttendanceLog.grid)
                 txtbxFacID.Clear()
                 txtbxName.Clear()
                 cmbbxCourse.Items.Clear()

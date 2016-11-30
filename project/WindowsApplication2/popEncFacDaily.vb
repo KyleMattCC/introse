@@ -45,7 +45,7 @@
 
         Try
             fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.getMultipleData("SELECT DISTINCT(c.course_cd) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.course_id = c.course_id;", "course_cd")
+            coursecode = dbAccess.getMultipleData("SELECT DISTINCT(c.course_cd) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.course_id = c.course_id order by 1;", "course_cd")
 
             For j As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(j))
@@ -65,7 +65,7 @@
 
         Try
             fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            section = dbAccess.getMultipleData("SELECT DISTINCT(co.section) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND c.course_cd = '" & course & "';", "section")
+            section = dbAccess.getMultipleData("SELECT DISTINCT(co.section) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND c.course_cd = '" & course & "' order by 1;", "section")
 
             For j As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(j))
@@ -82,7 +82,7 @@
         combo.ResetText()
 
         Try
-            remarks = dbAccess.getMultipleData("SELECT remark_des FROM remarks;", "remark_des")
+            remarks = dbAccess.getMultipleData("SELECT remark_des FROM remarks order by 1;", "remark_des")
 
             For j As Integer = 0 To remarks.Count - 1
                 combo.Items.Add(remarks(j))
@@ -232,21 +232,47 @@
         End If
     End Sub
 
-    Private Sub Set_Attendance(facultyid As String, course As String, section As String, remark As String, inputdate As Date, encoder As String, checker As String, ByVal text As TextBox, ByVal combo As ComboBox, stat As String)
+    Private Function Set_Attendance(facultyid As String, course As String, section As String, remark As String, inputdate As Date, encoder As String, checker As String, ByVal text As TextBox, ByVal combo As ComboBox, days As String, stat As String) As Boolean
         Dim courseid As String = ""
         Dim courseofferingid As String = ""
         Dim fac As String = ""
         Dim currentdate As Date
         Dim result As Integer
         Dim remark_cd As String = ""
+        Dim daySched As New List(Of String)
+        Dim tempBool As Boolean = False
         Try
             currentdate = DateTime.Now.Date
             result = DateTime.Compare(inputdate, currentdate)
+            If days.Contains("M") Then
+                daySched.Add("Monday")
+            ElseIf days.Contains("T") Then
+                daySched.Add("Tuesday")
+            ElseIf days.Contains("W") Then
+                daySched.Add("Wednesday")
+            ElseIf days.Contains("H") Then
+                daySched.Add("Thursday")
+            ElseIf days.Contains("F") Then
+                daySched.Add("Friday")
+            ElseIf days.Contains("S") Then
+                daySched.Add("Saturday")
+            End If
+
+            For ctr As Integer = 0 To daySched.Count - 1
+                If (daySched(ctr) = inputdate.DayOfWeek.ToString) Then
+                    tempBool = True
+                End If
+            Next
 
             If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark) Or String.IsNullOrEmpty(checker)) Then
-
+                MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
+                Return False
             ElseIf result > 0 Then
-                MsgBox("ERROR: Absent Date is earlier than the current date!")
+                MsgBox("ERROR: Absent Date is earlier than the current date!", MsgBoxStyle.Critical, "")
+                Return False
+            ElseIf Not (tempBool) Then
+                MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
+                Return False
             Else
                 courseid = dbAccess.getData("SELECT course_id FROM course WHERE course_cd ='" & course & "';", "course_id")
                 fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
@@ -254,33 +280,31 @@
                 remark_cd = dbAccess.getData("select remark_cd from remarks where remark_des = '" & remark & "';", "remark_cd")
                 If (Check_Entry(inputdate.ToString("yyyy-MM-dd"), courseofferingid, "A") = True) Then
                     dbAccess.addData("INSERT INTO `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) VALUES('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark_cd & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
+                    Return True
                 End If
 
             End If
         Catch ex As Exception
+            Return False
         End Try
-
-    End Sub
+        Return False
+    End Function
 
     Private Sub bttnEncode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
-        Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, "unknown", txtbxChecker.Text, txtbxFacID, cmbbxRemarks, "Pending")
+        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, "unknown", txtbxChecker.Text, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
 
-        dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' , a.checker 'Checker'
-                                from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
-                                where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & wdwDailyAttendanceLog.dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
-                                order by 3, 12;", wdwDailyAttendanceLog.grid)
-        Me.Close()
+        If (tempBoolean) Then
+            Me.Close()
+        End If
 
     End Sub
 
     Private Sub bttnAddClear_Click(sender As Object, e As EventArgs) Handles bttnAddClear.Click
-        Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, "unknown", txtbxChecker.Text, txtbxFacID, cmbbxRemarks, "Pending")
+        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, "unknown", txtbxChecker.Text, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
 
-        dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder' , a.checker 'Checker'
-                                from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
-                                where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & wdwDailyAttendanceLog.dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
-                                order by 3, 12;", wdwDailyAttendanceLog.grid)
-        txtbxFacID.Clear()
+        If (tempBoolean) Then
+            txtbxFacID.Clear()
+        End If
 
     End Sub
 
