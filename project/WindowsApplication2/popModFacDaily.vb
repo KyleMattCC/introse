@@ -274,7 +274,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
         Dim absentdate As String
         Dim remarks As String
-        Dim checker, course, section As String
+        Dim checker, course, section, courseofferingid As String
         Dim ref As String = wdwDailyAttendanceLog.getRefNo()
         Dim currentdate As Date
         Dim result As Integer
@@ -322,7 +322,11 @@
             ElseIf Not (tempBool) Then
                 MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
             Else
-                dbAccess.updateData("UPDATE `attendance` SET `absent_date` = '" & absentdate & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentdate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "' WHERE `attendanceid` = '" & ref & "' and status = 'A';")
+                courseofferingid = dbAccess.getData("select courseoffering_id from courseoffering c, course cl where cl.course_cd = 'OBJECTP' and c.course_id = cl.course_id and c.section = 'S17'; 
+", "courseoffering_id")
+                If (Check_Entry(absentdate, courseofferingid, "A") = True) Then
+                    dbAccess.updateData("UPDATE `attendance` SET `absent_date` = '" & absentdate & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentdate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "' WHERE `attendanceid` = '" & ref & "' and status = 'A';")
+                End If
                 txtbxFacID.Clear()
                 txtbxName.Clear()
                 cmbbxCourse.Items.Clear()
@@ -336,8 +340,8 @@
                 txtbxEnd.Clear()
                 txtbxChecker.Clear()
                 Me.Close()
+                End If
             End If
-        End If
 
     End Sub
 
