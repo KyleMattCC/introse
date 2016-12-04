@@ -37,7 +37,7 @@ Partial Class wdwAttendanceHistoryLog
         'txtbxSearch
         '
         Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxSearch.Location = New System.Drawing.Point(29, 77)
+        Me.txtbxSearch.Location = New System.Drawing.Point(29, 17)
         Me.txtbxSearch.Name = "txtbxSearch"
         Me.txtbxSearch.Size = New System.Drawing.Size(350, 26)
         Me.txtbxSearch.TabIndex = 174
@@ -45,7 +45,7 @@ Partial Class wdwAttendanceHistoryLog
         'bttnSearch
         '
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(390, 77)
+        Me.bttnSearch.Location = New System.Drawing.Point(390, 17)
         Me.bttnSearch.Name = "bttnSearch"
         Me.bttnSearch.Size = New System.Drawing.Size(105, 29)
         Me.bttnSearch.TabIndex = 175
@@ -56,7 +56,7 @@ Partial Class wdwAttendanceHistoryLog
         '
         Me.bttnClear.BackColor = System.Drawing.SystemColors.Control
         Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnClear.Location = New System.Drawing.Point(503, 77)
+        Me.bttnClear.Location = New System.Drawing.Point(503, 17)
         Me.bttnClear.Name = "bttnClear"
         Me.bttnClear.Size = New System.Drawing.Size(105, 29)
         Me.bttnClear.TabIndex = 176
@@ -68,6 +68,7 @@ Partial Class wdwAttendanceHistoryLog
         Me.grid.AllowUserToAddRows = False
         Me.grid.AllowUserToDeleteRows = False
         Me.grid.AllowUserToOrderColumns = True
+        Me.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window

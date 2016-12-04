@@ -83,21 +83,22 @@
         Catch ex As Exception
 
         End Try
-
     End Sub
+
     Private Sub Add_SchoolYear(ByVal combo As ComboBox)
+
         Dim schoolyear As New List(Of Object)()
         combo.Items.Clear()
         combo.ResetText()
 
         Try
+
             schoolyear = dbAccess.getMultipleData("select concat(yearstart, '-', yearend) from academicyear;", "concat(yearstart, '-', yearend)")
 
             For j As Integer = 0 To schoolyear.Count - 1
                 combo.Items.Add(schoolyear(j))
             Next
         Catch ex As Exception
-
         End Try
 
     End Sub
@@ -321,12 +322,18 @@
         txtbxStart.Clear()
         txtbxDay.Clear()
         txtbxRoom.Clear()
-        If (String.IsNullOrEmpty(cmbbxTerm.SelectedItem.ToString)) Then
-            cmbbxCourse.Enabled = False
-        Else
-            cmbbxCourse.Enabled = True
-        End If
-        Add_Course(txtbxFacID.Text, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxCourse)
+        Try
+            If (String.IsNullOrEmpty(cmbbxTerm.SelectedItem)) Then
+                cmbbxCourse.Enabled = False
+            Else
+                cmbbxCourse.Enabled = True
+            End If
+            Add_Course(txtbxFacID.Text, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxCourse)
+
+        Catch ex As Exception
+
+        End Try
+
         cmbbxRemarks.SelectedIndex = -1
         Check_Enable()
     End Sub
@@ -342,12 +349,18 @@
         txtbxStart.Clear()
         txtbxDay.Clear()
         txtbxRoom.Clear()
-        If (String.IsNullOrEmpty(cmbbxSY.SelectedItem.ToString)) Then
-            cmbbxTerm.Enabled = False
-        Else
-            cmbbxTerm.Enabled = True
-        End If
-        Add_Term(cmbbxSY.SelectedItem.ToString, cmbbxTerm)
+        Try
+            If (String.IsNullOrEmpty(cmbbxSY.SelectedItem)) Then
+                cmbbxTerm.Enabled = False
+            Else
+                cmbbxTerm.Enabled = True
+            End If
+
+            Add_Term(cmbbxSY.SelectedItem.ToString, cmbbxTerm)
+        Catch ex As Exception
+
+        End Try
+
         cmbbxRemarks.SelectedIndex = -1
         Check_Enable()
     End Sub
