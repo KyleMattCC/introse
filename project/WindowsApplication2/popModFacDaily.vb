@@ -322,7 +322,7 @@
             ElseIf Not (tempBool) Then
                 MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
             Else
-                courseofferingid = dbAccess.getData("select courseoffering_id from courseoffering c, course cl where cl.course_cd = 'OBJECTP' and c.course_id = cl.course_id and c.section = 'S17'; 
+                courseofferingid = dbAccess.getData("select courseoffering_id from courseoffering c, course cl where cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "'; 
 ", "courseoffering_id")
                 If (Check_Entry(absentdate, courseofferingid, "A") = True) Then
                     dbAccess.updateData("UPDATE `attendance` SET `absent_date` = '" & absentdate & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentdate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "' WHERE `attendanceid` = '" & ref & "' and status = 'A';")
