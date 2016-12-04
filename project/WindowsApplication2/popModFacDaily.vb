@@ -61,9 +61,9 @@
         MI = ""
         lname = ""
         Try
-            fname = dbAccess.getData("Select f_firstname from faculty where facultyid = '" & facultyid & "';", "f_firstname")
-            MI = dbAccess.getData("Select f_middlename from faculty where facultyid = '" & facultyid & "';", "f_middlename")
-            lname = dbAccess.getData("Select f_lastname from faculty where facultyid = '" & facultyid & "';", "f_lastname")
+            fname = dbAccess.getData("select f_firstname from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "f_firstname")
+            MI = dbAccess.getData("select f_middlename from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "f_middlename")
+            lname = dbAccess.getData("select f_lastname from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "f_lastname")
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
@@ -85,8 +85,8 @@
         combo.ResetText()
 
         Try
-            fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.getMultipleData("SELECT DISTINCT(c.course_cd) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND co.course_id = c.course_id order by 1;", "course_cd")
+            fac = dbAccess.getData("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
+            coursecode = dbAccess.getMultipleData("select DISTINCT(c.course_cd) from introse.course c, introse.courseoffering co where co.status = 'A' and co.facref_no = '" & fac & "' and co.course_id = c.course_id order by 1;", "course_cd")
 
             For j As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(j))
@@ -105,8 +105,8 @@
         combo.ResetText()
 
         Try
-            fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            section = dbAccess.getMultipleData("SELECT DISTINCT(co.section) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.status = 'A' AND c.course_cd = '" & course & "' order by 1;", "section")
+            fac = dbAccess.getData("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
+            section = dbAccess.getMultipleData("select DISTINCT(co.section) from introse.course c, introse.courseoffering co where co.status = 'A' and co.facref_no = '" & fac & "' and c.course_cd = '" & course & "' order by 1;", "section")
 
             For j As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(j))
@@ -123,7 +123,7 @@
         combo.ResetText()
 
         Try
-            remarks = dbAccess.getMultipleData("SELECT remark_des FROM remarks order by 1;", "remark_des")
+            remarks = dbAccess.getMultipleData("select remark_des from introse.remarks order by 1;", "remark_des")
 
             For j As Integer = 0 To remarks.Count - 1
                 combo.Items.Add(remarks(j))
@@ -139,8 +139,8 @@
         Dim room As String = ""
         Dim fac As String = ""
         Try
-            fac = dbAccess.getData("select facref_no from faculty where status = 'A' AND facultyid = '" & facultyid & "';", "facref_no")
-            room = dbAccess.getData("select co.room FROM courseoffering AS co, course AS c WHERE  c.course_cd = '" & course & "' AND c.course_id = co.course_id AND co.facref_no = '" & fac & "'  AND co.section = '" & section & "' AND co.status = 'A';", "room")
+            fac = dbAccess.getData("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
+            room = dbAccess.getData("select co.room from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and c.course_id = co.course_id and co.facref_no = '" & fac & "' and co.section = '" & section & "';", "room")
 
             text.Text = room
         Catch ex As Exception
@@ -155,10 +155,10 @@
         Dim fac As String
         Dim sched As String = ""
         Try
-            fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "' and status = 'A';", "facref_no").ToString
-            starttime = dbAccess.getData("SELECT co.timestart FROM introse.courseoffering as co, introse.course as c WHERE co.status = 'A' AND c.course_cd = '" & course & "' AND co.course_id = c.course_id AND co.facref_no = '" & fac & "' AND co.section = '" & section & "';", "timestart").ToString()
-            endtime = dbAccess.getData("SELECT co.timeend FROM courseoffering as co, course as c WHERE c.course_cd = '" & course & "' AND co.course_id = c.course_id AND co.facref_no = '" & fac & "' AND co.section = '" & section & "' AND co.status = 'A';", "timeend").ToString()
-            sched = dbAccess.getData("SELECT co.daysched FROM courseoffering as co, course as c WHERE c.course_cd = '" & course & "' AND co.course_id = c.course_id AND co.facref_no = '" & fac & "' AND co.section = '" & section & "' AND co.status = 'A';", "daysched")
+            fac = dbAccess.getData("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no").ToString
+            starttime = dbAccess.getData("select co.timestart from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.section = '" & section & "';", "timestart").ToString()
+            endtime = dbAccess.getData("select co.timeend from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.section = '" & section & "';", "timeend").ToString()
+            sched = dbAccess.getData("select co.daysched from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.section = '" & section & "';", "daysched")
 
             TimeStart.Text = starttime
             TimeEnd.Text = endtime
@@ -217,7 +217,7 @@
     End Sub
 
     Private Sub Check_Enable()
-        If String.IsNullOrEmpty(txtbxFacID.Text) Or String.IsNullOrEmpty(txtbxName.Text) Or cmbbxCourse.SelectedIndex = -1 Or cmbbxSection.SelectedIndex = -1 Or cmbbxRemarks.SelectedIndex = -1 Or String.IsNullOrEmpty(txtbxChecker.Text) Then
+        If (String.IsNullOrEmpty(txtbxFacID.Text) Or String.IsNullOrWhiteSpace(txtbxFacID.Text)) Or (String.IsNullOrEmpty(txtbxName.Text) Or String.IsNullOrWhiteSpace(txtbxName.Text)) Or cmbbxCourse.SelectedIndex = -1 Or cmbbxSection.SelectedIndex = -1 Or cmbbxRemarks.SelectedIndex = -1 Or (String.IsNullOrEmpty(txtbxChecker.Text) Or String.IsNullOrWhiteSpace(txtbxChecker.Text)) Then
             bttnModify.Enabled = False
 
         Else
@@ -261,25 +261,23 @@
     Private Function Check_Entry(absent As String, courseofferingid As String, stat As String) As Boolean
         Dim att As String = ""
         Dim b As Boolean = False
-        att = dbAccess.getData("select attendanceid from attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
+        att = dbAccess.getData("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
         If String.IsNullOrEmpty(att) Then
             b = True
         Else
-            MsgBox("Duplicate attendance!", MsgBoxStyle.Critical, "")
+            MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
         End If
         Return b
 
     End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
-        Dim absentdate As String
-        Dim remarks As String
-        Dim checker, course, section, courseofferingid As String
+        Dim absentDate, checker, course, section, courseOfferingId, remarks As String
         Dim ref As String = wdwDailyAttendanceLog.getRefNo()
-        Dim currentdate As Date
+        Dim currentDate As Date
         Dim result As Integer
-        currentdate = DateTime.Now.Date
-        result = DateTime.Compare(dtp.Value.Date, currentdate)
+        currentDate = DateTime.Now.Date
+        result = DateTime.Compare(dtp.Value.Date, currentDate)
         Dim daySched As New List(Of String)
         Dim tempBool As Boolean = False
 
@@ -308,40 +306,48 @@
             End If
         Next
 
-
         If Convert.ToInt32(ref) > 0 Then
-            absentdate = dtp.Value.Date.ToString("yyyy-MM-dd")
-            course = cmbbxCourse.SelectedItem
-            section = cmbbxSection.SelectedItem
-            remarks = dbAccess.getData("SELECT remark_cd FROM remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
-            checker = txtbxChecker.Text
-            If String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(section) Or String.IsNullOrEmpty(remarks) Or String.IsNullOrEmpty(checker) Then
+            If String.IsNullOrEmpty(cmbbxCourse.SelectedItem) Or String.IsNullOrEmpty(cmbbxSection.SelectedItem) Or String.IsNullOrEmpty(cmbbxRemarks.SelectedItem) Or String.IsNullOrEmpty(txtbxChecker.Text) Then
                 MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
             ElseIf result > 0 Then
                 MsgBox("Absent date is earlier than the current date!", MsgBoxStyle.Critical, "")
             ElseIf Not (tempBool) Then
                 MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
             Else
-                courseofferingid = dbAccess.getData("select courseoffering_id from courseoffering c, course cl where cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "'; 
+
+                absentDate = dtp.Value.Date.ToString("yyyy-MM-dd")
+                course = cmbbxCourse.SelectedItem
+                section = cmbbxSection.SelectedItem
+                remarks = dbAccess.getData("select remark_cd from introse.remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
+                checker = txtbxChecker.Text
+
+                courseOfferingId = dbAccess.getData("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
+                If (Check_Entry(absentDate, courseOfferingId, "A") = True) Then
+                    dbAccess.updateData("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "', `report_status` = Pending WHERE `attendanceid` = '" & ref & "' and status = 'A';")
+                    Me.Close()
+
+                    courseOfferingId = dbAccess.getData("select courseoffering_id from courseoffering c, course cl where cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "'; 
 ", "courseoffering_id")
-                If (Check_Entry(absentdate, courseofferingid, "A") = True) Then
-                    dbAccess.updateData("UPDATE `attendance` SET `absent_date` = '" & absentdate & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentdate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "' WHERE `attendanceid` = '" & ref & "' and status = 'A';")
-                End If
-                txtbxFacID.Clear()
-                txtbxName.Clear()
-                cmbbxCourse.Items.Clear()
-                cmbbxSection.Items.Clear()
-                cmbbxCourse.ResetText()
-                cmbbxRemarks.ResetText()
-                cmbbxSection.ResetText()
-                txtbxRoom.Clear()
-                txtbxDay.Clear()
-                txtbxStart.Clear()
-                txtbxEnd.Clear()
-                txtbxChecker.Clear()
-                Me.Close()
+                    If (Check_Entry(absentDate, courseOfferingId, "A") = True) Then
+                        dbAccess.updateData("UPDATE `attendance` SET `absent_date` = '" & absentDate & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "' WHERE `attendanceid` = '" & ref & "' and status = 'A';")
+                    End If
+                    txtbxFacID.Clear()
+                    txtbxName.Clear()
+                    cmbbxCourse.Items.Clear()
+                    cmbbxSection.Items.Clear()
+                    cmbbxCourse.ResetText()
+                    cmbbxRemarks.ResetText()
+                    cmbbxSection.ResetText()
+                    txtbxRoom.Clear()
+                    txtbxDay.Clear()
+                    txtbxStart.Clear()
+                    txtbxEnd.Clear()
+                    txtbxChecker.Clear()
+                    Me.Close()
+
                 End If
             End If
+        End If
 
     End Sub
 

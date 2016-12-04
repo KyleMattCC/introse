@@ -23,7 +23,7 @@ Partial Class wdwFacultyMakeUp
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.bttnBack = New System.Windows.Forms.Button()
@@ -40,7 +40,7 @@ Partial Class wdwFacultyMakeUp
         Me.Label6 = New System.Windows.Forms.Label()
         Me.bttnClear = New System.Windows.Forms.Button()
         Me.bttnSearch = New System.Windows.Forms.Button()
-        Me.searchBox = New System.Windows.Forms.TextBox()
+        Me.txtbxSearch = New System.Windows.Forms.TextBox()
         Me.dtp = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,14 +103,14 @@ Partial Class wdwFacultyMakeUp
         Me.grid.AllowUserToAddRows = False
         Me.grid.AllowUserToDeleteRows = False
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grid.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grid.DefaultCellStyle = DataGridViewCellStyle2
         Me.grid.Location = New System.Drawing.Point(29, 196)
         Me.grid.Name = "grid"
         Me.grid.ReadOnly = True
@@ -213,13 +213,13 @@ Partial Class wdwFacultyMakeUp
         Me.bttnSearch.Text = "Search"
         Me.bttnSearch.UseVisualStyleBackColor = True
         '
-        'searchBox
+        'txtbxSearch
         '
-        Me.searchBox.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchBox.Location = New System.Drawing.Point(768, 17)
-        Me.searchBox.Name = "searchBox"
-        Me.searchBox.Size = New System.Drawing.Size(303, 22)
-        Me.searchBox.TabIndex = 7
+        Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxSearch.Location = New System.Drawing.Point(768, 17)
+        Me.txtbxSearch.Name = "txtbxSearch"
+        Me.txtbxSearch.Size = New System.Drawing.Size(303, 22)
+        Me.txtbxSearch.TabIndex = 7
         '
         'dtp
         '
@@ -252,7 +252,7 @@ Partial Class wdwFacultyMakeUp
         Me.Controls.Add(Me.bttnSearch)
         Me.Controls.Add(Me.bttnAdd)
         Me.Controls.Add(Me.bttnModify)
-        Me.Controls.Add(Me.searchBox)
+        Me.Controls.Add(Me.txtbxSearch)
         Me.Controls.Add(Me.bttnDelete)
         Me.Controls.Add(Me.bttnBack)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -283,7 +283,7 @@ Partial Class wdwFacultyMakeUp
     Friend WithEvents Label6 As Label
     Friend WithEvents bttnClear As Button
     Friend WithEvents bttnSearch As Button
-    Friend WithEvents searchBox As TextBox
+    Friend WithEvents txtbxSearch As TextBox
     Friend WithEvents dtp As DateTimePicker
     Friend WithEvents Label5 As Label
     Friend WithEvents grid As DataGridView

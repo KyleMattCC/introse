@@ -23,7 +23,7 @@
         wdwSelectReport.Show()
     End Sub
 
-    Private Sub bttnPlantilla_Click(sender As Object, e As EventArgs) Handles bttnPlantilla.Click
+    Private Sub bttnPlantilla_Click(sender As Object, e As EventArgs)
         wdwFacPlantilia.Show()
     End Sub
 

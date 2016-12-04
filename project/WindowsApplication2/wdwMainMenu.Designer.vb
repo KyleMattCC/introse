@@ -23,7 +23,6 @@ Partial Class wdwMainMenu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.bttnPlantilla = New System.Windows.Forms.Button()
         Me.bttnDailyAtt = New System.Windows.Forms.Button()
         Me.bttnMakeUp = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -40,34 +39,22 @@ Partial Class wdwMainMenu
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.bttnPlantilla)
         Me.GroupBox1.Controls.Add(Me.bttnDailyAtt)
         Me.GroupBox1.Controls.Add(Me.bttnMakeUp)
         Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(115, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(211, 12)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(564, 140)
+        Me.GroupBox1.Size = New System.Drawing.Size(370, 140)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Data Entry"
         '
-        'bttnPlantilla
-        '
-        Me.bttnPlantilla.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnPlantilla.Location = New System.Drawing.Point(396, 25)
-        Me.bttnPlantilla.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.bttnPlantilla.Name = "bttnPlantilla"
-        Me.bttnPlantilla.Size = New System.Drawing.Size(160, 100)
-        Me.bttnPlantilla.TabIndex = 15
-        Me.bttnPlantilla.Text = "Faculty Plantilla"
-        Me.bttnPlantilla.UseVisualStyleBackColor = True
-        '
         'bttnDailyAtt
         '
         Me.bttnDailyAtt.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnDailyAtt.Location = New System.Drawing.Point(6, 25)
+        Me.bttnDailyAtt.Location = New System.Drawing.Point(8, 25)
         Me.bttnDailyAtt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnDailyAtt.Name = "bttnDailyAtt"
         Me.bttnDailyAtt.Size = New System.Drawing.Size(160, 100)
@@ -78,7 +65,7 @@ Partial Class wdwMainMenu
         'bttnMakeUp
         '
         Me.bttnMakeUp.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnMakeUp.Location = New System.Drawing.Point(204, 25)
+        Me.bttnMakeUp.Location = New System.Drawing.Point(202, 25)
         Me.bttnMakeUp.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnMakeUp.Name = "bttnMakeUp"
         Me.bttnMakeUp.Size = New System.Drawing.Size(160, 100)
@@ -194,7 +181,6 @@ Partial Class wdwMainMenu
     End Sub
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents bttnDailyAtt As Button
-    Friend WithEvents bttnPlantilla As Button
     Friend WithEvents bttnMakeUp As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents bttnNotice As Button

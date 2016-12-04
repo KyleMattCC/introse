@@ -12,9 +12,9 @@
         Dim DeptValue As String
         bttnSearch.Enabled = False
 
-        dbAccess.fillDataGrid("Select a.attendanceid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date encoded', a.encoder 'Encoder' , a.checker 'Checker'
+        dbAccess.fillDataGrid("select a.attendanceid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date encoded', a.encoder 'Encoder' , a.checker 'Checker'
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
-                                where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.status = 'A' and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
+                                where f.status = 'A' and c.status = 'A' and a.status = 'A' and a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
                                 order by 3, 12;", grid)
         If grid.Rows.Count < 1 Then
             txtbxFacID.Text = Nothing
@@ -23,7 +23,7 @@
         ElseIf grid.RowCount >= 1 Then
             txtbxFacID.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
             txtbxName.Text = grid.Rows(0).Cells("Name").Value.ToString
-            DeptValue = dbAccess.getData("Select departmentname from department, faculty where facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
+            DeptValue = dbAccess.getData("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
             txtbxDept.Text = DeptValue.ToString
         End If
 
@@ -56,9 +56,9 @@
         Search += txtbxSearch.Text
         Search += "%"
 
-        dbAccess.fillDataGrid("Select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder'
-                                    from faculty f, department d , attendance a, courseoffering c, remarks r, course cl
-                                    where a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'and c.courseoffering_id = a.courseoffering_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and c.course_id = cl.course_id and a.status = 'A' and f.departmentid = d.departmentid and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "') or (cl.course_cd LIKE '" + Search.ToString + "') or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "'))", grid)
+        dbAccess.fillDataGrid("select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder'
+                                    from introse.faculty f, introse.department d , introse.attendance a, introse.courseoffering c, introse.remarks r, introse.course cl
+                                    where f.status = 'A' and c.status = 'A' and a.status = 'A' and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'and c.courseoffering_id = a.courseoffering_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and c.course_id = cl.course_id and f.departmentid = d.departmentid and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "') or (cl.course_cd LIKE '" + Search.ToString + "') or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "'))", grid)
 
 
         If grid.Rows.Count < 1 Then
@@ -68,7 +68,7 @@
         ElseIf grid.RowCount >= 1 Then
             txtbxFacID.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
             txtbxName.Text = grid.Rows(0).Cells("Name").Value.ToString
-            DeptValue = dbAccess.getData("Select departmentname from department, faculty where facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
+            DeptValue = dbAccess.getData("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
             txtbxDept.Text = DeptValue.ToString
         End If
 
@@ -91,7 +91,6 @@
             Dim selectedRow As DataGridViewRow
             Dim colCount As Integer
             colCount = grid.ColumnCount
-            MsgBox(colCount)
             If .SelectedRows.Count = 0 Then
                 MsgBox("No rows selected!", MsgBoxStyle.Critical, "")
 
@@ -119,17 +118,22 @@
 
     Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
         With grid
+            Dim result As DialogResult
             Dim selectedRow As DataGridViewRow
             If .SelectedRows.Count > 0 Then
-                For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
-                    selectedRow = grid.Rows(.SelectedRows(ctr).Index)
-                    dbAccess.updateData("UPDATE `attendance` SET `status` = 'D' WHERE `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
-                Next
+                result = MsgBox("Are you sure you want to delete" & .SelectedRows.Count & "row/s?", MsgBoxStyle.YesNo, "")
+                If result = DialogResult.Yes Then
 
-                Load_form()
+                    For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
+                        selectedRow = grid.Rows(.SelectedRows(ctr).Index)
+                        dbAccess.updateData("update `attendance` set `status` = 'D' where `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
+                    Next
+
+                    Load_form()
+                End If
 
             Else
-                MsgBox("No selected attendance", MsgBoxStyle.Critical, "")
+                MsgBox("No row/s selected", MsgBoxStyle.Critical, "")
 
             End If
         End With
@@ -154,7 +158,7 @@
             Else
                 txtbxFacID.Text = selectedRow.Cells("Faculty ID").Value.ToString
                 txtbxName.Text = selectedRow.Cells("Name").Value.ToString
-                DeptValue = dbAccess.getData("Select departmentname from department, faculty where facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
+                DeptValue = dbAccess.getData("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
                 txtbxDept.Text = DeptValue.ToString
 
             End If
@@ -184,4 +188,5 @@
             bttnSearch.Enabled = True
         End If
     End Sub
+
 End Class
