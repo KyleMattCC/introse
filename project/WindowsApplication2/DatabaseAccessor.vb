@@ -165,7 +165,41 @@ Public Class databaseAccessor
         Return Temp
 
     End Function
-    Public Function getRowData(query As String, column1 As String, column2 As String, column3 As String, column4 As String, column5 As String, column6 As String, column7 As String, column8 As String, column9 As String, column10 As String, column11 As String) As List(Of Object)
+    Public Function get9ColumnData(query As String, column1 As String, column2 As String, column3 As String, column4 As String, column5 As String, column6 As String, column7 As String, column8 As String, column9 As String) As List(Of Object)
+        MysqlConn = New MySqlConnection
+        MysqlConn.ConnectionString = "Server=localhost; Database=introse; Uid=root; Pwd=p@ssword;"
+        Dim Reader As MySqlDataReader
+        Dim Temp As New List(Of Object)
+
+        Try
+            MysqlConn.Open()
+            Command = New MySqlCommand(query, MysqlConn)
+            Reader = Command.ExecuteReader
+            While Reader.Read
+                If Reader.HasRows = True Then
+                    Temp.Add(Reader(column1))
+                    Temp.Add(Reader(column2))
+                    Temp.Add(Reader(column3))
+                    Temp.Add(Reader(column4))
+                    Temp.Add(Reader(column5))
+                    Temp.Add(Reader(column6))
+                    Temp.Add(Reader(column7))
+                    Temp.Add(Reader(column8))
+                    Temp.Add(Reader(column9))
+                End If
+            End While
+
+            MysqlConn.Close()
+        Catch ex As MySqlException
+            MsgBox("Error!", MsgBoxStyle.Critical, "")
+        Finally
+            MysqlConn.Dispose()
+        End Try
+
+        Return Temp
+
+    End Function
+    Public Function get11ColumnData(query As String, column1 As String, column2 As String, column3 As String, column4 As String, column5 As String, column6 As String, column7 As String, column8 As String, column9 As String, column10 As String, column11 As String) As List(Of Object)
         MysqlConn = New MySqlConnection
         MysqlConn.ConnectionString = "Server=localhost; Database=introse; Uid=root; Pwd=p@ssword;"
         Dim Reader As MySqlDataReader

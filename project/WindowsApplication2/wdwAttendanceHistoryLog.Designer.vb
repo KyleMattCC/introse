@@ -31,6 +31,7 @@ Partial Class wdwAttendanceHistoryLog
         Me.bttnModify = New System.Windows.Forms.Button()
         Me.bttnDelete = New System.Windows.Forms.Button()
         Me.bttnBack = New System.Windows.Forms.Button()
+        Me.BttnToggle = New System.Windows.Forms.Button()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -127,11 +128,22 @@ Partial Class wdwAttendanceHistoryLog
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
         '
+        'BttnToggle
+        '
+        Me.BttnToggle.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BttnToggle.Location = New System.Drawing.Point(29, 157)
+        Me.BttnToggle.Name = "BttnToggle"
+        Me.BttnToggle.Size = New System.Drawing.Size(105, 29)
+        Me.BttnToggle.TabIndex = 182
+        Me.BttnToggle.Text = "Attendance"
+        Me.BttnToggle.UseVisualStyleBackColor = True
+        '
         'wdwAttendanceHistoryLog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1323, 670)
+        Me.Controls.Add(Me.BttnToggle)
         Me.Controls.Add(Me.bttnBack)
         Me.Controls.Add(Me.bttnDelete)
         Me.Controls.Add(Me.bttnModify)
@@ -156,4 +168,5 @@ Partial Class wdwAttendanceHistoryLog
     Friend WithEvents bttnModify As Button
     Friend WithEvents bttnDelete As Button
     Friend WithEvents bttnBack As Button
+    Friend WithEvents BttnToggle As Button
 End Class
