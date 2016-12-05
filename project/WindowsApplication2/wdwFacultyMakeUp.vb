@@ -10,7 +10,7 @@
     Private Sub Load_form()
         Dim DeptValue As String
         bttnSearch.Enabled = False
-        dbAccess.fillDataGrid("select m.makeupid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', m.makeup_date 'Makeup date', cl.course_cd 'Course', c.section 'Section', m.room 'Room', m.timestart 'Start time', m.timeend 'End time', m.hours 'Hours', r.reason_des 'Reason', m.enc_date 'Date encoded', m.encoder 'Encoder' 
+        dbAccess.Fill_Data_Grid("select m.makeupid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', m.makeup_date 'Makeup date', cl.course_cd 'Course', c.section 'Section', m.room 'Room', m.timestart 'Start time', m.timeend 'End time', m.hours 'Hours', r.reason_des 'Reason', m.enc_date 'Date encoded', m.encoder 'Encoder' 
                                 from introse.makeup m, introse.faculty f, introse.course cl, introse.courseoffering c, introse.reasons r 
                                 where f.status = 'A' and c.status = 'A' and m.status = 'A' and  m.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and m.reason_cd = r.reason_cd and m.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
                                 order by 3, 12;", grid)
@@ -21,7 +21,7 @@
         ElseIf grid.RowCount >= 1 Then
             txtbxFacultyID.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
             txtbxFacultyName.Text = grid.Rows(0).Cells("Name").Value.ToString
-            DeptValue = dbAccess.getData("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacultyID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
+            DeptValue = dbAccess.Get_Data("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacultyID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
             txtbxDepartment.Text = DeptValue.ToString
         End If
     End Sub
@@ -52,7 +52,7 @@
     '   Search += txtbxSearch.Text
     '   Search += "%"
 
-    '   dbAccess.fillDataGrid("select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder'
+    '   dbAccess.Fill_Data_Grid("select a.attendanceid 'Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date Encoded', a.encoder 'Encoder'
     'from introse.faculty f, introse.department d , introse.attendance a, introse.courseoffering c, introse.remarks r, introse.course cl
     'where f.status = 'A' and c.status = 'A' and a.status = 'A' and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'and c.courseoffering_id = a.courseoffering_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and c.course_id = cl.course_id and f.departmentid = d.departmentid and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "') or (cl.course_cd LIKE '" + Search.ToString + "') or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "'))", grid)
 
@@ -64,7 +64,7 @@
     '   ElseIf grid.RowCount >= 1 Then
     '       txtbxFacultyID.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
     '      txtbxFacultyName.Text = grid.Rows(0).Cells("Name").Value.ToString
-    '     DeptValue = dbAccess.getData("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacultyID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
+    '     DeptValue = dbAccess.Get_Data("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacultyID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
     '    txtbxDepartment.Text = DeptValue.ToString
     'End If
 
@@ -123,7 +123,7 @@
 
                     For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
                         selectedRow = grid.Rows(.SelectedRows(ctr).Index)
-                        dbAccess.updateData("update `makeup` set `status` = 'D' where `makeupid` = '" & selectedRow.Cells(0).Value & "';")
+                        dbAccess.Update_Data("update `makeup` set `status` = 'D' where `makeupid` = '" & selectedRow.Cells(0).Value & "';")
                     Next
 
                     Load_form()
@@ -156,7 +156,7 @@
             Else
                 txtbxFacultyID.Text = selectedRow.Cells("Faculty ID").Value.ToString
                 txtbxFacultyName.Text = selectedRow.Cells("Name").Value.ToString
-                DeptValue = dbAccess.getData("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacultyID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
+                DeptValue = dbAccess.Get_Data("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacultyID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
                 txtbxDepartment.Text = DeptValue.ToString
 
             End If

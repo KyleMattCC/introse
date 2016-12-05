@@ -54,7 +54,7 @@ Partial Class wdwMainMenu
         'bttnDailyAtt
         '
         Me.bttnDailyAtt.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnDailyAtt.Location = New System.Drawing.Point(8, 25)
+        Me.bttnDailyAtt.Location = New System.Drawing.Point(6, 25)
         Me.bttnDailyAtt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnDailyAtt.Name = "bttnDailyAtt"
         Me.bttnDailyAtt.Size = New System.Drawing.Size(160, 100)
@@ -65,12 +65,12 @@ Partial Class wdwMainMenu
         'bttnMakeUp
         '
         Me.bttnMakeUp.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnMakeUp.Location = New System.Drawing.Point(202, 25)
+        Me.bttnMakeUp.Location = New System.Drawing.Point(204, 25)
         Me.bttnMakeUp.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnMakeUp.Name = "bttnMakeUp"
         Me.bttnMakeUp.Size = New System.Drawing.Size(160, 100)
         Me.bttnMakeUp.TabIndex = 12
-        Me.bttnMakeUp.Text = "Make-up Schedule"
+        Me.bttnMakeUp.Text = "Makeup Schedule"
         Me.bttnMakeUp.UseVisualStyleBackColor = True
         '
         'GroupBox3

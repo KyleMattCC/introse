@@ -96,7 +96,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,'2016-11-21',1,'AB','2016-11-21','unknown','egul','D','Generated'),(2,'2016-11-21',2,'ED','2016-11-21','unknown','egul2','A','Generated'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','D','Pending'),(7,'2016-11-27',2,'AB','2016-11-30','unknown','egul','A','Pending'),(8,'2016-11-30',1,'AB','2016-11-30','unknown','me','A','Pending'),(9,'2016-12-01',2,'AB','2016-12-01','unknown','weq','A','Pending');
+INSERT INTO `attendance` VALUES (1,'2016-11-21',1,'AB','2016-11-21','unknown','egul','D','Generated'),(2,'2016-11-21',2,'ED','2016-11-21','unknown','egul2','A','Generated'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','D','Pending'),(7,'2016-11-27',2,'AB','2016-11-30','unknown','egul','A','Pending'),(8,'2016-11-30',1,'AB','2016-11-30','unknown','me','A','Pending'),(9,'2016-12-01',2,'AB','2016-12-01','unknown','weq','A','Generated');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -278,27 +278,28 @@ LOCK TABLES `makeup` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `reason`
+-- Table structure for table `reasons`
 --
 
-DROP TABLE IF EXISTS `reason`;
+DROP TABLE IF EXISTS `reasons`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `reason` (
+CREATE TABLE `reasons` (
   `reason_cd` char(2) NOT NULL,
-  `reason_desc` varchar(45) NOT NULL,
+  `reason_des` varchar(45) NOT NULL,
   PRIMARY KEY (`reason_cd`),
   UNIQUE KEY `reason_cd_UNIQUE` (`reason_cd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reason`
+-- Dumping data for table `reasons`
 --
 
-LOCK TABLES `reason` WRITE;
-/*!40000 ALTER TABLE `reason` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reason` ENABLE KEYS */;
+LOCK TABLES `reasons` WRITE;
+/*!40000 ALTER TABLE `reasons` DISABLE KEYS */;
+INSERT INTO `reasons` VALUES ('AC','Alternative Class'),('FT','Field Trip'),('OB','Official Business'),('OL','Online Class'),('SB','Substitute'),('SW','Seatwork'),('XX','Others');
+/*!40000 ALTER TABLE `reasons` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -322,7 +323,7 @@ CREATE TABLE `remarks` (
 
 LOCK TABLES `remarks` WRITE;
 /*!40000 ALTER TABLE `remarks` DISABLE KEYS */;
-INSERT INTO `remarks` VALUES ('AB','Absent'),('ED','Early Dismissal'),('LA','Late'),('VR','Vacant Room');
+INSERT INTO `remarks` VALUES ('CF','Conference'),('ED','Early Dismissal'),('LA','Late'),('PM','Personal Matter'),('SI','Sickness'),('VR','Vacant Room'),('XX','Reason Unknown');
 /*!40000 ALTER TABLE `remarks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -342,7 +343,7 @@ CREATE TABLE `term` (
   `status` char(1) NOT NULL,
   PRIMARY KEY (`termid`),
   UNIQUE KEY `termid_UNIQUE` (`termid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -363,4 +364,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-01  2:08:35
+-- Dump completed on 2016-12-04 22:59:03

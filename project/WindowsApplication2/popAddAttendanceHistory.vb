@@ -3,7 +3,7 @@
     Private Function Check_Entry(absent As String, courseofferingid As String, stat As String) As Boolean
         Dim att As String = ""
         Dim b As Boolean = False
-        att = dbAccess.getData("select attendanceid from attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
+        att = dbAccess.Get_Data("select attendanceid from attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
         If String.IsNullOrEmpty(att) Then
             b = True
         Else
@@ -28,7 +28,7 @@
         combo.ResetText()
 
         Try
-            remarks = dbAccess.getMultipleData("SELECT remark_des FROM remarks order by 1;", "remark_des")
+            remarks = dbAccess.Get_Multiple_Row_Data("SELECT remark_des FROM remarks order by 1;")
 
             For j As Integer = 0 To remarks.Count - 1
                 combo.Items.Add(remarks(j))
@@ -39,6 +39,7 @@
 
     End Sub
     Private Sub Add_Faculty_Name(facultyid As String, ByVal text As TextBox)
+        Dim facName As New List(Of Object)
         Dim fname As String
         Dim MI As String
         Dim lname As String
@@ -49,9 +50,11 @@
         MI = ""
         lname = ""
         Try
-            fname = dbAccess.getData("Select f_firstname from faculty where facultyid = '" & facultyid & "';", "f_firstname")
-            MI = dbAccess.getData("Select f_middlename from faculty where facultyid = '" & facultyid & "';", "f_middlename")
-            lname = dbAccess.getData("Select f_lastname from faculty where facultyid = '" & facultyid & "';", "f_lastname")
+
+            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyid & "';", 3)
+            fname = facName(0).ToString
+            MI = facName(1).ToString
+            lname = facName(2).ToString
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
@@ -74,8 +77,8 @@
 
         Try
             years = schoolYear.Split("-")
-            yearid = dbAccess.getData("select yearid from academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
-            termno = dbAccess.getMultipleData("select term_no from term where yearid = '" & yearid & "';", "term_no")
+            yearid = dbAccess.Get_Data("select yearid from academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
+            termno = dbAccess.Get_Multiple_Row_Data("select term_no from term where yearid = '" & yearid & "';")
 
             For j As Integer = 0 To termno.Count - 1
                 combo.Items.Add(termno(j))
@@ -93,7 +96,7 @@
 
         Try
 
-            schoolyear = dbAccess.getMultipleData("select concat(yearstart, '-', yearend) from academicyear;", "concat(yearstart, '-', yearend)")
+            schoolyear = dbAccess.Get_Multiple_Row_Data("select concat(yearstart, '-', yearend) from academicyear;")
 
             For j As Integer = 0 To schoolyear.Count - 1
                 combo.Items.Add(schoolyear(j))
@@ -108,7 +111,7 @@
 
         Try
             years = schoolYear.Split("-")
-            termid = dbAccess.getData("SELECT t.termid FROM term t, academicyear a where t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
+            termid = dbAccess.Get_Data("SELECT t.termid FROM term t, academicyear a where t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
         Catch ex As Exception
 
         End Try
@@ -124,8 +127,8 @@
 
         Try
             termid = Get_termID(schoolYear, termNo)
-            fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.getMultipleData("SELECT DISTINCT(c.course_cd) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND co.course_id = c.course_id AND termid = '" & termid & "' order by 1;", "course_cd")
+            fac = dbAccess.Get_Data("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
+            coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) from course c, courseoffering co where co.facref_no = '" & fac & "' AND co.course_id = c.course_id AND termid = '" & termid & "' order by 1;")
 
             For j As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(j))
@@ -146,8 +149,8 @@
 
         Try
             termid = Get_termID(schoolYear, termNo)
-            fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
-            section = dbAccess.getMultipleData("SELECT DISTINCT(co.section) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND c.course_cd = '" & course & "' AND termid = '" & termid & "' order by 1;", "section")
+            fac = dbAccess.Get_Data("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
+            section = dbAccess.Get_Multiple_Row_Data("SELECT DISTINCT(co.section) FROM course AS c, courseoffering AS co WHERE co.facref_no = '" & fac & "' AND c.course_cd = '" & course & "' AND termid = '" & termid & "' order by 1;")
 
             For j As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(j))
@@ -164,8 +167,8 @@
         Dim termid As Object
         Try
             termid = Get_termID(schoolYear, termNo)
-            fac = dbAccess.getData("select facref_no from faculty where status = 'A' AND facultyid = '" & facultyid & "';", "facref_no")
-            room = dbAccess.getData("select co.room FROM courseoffering AS co, course AS c WHERE  c.course_cd = '" & course & "' AND c.course_id = co.course_id AND co.facref_no = '" & fac & "'  AND co.section = '" & section & "' AND co.termid = '" & termid & "';", "room")
+            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' AND facultyid = '" & facultyid & "';", "facref_no")
+            room = dbAccess.Get_Data("select co.room FROM courseoffering AS co, course AS c WHERE  c.course_cd = '" & course & "' AND c.course_id = co.course_id AND co.facref_no = '" & fac & "'  AND co.section = '" & section & "' AND co.termid = '" & termid & "';", "room")
 
             text.Text = room
         Catch ex As Exception
@@ -174,17 +177,17 @@
 
     End Sub
     Private Sub Fill_Sched(facultyid As String, course As String, section As String, schoolYear As String, termNo As String, ByVal TimeStart As TextBox, ByVal TimeEnd As TextBox, ByVal DaySched As TextBox)
+        Dim courseSched As New List(Of Object)
         Dim starttime As String
         Dim endtime As String
         Dim fac As String
         Dim sched As String = ""
-        Dim termid As Object
         Try
-            termid = Get_termID(schoolYear, termNo)
-            fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "' and status = 'A';", "facref_no").ToString
-            starttime = dbAccess.getData("SELECT co.timestart FROM introse.courseoffering as co, introse.course as c WHERE co.termid = '" & termid & "' AND c.course_cd = '" & course & "' AND co.course_id = c.course_id AND co.facref_no = '" & fac & "' AND co.section = '" & section & "';", "timestart").ToString()
-            endtime = dbAccess.getData("SELECT co.timeend FROM courseoffering as co, course as c WHERE c.course_cd = '" & course & "' AND co.course_id = c.course_id AND co.facref_no = '" & fac & "' AND co.section = '" & section & "' AND co.termid = '" & termid & "';", "timeend").ToString()
-            sched = dbAccess.getData("SELECT co.daysched FROM courseoffering as co, course as c WHERE c.course_cd = '" & course & "' AND co.course_id = c.course_id AND co.facref_no = '" & fac & "' AND co.section = '" & section & "' AND co.termid = '" & termid & "';", "daysched")
+            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
+            courseSched = dbAccess.Get_Multiple_Column_Data("select co.timestart, co.timeend, co.daysched from introse.courseoffering co, introse.course c where co.status = 'A' AND c.course_cd = '" & course & "' AND co.course_id = c.course_id AND co.facref_no = '" & fac & "' AND co.section = '" & section & "';", 3)
+            starttime = courseSched(0)
+            endtime = courseSched(1)
+            sched = courseSched(2)
 
             TimeStart.Text = starttime
             TimeEnd.Text = endtime
@@ -240,14 +243,14 @@
                 MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
                 Return False
             Else
-                courseid = dbAccess.getData("SELECT course_id FROM course WHERE course_cd ='" & course & "';", "course_id")
-                fac = dbAccess.getData("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
+                courseid = dbAccess.Get_Data("SELECT course_id FROM course WHERE course_cd ='" & course & "';", "course_id")
+                fac = dbAccess.Get_Data("select facref_no from faculty where facultyid = '" & facultyid & "';", "facref_no")
                 termid = Get_termID(schoolYear, termNo)
-                courseofferingid = dbAccess.getData("select courseoffering_id from courseoffering  where course_id = " & courseid & " and facref_no = '" & fac & "' and section = '" & section & "' and termid = '" & termid & "';", "courseoffering_id")
-                attStatus = dbAccess.getData("SELECT status FROM courseoffering WHERE courseoffering_id = '" & courseofferingid & "';", "status")
-                remark_cd = dbAccess.getData("select remark_cd from remarks where remark_des = '" & remark & "';", "remark_cd")
+                courseofferingid = dbAccess.Get_Data("select courseoffering_id from courseoffering  where course_id = " & courseid & " and facref_no = '" & fac & "' and section = '" & section & "' and termid = '" & termid & "';", "courseoffering_id")
+                attStatus = dbAccess.Get_Data("SELECT status FROM courseoffering WHERE courseoffering_id = '" & courseofferingid & "';", "status")
+                remark_cd = dbAccess.Get_Data("select remark_cd from remarks where remark_des = '" & remark & "';", "remark_cd")
                 If (Check_Entry(inputdate.ToString("yyyy-MM-dd"), courseofferingid, "A") = True And Check_Entry(inputdate.ToString("yyyy-MM-dd"), courseofferingid, "R") = True) Then
-                    dbAccess.addData("INSERT INTO `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) VALUES('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark_cd & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','" & attStatus & "','" & stat & "');")
+                    dbAccess.Add_Data("INSERT INTO `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) VALUES('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark_cd & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','" & attStatus & "','" & stat & "');")
                     Return True
                 End If
 

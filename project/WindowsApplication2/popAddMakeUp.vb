@@ -10,6 +10,7 @@
     End Sub
 
     Private Sub Add_Faculty_Name(facultyid As String, ByVal text As TextBox)
+        Dim facName As New List(Of Object)
         Dim fname As String
         Dim MI As String
         Dim lname As String
@@ -20,9 +21,11 @@
         MI = ""
         lname = ""
         Try
-            fname = dbAccess.getData("select f_firstname from introse.faculty where status = 'a' and facultyid = '" & facultyid & "';", "f_firstname")
-            MI = dbAccess.getData("select f_middlename from introse.faculty where status = 'a' and facultyid = '" & facultyid & "';", "f_middlename")
-            lname = dbAccess.getData("select f_lastname from introse.faculty where status = 'a' and facultyid = '" & facultyid & "';", "f_lastname")
+
+            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyid & "';", 3)
+            fname = facName(0).ToString
+            MI = facName(1).ToString
+            lname = facName(2).ToString
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
@@ -45,10 +48,10 @@
         combo.ResetText()
 
         Try
-            fac = dbAccess.getData("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.getMultipleData("select DISTINCT(c.course_cd) 
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
+            coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) 
                                                     from introse.course c, introse.courseoffering co, introse.attendance a 
-                                                    where co.status = 'A' and a.status = 'A' and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;", "course_cd")
+                                                    where co.status = 'A' and a.status = 'A' and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;")
 
             For ctr As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(ctr))
@@ -67,10 +70,10 @@
         combo.ResetText()
 
         Try
-            fac = dbAccess.getData("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            section = dbAccess.getMultipleData("select DISTINCT(co.section) 
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
+            section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) 
                                                 from introse.course c, introse.courseoffering co, introse.attendance a 
-                                                where co.status = 'A' and a.status = 'A' and co.facref_no = '" & fac & "' AND co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;", "section")
+                                                where co.status = 'A' and a.status = 'A' and co.facref_no = '" & fac & "' AND co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;")
 
             For ctr As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(ctr))
@@ -87,7 +90,7 @@
         combo.ResetText()
 
         Try
-            reasons = dbAccess.getMultipleData("select reason_des from introse.reasons order by 1;", "reason_des")
+            reasons = dbAccess.Get_Multiple_Row_Data("select reason_des from introse.reasons order by 1;")
 
             For ctr As Integer = 0 To reasons.Count - 1
                 combo.Items.Add(reasons(ctr))
@@ -100,6 +103,7 @@
     End Sub
 
     Private Sub txtbxFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacID.TextChanged
+        txtbxFacName.Clear()
         cmbbxCourse.Items.Clear()
         cmbbxCourse.ResetText()
         cmbbxSec.Items.Clear()
@@ -211,7 +215,7 @@
     Private Function Check_Entry(makeup As String, courseofferingid As String, stat As String) As Boolean
         Dim att As String = ""
         Dim b As Boolean = False
-        att = dbAccess.getData("select makeupid 
+        att = dbAccess.Get_Data("select makeupid 
                                 from introse.makeup 
                                 where makeup_date = '" & makeup & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
         If String.IsNullOrEmpty(att) Then
@@ -227,7 +231,7 @@
         Dim makeupDate, course, section, room, reason, courseOfferingId As String
         Dim ref As String = wdwFacultyMakeUp.getRefNo()
         Dim startTime, endTime As Integer
-        Dim absentHours As Double = dbAccess.getData("select sum(co.hours) 
+        Dim absentHours As Double = dbAccess.Get_Data("select sum(co.hours) 
                                                       from introse.attendance a, introse.courseoffering co, introse.course c
                                                       where co.status = 'A' And a.status = 'A' And c.course_cd = '" & cmbbxCourse.SelectedItem & "' And c.course_id = co.course_id And co.section = '" & cmbbxSec.SelectedItem & "' And a.courseoffering_id = co.courseoffering_id;", "sum(co.hours)")
 
@@ -251,13 +255,13 @@
                     course = cmbbxCourse.SelectedItem
                     section = cmbbxSec.SelectedItem
                     room = txtbxRoom.Text
-                    reason = dbAccess.getData("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
-                    courseOfferingId = dbAccess.getData("select courseoffering_id 
+                    reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
+                    courseOfferingId = dbAccess.Get_Data("select courseoffering_id 
                                                             from introse.courseoffering c, introse.course cl 
                                                             where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
                     If (Check_Entry(makeupDate, courseOfferingId, "A")) Then
-                        dbAccess.updateData("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values ('" & courseOfferingId & "', '" & startTime & "', '" & endTime & "', '" & ((startTime - endTime) / 100 + (startTime - endTime) Mod 60) & "','" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', 'unknown', 'A');")
+                        dbAccess.Update_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values ('" & courseOfferingId & "', '" & startTime & "', '" & endTime & "', '" & ((startTime - endTime) / 100 + (startTime - endTime) Mod 60) & "','" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', 'unknown', 'A');")
                         Return True
                     End If
                 End If

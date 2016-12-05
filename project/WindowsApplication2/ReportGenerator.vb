@@ -44,63 +44,22 @@ Public Class reportGenerator
         Dim rooms As New List(Of Object)
         Dim remarks As New List(Of Object)
         Dim checkers As New List(Of Object)
+        Dim reportColumns As New List(Of Object)
 
-        attendanceid = dbAccess.getMultipleData("select a.attendanceid
+        reportColumns = dbAccess.Get_Multiple_Column_Data("select a.attendanceid, c.course_cd, co.section, co.timestart, co.timeend, co.room, r.remark_des, a.checker
                                             from introse.course c, introse.courseoffering co, introse.attendance a, introse.faculty f, introse.remarks r
                                             where f.facultyid = '" & idnumber & "' and f.status = 'A' and co.facref_no = f.facref_no and co.course_id = c.course_id and co.status = 'A' and a.courseoffering_id = co.courseoffering_id 
                                             and Year(a.absent_date) = '" & absdate.Year & "' and Month(a.absent_date) = '" & absdate.Month & "' 
-                                            and Day(a.absent_date) = '" & absdate.Day & "' and a.remarks_cd = r.remark_cd And a.status = 'A';", "attendanceid")
+                                            and Day(a.absent_date) = '" & absdate.Day & "' and a.remarks_cd = r.remark_cd And a.status = 'A';", 8)
 
-        courses = dbAccess.getMultipleData("select c.course_cd
-                                            from introse.course c, introse.courseoffering co, introse.attendance a, introse.faculty f, introse.remarks r
-                                            where f.facultyid = '" & idnumber & "' and f.status = 'A' and co.facref_no = f.facref_no and co.course_id = c.course_id and co.status = 'A' and a.courseoffering_id = co.courseoffering_id 
-                                            and Year(a.absent_date) = '" & absdate.Year & "' and Month(a.absent_date) = '" & absdate.Month & "' 
-                                            and Day(a.absent_date) = '" & absdate.Day & "' and a.remarks_cd = r.remark_cd And a.status = 'A';", "course_cd")
-
-        sections = dbAccess.getMultipleData("select co.section
-                                            from introse.course c, introse.courseoffering co, introse.attendance a, introse.faculty f, introse.remarks r
-                                            where f.facultyid = '" & idnumber & "' and f.status = 'A' and co.facref_no = f.facref_no and co.course_id = c.course_id and co.status = 'A' and a.courseoffering_id = co.courseoffering_id 
-                                            and Year(a.absent_date) = '" & absdate.Year & "' and Month(a.absent_date) = '" & absdate.Month & "' 
-                                            and Day(a.absent_date) = '" & absdate.Day & "' and a.remarks_cd = r.remark_cd And a.status = 'A';", "section")
-
-        starttimes = dbAccess.getMultipleData("select co.timestart
-                                            from introse.course c, introse.courseoffering co, introse.attendance a, introse.faculty f, introse.remarks r
-                                            where f.facultyid = '" & idnumber & "' and f.status = 'A' and co.facref_no = f.facref_no and co.course_id = c.course_id and co.status = 'A' and a.courseoffering_id = co.courseoffering_id 
-                                            and Year(a.absent_date) = '" & absdate.Year & "' and Month(a.absent_date) = '" & absdate.Month & "' 
-                                            and Day(a.absent_date) = '" & absdate.Day & "' and a.remarks_cd = r.remark_cd And a.status = 'A';", "timestart")
-
-        endtimes = dbAccess.getMultipleData("select co.timeend
-                                            from introse.course c, introse.courseoffering co, introse.attendance a, introse.faculty f, introse.remarks r
-                                            where f.facultyid = '" & idnumber & "' and f.status = 'A' and co.facref_no = f.facref_no and co.course_id = c.course_id and co.status = 'A' and a.courseoffering_id = co.courseoffering_id 
-                                            and Year(a.absent_date) = '" & absdate.Year & "' and Month(a.absent_date) = '" & absdate.Month & "' 
-                                            and Day(a.absent_date) = '" & absdate.Day & "' and a.remarks_cd = r.remark_cd And a.status = 'A';", "timeend")
-
-        rooms = dbAccess.getMultipleData("select co.room
-                                            from introse.course c, introse.courseoffering co, introse.attendance a, introse.faculty f, introse.remarks r
-                                            where f.facultyid = '" & idnumber & "' and f.status = 'A' and co.facref_no = f.facref_no and co.course_id = c.course_id and co.status = 'A' and a.courseoffering_id = co.courseoffering_id 
-                                            and Year(a.absent_date) = '" & absdate.Year & "' and Month(a.absent_date) = '" & absdate.Month & "' 
-                                            and Day(a.absent_date) = '" & absdate.Day & "' and a.remarks_cd = r.remark_cd And a.status = 'A';", "room")
-
-        remarks = dbAccess.getMultipleData("select r.remark_des
-                                            from introse.course c, introse.courseoffering co, introse.attendance a, introse.faculty f, introse.remarks r
-                                            where f.facultyid = '" & idnumber & "' and f.status = 'A' and co.facref_no = f.facref_no and co.course_id = c.course_id and co.status = 'A' and a.courseoffering_id = co.courseoffering_id 
-                                            and Year(a.absent_date) = '" & absdate.Year & "' and Month(a.absent_date) = '" & absdate.Month & "' 
-                                            and Day(a.absent_date) = '" & absdate.Day & "' and a.remarks_cd = r.remark_cd And a.status = 'A';", "remark_des")
-
-        checkers = dbAccess.getMultipleData("select a.checker
-                                            From introse.course c, introse.courseoffering co, introse.attendance a, introse.faculty f, introse.remarks r
-                                            where f.facultyid = '" & idnumber & "' and f.status = 'A' and co.facref_no = f.facref_no and co.course_id = c.course_id and co.status = 'A' and a.courseoffering_id = co.courseoffering_id 
-                                            and Year(a.absent_date) = '" & absdate.Year & "' and Month(a.absent_date) = '" & absdate.Month & "' 
-                                            and Day(a.absent_date) = '" & absdate.Day & "' and a.remarks_cd = r.remark_cd And a.status = 'A';", "checker")
-
-        For ctr = 0 To courses.Count - 1
+        For ctr = 0 To courses.Count - 1 Step 8
             table.AddCell(absdate.ToShortDateString)
-            table.AddCell(courses.Item(ctr).ToString)
-            table.AddCell(sections.Item(ctr))
-            table.AddCell(starttimes.Item(ctr) & "-" & endtimes.Item(ctr))
-            table.AddCell(rooms.Item(ctr))
-            table.AddCell(remarks.Item(ctr))
-            table.AddCell(checkers.Item(ctr))
+            table.AddCell(reportColumns.Item(ctr + 1).ToString)
+            table.AddCell(reportColumns.Item(ctr + 2))
+            table.AddCell(reportColumns.Item(ctr + 3) & "-" & endtimes.Item(ctr + 4))
+            table.AddCell(reportColumns.Item(ctr + 5))
+            table.AddCell(reportColumns.Item(ctr + 6))
+            table.AddCell(reportColumns.Item(ctr + 7))
         Next ctr
 
         pdfDoc.Add(table)
@@ -112,9 +71,9 @@ Public Class reportGenerator
         pdfDoc.Add(New Paragraph("Thank you."))
         pdfDoc.Close()
 
-        For ctr = 0 To attendanceid.Count - 1
-            dbAccess.updateData("update introse.attendance set report_status = 'Generated' where attendanceid = '" & attendanceid(ctr) & "';")
-        Next ctr
+        For ctr = 0 To attendanceid.Count - 8 Step 8
+            dbAccess.Update_Data("update introse.attendance set report_status = 'Generated' where attendanceid = '" & attendanceid(ctr) & "';")
+        Next
         MsgBox("Successfully Generated Notice!", MsgBoxStyle.OkOnly, "")
         Return filePath
 
