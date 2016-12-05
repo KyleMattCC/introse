@@ -13,7 +13,7 @@
         dbAccess.Fill_Data_Grid("select m.makeupid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', m.makeup_date 'Makeup date', cl.course_cd 'Course', c.section 'Section', m.room 'Room', m.timestart 'Start time', m.timeend 'End time', m.hours 'Hours', r.reason_des 'Reason', m.enc_date 'Date encoded', m.encoder 'Encoder' 
                                 from introse.makeup m, introse.faculty f, introse.course cl, introse.courseoffering c, introse.reasons r 
                                 where f.status = 'A' and c.status = 'A' and m.status = 'A' and  m.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and m.reason_cd = r.reason_cd and m.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
-                                order by 3, 12;", grid)
+                                order by 1, 3, 12;", grid)
         If grid.Rows.Count < 1 Then
             txtbxFacultyID.Text = Nothing
             txtbxFacultyName.Text = Nothing
@@ -30,6 +30,7 @@
         Me.Enabled = True
         Load_form()
         Me.Focus()
+        rindexValue = 0
     End Sub
 
     Private Sub dtp_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
@@ -118,7 +119,7 @@
             Dim result As DialogResult
             Dim selectedRow As DataGridViewRow
             If .SelectedRows.Count > 0 Then
-                result = MsgBox("Are you sure you want to delete" & .SelectedRows.Count & "row/s?", MsgBoxStyle.YesNo, "")
+                result = MsgBox("Are you sure you want to delete " & .SelectedRows.Count & " row/s?", MsgBoxStyle.YesNo, "")
                 If result = DialogResult.Yes Then
 
                     For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
@@ -139,28 +140,6 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Close()
 
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
-        rindexValue = e.RowIndex
-        Dim selectedRow As DataGridViewRow
-        Dim DeptValue As String
-
-        If (rindexValue <> -1) Then
-            selectedRow = grid.Rows(rindexValue)
-            If IsDBNull(rindexValue) Then
-                txtbxFacultyID.Text = Nothing
-                txtbxFacultyName.Text = Nothing
-                txtbxDepartment.Text = Nothing
-
-            Else
-                txtbxFacultyID.Text = selectedRow.Cells("Faculty ID").Value.ToString
-                txtbxFacultyName.Text = selectedRow.Cells("Name").Value.ToString
-                DeptValue = dbAccess.Get_Data("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacultyID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
-                txtbxDepartment.Text = DeptValue.ToString
-
-            End If
-        End If
     End Sub
 
     Private Sub grid_MouseClick(sender As Object, e As MouseEventArgs) Handles grid.MouseClick
@@ -186,4 +165,36 @@
             bttnSearch.Enabled = True
         End If
     End Sub
+
+    Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
+        rindexValue = e.RowIndex
+        MsgBox(rindexValue)
+        Dim selectedRow As DataGridViewRow
+        Dim DeptValue As String
+
+        If (rindexValue <> -1) Then
+            selectedRow = grid.Rows(rindexValue)
+            If IsDBNull(rindexValue) Then
+                txtbxFacultyID.Text = Nothing
+                txtbxFacultyName.Text = Nothing
+                txtbxDepartment.Text = Nothing
+
+            Else
+                txtbxFacultyID.Text = selectedRow.Cells("Faculty ID").Value.ToString
+                txtbxFacultyName.Text = selectedRow.Cells("Name").Value.ToString
+                DeptValue = dbAccess.Get_Data("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacultyID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
+                txtbxDepartment.Text = DeptValue.ToString
+
+            End If
+        End If
+    End Sub
+
+
+    'Private Sub grid_Click(sender As Object, e As EventArgs) Handles grid.Click
+
+    'End Sub
+
+    '   Private Sub grid_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles grid.RowStateChanged
+    '
+    '  End Sub
 End Class

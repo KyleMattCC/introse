@@ -15,7 +15,7 @@
         dbAccess.Fill_Data_Grid("select a.attendanceid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date encoded', a.encoder 'Encoder' , a.checker 'Checker'
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.course cl, introse.remarks r 
                                 where f.status = 'A' and c.status = 'A' and a.status = 'A' and a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' 
-                                order by 3, 12;", grid)
+                                order by 1, 3, 12;", grid)
         If grid.Rows.Count < 1 Then
             txtbxFacID.Text = Nothing
             txtbxName.Text = Nothing
@@ -32,6 +32,7 @@
         Me.Enabled = True
         Load_form()
         Me.Focus()
+        rindexValue = 0
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
@@ -58,7 +59,7 @@
         dbAccess.Fill_Data_Grid("select a.attendanceid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date encoded', a.encoder 'Encoder' , a.checker 'Checker'
                                     from introse.faculty f, introse.department d , introse.attendance a, introse.courseoffering c, introse.remarks r, introse.course cl
                                     where f.status = 'A' and c.status = 'A' and a.status = 'A' and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'and c.courseoffering_id = a.courseoffering_id and c.facref_no = f.facref_no and a.remarks_cd = r.remark_cd and c.course_id = cl.course_id and f.departmentid = d.departmentid and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "') or (cl.course_cd LIKE '" + Search.ToString + "') or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "'))
-                                    order by 3, 12;", grid)
+                                    order by 1, 3, 12;", grid)
 
 
         If grid.Rows.Count < 1 Then
@@ -121,7 +122,7 @@
             Dim result As DialogResult
             Dim selectedRow As DataGridViewRow
             If .SelectedRows.Count > 0 Then
-                result = MsgBox("Are you sure you want to delete" & .SelectedRows.Count & "row/s?", MsgBoxStyle.YesNo, "")
+                result = MsgBox("Are you sure you want to delete " & .SelectedRows.Count & " row/s?", MsgBoxStyle.YesNo, "")
                 If result = DialogResult.Yes Then
 
                     For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
@@ -141,28 +142,6 @@
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Close()
-    End Sub
-
-    Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
-        rindexValue = e.RowIndex
-        Dim selectedRow As DataGridViewRow
-        Dim DeptValue As String
-
-        If (rindexValue <> -1) Then
-            selectedRow = grid.Rows(rindexValue)
-            If IsDBNull(rindexValue) Then
-                txtbxFacID.Text = Nothing
-                txtbxName.Text = Nothing
-                txtbxDept.Text = Nothing
-
-            Else
-                txtbxFacID.Text = selectedRow.Cells("Faculty ID").Value.ToString
-                txtbxName.Text = selectedRow.Cells("Name").Value.ToString
-                DeptValue = dbAccess.Get_Data("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
-                txtbxDept.Text = DeptValue.ToString
-
-            End If
-        End If
     End Sub
 
     Private Sub grid_MouseClick(sender As Object, e As MouseEventArgs) Handles grid.MouseClick
@@ -189,4 +168,25 @@
         End If
     End Sub
 
+    Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
+        rindexValue = e.RowIndex
+        Dim selectedRow As DataGridViewRow
+        Dim DeptValue As String
+
+        If (rindexValue <> -1) Then
+            selectedRow = grid.Rows(rindexValue)
+            If IsDBNull(rindexValue) Then
+                txtbxFacID.Text = Nothing
+                txtbxName.Text = Nothing
+                txtbxDept.Text = Nothing
+
+            Else
+                txtbxFacID.Text = selectedRow.Cells("Faculty ID").Value.ToString
+                txtbxName.Text = selectedRow.Cells("Name").Value.ToString
+                DeptValue = dbAccess.Get_Data("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid and faculty.status = 'A';", "departmentname")
+                txtbxDept.Text = DeptValue.ToString
+
+            End If
+        End If
+    End Sub
 End Class

@@ -234,7 +234,7 @@
     End Sub
 
     Private Sub Check_Element_Enable()
-        If String.IsNullOrEmpty(txtbxFacID.Text) Then
+        If String.IsNullOrEmpty(txtbxName.Text) Then
             cmbbxCourse.Enabled = False
             cmbbxSection.Enabled = False
             dtp.Enabled = False

@@ -208,7 +208,7 @@
     End Sub
 
     Private Sub Check_Element_Enable()
-        If String.IsNullOrEmpty(txtbxFacID.Text) Then
+        If String.IsNullOrEmpty(txtbxName.Text) Then
             cmbbxCourse.Enabled = False
             cmbbxSection.Enabled = False
             dtp.Enabled = False
@@ -250,10 +250,12 @@
         validateInput("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ", e)
     End Sub
 
-    Private Function Check_Entry(makeup As String, courseofferingid As String, stat As String) As Boolean
+    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, reason As String, stat As String) As Boolean
         Dim att As String = ""
         Dim b As Boolean = False
-        att = dbAccess.Get_Data("select makeupid from introse.makeup where makeup_date = '" & makeup & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
+        att = dbAccess.Get_Data("select makeupid 
+                                from introse.makeup 
+                                where makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "' and status = '" & stat & "';", "attendanceid")
         If String.IsNullOrEmpty(att) Then
             b = True
         Else
@@ -275,13 +277,15 @@
             If String.IsNullOrEmpty(cmbbxReason.Text) Or String.IsNullOrEmpty(txtbxStart.Text) Or String.IsNullOrEmpty(txtbxEnd.Text) Or String.IsNullOrEmpty(txtbxRoom.Text) Or String.IsNullOrEmpty(dtp.Value.Date.ToString("yyyy-MM-dd")) Then
                 MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
             Else
+                Dim wholeNumber As Integer
                 startTime = Convert.ToInt32(txtbxStart.Text)
                 endTime = Convert.ToInt32(txtbxEnd.Text)
+                wholeNumber = (endTime - startTime) / 100
                 If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
                     MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
                 ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                     MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
-                ElseIf (((startTime - endTime) / 100 + (startTime - endTime) Mod 60) > absentHours) Then
+                ElseIf ((wholeNumber + ((endTime - startTime) Mod 100) / 60) > absentHours) Then
                     MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")
                 Else
                     makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
@@ -291,8 +295,8 @@
                     reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
                     courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
-                    If (Check_Entry(makeupDate, courseOfferingId, "A")) Then
-                        dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = '" & courseOfferingId & "', `timestart` = '" & txtbxStart.Text & "', `timeend` = '" & txtbxEnd.Text & "', `hours` = '" & ((startTime - endTime) / 100 + (startTime - endTime) Mod 60) & "', `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  'unknown' WHERE `makeupid` = '" & ref & "';")
+                    If (Check_Entry(makeupDate, startTime, endTime, room, reason, "A")) Then
+                        dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((endTime - startTime) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  'unknown' WHERE makeupid = '" & ref & "' and status = 'A';")
                         Me.Close()
                     End If
                 End If

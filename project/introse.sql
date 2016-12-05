@@ -87,7 +87,7 @@ CREATE TABLE `attendance` (
   `report_status` varchar(45) NOT NULL DEFAULT 'Pending',
   PRIMARY KEY (`attendanceid`),
   UNIQUE KEY `attendanceid_UNIQUE` (`attendanceid`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,'2016-11-21',1,'AB','2016-11-21','unknown','egul','D','Generated'),(2,'2016-11-21',2,'ED','2016-11-21','unknown','egul2','A','Generated'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','D','Pending'),(7,'2016-11-27',2,'AB','2016-11-30','unknown','egul','A','Pending'),(8,'2016-11-30',1,'AB','2016-11-30','unknown','me','A','Pending'),(9,'2016-12-01',2,'AB','2016-12-01','unknown','weq','A','Generated');
+INSERT INTO `attendance` VALUES (1,'2016-11-16',1,'LA','2016-11-21','unknown','checker','A','Pending'),(2,'2016-11-24',2,'ED','2016-12-05','unknown','egul2','D','Pending'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','A','Pending'),(7,'2016-11-27',2,'AB','2016-11-30','unknown','egul','A','Pending'),(8,'2016-11-30',1,'AB','2016-11-30','unknown','me','A','Pending'),(9,'2016-12-01',2,'AB','2016-12-01','unknown','weq','A','Generated'),(10,'2016-11-03',2,'CF','2016-12-05','unknown','wew','A','Pending');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +182,7 @@ CREATE TABLE `courseoffering` (
 
 LOCK TABLES `courseoffering` WRITE;
 /*!40000 ALTER TABLE `courseoffering` DISABLE KEYS */;
-INSERT INTO `courseoffering` VALUES (1,1,1,1,'S17','G202','MW',0915,1045,1.5,'A'),(2,1,1,2,'K42','V501','TH',1100,1230,1.5,'A'),(3,2,1,3,'EJ','A1107','MW',1430,1600,1.5,'A');
+INSERT INTO `courseoffering` VALUES (1,1,1,1,'S17','G202','MW',0915,1045,1.5,'A'),(2,1,1,2,'K42','V501','TH',0730,0900,1.5,'A'),(3,2,1,3,'EJ','A1107','MW',1430,1600,1.5,'A');
 /*!40000 ALTER TABLE `courseoffering` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,11 +252,11 @@ DROP TABLE IF EXISTS `makeup`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `makeup` (
-  `makeupid` int(11) unsigned NOT NULL,
+  `makeupid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `courseoffering_id` int(11) unsigned NOT NULL,
   `timestart` int(4) unsigned NOT NULL,
   `timeend` int(4) unsigned NOT NULL,
-  `hours` float unsigned NOT NULL,
+  `hours` double unsigned NOT NULL,
   `room` varchar(45) NOT NULL,
   `reason_cd` char(2) NOT NULL,
   `makeup_date` date NOT NULL,
@@ -265,7 +265,7 @@ CREATE TABLE `makeup` (
   `status` char(1) NOT NULL,
   PRIMARY KEY (`makeupid`),
   UNIQUE KEY `makeupid_UNIQUE` (`makeupid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -274,7 +274,32 @@ CREATE TABLE `makeup` (
 
 LOCK TABLES `makeup` WRITE;
 /*!40000 ALTER TABLE `makeup` DISABLE KEYS */;
+INSERT INTO `makeup` VALUES (1,2,900,1030,1.5,'g203','SW','2016-12-05','2016-12-05','unknown','D'),(2,2,900,1030,11.3,'g203','AC','2016-12-05','2016-12-05','unknown','D'),(3,2,900,1030,11,'g203','AC','2016-12-05','2016-12-05','unknown','D'),(4,2,900,1030,11,'g203','AC','2016-12-05','2016-12-05','unknown','D'),(5,2,900,1030,2.3,'g203','AC','2016-12-05','2016-12-05','unknown','A'),(6,2,900,1030,1.5,'g203','AC','2016-12-05','2016-12-05','unknown','A'),(7,2,900,1030,1.8,'g203','AC','2016-12-05','2016-12-05','unknown','A'),(8,1,1100,1400,3,'A401','FT','2016-12-05','2016-12-05','unknown','A');
 /*!40000 ALTER TABLE `makeup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reason`
+--
+
+DROP TABLE IF EXISTS `reason`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reason` (
+  `reason_cd` char(2) NOT NULL,
+  `reason_desc` varchar(45) NOT NULL,
+  PRIMARY KEY (`reason_cd`),
+  UNIQUE KEY `reason_cd_UNIQUE` (`reason_cd`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reason`
+--
+
+LOCK TABLES `reason` WRITE;
+/*!40000 ALTER TABLE `reason` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reason` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -364,4 +389,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-04 22:59:03
+-- Dump completed on 2016-12-05 21:53:58
