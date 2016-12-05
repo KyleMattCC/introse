@@ -16,7 +16,7 @@
         If rowData.Count > 0 Then
             If String.IsNullOrEmpty(rowData(3)) Then
                 txtbxFacID.Text = rowData(1) ' fid
-                txtbxName.Text = rowData(2) ' name
+                Add_Faculty_Name(txtbxFacID.Text, txtbxName)
                 cmbbxCourse.SelectedItem = rowData(4) ' course
                 cmbbxSection.SelectedItem = rowData(5) ' section
                 txtbxRoom.Text = rowData(6) ' room
@@ -32,7 +32,7 @@
                 year = convertedDate.Year.ToString()
 
                 txtbxFacID.Text = rowData(1) ' fid
-                txtbxName.Text = rowData(2) ' name
+                Add_Faculty_Name(txtbxFacID.Text, txtbxName)
                 cmbbxCourse.SelectedItem = rowData(4) ' course
                 cmbbxSection.SelectedItem = rowData(5) ' section
                 txtbxRoom.Text = rowData(6) ' room

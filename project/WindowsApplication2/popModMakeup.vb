@@ -305,4 +305,7 @@
         wdwFacultyMakeUp.Enable_Form()
     End Sub
 
+    Private Sub txtbxName_TextChanged(sender As Object, e As EventArgs) Handles txtbxName.TextChanged
+
+    End Sub
 End Class

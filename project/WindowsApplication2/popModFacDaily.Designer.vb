@@ -171,7 +171,7 @@ Partial Class wdwModFacultyDaily
         Me.cmbbxRemarks.FormattingEnabled = True
         Me.cmbbxRemarks.Location = New System.Drawing.Point(198, 280)
         Me.cmbbxRemarks.Name = "cmbbxRemarks"
-        Me.cmbbxRemarks.Size = New System.Drawing.Size(165, 28)
+        Me.cmbbxRemarks.Size = New System.Drawing.Size(313, 28)
         Me.cmbbxRemarks.TabIndex = 25
         '
         'Label11
@@ -219,7 +219,7 @@ Partial Class wdwModFacultyDaily
         '
         'bttnModify
         '
-        Me.bttnModify.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnModify.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnModify.Location = New System.Drawing.Point(132, 350)
         Me.bttnModify.Name = "bttnModify"
         Me.bttnModify.Size = New System.Drawing.Size(90, 30)
@@ -229,7 +229,7 @@ Partial Class wdwModFacultyDaily
         '
         'bttnBack
         '
-        Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(330, 350)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(90, 30)

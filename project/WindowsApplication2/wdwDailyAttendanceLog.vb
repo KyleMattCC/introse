@@ -99,9 +99,9 @@
                 For ctr As Integer = 0 To colCount - 1
                     If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
                         MsgBox("Missing data!", MsgBoxStyle.Critical, "")
-                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+                        rowData.Add(selectedRow.Cells(ctr).ToString)
                     Else
-                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+                        rowData.Add(selectedRow.Cells(ctr).ToString)
 
                     End If
                 Next

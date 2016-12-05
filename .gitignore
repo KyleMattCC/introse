@@ -19,3 +19,4 @@ project/WindowsApplication2/bin/Debug/WindowsApplication2.exe
 *.exe
 project/WindowsApplication2/bin/Debug/WindowsApplication2.pdb
 *.exe
+*.pdb

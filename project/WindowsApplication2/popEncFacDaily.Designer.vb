@@ -68,7 +68,7 @@ Partial Class popEncFacDaily
         '
         'bttnAdd
         '
-        Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAdd.Location = New System.Drawing.Point(65, 350)
         Me.bttnAdd.Name = "bttnAdd"
         Me.bttnAdd.Size = New System.Drawing.Size(90, 30)
@@ -78,7 +78,7 @@ Partial Class popEncFacDaily
         '
         'bttnBack
         '
-        Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(397, 350)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(90, 30)
@@ -93,7 +93,7 @@ Partial Class popEncFacDaily
         Me.cmbbxRemarks.FormattingEnabled = True
         Me.cmbbxRemarks.Location = New System.Drawing.Point(198, 280)
         Me.cmbbxRemarks.Name = "cmbbxRemarks"
-        Me.cmbbxRemarks.Size = New System.Drawing.Size(165, 28)
+        Me.cmbbxRemarks.Size = New System.Drawing.Size(313, 28)
         Me.cmbbxRemarks.TabIndex = 102
         '
         'txtbxName
@@ -127,6 +127,7 @@ Partial Class popEncFacDaily
         '
         'txtbxFacID
         '
+        Me.txtbxFacID.AllowDrop = True
         Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacID.Location = New System.Drawing.Point(198, 10)
         Me.txtbxFacID.Name = "txtbxFacID"
@@ -280,7 +281,7 @@ Partial Class popEncFacDaily
         '
         'bttnAddClear
         '
-        Me.bttnAddClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAddClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAddClear.Location = New System.Drawing.Point(207, 350)
         Me.bttnAddClear.Name = "bttnAddClear"
         Me.bttnAddClear.Size = New System.Drawing.Size(140, 30)
