@@ -100,6 +100,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="wdwMoreInfo.Designer.vb">
+      <DependentUpon>wdwMoreInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwMoreInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popAddAttendanceHistory.Designer.vb">
+      <DependentUpon>popAddAttendanceHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popAddAttendanceHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwAttendanceHistoryLog.Designer.vb">
+      <DependentUpon>wdwAttendanceHistoryLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwAttendanceHistoryLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="reportGenerator.vb" />
     <Compile Include="databaseAccessor.vb" />
     <Compile Include="EmailNotices.Designer.vb">
@@ -303,6 +321,15 @@
   <ItemGroup>
     <EmbeddedResource Include="EmailNotices.resx">
       <DependentUpon>EmailNotices.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwMoreInfo.resx">
+      <DependentUpon>wdwMoreInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popAddAttendanceHistory.resx">
+      <DependentUpon>popAddAttendanceHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwAttendanceHistoryLog.resx">
+      <DependentUpon>wdwAttendanceHistoryLog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwEmailReports.resx">
       <DependentUpon>wdwEmailReports.vb</DependentUpon>

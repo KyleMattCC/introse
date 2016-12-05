@@ -23,7 +23,7 @@
         wdwSelectReport.Show()
     End Sub
 
-    Private Sub bttnPlantilla_Click(sender As Object, e As EventArgs) Handles bttnPlantilla.Click
+    Private Sub bttnPlantilla_Click(sender As Object, e As EventArgs)
         wdwFacPlantilia.Show()
     End Sub
 
@@ -41,5 +41,9 @@
 
     Public Sub Enable_Form()
         Me.Focus()
+    End Sub
+
+    Private Sub bttnHistory_Click(sender As Object, e As EventArgs) Handles bttnHistory.Click
+        wdwAttendanceHistoryLog.Show()
     End Sub
 End Class

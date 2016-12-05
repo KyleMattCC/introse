@@ -139,7 +139,7 @@ Partial Class wdwDailyAttendanceLog
         '
         Me.bttnClear.BackColor = System.Drawing.SystemColors.Control
         Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnClear.Location = New System.Drawing.Point(1189, 15)
+        Me.bttnClear.Location = New System.Drawing.Point(1189, 16)
         Me.bttnClear.Name = "bttnClear"
         Me.bttnClear.Size = New System.Drawing.Size(105, 29)
         Me.bttnClear.TabIndex = 11
@@ -149,7 +149,7 @@ Partial Class wdwDailyAttendanceLog
         'bttnSearch
         '
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(1078, 15)
+        Me.bttnSearch.Location = New System.Drawing.Point(1078, 16)
         Me.bttnSearch.Name = "bttnSearch"
         Me.bttnSearch.Size = New System.Drawing.Size(105, 29)
         Me.bttnSearch.TabIndex = 1

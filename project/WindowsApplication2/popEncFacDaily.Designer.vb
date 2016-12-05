@@ -68,7 +68,7 @@ Partial Class popEncFacDaily
         '
         'bttnAdd
         '
-        Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAdd.Location = New System.Drawing.Point(65, 350)
         Me.bttnAdd.Name = "bttnAdd"
         Me.bttnAdd.Size = New System.Drawing.Size(90, 30)
@@ -78,7 +78,7 @@ Partial Class popEncFacDaily
         '
         'bttnBack
         '
-        Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(397, 350)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(90, 30)
@@ -88,12 +88,12 @@ Partial Class popEncFacDaily
         '
         'cmbbxRemarks
         '
+        Me.cmbbxRemarks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxRemarks.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxRemarks.FormattingEnabled = True
-        Me.cmbbxRemarks.Items.AddRange(New Object() {"AB", "lA", "SB", "SW", "VR", "ED", "US"})
         Me.cmbbxRemarks.Location = New System.Drawing.Point(198, 280)
         Me.cmbbxRemarks.Name = "cmbbxRemarks"
-        Me.cmbbxRemarks.Size = New System.Drawing.Size(165, 28)
+        Me.cmbbxRemarks.Size = New System.Drawing.Size(313, 28)
         Me.cmbbxRemarks.TabIndex = 102
         '
         'txtbxName
@@ -107,6 +107,7 @@ Partial Class popEncFacDaily
         '
         'cmbbxCourse
         '
+        Me.cmbbxCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxCourse.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxCourse.FormattingEnabled = True
         Me.cmbbxCourse.Location = New System.Drawing.Point(198, 100)
@@ -116,6 +117,7 @@ Partial Class popEncFacDaily
         '
         'cmbbxSection
         '
+        Me.cmbbxSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxSection.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSection.FormattingEnabled = True
         Me.cmbbxSection.Location = New System.Drawing.Point(198, 130)
@@ -125,6 +127,7 @@ Partial Class popEncFacDaily
         '
         'txtbxFacID
         '
+        Me.txtbxFacID.AllowDrop = True
         Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacID.Location = New System.Drawing.Point(198, 10)
         Me.txtbxFacID.Name = "txtbxFacID"
@@ -143,11 +146,11 @@ Partial Class popEncFacDaily
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(34, 70)
+        Me.Label1.Location = New System.Drawing.Point(73, 70)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(160, 20)
+        Me.Label1.Size = New System.Drawing.Size(121, 20)
         Me.Label1.TabIndex = 198
-        Me.Label1.Text = "Date of Absence:"
+        Me.Label1.Text = "Absent date:"
         '
         'Label2
         '
@@ -183,11 +186,11 @@ Partial Class popEncFacDaily
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(61, 40)
+        Me.Label5.Location = New System.Drawing.Point(63, 40)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(133, 20)
+        Me.Label5.Size = New System.Drawing.Size(131, 20)
         Me.Label5.TabIndex = 202
-        Me.Label5.Text = "Faculty Name:"
+        Me.Label5.Text = "Faculty name:"
         '
         'Label6
         '
@@ -203,11 +206,11 @@ Partial Class popEncFacDaily
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(137, 220)
+        Me.Label7.Location = New System.Drawing.Point(91, 220)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 20)
+        Me.Label7.Size = New System.Drawing.Size(103, 20)
         Me.Label7.TabIndex = 204
-        Me.Label7.Text = "Start:"
+        Me.Label7.Text = "Start time:"
         '
         'Label8
         '
@@ -223,11 +226,11 @@ Partial Class popEncFacDaily
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(147, 250)
+        Me.Label9.Location = New System.Drawing.Point(101, 250)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(47, 20)
+        Me.Label9.Size = New System.Drawing.Size(93, 20)
         Me.Label9.TabIndex = 221
-        Me.Label9.Text = "End:"
+        Me.Label9.Text = "End time:"
         '
         'txtbxEnd
         '
@@ -278,7 +281,7 @@ Partial Class popEncFacDaily
         '
         'bttnAddClear
         '
-        Me.bttnAddClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAddClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAddClear.Location = New System.Drawing.Point(207, 350)
         Me.bttnAddClear.Name = "bttnAddClear"
         Me.bttnAddClear.Size = New System.Drawing.Size(140, 30)

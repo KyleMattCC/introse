@@ -40,7 +40,7 @@ Partial Class wdwFacultyMakeUp
         Me.Label6 = New System.Windows.Forms.Label()
         Me.bttnClear = New System.Windows.Forms.Button()
         Me.bttnSearch = New System.Windows.Forms.Button()
-        Me.searchBox = New System.Windows.Forms.TextBox()
+        Me.txtbxSearch = New System.Windows.Forms.TextBox()
         Me.dtp = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,8 +128,8 @@ Partial Class wdwFacultyMakeUp
         Me.GroupBox4.Controls.Add(Me.txtbxFacultyName)
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label6)
-        Me.GroupBox4.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(29, 48)
+        Me.GroupBox4.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox4.Location = New System.Drawing.Point(29, 52)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(653, 127)
         Me.GroupBox4.TabIndex = 176
@@ -139,17 +139,17 @@ Partial Class wdwFacultyMakeUp
         'txtbxDepartment
         '
         Me.txtbxDepartment.Enabled = False
-        Me.txtbxDepartment.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxDepartment.Location = New System.Drawing.Point(216, 76)
+        Me.txtbxDepartment.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxDepartment.Location = New System.Drawing.Point(216, 85)
         Me.txtbxDepartment.Name = "txtbxDepartment"
-        Me.txtbxDepartment.Size = New System.Drawing.Size(349, 22)
+        Me.txtbxDepartment.Size = New System.Drawing.Size(350, 26)
         Me.txtbxDepartment.TabIndex = 177
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(69, 76)
+        Me.Label3.Location = New System.Drawing.Point(90, 85)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(120, 20)
         Me.Label3.TabIndex = 176
@@ -158,26 +158,26 @@ Partial Class wdwFacultyMakeUp
         'txtbxFacultyID
         '
         Me.txtbxFacultyID.Enabled = False
-        Me.txtbxFacultyID.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxFacultyID.Location = New System.Drawing.Point(216, 23)
+        Me.txtbxFacultyID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxFacultyID.Location = New System.Drawing.Point(216, 25)
         Me.txtbxFacultyID.Name = "txtbxFacultyID"
-        Me.txtbxFacultyID.Size = New System.Drawing.Size(349, 22)
+        Me.txtbxFacultyID.Size = New System.Drawing.Size(350, 26)
         Me.txtbxFacultyID.TabIndex = 175
         '
         'txtbxFacultyName
         '
         Me.txtbxFacultyName.Enabled = False
-        Me.txtbxFacultyName.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxFacultyName.Location = New System.Drawing.Point(216, 50)
+        Me.txtbxFacultyName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxFacultyName.Location = New System.Drawing.Point(216, 55)
         Me.txtbxFacultyName.Name = "txtbxFacultyName"
-        Me.txtbxFacultyName.Size = New System.Drawing.Size(349, 22)
+        Me.txtbxFacultyName.Size = New System.Drawing.Size(350, 26)
         Me.txtbxFacultyName.TabIndex = 174
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(54, 47)
+        Me.Label1.Location = New System.Drawing.Point(77, 55)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(133, 20)
         Me.Label1.TabIndex = 173
@@ -187,7 +187,7 @@ Partial Class wdwFacultyMakeUp
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(90, 21)
+        Me.Label6.Location = New System.Drawing.Point(108, 25)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(102, 20)
         Me.Label6.TabIndex = 172
@@ -196,7 +196,7 @@ Partial Class wdwFacultyMakeUp
         'bttnClear
         '
         Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnClear.Location = New System.Drawing.Point(1190, 14)
+        Me.bttnClear.Location = New System.Drawing.Point(1189, 16)
         Me.bttnClear.Name = "bttnClear"
         Me.bttnClear.Size = New System.Drawing.Size(105, 29)
         Me.bttnClear.TabIndex = 11
@@ -206,27 +206,27 @@ Partial Class wdwFacultyMakeUp
         'bttnSearch
         '
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(1078, 14)
+        Me.bttnSearch.Location = New System.Drawing.Point(1078, 16)
         Me.bttnSearch.Name = "bttnSearch"
         Me.bttnSearch.Size = New System.Drawing.Size(105, 29)
         Me.bttnSearch.TabIndex = 1
         Me.bttnSearch.Text = "Search"
         Me.bttnSearch.UseVisualStyleBackColor = True
         '
-        'searchBox
+        'txtbxSearch
         '
-        Me.searchBox.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchBox.Location = New System.Drawing.Point(768, 17)
-        Me.searchBox.Name = "searchBox"
-        Me.searchBox.Size = New System.Drawing.Size(303, 22)
-        Me.searchBox.TabIndex = 7
+        Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxSearch.Location = New System.Drawing.Point(722, 17)
+        Me.txtbxSearch.Name = "txtbxSearch"
+        Me.txtbxSearch.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxSearch.TabIndex = 7
         '
         'dtp
         '
-        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp.Location = New System.Drawing.Point(92, 20)
+        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp.Location = New System.Drawing.Point(86, 17)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(233, 22)
+        Me.dtp.Size = New System.Drawing.Size(300, 26)
         Me.dtp.TabIndex = 174
         '
         'Label5
@@ -252,7 +252,7 @@ Partial Class wdwFacultyMakeUp
         Me.Controls.Add(Me.bttnSearch)
         Me.Controls.Add(Me.bttnAdd)
         Me.Controls.Add(Me.bttnModify)
-        Me.Controls.Add(Me.searchBox)
+        Me.Controls.Add(Me.txtbxSearch)
         Me.Controls.Add(Me.bttnDelete)
         Me.Controls.Add(Me.bttnBack)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -283,7 +283,7 @@ Partial Class wdwFacultyMakeUp
     Friend WithEvents Label6 As Label
     Friend WithEvents bttnClear As Button
     Friend WithEvents bttnSearch As Button
-    Friend WithEvents searchBox As TextBox
+    Friend WithEvents txtbxSearch As TextBox
     Friend WithEvents dtp As DateTimePicker
     Friend WithEvents Label5 As Label
     Friend WithEvents grid As DataGridView

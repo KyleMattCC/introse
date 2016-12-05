@@ -10,3 +10,15 @@
 *.pdb
 *.suo
 project/.vs/WindowsApplication2/v14/.suo
+*.pdb
+*.suo
+*.exe
+*.exe
+*.suo
+project/WindowsApplication2/bin/Debug/WindowsApplication2.exe
+*.exe
+project/WindowsApplication2/bin/Debug/WindowsApplication2.pdb
+*.exe
+*.pdb
+*.exe
+*.exe
