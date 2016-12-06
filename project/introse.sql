@@ -96,7 +96,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,'2016-11-16',1,'LA','2016-11-21','unknown','checker','A','Pending'),(2,'2016-11-24',2,'ED','2016-12-05','unknown','egul2','D','Pending'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','A','Pending'),(7,'2016-11-27',2,'AB','2016-11-30','unknown','egul','A','Pending'),(8,'2016-11-30',1,'AB','2016-11-30','unknown','me','A','Pending'),(9,'2016-12-01',2,'AB','2016-12-01','unknown','weq','A','Generated'),(10,'2016-11-03',2,'CF','2016-12-05','unknown','wew','A','Pending');
+INSERT INTO `attendance` VALUES (1,'2016-11-16',1,'LA','2016-11-21','unknown','checker','A','Pending'),(2,'2016-11-24',2,'ED','2016-12-05','unknown','egul2','D','Pending'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','A','Pending'),(10,'2016-11-03',2,'CF','2016-12-05','unknown','wew','A','Pending');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -389,4 +389,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-05 21:53:58
+-- Dump completed on 2016-12-06 20:49:39

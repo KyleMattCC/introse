@@ -85,14 +85,13 @@
         Dim coursecode As New List(Of Object)()
         Dim fac As Integer
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
             fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
             coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) from introse.course c, introse.courseoffering co where co.status = 'A' and co.facref_no = '" & fac & "' and co.course_id = c.course_id order by 1;")
 
-            For j As Integer = 0 To coursecode.Count - 1
-                combo.Items.Add(coursecode(j))
+            For ctr As Integer = 0 To coursecode.Count - 1
+                combo.Items.Add(coursecode(ctr))
             Next
         Catch ex As Exception
 
@@ -105,14 +104,13 @@
         Dim fac As String
         combo.Enabled = True
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
             fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
             section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) from introse.course c, introse.courseoffering co where co.status = 'A' and co.facref_no = '" & fac & "' and c.course_cd = '" & course & "' order by 1;")
 
-            For j As Integer = 0 To section.Count - 1
-                combo.Items.Add(section(j))
+            For ctr As Integer = 0 To section.Count - 1
+                combo.Items.Add(section(ctr))
             Next
         Catch ex As Exception
 
@@ -123,13 +121,12 @@
     Private Sub Add_Remarks(ByVal combo As ComboBox)
         Dim remarks As New List(Of Object)()
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
             remarks = dbAccess.Get_Multiple_Row_Data("select remark_des from introse.remarks order by 1;")
 
-            For j As Integer = 0 To remarks.Count - 1
-                combo.Items.Add(remarks(j))
+            For ctr As Integer = 0 To remarks.Count - 1
+                combo.Items.Add(remarks(ctr))
             Next
 
         Catch ex As Exception
@@ -182,9 +179,7 @@
     Private Sub txtbxFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacID.TextChanged
         txtbxName.Clear()
         cmbbxCourse.Items.Clear()
-        cmbbxCourse.ResetText()
         cmbbxSection.Items.Clear()
-        cmbbxSection.ResetText()
         txtbxEnd.Clear()
         txtbxStart.Clear()
         txtbxDay.Clear()
@@ -198,7 +193,6 @@
 
     Private Sub cmbbxCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxCourse.SelectedIndexChanged
         cmbbxSection.Items.Clear()
-        cmbbxSection.ResetText()
         txtbxEnd.Clear()
         txtbxStart.Clear()
         txtbxDay.Clear()
@@ -325,7 +319,7 @@
                 course = cmbbxCourse.SelectedItem
                 section = cmbbxSection.SelectedItem
                 remarks = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
-        checker = txtbxChecker.Text
+                checker = txtbxChecker.Text
 
                 courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
                 If (Check_Entry(absentDate, courseOfferingId, "A", remarks) = True) Then
@@ -336,9 +330,6 @@
                     txtbxName.Clear()
                     cmbbxCourse.Items.Clear()
                     cmbbxSection.Items.Clear()
-                    cmbbxCourse.ResetText()
-                    cmbbxRemarks.ResetText()
-                    cmbbxSection.ResetText()
                     txtbxRoom.Clear()
                     txtbxDay.Clear()
                     txtbxStart.Clear()

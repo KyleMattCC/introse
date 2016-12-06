@@ -45,7 +45,6 @@
         Dim coursecode As New List(Of Object)()
         Dim fac As Integer
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
@@ -67,7 +66,6 @@
         Dim fac As String
         combo.Enabled = True
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
@@ -87,7 +85,6 @@
     Private Sub Add_Reasons(ByVal combo As ComboBox)
         Dim reasons As New List(Of Object)()
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
             reasons = dbAccess.Get_Multiple_Row_Data("select reason_des from introse.reasons order by 1;")
@@ -105,7 +102,6 @@
     Private Sub txtbxFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacID.TextChanged
         txtbxFacName.Clear()
         cmbbxCourse.Items.Clear()
-        cmbbxCourse.ResetText()
         cmbbxSec.Items.Clear()
         cmbbxSec.ResetText()
         txtbxEnd.Clear()
@@ -120,7 +116,6 @@
 
     Private Sub cmbbxCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxCourse.SelectedIndexChanged
         cmbbxSec.Items.Clear()
-        cmbbxSec.ResetText()
         txtbxEnd.Clear()
         txtbxStart.Clear()
         txtbxRoom.Clear()
