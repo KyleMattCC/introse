@@ -217,7 +217,7 @@
         If String.IsNullOrEmpty(att) Then
             makeupCheck = dbAccess.Get_Data("select makeupid
                                              from introse.makeup
-                                             where status = '" & stat & "' and courseofferingid = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "';", "makeupid")
+                                             where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "';", "makeupid")
             If String.IsNullOrEmpty(makeupCheck) Then
                 b = True
             Else
