@@ -93,7 +93,7 @@
             Dim colCount As Integer
             colCount = grid.ColumnCount
             If .SelectedRows.Count = 0 Then
-                MsgBox("No rows selected!", MsgBoxStyle.Critical, "")
+                MsgBox("No row selected!", MsgBoxStyle.Critical, "")
 
             ElseIf .SelectedRows.Count = 1 Then
                 selectedRow = grid.Rows(rindexValue)
@@ -134,7 +134,7 @@
                 End If
 
             Else
-                MsgBox("No row/s selected", MsgBoxStyle.Critical, "")
+                MsgBox("No row/s selected!", MsgBoxStyle.Critical, "")
 
             End If
         End With
