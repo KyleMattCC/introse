@@ -23,3 +23,5 @@ project/WindowsApplication2/bin/Debug/WindowsApplication2.pdb
 *.exe
 *.exe
 *.suo
+project/WindowsApplication2/popAddMakeUpHistory.resx
+project/.vs/WindowsApplication2/v14/.suo

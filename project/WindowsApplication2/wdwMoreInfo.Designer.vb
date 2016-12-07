@@ -321,7 +321,7 @@ Partial Class wdwMoreInfo
         Me.txtbxCollege.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxCollege.Location = New System.Drawing.Point(199, 129)
         Me.txtbxCollege.Name = "txtbxCollege"
-        Me.txtbxCollege.Size = New System.Drawing.Size(165, 26)
+        Me.txtbxCollege.Size = New System.Drawing.Size(313, 26)
         Me.txtbxCollege.TabIndex = 189
         '
         'txtbxDept
@@ -330,7 +330,7 @@ Partial Class wdwMoreInfo
         Me.txtbxDept.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDept.Location = New System.Drawing.Point(199, 99)
         Me.txtbxDept.Name = "txtbxDept"
-        Me.txtbxDept.Size = New System.Drawing.Size(165, 26)
+        Me.txtbxDept.Size = New System.Drawing.Size(313, 26)
         Me.txtbxDept.TabIndex = 190
         '
         'txtbxRoom

@@ -8,35 +8,33 @@
         Label18.Text = "Reason:"
         Label18.Location = New Point(115, 429)
 
-        moreInfo = dbAccess.get9ColumnData("Select m.makeup_date, cl.course_cd, c.section, m.timestart, m.timeend, m.room, r.reason_desc, m.enc_date, m.encoder 
-                                from introse.makeup m, introse.faculty f, introse.course cl, introse.courseoffering c, introse.reason r 
-                                where m.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and m.reason_cd = r.reason_cd and (m.status = 'A' or m.status = 'R') and m.makeupid = '" & wdwAttendanceHistoryLog.getRefNo() & "';", "makeup_date", "course_cd", "section", "timestart", "timeend", "room", "reason_desc", "enc_date", "encoder")
+        moreInfo = dbAccess.Get_Multiple_Column_Data("select f.facultyid, concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename), co.college_name, d.departmentname, m.timestart, m.timeend, m.room, r.reason_des, m.enc_date, m.encoder 
+                                from introse.makeup m, introse.faculty f, introse.course cl, introse.courseoffering c, introse.reasons r, introse.department d, introse.college co
+                                where m.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and m.reason_cd = r.reason_cd and f.departmentid = d.departmentid and d.college_code = co.college_code and (c.status = 'A' or c.status = 'R') and (m.status = 'A' or m.status = 'R') and m.makeupid = '" & wdwAttendanceHistoryLog.getRefNo & "';", "10")
 
 
         If rowData.Count > 0 Then
             txtbxRef.Text = rowData(0)
-            txtbxFacID.Text = rowData(1) ' fid
-            txtbxName.Text = rowData(2) ' name
-            txtbxDept.Text = rowData(3) ' dept
-            txtbxCollege.Text = rowData(4) ' coll
-            txtbxTerm.Text = rowData(5) ' term
-            txtbxSY.Text = rowData(6) ' SY
+            txtbxSY.Text = rowData(1) ' SY
+            txtbxTerm.Text = rowData(2) ' term
+            txtbxADate.Text = rowData(3).Split(" ")(0)
+            txtbxCourse.Text = rowData(4) ' course
+            txtbxSec.Text = rowData(5) ' section
 
-            txtbxADate.Text = moreInfo(0)
-            txtbxCourse.Text = moreInfo(1) ' course
-            txtbxSec.Text = moreInfo(2) ' section
-            txtbxStart.Text = moreInfo(3) 'start
-            txtbxEnd.Text = moreInfo(4) ' end
-            txtbxRoom.Text = moreInfo(5) ' room
-            txtbxRemarks.Text = moreInfo(6)
-            txtbxDEncoded.Text = moreInfo(7)
-            txtbxEncoder.Text = moreInfo(8)
-            txtbxDay.Text = "Not Applicable"
-            txtbxChecker.Text = "Not Applicable"
-
+            txtbxFacID.Text = moreInfo(0) ' fid
+            txtbxName.Text = moreInfo(1) ' name
+            txtbxCollege.Text = moreInfo(2)
+            txtbxDept.Text = moreInfo(3) ' dept
+            txtbxStart.Text = moreInfo(4) 'start
+            txtbxEnd.Text = moreInfo(5) ' end
+            txtbxRoom.Text = moreInfo(6) ' room
+            txtbxRemarks.Text = moreInfo(7)
+            txtbxDEncoded.Text = moreInfo(8)
+            txtbxEncoder.Text = moreInfo(9)
+            txtbxDay.Text = "No Information"
+            txtbxChecker.Text = "No Information"
         End If
 
-        Me.Show()
     End Sub
 
     Public Sub Load_Attendance_Form(rowData As List(Of String))
@@ -45,34 +43,34 @@
         Label18.Text = "Remarks:"
         Label7.Location = New Point(70, 219)
         Label18.Location = New Point(103, 429)
-        moreInfo = dbAccess.get11ColumnData("Select a.absent_date, cl.course_cd, c.section,  c.room, c.daysched, c.timestart, c.timeend, r.remark_des, a.enc_date, a.encoder, a.checker
-        From introse.attendance a, introse.courseoffering c, introse.course cl, introse.remarks r
-        where a.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and a.remarks_cd = r.remark_cd and (a.status = 'A' or a.status = 'R') and a.attendanceid = '" & wdwAttendanceHistoryLog.getRefNo() & "';", "absent_date", "course_cd", "section", "room", "daysched", "timestart", "timeend", "remark_des", "enc_date", "encoder", "checker")
+        moreInfo = dbAccess.Get_Multiple_Column_Data("select f.facultyid, concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename), co.college_name, d.departmentname,  c.room, c.daysched, c.timestart, c.timeend, r.remark_des, a.enc_date, a.encoder, a.checker
+        from introse.attendance a, introse.courseoffering c, introse.course cl, introse.faculty f, introse.remarks r, introse.department d, introse.college co
+        where a.courseoffering_id = c.courseoffering_id and (c.status = 'A' or c.status = 'R') and c.facref_no = f.facref_no and c.course_id = cl.course_id and a.remarks_cd = r.remark_cd and (a.status = 'A' or a.status = 'R') and f.departmentid = d.departmentid and d.college_code = co.college_code and a.attendanceid = '" & wdwAttendanceHistoryLog.getRefNo & "';", "12")
 
         If rowData.Count > 0 Then
             txtbxRef.Text = rowData(0)
-            txtbxFacID.Text = rowData(1) ' fid
-            txtbxName.Text = rowData(2) ' name
-            txtbxDept.Text = rowData(3) ' dept
-            txtbxCollege.Text = rowData(4) ' coll
-            txtbxTerm.Text = rowData(5) ' term
-            txtbxSY.Text = rowData(6) ' SY
+            txtbxSY.Text = rowData(1) ' SY
+            txtbxTerm.Text = rowData(2) ' term
+            txtbxADate.Text = rowData(3).Split(" ")(0)
+            txtbxCourse.Text = rowData(4) ' course
+            txtbxSec.Text = rowData(5) ' section
 
-            txtbxADate.Text = moreInfo(0)
-            txtbxCourse.Text = moreInfo(1) ' course
-            txtbxSec.Text = moreInfo(2) ' section
-            txtbxRoom.Text = moreInfo(3) ' room
-            txtbxDay.Text = moreInfo(4)
-            txtbxStart.Text = moreInfo(5) 'start
-            txtbxEnd.Text = moreInfo(6) ' end
-            txtbxRemarks.Text = moreInfo(7)
-            txtbxDEncoded.Text = moreInfo(8)
-            txtbxEncoder.Text = moreInfo(9)
-            txtbxChecker.Text = moreInfo(10)
+            txtbxFacID.Text = moreInfo(0) ' fid
+            txtbxName.Text = moreInfo(1) ' name
+            txtbxCollege.Text = moreInfo(2) ' coll
+            txtbxDept.Text = moreInfo(3) ' dept
+
+            txtbxRoom.Text = moreInfo(4) ' room
+            txtbxDay.Text = moreInfo(5)
+            txtbxStart.Text = moreInfo(6) 'start
+            txtbxEnd.Text = moreInfo(7) ' end
+            txtbxRemarks.Text = moreInfo(8)
+            txtbxDEncoded.Text = moreInfo(9)
+            txtbxEncoder.Text = moreInfo(10)
+            txtbxChecker.Text = moreInfo(11)
 
         End If
 
-        Me.Show()
     End Sub
     Private Sub wdwMoreInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -82,6 +80,6 @@
         Me.Close()
     End Sub
     Private Sub wdwMoreInfo_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        wdwAttendanceHistoryLog.Enable_Form()
+        wdwAttendanceHistoryLog.Enable_After_Search_Form()
     End Sub
 End Class

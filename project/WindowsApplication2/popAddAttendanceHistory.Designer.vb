@@ -87,11 +87,11 @@ Partial Class popAddAttendanceHistory
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(75, 101)
+        Me.Label4.Location = New System.Drawing.Point(47, 100)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(119, 20)
+        Me.Label4.Size = New System.Drawing.Size(145, 20)
         Me.Label4.TabIndex = 205
-        Me.Label4.Text = "School Year:"
+        Me.Label4.Text = "Academic Year:"
         '
         'Label10
         '
@@ -215,6 +215,7 @@ Partial Class popAddAttendanceHistory
         '
         'txtbxFacID
         '
+        Me.txtbxFacID.Enabled = False
         Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacID.Location = New System.Drawing.Point(198, 10)
         Me.txtbxFacID.Name = "txtbxFacID"
