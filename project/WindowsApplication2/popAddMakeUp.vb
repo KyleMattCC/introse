@@ -208,23 +208,16 @@
     End Sub
 
     Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String, reason As String) As Boolean
-        Dim att As String = ""
         Dim makeupCheck As String = ""
         Dim b As Boolean = False
-        att = dbAccess.Get_Data("select makeupid 
-                                from introse.makeup 
-                                where makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and status = '" & stat & "';", "makeupid")
-        If String.IsNullOrEmpty(att) Then
-            makeupCheck = dbAccess.Get_Data("select makeupid
-                                             from introse.makeup
-                                             where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "';", "makeupid")
-            If String.IsNullOrEmpty(makeupCheck) Then
-                b = True
-            Else
-                MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
-            End If
+
+        makeupCheck = dbAccess.Get_Data("select makeupid
+                                         from introse.makeup
+                                         where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "';", "makeupid")
+        If String.IsNullOrEmpty(makeupCheck) Then
+            b = True
         Else
-            MsgBox("Conflicting makeup class entry!", MsgBoxStyle.Critical, "")
+            MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
         End If
         Return b
 

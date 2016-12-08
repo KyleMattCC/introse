@@ -9,6 +9,7 @@
 
     Private Sub Load_form()
         Dim DeptValue As String
+        rindexValue = 0
         bttnSearch.Enabled = False
         dbAccess.Fill_Data_Grid("select m.makeupid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', m.makeup_date 'Makeup date', cl.course_cd 'Course', c.section 'Section', m.room 'Room', m.timestart 'Start time', m.timeend 'End time', m.hours 'Hours', r.reason_des 'Reason', m.enc_date 'Date encoded', m.encoder 'Encoder' 
                                 from introse.makeup m, introse.faculty f, introse.course cl, introse.courseoffering c, introse.reasons r 
@@ -30,7 +31,7 @@
         Me.Enabled = True
         Load_form()
         Me.Focus()
-        rindexValue = 0
+
     End Sub
 
     Private Sub dtp_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged

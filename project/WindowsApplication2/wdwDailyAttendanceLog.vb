@@ -10,6 +10,7 @@
 
     Private Sub Load_form()
         Dim DeptValue As String
+        rindexValue = 0
         bttnSearch.Enabled = False
 
         dbAccess.Fill_Data_Grid("select a.attendanceid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section',  c.room 'Room', c.daysched 'Day', c.timestart 'Start time', c.timeend 'End time', r.remark_des 'Remarks', a.enc_date 'Date encoded', a.encoder 'Encoder' , a.checker 'Checker'
@@ -32,7 +33,7 @@
         Me.Enabled = True
         Load_form()
         Me.Focus()
-        rindexValue = 0
+
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
@@ -70,7 +71,7 @@
             txtbxFacID.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
             txtbxName.Text = grid.Rows(0).Cells("Name").Value.ToString
             DeptValue = dbAccess.Get_Data("Select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
-        txtbxDept.Text = DeptValue.ToString
+            txtbxDept.Text = DeptValue.ToString
         End If
 
 
