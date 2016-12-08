@@ -46,4 +46,8 @@
     Private Sub bttnHistory_Click(sender As Object, e As EventArgs) Handles bttnHistory.Click
         wdwAttendanceHistoryLog.Show()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnAddAccount.Click
+        popAddAccount.Show()
+    End Sub
 End Class

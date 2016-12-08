@@ -32,6 +32,7 @@ Partial Class wdwMainMenu
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.bttnTermPlantilla = New System.Windows.Forms.Button()
         Me.bttnHistory = New System.Windows.Forms.Button()
+        Me.bttnAddAccount = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -39,14 +40,15 @@ Partial Class wdwMainMenu
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.bttnAddAccount)
         Me.GroupBox1.Controls.Add(Me.bttnDailyAtt)
         Me.GroupBox1.Controls.Add(Me.bttnMakeUp)
         Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(211, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(115, 12)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(370, 140)
+        Me.GroupBox1.Size = New System.Drawing.Size(567, 140)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Data Entry"
@@ -160,6 +162,17 @@ Partial Class wdwMainMenu
         Me.bttnHistory.Text = "Faculty Attendance History"
         Me.bttnHistory.UseVisualStyleBackColor = True
         '
+        'bttnAddAccount
+        '
+        Me.bttnAddAccount.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAddAccount.Location = New System.Drawing.Point(399, 25)
+        Me.bttnAddAccount.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.bttnAddAccount.Name = "bttnAddAccount"
+        Me.bttnAddAccount.Size = New System.Drawing.Size(160, 100)
+        Me.bttnAddAccount.TabIndex = 13
+        Me.bttnAddAccount.Text = "Add Account"
+        Me.bttnAddAccount.UseVisualStyleBackColor = True
+        '
         'wdwMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -189,4 +202,5 @@ Partial Class wdwMainMenu
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents bttnTermPlantilla As Button
     Friend WithEvents bttnHistory As Button
+    Friend WithEvents bttnAddAccount As Button
 End Class
