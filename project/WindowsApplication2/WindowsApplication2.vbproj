@@ -100,6 +100,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="popAddAccount.Designer.vb">
+      <DependentUpon>popAddAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popAddAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="popAddMakeUpHistory.designer.vb">
       <DependentUpon>popAddMakeUpHistory.vb</DependentUpon>
     </Compile>
@@ -116,6 +122,12 @@
       <DependentUpon>popModifyMakeUpHistory.vb</DependentUpon>
     </Compile>
     <Compile Include="popModifyMakeUpHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwLogin.Designer.vb">
+      <DependentUpon>wdwLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wdwMoreInfo.Designer.vb">
@@ -340,6 +352,9 @@
     <EmbeddedResource Include="EmailNotices.resx">
       <DependentUpon>EmailNotices.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="popAddAccount.resx">
+      <DependentUpon>popAddAccount.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="popAddMakeUpHistory.resx">
       <DependentUpon>popAddMakeUpHistory.vb</DependentUpon>
     </EmbeddedResource>
@@ -348,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="popModifyMakeUpHistory.resx">
       <DependentUpon>popModifyMakeUpHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwLogin.resx">
+      <DependentUpon>wdwLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwMoreInfo.resx">
       <DependentUpon>wdwMoreInfo.vb</DependentUpon>
