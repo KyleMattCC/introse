@@ -100,7 +100,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="popAddMakeUpHistory.Designer.vb">
+    <Compile Include="popAddMakeUpHistory.designer.vb">
       <DependentUpon>popAddMakeUpHistory.vb</DependentUpon>
     </Compile>
     <Compile Include="popAddMakeUpHistory.vb">

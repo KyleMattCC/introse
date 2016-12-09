@@ -58,7 +58,7 @@
         Dim b As Boolean = False
         att = dbAccess.Get_Data("select makeupid 
                                 from introse.makeup 
-                                where makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and status = '" & stat & "';", "makeupid")
+                                where makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and status = '" & stat & "';", "attendanceid")
         If String.IsNullOrEmpty(att) Then
             b = True
         Else
@@ -265,7 +265,7 @@
     Private Sub popAddMakeUpHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtp.Value = DateTime.Now.Date
         Add_Reasons(cmbbxReason)
-        load_form(wdwAttendanceHistoryLog.facultyID)
+        load_form(popFacSearch.get_Faculty_id)
         Check_Enable()
         Check_Element_Enable()
     End Sub
