@@ -331,6 +331,7 @@ Partial Class popAddMakeUpHistory
         Me.Controls.Add(Me.txtbxFacID)
         Me.Controls.Add(Me.Label5)
         Me.Name = "popAddMakeUpHistory"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Make-Up History"
         Me.ResumeLayout(False)
         Me.PerformLayout()

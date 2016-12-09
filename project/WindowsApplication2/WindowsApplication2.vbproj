@@ -106,6 +106,18 @@
     <Compile Include="popAddMakeUpHistory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="popModifyAttendanceHistory.Designer.vb">
+      <DependentUpon>popModifyAttendanceHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popModifyAttendanceHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popModifyMakeUpHistory.Designer.vb">
+      <DependentUpon>popModifyMakeUpHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popModifyMakeUpHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="wdwMoreInfo.Designer.vb">
       <DependentUpon>wdwMoreInfo.vb</DependentUpon>
     </Compile>
@@ -330,6 +342,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="popAddMakeUpHistory.resx">
       <DependentUpon>popAddMakeUpHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popModifyAttendanceHistory.resx">
+      <DependentUpon>popModifyAttendanceHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popModifyMakeUpHistory.resx">
+      <DependentUpon>popModifyMakeUpHistory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwMoreInfo.resx">
       <DependentUpon>wdwMoreInfo.vb</DependentUpon>

@@ -201,7 +201,7 @@
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
             section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) 
                                                 from introse.course c, introse.courseoffering co, introse.attendance a 
-                                                where (co.termid = '" & termid & "' and co.status = 'A' or co.status = 'R') and (a.status = 'A' or a.status = 'R') and co.facref_no = '" & fac & "' AND co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;")
+                                                where co.termid = '" & termid & "' and (co.status = 'A' or co.status = 'R') and (a.status = 'A' or a.status = 'R') and co.facref_no = '" & fac & "' AND co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;")
 
             For ctr As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(ctr))
@@ -213,7 +213,7 @@
     End Sub
     Private Function Set_Attendance() As Boolean
         Dim makeupDate, course, section, room, reason, courseOfferingId, attstatus As String
-        Dim startTime, endTime As Integer
+        Dim startTime, endTime, tempStart, tempEnd As Integer
         Dim termid As Object
 
         termid = Get_termID(cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString)
@@ -228,14 +228,23 @@
                 Dim wholeNumber As Integer
                 startTime = Convert.ToInt32(txtbxStart.Text)
                 endTime = Convert.ToInt32(txtbxEnd.Text)
-                wholeNumber = (endTime - startTime) / 100
+                tempStart = startTime
+                tempEnd = endTime
+                If ((tempStart Mod 100) > tempEnd Mod 100) Then
+                    Dim tempMinutes As Integer = startTime Mod 100
+                    tempStart -= tempMinutes
+                    tempEnd -= (tempMinutes + 40)
+                End If
+
+                wholeNumber = (tempEnd - tempStart) / 100
+
                 If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
                     MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
                     Return False
                 ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                     MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
                     Return False
-                ElseIf ((wholeNumber + ((endTime - startTime) Mod 100) / 60) > absentHours) Then
+                ElseIf ((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) > absentHours) Then
                     MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")
                     Return False
                 Else
@@ -250,7 +259,7 @@
 
                     attstatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
                     If (Check_Entry(makeupDate, startTime, endTime, room, "A") And Check_Entry(makeupDate, startTime, endTime, room, "R")) Then
-                        dbAccess.Add_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values (" & courseOfferingId & ", " & startTime & ", " & endTime & ", " & (wholeNumber + ((endTime - startTime) Mod 100) / 60) & ",'" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', 'unknown', '" & attstatus & "');")
+                        dbAccess.Add_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values (" & courseOfferingId & ", " & startTime & ", " & endTime & ", " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ",'" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', 'unknown', '" & attstatus & "');")
                         Return True
                     End If
                 End If
@@ -310,9 +319,9 @@
         cmbbxCourse.ResetText()
         cmbbxSec.Items.Clear()
         cmbbxSec.ResetText()
-        txtbxEnd.Clear()
-        txtbxStart.Clear()
-        txtbxRoom.Clear()
+        'txtbxEnd.Clear()
+        'txtbxStart.Clear()
+        'txtbxRoom.Clear()
         Try
             If (String.IsNullOrEmpty(cmbbxSY.SelectedItem)) Then
                 cmbbxTerm.Enabled = False
@@ -332,9 +341,9 @@
         cmbbxCourse.ResetText()
         cmbbxSec.Items.Clear()
         cmbbxSec.ResetText()
-        txtbxEnd.Clear()
-        txtbxStart.Clear()
-        txtbxRoom.Clear()
+        'txtbxEnd.Clear()
+        'txtbxStart.Clear()
+        'txtbxRoom.Clear()
         Try
             If (String.IsNullOrEmpty(cmbbxTerm.SelectedItem)) Then
                 cmbbxCourse.Enabled = False
@@ -353,9 +362,9 @@
     Private Sub cmbbxCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxCourse.SelectedIndexChanged
         cmbbxSec.Items.Clear()
         cmbbxSec.ResetText()
-        txtbxEnd.Clear()
-        txtbxStart.Clear()
-        txtbxRoom.Clear()
+        'txtbxEnd.Clear()
+        'txtbxStart.Clear()
+        'txtbxRoom.Clear()
         Add_Section(txtbxFacID.Text, cmbbxCourse.SelectedItem.ToString, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxSec)
         cmbbxReason.SelectedIndex = -1
         Check_Enable()

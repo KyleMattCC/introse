@@ -40,63 +40,19 @@
         End If
         Return checkFac
     End Function
-
-    'Public Sub back_form(id As String)
-
-    '    If BttnAttendance.Enabled = True Then
-    '        MsgBox("back_attendance")
-    '        dbAccess.Fill_Data_Grid("Select a.attendanceid 'Attendance Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', d.departmentname 'Department', co.college_name 'College', t.term_no 'Term', concat(ac.yearstart, '-', ac.yearend) 'Academic Year'
-    '                            from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.term t, introse.academicyear ac, introse.department d, introse.college co
-    '                            where a.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and (a.status = 'A' or a.status = 'R') and f.departmentid = d.departmentid and d.college_code = co.college_code and c.termid = t.termid and t.yearid = ac.yearid and f.facultyid = '" + id + "'
-    '                            order by a.enc_date and concat(ac.yearstart, '-', ac.yearend) and t.term_no LIMIT 1000 ;", grid)
-
-    '    ElseIf BttnMakeup.Enabled = True Then
-    '        MsgBox("back_makeup")
-    '        dbAccess.Fill_Data_Grid("Select m.makeupid 'Makeup Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', d.departmentname 'Department', co.college_name 'College', t.term_no 'Term', concat(ac.yearstart, '-', ac.yearend) 'Academic Year'
-    '                            from introse.makeup m, introse.faculty f, introse.courseoffering c , introse.term t, introse.academicyear ac, introse.department d, introse.college co
-    '                            where m.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and (m.status = 'A' or m.status = 'R')  and f.departmentid = d.departmentid and d.college_code = co.college_code and c.termid = t.termid and t.yearid = ac.yearid  and f.facultyid = '" + id + "'
-    '                            order by m.enc_date and concat(ac.yearstart, '-', ac.yearend) and t.term_no LIMIT 1000 ;", grid)
-
-
-    '    End If
-    'End Sub
     Public Sub Load_form(id As String)
-
-        '  If BttnAttendance.Enabled = True Then
-
-        'MsgBox("Load_attendance")
-        '    dbAccess.Fill_Data_Grid("Select a.attendanceid 'Attendance Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', d.departmentname 'Department', co.college_name 'College', t.term_no 'Term', concat(ac.yearstart, '-', ac.yearend) 'Academic Year'
-        '                        from introse.attendance a, introse.faculty f, introse.courseoffering c, introse.term t, introse.academicyear ac, introse.department d, introse.college co
-        '                        where a.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and (a.status = 'A' or a.status = 'R') and f.departmentid = d.departmentid and d.college_code = co.college_code and c.termid = t.termid and t.yearid = ac.yearid and f.facultyid = '" + id + "'
-        '                        order by a.enc_date and concat(ac.yearstart, '-', ac.yearend) and t.term_no LIMIT 1000 ;", grid)
-
-        ' BttnMakeup.Enabled = True
-
-        ' ElseIf BttnMakeup.Enabled = True Then
-        'MsgBox("Load_makeup")
-        '    dbAccess.Fill_Data_Grid("Select m.makeupid 'Makeup Reference No', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', d.departmentname 'Department', co.college_name 'College', t.term_no 'Term', concat(ac.yearstart, '-', ac.yearend) 'Academic Year'
-        '                        from introse.makeup m, introse.faculty f, introse.courseoffering c , introse.term t, introse.academicyear ac, introse.department d, introse.college co
-        '                        where m.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and (m.status = 'A' or m.status = 'R')  and f.departmentid = d.departmentid and d.college_code = co.college_code and c.termid = t.termid and t.yearid = ac.yearid  and f.facultyid = '" + id + "'
-        '                        order by m.enc_date and concat(ac.yearstart, '-', ac.yearend) and t.term_no LIMIT 1000 ;", grid)
-
-        '    BttnAttendance.Enabled = True
-
-        ' End If
-        ' MsgBox("Inside load: " + BttnAttendance.Text)
         If Check_fac(id) Then
             txtbxFacID.Text = id
             txtbxName.Text = dbAccess.Get_Data("select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from introse.faculty where facultyid = '" & id & "';", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
             facultyID = txtbxFacID.Text
 
             If BttnAttendance.Text = "Attendance" Then
-                '  MsgBox("Load_attendance")
                 dbAccess.Fill_Data_Grid("select a.attendanceid 'Attendance Reference No', concat(ac.yearstart, '-', ac.yearend) 'Academic Year', t.term_no 'Term', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section'
                                 from introse.attendance a, introse.courseoffering c, introse.term t, introse.academicyear ac, introse.course cl, introse.faculty f
                                 where a.courseoffering_id = c.courseoffering_id and (c.status = 'A' or c.status = 'R') and (a.status = 'A' or a.status = 'R') and c.course_id = cl.course_id and c.termid = t.termid and t.yearid = ac.yearid and f.facultyid = '" + id + "' and f.facref_no = c.facref_no
                                 order by concat(ac.yearstart, '-', ac.yearend) and t.term_no asc LIMIT 1000 ;", grid)
 
             ElseIf BttnAttendance.Text = "Make-up Class" Then
-                ' MsgBox("Load_makeup")
                 dbAccess.Fill_Data_Grid("select m.makeupid 'Makeup Reference No', concat(ac.yearstart, '-', ac.yearend) 'Academic Year', t.term_no 'Term', m.makeup_date 'Make-Up Date', cl.course_cd 'Course', c.section 'Section'
                                 from introse.makeup m, introse.faculty f, introse.courseoffering c , introse.term t, introse.academicyear ac, introse.course cl
                                 where m.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and (c.status = 'A' or c.status = 'R') and (m.status = 'A' or m.status = 'R') and cl.course_id = c.course_id and c.termid = t.termid and t.yearid = ac.yearid  and f.facultyid = '" + id + "'
@@ -116,7 +72,6 @@
     Public Sub Enable_Form()
         Me.Show()
         Me.Enabled = True
-        ' back_form(popFacSearch.get_Faculty_id)
         Load_form(popFacSearch.get_Faculty_id)
         Me.Focus()
     End Sub
@@ -135,14 +90,6 @@
     End Sub
     Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
         Me.Enabled = False
-        'If BttnAttendance.Enabled = True Then
-        'popAddAttendanceHistory.Show()
-        'ElseIf BttnMakeup.Enabled = True Then
-        'MsgBox("add makeup")
-        '  Enable_Form()
-
-        'End If
-
 
         If BttnAttendance.Text = "Attendance" Then
             popAddAttendanceHistory.Show()
@@ -157,11 +104,6 @@
                 If .SelectedRows.Count > 0 Then
                     For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
                         selectedRow = grid.Rows(.SelectedRows(ctr).Index)
-                        '               If BttnAttendance.Enabled = False Then
-                        'dbAccess.Update_Data("UPDATE `introse`.`attendance` SET `status` = 'D' WHERE `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
-                        '              ElseIf BttnMakeup.Enabled = False Then
-                        'dbAccess.Update_Data("UPDATE `introse`.`makeup` SET `status` = 'D' WHERE `makeupid` = '" & selectedRow.Cells(0).Value & "';")
-                        '             End If
                         If BttnAttendance.Text = "Attendance" Then
                             dbAccess.Update_Data("UPDATE `introse`.`attendance` SET `status` = 'D' WHERE `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
                         ElseIf BttnAttendance.Text = "Make-up Class" Then
@@ -169,7 +111,6 @@
                         End If
                     Next
 
-                    'back_form(popFacSearch.get_Faculty_id)
                     Load_form(txtbxFacID.Text)
 
                 Else
@@ -217,14 +158,6 @@
                         End If
                     Next
 
-                    '   If BttnAttendance.Enabled = False Then
-                    'MsgBox("attendance")
-                    '    wdwMoreInfo.Load_Attendance_Form(rowData)
-
-                    '  ElseIf BttnMakeup.Enabled = False Then
-                    'MsgBox("makeup")
-                    '    wdwMoreInfo.Load_Makeup_Form(rowData)
-                    ' End If
                     If BttnAttendance.Text = "Attendance" Then
                         wdwMoreInfo.Load_Attendance_Form(rowData)
                     ElseIf BttnAttendance.Text = "Make-up Class" Then
@@ -245,13 +178,6 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BttnAttendance.Click
-        'Load_form(popFacSearch.get_Faculty_id())
-        'If Check_Button(BttnAttendance) = True Then
-        '    BttnAttendance.Enabled = False
-        '    BttnMakeup.Enabled = True
-        'Else
-        '    BttnAttendance.Enabled = True
-        'End If
         If BttnAttendance.Text = "Attendance" Then
             BttnAttendance.Text = "Make-up Class"
             dbAccess.Fill_Data_Grid("select m.makeupid 'Makeup Reference No', concat(ac.yearstart, '-', ac.yearend) 'Academic Year', t.term_no 'Term', m.makeup_date 'Make-Up Date', cl.course_cd 'Course', c.section 'Section'
@@ -271,16 +197,50 @@
     End Sub
 
     Private Sub BttnMakeup_Click(sender As Object, e As EventArgs) Handles BttnMakeup.Click
-        'Load_form(popFacSearch.get_Faculty_id())
-        ' BttnMakeup.Enabled = False
 
     End Sub
 
     Private Sub wdwAttendanceHistoryLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' BttnAttendance.Enabled = False
-        ' BttnMakeup.Enabled = True
-        'Load_form(popFacSearch.get_Faculty_id)
 
     End Sub
 
+    Private Sub bttnModify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
+        With grid
+            rowData.Clear()
+            Dim selectedRow As DataGridViewRow
+            Dim colCount As Integer
+            colCount = grid.ColumnCount
+            If .SelectedRows.Count = 0 Then
+                MsgBox("No row selected!", MsgBoxStyle.Critical, "")
+
+            ElseIf .SelectedRows.Count = 1 Then
+                selectedRow = grid.Rows(rindexValue)
+                For ctr As Integer = 0 To colCount - 1
+                    If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
+                        MsgBox("Missing data!", MsgBoxStyle.Critical, "")
+                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+                    Else
+                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+
+                    End If
+                Next
+
+                Me.Enabled = False
+                If BttnAttendance.Text = "Attendance" Then
+                    popModifyAttendanceHistory.Load_Form(rowData)
+                ElseIf BttnAttendance.Text = "Make-up Class" Then
+                    popModifyMakeUpHistory.Load_Form(rowData)
+                End If
+
+
+            Else
+                MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
+
+            End If
+        End With
+    End Sub
+
+    Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
+
+    End Sub
 End Class
