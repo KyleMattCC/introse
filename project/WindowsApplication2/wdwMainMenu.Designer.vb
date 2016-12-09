@@ -23,6 +23,7 @@ Partial Class wdwMainMenu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.bttnAddAccount = New System.Windows.Forms.Button()
         Me.bttnDailyAtt = New System.Windows.Forms.Button()
         Me.bttnMakeUp = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -32,7 +33,6 @@ Partial Class wdwMainMenu
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.bttnTermPlantilla = New System.Windows.Forms.Button()
         Me.bttnHistory = New System.Windows.Forms.Button()
-        Me.bttnAddAccount = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -52,6 +52,17 @@ Partial Class wdwMainMenu
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Data Entry"
+        '
+        'bttnAddAccount
+        '
+        Me.bttnAddAccount.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAddAccount.Location = New System.Drawing.Point(399, 25)
+        Me.bttnAddAccount.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.bttnAddAccount.Name = "bttnAddAccount"
+        Me.bttnAddAccount.Size = New System.Drawing.Size(160, 100)
+        Me.bttnAddAccount.TabIndex = 13
+        Me.bttnAddAccount.Text = "Add Account"
+        Me.bttnAddAccount.UseVisualStyleBackColor = True
         '
         'bttnDailyAtt
         '
@@ -161,17 +172,6 @@ Partial Class wdwMainMenu
         Me.bttnHistory.TabIndex = 15
         Me.bttnHistory.Text = "Faculty Attendance History"
         Me.bttnHistory.UseVisualStyleBackColor = True
-        '
-        'bttnAddAccount
-        '
-        Me.bttnAddAccount.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAddAccount.Location = New System.Drawing.Point(399, 25)
-        Me.bttnAddAccount.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.bttnAddAccount.Name = "bttnAddAccount"
-        Me.bttnAddAccount.Size = New System.Drawing.Size(160, 100)
-        Me.bttnAddAccount.TabIndex = 13
-        Me.bttnAddAccount.Text = "Add Account"
-        Me.bttnAddAccount.UseVisualStyleBackColor = True
         '
         'wdwMainMenu
         '

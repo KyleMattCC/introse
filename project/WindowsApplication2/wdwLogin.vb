@@ -9,7 +9,7 @@
 
 
 
-        UserID = dbAccess.Get_Data("Select a.id from account a where a.encodername = '" & txtbxUser.Text & "' and a.password = '" & txtbxPass.Text & " '", "id")
+        UserID = dbAccess.Get_Data("Select a.id from account a where a.username = '" & txtbxUser.Text & "' and a.password = '" & txtbxPass.Text & " '", "id")
 
         If (UserID <> Nothing) Then
             Me.Hide()
@@ -25,7 +25,7 @@
 
     End Sub
 
-    Private Sub bttnClear_Click(sender As Object, e As EventArgs) Handles bttnClear.Click
+    Private Sub bttnClear_Click(sender As Object, e As EventArgs)
         txtbxPass.Text = Nothing
         txtbxUser.Text = Nothing
     End Sub

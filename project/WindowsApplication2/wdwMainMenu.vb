@@ -49,6 +49,10 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnAddAccount.Click
-        'popAddAccount.Show()
+        popAddAccount.Show()
+    End Sub
+
+    Private Sub bttnTermPlantilla_Click(sender As Object, e As EventArgs) Handles bttnTermPlantilla.Click
+        wdwFacPlantilia.show()
     End Sub
 End Class

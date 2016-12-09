@@ -27,7 +27,6 @@ Partial Class wdwLogin
         Me.txtbxUser = New System.Windows.Forms.TextBox()
         Me.txtbxPass = New System.Windows.Forms.TextBox()
         Me.bttnLogin = New System.Windows.Forms.Button()
-        Me.bttnClear = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -76,22 +75,11 @@ Partial Class wdwLogin
         Me.bttnLogin.Text = "Login"
         Me.bttnLogin.UseVisualStyleBackColor = True
         '
-        'bttnClear
-        '
-        Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnClear.Location = New System.Drawing.Point(238, 231)
-        Me.bttnClear.Name = "bttnClear"
-        Me.bttnClear.Size = New System.Drawing.Size(166, 44)
-        Me.bttnClear.TabIndex = 5
-        Me.bttnClear.Text = "Clear"
-        Me.bttnClear.UseVisualStyleBackColor = True
-        '
         'wdwLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(737, 418)
-        Me.Controls.Add(Me.bttnClear)
         Me.Controls.Add(Me.bttnLogin)
         Me.Controls.Add(Me.txtbxPass)
         Me.Controls.Add(Me.txtbxUser)
@@ -109,5 +97,4 @@ Partial Class wdwLogin
     Friend WithEvents txtbxUser As TextBox
     Friend WithEvents txtbxPass As TextBox
     Friend WithEvents bttnLogin As Button
-    Friend WithEvents bttnClear As Button
 End Class
