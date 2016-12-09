@@ -265,7 +265,7 @@
     Private Sub popAddMakeUpHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtp.Value = DateTime.Now.Date
         Add_Reasons(cmbbxReason)
-        load_form(popFacSearch.get_Faculty_id)
+        load_form(wdwAttendanceHistoryLog.facultyID)
         Check_Enable()
         Check_Element_Enable()
     End Sub
