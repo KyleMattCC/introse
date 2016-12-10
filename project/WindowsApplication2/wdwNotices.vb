@@ -1,7 +1,7 @@
 ﻿Public Class wdwNotices
     Dim choice As Integer
-    Dim repGen As New ReportGenerator
-    Dim dbAccess As New DatabaseAccessor
+    Dim repGen As New reportGenerator
+    Dim dbAccess As New databaseAccessor
     Dim index As Integer
     Dim selectedRow As DataGridViewRow
 
@@ -72,5 +72,18 @@
                                 where a.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and a.status = 'A' and c.status = 'A' and f.status = 'A' and a.absent_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "') or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "') or (concat(f_lastname,' ', f_firstname) like '" + Search.ToString + "') or (concat(f_lastname,' ', ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' ,f_firstname) like '" + Search.ToString + "'))
                                 order by 3, 2;", grid)
 
+    End Sub
+
+    Private Sub txtbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txtbxSearch.TextChanged
+        If (String.IsNullOrEmpty(txtbxSearch.Text) Or String.IsNullOrWhiteSpace(txtbxSearch.Text)) Then
+
+            bttnSearch.Enabled = False
+        Else
+            bttnSearch.Enabled = True
+        End If
+
+        If (txtbxSearch.Text = Nothing) Then
+            Load_form()
+        End If
     End Sub
 End Class

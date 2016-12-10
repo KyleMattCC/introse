@@ -1,0 +1,733 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class wdwDataEntry
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()>
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()>
+    Private Sub InitializeComponent()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.cmbbxCourseCol = New System.Windows.Forms.ComboBox()
+        Me.bttnCourseBack = New System.Windows.Forms.Button()
+        Me.bttnCourseAdd = New System.Windows.Forms.Button()
+        Me.txtbxOffered = New System.Windows.Forms.TextBox()
+        Me.txtbxUnit = New System.Windows.Forms.TextBox()
+        Me.txtbxSection = New System.Windows.Forms.TextBox()
+        Me.txtbxCourseCode = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtbxRoom = New System.Windows.Forms.TextBox()
+        Me.txtbxEndTime = New System.Windows.Forms.TextBox()
+        Me.txtbxStartTime = New System.Windows.Forms.TextBox()
+        Me.txtbxDay = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.bttnDeptBack = New System.Windows.Forms.Button()
+        Me.bttnDeptAdd = New System.Windows.Forms.Button()
+        Me.cmbbxDeptCol = New System.Windows.Forms.ComboBox()
+        Me.txtbxDeptName = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.bttnCollegeBack = New System.Windows.Forms.Button()
+        Me.bttnCollegeAdd = New System.Windows.Forms.Button()
+        Me.txtbxCollegeName = New System.Windows.Forms.TextBox()
+        Me.txtbxCollegeCode = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.cmbbxFacDept = New System.Windows.Forms.ComboBox()
+        Me.cmbbxFacCol = New System.Windows.Forms.ComboBox()
+        Me.txtbxFirstName = New System.Windows.Forms.TextBox()
+        Me.txtbxMI = New System.Windows.Forms.TextBox()
+        Me.txtbxEmail = New System.Windows.Forms.TextBox()
+        Me.txtbxLastName = New System.Windows.Forms.TextBox()
+        Me.txtbxIDNumber = New System.Windows.Forms.TextBox()
+        Me.bttnFacBack = New System.Windows.Forms.Button()
+        Me.bttnFacAdd = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.TabPage5.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'TabPage6
+        '
+        Me.TabPage6.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage6.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage6.Size = New System.Drawing.Size(576, 388)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "New Term"
+        '
+        'TabPage5
+        '
+        Me.TabPage5.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage5.Controls.Add(Me.cmbbxCourseCol)
+        Me.TabPage5.Controls.Add(Me.bttnCourseBack)
+        Me.TabPage5.Controls.Add(Me.bttnCourseAdd)
+        Me.TabPage5.Controls.Add(Me.txtbxOffered)
+        Me.TabPage5.Controls.Add(Me.txtbxUnit)
+        Me.TabPage5.Controls.Add(Me.txtbxSection)
+        Me.TabPage5.Controls.Add(Me.txtbxCourseCode)
+        Me.TabPage5.Controls.Add(Me.GroupBox1)
+        Me.TabPage5.Controls.Add(Me.Label18)
+        Me.TabPage5.Controls.Add(Me.Label16)
+        Me.TabPage5.Controls.Add(Me.Label13)
+        Me.TabPage5.Controls.Add(Me.Label10)
+        Me.TabPage5.Controls.Add(Me.Label11)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(576, 388)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Course"
+        '
+        'cmbbxCourseCol
+        '
+        Me.cmbbxCourseCol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxCourseCol.FormattingEnabled = True
+        Me.cmbbxCourseCol.Location = New System.Drawing.Point(175, 257)
+        Me.cmbbxCourseCol.Name = "cmbbxCourseCol"
+        Me.cmbbxCourseCol.Size = New System.Drawing.Size(350, 24)
+        Me.cmbbxCourseCol.TabIndex = 29
+        '
+        'bttnCourseBack
+        '
+        Me.bttnCourseBack.Location = New System.Drawing.Point(295, 331)
+        Me.bttnCourseBack.Name = "bttnCourseBack"
+        Me.bttnCourseBack.Size = New System.Drawing.Size(105, 29)
+        Me.bttnCourseBack.TabIndex = 28
+        Me.bttnCourseBack.Text = "Back"
+        Me.bttnCourseBack.UseVisualStyleBackColor = True
+        '
+        'bttnCourseAdd
+        '
+        Me.bttnCourseAdd.Location = New System.Drawing.Point(167, 331)
+        Me.bttnCourseAdd.Name = "bttnCourseAdd"
+        Me.bttnCourseAdd.Size = New System.Drawing.Size(105, 29)
+        Me.bttnCourseAdd.TabIndex = 27
+        Me.bttnCourseAdd.Text = "Add"
+        Me.bttnCourseAdd.UseVisualStyleBackColor = True
+        '
+        'txtbxOffered
+        '
+        Me.txtbxOffered.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxOffered.Location = New System.Drawing.Point(175, 287)
+        Me.txtbxOffered.Name = "txtbxOffered"
+        Me.txtbxOffered.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxOffered.TabIndex = 26
+        '
+        'txtbxUnit
+        '
+        Me.txtbxUnit.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxUnit.Location = New System.Drawing.Point(175, 99)
+        Me.txtbxUnit.Name = "txtbxUnit"
+        Me.txtbxUnit.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxUnit.TabIndex = 24
+        '
+        'txtbxSection
+        '
+        Me.txtbxSection.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxSection.Location = New System.Drawing.Point(175, 67)
+        Me.txtbxSection.Name = "txtbxSection"
+        Me.txtbxSection.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxSection.TabIndex = 23
+        '
+        'txtbxCourseCode
+        '
+        Me.txtbxCourseCode.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxCourseCode.Location = New System.Drawing.Point(175, 35)
+        Me.txtbxCourseCode.Name = "txtbxCourseCode"
+        Me.txtbxCourseCode.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxCourseCode.TabIndex = 22
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.GroupBox1.Controls.Add(Me.txtbxRoom)
+        Me.GroupBox1.Controls.Add(Me.txtbxEndTime)
+        Me.GroupBox1.Controls.Add(Me.txtbxStartTime)
+        Me.GroupBox1.Controls.Add(Me.txtbxDay)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.Label14)
+        Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.Label17)
+        Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(44, 127)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(481, 116)
+        Me.GroupBox1.TabIndex = 21
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Schedule"
+        '
+        'txtbxRoom
+        '
+        Me.txtbxRoom.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxRoom.Location = New System.Drawing.Point(363, 29)
+        Me.txtbxRoom.Name = "txtbxRoom"
+        Me.txtbxRoom.Size = New System.Drawing.Size(94, 26)
+        Me.txtbxRoom.TabIndex = 26
+        '
+        'txtbxEndTime
+        '
+        Me.txtbxEndTime.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxEndTime.Location = New System.Drawing.Point(363, 61)
+        Me.txtbxEndTime.Name = "txtbxEndTime"
+        Me.txtbxEndTime.Size = New System.Drawing.Size(94, 26)
+        Me.txtbxEndTime.TabIndex = 25
+        '
+        'txtbxStartTime
+        '
+        Me.txtbxStartTime.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxStartTime.Location = New System.Drawing.Point(150, 61)
+        Me.txtbxStartTime.Name = "txtbxStartTime"
+        Me.txtbxStartTime.Size = New System.Drawing.Size(94, 26)
+        Me.txtbxStartTime.TabIndex = 20
+        '
+        'txtbxDay
+        '
+        Me.txtbxDay.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxDay.Location = New System.Drawing.Point(150, 29)
+        Me.txtbxDay.Name = "txtbxDay"
+        Me.txtbxDay.Size = New System.Drawing.Size(94, 26)
+        Me.txtbxDay.TabIndex = 19
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(96, 31)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(47, 20)
+        Me.Label12.TabIndex = 15
+        Me.Label12.Text = "Day:"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(259, 64)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(97, 20)
+        Me.Label14.TabIndex = 17
+        Me.Label14.Text = "End Time:"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(36, 63)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(107, 20)
+        Me.Label15.TabIndex = 16
+        Me.Label15.Text = "Start Time:"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(292, 31)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(64, 20)
+        Me.Label17.TabIndex = 18
+        Me.Label17.Text = "Room:"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(61, 287)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(107, 20)
+        Me.Label18.TabIndex = 20
+        Me.Label18.Text = "Offered to:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(85, 256)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(83, 20)
+        Me.Label16.TabIndex = 19
+        Me.Label16.Text = "College:"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(117, 99)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(51, 20)
+        Me.Label13.TabIndex = 14
+        Me.Label13.Text = "Unit:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(88, 69)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(80, 20)
+        Me.Label10.TabIndex = 13
+        Me.Label10.Text = "Section:"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(40, 37)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(128, 20)
+        Me.Label11.TabIndex = 12
+        Me.Label11.Text = "Course Code:"
+        '
+        'TabPage4
+        '
+        Me.TabPage4.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage4.Controls.Add(Me.bttnDeptBack)
+        Me.TabPage4.Controls.Add(Me.bttnDeptAdd)
+        Me.TabPage4.Controls.Add(Me.cmbbxDeptCol)
+        Me.TabPage4.Controls.Add(Me.txtbxDeptName)
+        Me.TabPage4.Controls.Add(Me.Label8)
+        Me.TabPage4.Controls.Add(Me.Label9)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(576, 388)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Department"
+        '
+        'bttnDeptBack
+        '
+        Me.bttnDeptBack.Location = New System.Drawing.Point(307, 208)
+        Me.bttnDeptBack.Name = "bttnDeptBack"
+        Me.bttnDeptBack.Size = New System.Drawing.Size(105, 29)
+        Me.bttnDeptBack.TabIndex = 16
+        Me.bttnDeptBack.Text = "Back"
+        Me.bttnDeptBack.UseVisualStyleBackColor = True
+        '
+        'bttnDeptAdd
+        '
+        Me.bttnDeptAdd.Location = New System.Drawing.Point(179, 208)
+        Me.bttnDeptAdd.Name = "bttnDeptAdd"
+        Me.bttnDeptAdd.Size = New System.Drawing.Size(105, 29)
+        Me.bttnDeptAdd.TabIndex = 15
+        Me.bttnDeptAdd.Text = "Add"
+        Me.bttnDeptAdd.UseVisualStyleBackColor = True
+        '
+        'cmbbxDeptCol
+        '
+        Me.cmbbxDeptCol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxDeptCol.FormattingEnabled = True
+        Me.cmbbxDeptCol.Location = New System.Drawing.Point(193, 107)
+        Me.cmbbxDeptCol.Name = "cmbbxDeptCol"
+        Me.cmbbxDeptCol.Size = New System.Drawing.Size(350, 24)
+        Me.cmbbxDeptCol.TabIndex = 14
+        '
+        'txtbxDeptName
+        '
+        Me.txtbxDeptName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxDeptName.Location = New System.Drawing.Point(193, 137)
+        Me.txtbxDeptName.Name = "txtbxDeptName"
+        Me.txtbxDeptName.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxDeptName.TabIndex = 13
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(11, 139)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(176, 20)
+        Me.Label8.TabIndex = 11
+        Me.Label8.Text = "Department Name:"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(104, 109)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(83, 20)
+        Me.Label9.TabIndex = 10
+        Me.Label9.Text = "College:"
+        '
+        'TabPage3
+        '
+        Me.TabPage3.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage3.Controls.Add(Me.bttnCollegeBack)
+        Me.TabPage3.Controls.Add(Me.bttnCollegeAdd)
+        Me.TabPage3.Controls.Add(Me.txtbxCollegeName)
+        Me.TabPage3.Controls.Add(Me.txtbxCollegeCode)
+        Me.TabPage3.Controls.Add(Me.Label7)
+        Me.TabPage3.Controls.Add(Me.Label6)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(576, 388)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "College"
+        '
+        'bttnCollegeBack
+        '
+        Me.bttnCollegeBack.Location = New System.Drawing.Point(297, 235)
+        Me.bttnCollegeBack.Name = "bttnCollegeBack"
+        Me.bttnCollegeBack.Size = New System.Drawing.Size(105, 29)
+        Me.bttnCollegeBack.TabIndex = 11
+        Me.bttnCollegeBack.Text = "Back"
+        Me.bttnCollegeBack.UseVisualStyleBackColor = True
+        '
+        'bttnCollegeAdd
+        '
+        Me.bttnCollegeAdd.Location = New System.Drawing.Point(169, 235)
+        Me.bttnCollegeAdd.Name = "bttnCollegeAdd"
+        Me.bttnCollegeAdd.Size = New System.Drawing.Size(105, 29)
+        Me.bttnCollegeAdd.TabIndex = 10
+        Me.bttnCollegeAdd.Text = "Add"
+        Me.bttnCollegeAdd.UseVisualStyleBackColor = True
+        '
+        'txtbxCollegeName
+        '
+        Me.txtbxCollegeName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxCollegeName.Location = New System.Drawing.Point(183, 153)
+        Me.txtbxCollegeName.Name = "txtbxCollegeName"
+        Me.txtbxCollegeName.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxCollegeName.TabIndex = 9
+        '
+        'txtbxCollegeCode
+        '
+        Me.txtbxCollegeCode.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxCollegeCode.Location = New System.Drawing.Point(183, 123)
+        Me.txtbxCollegeCode.Name = "txtbxCollegeCode"
+        Me.txtbxCollegeCode.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxCollegeCode.TabIndex = 8
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(38, 155)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(139, 20)
+        Me.Label7.TabIndex = 2
+        Me.Label7.Text = "College Name:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(43, 125)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(134, 20)
+        Me.Label6.TabIndex = 1
+        Me.Label6.Text = "College Code:"
+        '
+        'TabPage2
+        '
+        Me.TabPage2.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage2.Controls.Add(Me.cmbbxFacDept)
+        Me.TabPage2.Controls.Add(Me.cmbbxFacCol)
+        Me.TabPage2.Controls.Add(Me.txtbxFirstName)
+        Me.TabPage2.Controls.Add(Me.txtbxMI)
+        Me.TabPage2.Controls.Add(Me.txtbxEmail)
+        Me.TabPage2.Controls.Add(Me.txtbxLastName)
+        Me.TabPage2.Controls.Add(Me.txtbxIDNumber)
+        Me.TabPage2.Controls.Add(Me.bttnFacBack)
+        Me.TabPage2.Controls.Add(Me.bttnFacAdd)
+        Me.TabPage2.Controls.Add(Me.Label5)
+        Me.TabPage2.Controls.Add(Me.Label4)
+        Me.TabPage2.Controls.Add(Me.Label3)
+        Me.TabPage2.Controls.Add(Me.Label2)
+        Me.TabPage2.Controls.Add(Me.Label1)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(576, 388)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Faculty"
+        '
+        'cmbbxFacDept
+        '
+        Me.cmbbxFacDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxFacDept.FormattingEnabled = True
+        Me.cmbbxFacDept.Location = New System.Drawing.Point(142, 170)
+        Me.cmbbxFacDept.Name = "cmbbxFacDept"
+        Me.cmbbxFacDept.Size = New System.Drawing.Size(408, 24)
+        Me.cmbbxFacDept.TabIndex = 16
+        '
+        'cmbbxFacCol
+        '
+        Me.cmbbxFacCol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxFacCol.FormattingEnabled = True
+        Me.cmbbxFacCol.Location = New System.Drawing.Point(142, 139)
+        Me.cmbbxFacCol.Name = "cmbbxFacCol"
+        Me.cmbbxFacCol.Size = New System.Drawing.Size(408, 24)
+        Me.cmbbxFacCol.TabIndex = 15
+        '
+        'txtbxFirstName
+        '
+        Me.txtbxFirstName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxFirstName.Location = New System.Drawing.Point(375, 105)
+        Me.txtbxFirstName.Name = "txtbxFirstName"
+        Me.txtbxFirstName.Size = New System.Drawing.Size(175, 26)
+        Me.txtbxFirstName.TabIndex = 13
+        '
+        'txtbxMI
+        '
+        Me.txtbxMI.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxMI.Location = New System.Drawing.Point(323, 105)
+        Me.txtbxMI.Name = "txtbxMI"
+        Me.txtbxMI.Size = New System.Drawing.Size(47, 26)
+        Me.txtbxMI.TabIndex = 12
+        '
+        'txtbxEmail
+        '
+        Me.txtbxEmail.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxEmail.Location = New System.Drawing.Point(142, 200)
+        Me.txtbxEmail.Name = "txtbxEmail"
+        Me.txtbxEmail.Size = New System.Drawing.Size(408, 26)
+        Me.txtbxEmail.TabIndex = 11
+        '
+        'txtbxLastName
+        '
+        Me.txtbxLastName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxLastName.Location = New System.Drawing.Point(142, 105)
+        Me.txtbxLastName.Name = "txtbxLastName"
+        Me.txtbxLastName.Size = New System.Drawing.Size(175, 26)
+        Me.txtbxLastName.TabIndex = 8
+        '
+        'txtbxIDNumber
+        '
+        Me.txtbxIDNumber.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxIDNumber.Location = New System.Drawing.Point(142, 74)
+        Me.txtbxIDNumber.Name = "txtbxIDNumber"
+        Me.txtbxIDNumber.Size = New System.Drawing.Size(408, 26)
+        Me.txtbxIDNumber.TabIndex = 7
+        '
+        'bttnFacBack
+        '
+        Me.bttnFacBack.Location = New System.Drawing.Point(310, 253)
+        Me.bttnFacBack.Name = "bttnFacBack"
+        Me.bttnFacBack.Size = New System.Drawing.Size(105, 29)
+        Me.bttnFacBack.TabIndex = 6
+        Me.bttnFacBack.Text = "Back"
+        Me.bttnFacBack.UseVisualStyleBackColor = True
+        '
+        'bttnFacAdd
+        '
+        Me.bttnFacAdd.Location = New System.Drawing.Point(188, 253)
+        Me.bttnFacAdd.Name = "bttnFacAdd"
+        Me.bttnFacAdd.Size = New System.Drawing.Size(105, 29)
+        Me.bttnFacAdd.TabIndex = 5
+        Me.bttnFacAdd.Text = "Add"
+        Me.bttnFacAdd.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(73, 202)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(63, 20)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "Email:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(16, 168)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(120, 20)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Department:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(53, 138)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(83, 20)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "College:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 104)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(133, 20)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Faculty Name:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(26, 73)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(110, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "ID Number:"
+        '
+        'TabPage1
+        '
+        Me.TabPage1.BackColor = System.Drawing.Color.Silver
+        Me.TabPage1.Controls.Add(Me.Button1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(576, 388)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Upload"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(405, 61)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(105, 29)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Upload"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Controls.Add(Me.TabPage5)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
+        Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabControl1.Location = New System.Drawing.Point(12, 28)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(584, 417)
+        Me.TabControl1.TabIndex = 0
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'wdwDataEntry
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(631, 475)
+        Me.Controls.Add(Me.TabControl1)
+        Me.Name = "wdwDataEntry"
+        Me.Text = "Data Entry"
+        Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.ResumeLayout(False)
+
+    End Sub
+
+    Friend WithEvents TabPage6 As TabPage
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents cmbbxCourseCol As ComboBox
+    Friend WithEvents bttnCourseBack As Button
+    Friend WithEvents bttnCourseAdd As Button
+    Friend WithEvents txtbxOffered As TextBox
+    Friend WithEvents txtbxUnit As TextBox
+    Friend WithEvents txtbxSection As TextBox
+    Friend WithEvents txtbxCourseCode As TextBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents txtbxRoom As TextBox
+    Friend WithEvents txtbxEndTime As TextBox
+    Friend WithEvents txtbxStartTime As TextBox
+    Friend WithEvents txtbxDay As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents bttnDeptBack As Button
+    Friend WithEvents bttnDeptAdd As Button
+    Friend WithEvents cmbbxDeptCol As ComboBox
+    Friend WithEvents txtbxDeptName As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents bttnCollegeBack As Button
+    Friend WithEvents bttnCollegeAdd As Button
+    Friend WithEvents txtbxCollegeName As TextBox
+    Friend WithEvents txtbxCollegeCode As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents cmbbxFacCol As ComboBox
+    Friend WithEvents txtbxFirstName As TextBox
+    Friend WithEvents txtbxMI As TextBox
+    Friend WithEvents txtbxEmail As TextBox
+    Friend WithEvents txtbxLastName As TextBox
+    Friend WithEvents txtbxIDNumber As TextBox
+    Friend WithEvents bttnFacBack As Button
+    Friend WithEvents bttnFacAdd As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents Button1 As Button
+    Friend WithEvents cmbbxFacDept As ComboBox
+End Class
