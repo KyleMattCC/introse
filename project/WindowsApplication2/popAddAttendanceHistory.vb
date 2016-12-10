@@ -149,8 +149,8 @@
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
             coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) from introse.course c, introse.courseoffering co where (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' AND co.course_id = c.course_id AND co.termid = '" & termid & "' order by 1;")
 
-            For j As Integer = 0 To coursecode.Count - 1
-                combo.Items.Add(coursecode(j))
+            For ctr As Integer = 0 To coursecode.Count - 1
+                combo.Items.Add(coursecode(ctr))
             Next
         Catch ex As Exception
 

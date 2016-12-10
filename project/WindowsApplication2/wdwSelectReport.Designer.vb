@@ -32,8 +32,8 @@ Partial Class wdwSelectReport
         Me.rbttnDean = New System.Windows.Forms.RadioButton()
         Me.rbttnVCA = New System.Windows.Forms.RadioButton()
         Me.rbttnRegistrar = New System.Windows.Forms.RadioButton()
-        Me.cmbChair = New System.Windows.Forms.ComboBox()
-        Me.cmbDean = New System.Windows.Forms.ComboBox()
+        Me.cmbbxChair = New System.Windows.Forms.ComboBox()
+        Me.cmbbxDean = New System.Windows.Forms.ComboBox()
         Me.rbttnTermEnd = New System.Windows.Forms.RadioButton()
         Me.rbttnMonthly = New System.Windows.Forms.RadioButton()
         Me.rbttnDaily = New System.Windows.Forms.RadioButton()
@@ -114,8 +114,8 @@ Partial Class wdwSelectReport
         Me.GroupBox3.Controls.Add(Me.rbttnDean)
         Me.GroupBox3.Controls.Add(Me.rbttnVCA)
         Me.GroupBox3.Controls.Add(Me.rbttnRegistrar)
-        Me.GroupBox3.Controls.Add(Me.cmbChair)
-        Me.GroupBox3.Controls.Add(Me.cmbDean)
+        Me.GroupBox3.Controls.Add(Me.cmbbxChair)
+        Me.GroupBox3.Controls.Add(Me.cmbbxDean)
         Me.GroupBox3.Location = New System.Drawing.Point(9, 49)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(501, 132)
@@ -172,23 +172,25 @@ Partial Class wdwSelectReport
         Me.rbttnRegistrar.Text = "Registrar"
         Me.rbttnRegistrar.UseVisualStyleBackColor = True
         '
-        'cmbChair
+        'cmbbxChair
         '
-        Me.cmbChair.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbChair.FormattingEnabled = True
-        Me.cmbChair.Location = New System.Drawing.Point(171, 95)
-        Me.cmbChair.Name = "cmbChair"
-        Me.cmbChair.Size = New System.Drawing.Size(307, 23)
-        Me.cmbChair.TabIndex = 13
+        Me.cmbbxChair.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxChair.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbxChair.FormattingEnabled = True
+        Me.cmbbxChair.Location = New System.Drawing.Point(171, 95)
+        Me.cmbbxChair.Name = "cmbbxChair"
+        Me.cmbbxChair.Size = New System.Drawing.Size(307, 23)
+        Me.cmbbxChair.TabIndex = 13
         '
-        'cmbDean
+        'cmbbxDean
         '
-        Me.cmbDean.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbDean.FormattingEnabled = True
-        Me.cmbDean.Location = New System.Drawing.Point(171, 67)
-        Me.cmbDean.Name = "cmbDean"
-        Me.cmbDean.Size = New System.Drawing.Size(307, 23)
-        Me.cmbDean.TabIndex = 11
+        Me.cmbbxDean.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxDean.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbxDean.FormattingEnabled = True
+        Me.cmbbxDean.Location = New System.Drawing.Point(171, 67)
+        Me.cmbbxDean.Name = "cmbbxDean"
+        Me.cmbbxDean.Size = New System.Drawing.Size(307, 23)
+        Me.cmbbxDean.TabIndex = 11
         '
         'rbttnTermEnd
         '
@@ -275,11 +277,11 @@ Partial Class wdwSelectReport
     Friend WithEvents rbttnBoth As RadioButton
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents cmbDean As ComboBox
+    Friend WithEvents cmbbxDean As ComboBox
     Friend WithEvents rbttnTermEnd As RadioButton
     Friend WithEvents rbttnMonthly As RadioButton
     Friend WithEvents rbttnDaily As RadioButton
-    Friend WithEvents cmbChair As ComboBox
+    Friend WithEvents cmbbxChair As ComboBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents bttnGen As Button
     Friend WithEvents bttnBack As Button

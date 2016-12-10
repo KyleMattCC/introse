@@ -1,17 +1,28 @@
 ﻿Public Class wdwSelectReport
     Dim ReportChoice As Integer
-
-    Private Sub RadioButton10_CheckedChanged(sender As Object, e As EventArgs)
-
-    End Sub
+    Dim dbAccessor As New databaseAccessor
 
     Private Sub Form7_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cmbChair.Enabled = False
-        cmbDean.Enabled = False
-    End Sub
+        Dim colleges As New List(Of Object)()
+        Dim departments As New List(Of Object)()
+        cmbbxDean.Items.Clear()
+        cmbbxChair.Items.Clear()
+        cmbbxChair.Enabled = False
+        cmbbxDean.Enabled = False
 
-    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+        Try
+            colleges = dbAccessor.Get_Multiple_Row_Data("select college_name from introse.college order by 1")
+            departments = dbAccessor.Get_Multiple_Row_Data("select departmentname from introse.department order by 1")
+            For ctr As Integer = 0 To colleges.Count - 1
+                cmbbxDean.Items.Add(colleges(ctr))
+            Next
 
+            For ctr = 0 To departments.Count - 1
+                cmbbxChair.Items.Add(departments(ctr))
+            Next
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
@@ -39,14 +50,26 @@
 
     Private Sub rbttnDaily_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnDaily.CheckedChanged
         ReportChoice = 1
+        rbttnRegistrar.Enabled = True
+        rbttnVCA.Enabled = False
+        rbttnDean.Enabled = True
+        rbttnChair.Enabled = True
     End Sub
 
     Private Sub rbttnMonthly_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnMonthly.CheckedChanged
         ReportChoice = 2
+        rbttnRegistrar.Enabled = True
+        rbttnVCA.Enabled = False
+        rbttnDean.Enabled = False
+        rbttnChair.Enabled = True
     End Sub
 
     Private Sub rbttnTermEnd_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnTermEnd.CheckedChanged
         ReportChoice = 3
+        rbttnRegistrar.Enabled = True
+        rbttnVCA.Enabled = True
+        rbttnDean.Enabled = True
+        rbttnChair.Enabled = True
     End Sub
 
     Private Sub rbttnGrad_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnGrad.CheckedChanged
@@ -54,23 +77,23 @@
     End Sub
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnRegistrar.CheckedChanged
-        cmbChair.Enabled = False
-        cmbDean.Enabled = False
+        cmbbxChair.Enabled = False
+        cmbbxDean.Enabled = False
     End Sub
 
     Private Sub rbttnDean_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnDean.CheckedChanged
-        cmbDean.Enabled = True
-        cmbChair.Enabled = False
+        cmbbxDean.Enabled = True
+        cmbbxChair.Enabled = False
     End Sub
 
     Private Sub rbttnChair_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnChair.CheckedChanged
-        cmbChair.Enabled = True
-        cmbDean.Enabled = False
+        cmbbxChair.Enabled = True
+        cmbbxDean.Enabled = False
     End Sub
 
     Private Sub rbttnVCA_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnVCA.CheckedChanged
-        cmbChair.Enabled = False
-        cmbDean.Enabled = False
+        cmbbxChair.Enabled = False
+        cmbbxDean.Enabled = False
     End Sub
 
     Public Sub Enable_Form()
@@ -83,6 +106,10 @@
     End Sub
 
     Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
+
+    End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
 
     End Sub
 End Class

@@ -22,13 +22,14 @@ Partial Class wdwReportGen
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wdwReportGen))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.EmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.pdfViewer = New AxAcroPDFLib.AxAcroPDF()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pdfViewer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -62,20 +63,21 @@ Partial Class wdwReportGen
         Me.BackToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
         Me.BackToolStripMenuItem.Text = "Close"
         '
-        'DataGridView1
+        'pdfViewer
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 27)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(884, 534)
-        Me.DataGridView1.TabIndex = 1
+        Me.pdfViewer.Enabled = True
+        Me.pdfViewer.Location = New System.Drawing.Point(0, 27)
+        Me.pdfViewer.Name = "pdfViewer"
+        Me.pdfViewer.OcxState = CType(resources.GetObject("pdfViewer.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.pdfViewer.Size = New System.Drawing.Size(884, 533)
+        Me.pdfViewer.TabIndex = 2
         '
         'wdwReportGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(884, 561)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.pdfViewer)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -84,7 +86,7 @@ Partial Class wdwReportGen
         Me.Text = "Report"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pdfViewer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -94,5 +96,5 @@ Partial Class wdwReportGen
     Friend WithEvents EmailToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrintToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents pdfViewer As AxAcroPDFLib.AxAcroPDF
 End Class

@@ -11,11 +11,20 @@
 
     End Sub
 
+    Public Sub Load_Form(filename As String)
+        Me.Show()
+        pdfViewer.src = filename
+    End Sub
+
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwSelectReport.Enable_Form()
     End Sub
 
     Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
+
+    Private Sub pdfViewer_Enter(sender As Object, e As EventArgs) Handles pdfViewer.Enter
 
     End Sub
 End Class
