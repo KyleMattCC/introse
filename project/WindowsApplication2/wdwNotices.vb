@@ -46,7 +46,7 @@
     End Sub
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles bttnClear.Click
-
+        txtbxSearch = Nothing
     End Sub
 
     Private Sub dtp_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
@@ -55,5 +55,24 @@
 
     Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
         index = e.RowIndex
+    End Sub
+
+    Private Sub bttnSearch_Click(sender As Object, e As EventArgs) Handles bttnSearch.Click
+        Dim Search As String = Nothing
+
+
+
+        Search += "%"
+        Search += txtbxSearch.Text
+        Search += "%"
+
+        dbAccess.Fill_Data_Grid("Select distinct f.facultyid 'Faculty ID', concat(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) 'Name', a.absent_date 'Absent date', a.report_status 'Report status' 
+                                from introse.attendance a, introse.faculty f, introse.courseoffering c
+                                where a.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and a.status = 'A' and c.status = 'A' and f.status = 'A' and a.absent_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename like '" + Search.ToString + "') or (f_lastname like '" + Search.ToString + "') or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "')  or (concat(f_lastname,' ', f_firstname) like '" + Search.ToString + "') or (concat(f_lastname,' ', ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' ,f_firstname) like '" + Search.ToString + "'))
+                                order by 3, 2;", grid)
+
+
+
+
     End Sub
 End Class
