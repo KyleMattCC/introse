@@ -1,6 +1,6 @@
 ﻿Public Class popModifyAttendanceHistory
     Dim dbAccess As databaseAccessor = New databaseAccessor
-    Dim Modinfo As List(Of String)
+    Dim bool As Boolean = False
     Private Sub Validate_Input(allowed As String, e As KeyPressEventArgs)
         If Not (Asc(e.KeyChar) = 8) Then
             If Not allowed.Contains(e.KeyChar.ToString) Then
@@ -44,12 +44,17 @@
 
         End If
     End Sub
+    Private Function get_termindex(termno As String) As Integer
+        Dim index As Integer = 0
+
+        index = Convert.ToInt32(termno) - 1
+
+        Return index
+    End Function
     Public Sub Load_Form(rowData As List(Of String))
         Dim convertedDate As Date
         Dim day, month, year As String
         Dim info As New List(Of Object)
-
-        Modinfo = rowData
 
         info = dbAccess.Get_Multiple_Column_Data("select f.facultyid, concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename), co.college_name, d.departmentname,  c.room, c.daysched, c.timestart, c.timeend, r.remark_des, a.enc_date, a.encoder, a.checker
         from introse.attendance a, introse.courseoffering c, introse.course cl, introse.faculty f, introse.remarks r, introse.department d, introse.college co
@@ -57,10 +62,9 @@
 
         Add_Remarks(cmbbxRemarks)
         Add_SchoolYear(cmbbxSY)
-        'MsgBox(rowData(1))
-        'Add_Term(rowData(1), cmbbxTerm)
-        'Add_Course(info(0), rowData(1), rowData(2), cmbbxCourse) ' may mali pa (no sy and term)
-        'Add_Section(info(0), rowData(1), rowData(2), rowData(4), cmbbxSection) ' may mali pa (no sy and term)
+        Add_Term(rowData(1), cmbbxTerm)
+        Add_Course(info(0), rowData(1), rowData(2), cmbbxCourse)
+        Add_Section(info(0), rowData(4), rowData(1), rowData(2), cmbbxSection)
 
         If rowData.Count > 0 Then
 
@@ -68,9 +72,12 @@
                 txtbxFacID.Text = info(0) ' fid
                 Add_Faculty_Name(txtbxFacID.Text, txtbxName)
                 cmbbxSY.SelectedItem = rowData(1)
-                cmbbxTerm.SelectedItem = rowData(2)
                 cmbbxCourse.SelectedItem = rowData(4) ' course
-                cmbbxSection.SelectedItem = rowData(5) ' section
+                If bool = False Then
+                    cmbbxTerm.SelectedIndex = get_termindex(rowData(2))
+                    cmbbxSection.SelectedItem = rowData(5) ' section
+                    bool = True
+                End If
                 txtbxRoom.Text = info(4) ' room
                 txtbxDay.Text = info(5)
                 txtbxStart.Text = info(6) 'start
@@ -86,9 +93,12 @@
                 txtbxFacID.Text = info(0) ' fid
                 Add_Faculty_Name(txtbxFacID.Text, txtbxName)
                 cmbbxSY.SelectedItem = rowData(1)
-                cmbbxTerm.SelectedItem = rowData(2)
                 cmbbxCourse.SelectedItem = rowData(4) ' course
-                cmbbxSection.SelectedItem = rowData(5) ' section
+                If bool = False Then
+                    cmbbxTerm.SelectedIndex = get_termindex(rowData(2))
+                    cmbbxSection.SelectedItem = rowData(5) ' section
+                    bool = True
+                End If
                 txtbxRoom.Text = info(4) ' room
                 txtbxDay.Text = info(5)
                 txtbxStart.Text = info(6) 'start
@@ -284,28 +294,31 @@
 
     End Sub
     Private Sub cmbbxSY_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxSY.SelectedIndexChanged
-        cmbbxTerm.Items.Clear()
-        cmbbxCourse.Items.Clear()
-        cmbbxSection.Items.Clear()
-        txtbxEnd.Clear()
-        txtbxStart.Clear()
-        txtbxDay.Clear()
-        txtbxRoom.Clear()
-        txtbxChecker.Clear()
-        Try
-            If String.IsNullOrEmpty(cmbbxSY.SelectedItem) Then
-                cmbbxTerm.Enabled = False
-            Else
-                cmbbxTerm.Enabled = True
-                Add_Term(cmbbxSY.SelectedItem.ToString, cmbbxTerm)
-            End If
+        If bool = True Then
+            cmbbxTerm.Items.Clear()
+            cmbbxCourse.Items.Clear()
+            cmbbxSection.Items.Clear()
+            txtbxEnd.Clear()
+            txtbxStart.Clear()
+            txtbxDay.Clear()
+            txtbxRoom.Clear()
+            ' txtbxChecker.Clear()
+            Try
+                If String.IsNullOrEmpty(cmbbxSY.SelectedItem) Then
+                    cmbbxTerm.Enabled = False
+                Else
+                    cmbbxTerm.Enabled = True
+                    Add_Term(cmbbxSY.SelectedItem.ToString, cmbbxTerm)
+                End If
 
-        Catch ex As Exception
+            Catch ex As Exception
 
-        End Try
+            End Try
 
-        cmbbxRemarks.SelectedIndex = -1
-        Check_Enable()
+            'cmbbxRemarks.SelectedIndex = -1
+            Check_Enable()
+        End If
+
     End Sub
 
     Private Sub txtbxChecker_TextChanged(sender As Object, e As EventArgs) Handles txtbxChecker.TextChanged
@@ -313,56 +326,63 @@
     End Sub
 
     Private Sub cmbbxTerm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
-        cmbbxCourse.Items.Clear()
-        cmbbxSection.Items.Clear()
-        txtbxEnd.Clear()
-        txtbxStart.Clear()
-        txtbxDay.Clear()
-        txtbxRoom.Clear()
-        Try
-            If (String.IsNullOrEmpty(cmbbxTerm.SelectedItem)) Then
-                cmbbxCourse.Enabled = False
-            Else
-                cmbbxCourse.Enabled = True
-                Add_Course(txtbxFacID.Text, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxCourse)
+        If bool = True Then
 
-            End If
+            cmbbxCourse.Items.Clear()
+            cmbbxSection.Items.Clear()
+            txtbxEnd.Clear()
+            txtbxStart.Clear()
+            txtbxDay.Clear()
+            txtbxRoom.Clear()
+            Try
+                If (String.IsNullOrEmpty(cmbbxTerm.SelectedItem)) Then
+                    cmbbxCourse.Enabled = False
+                Else
+                    cmbbxCourse.Enabled = True
+                    Add_Course(txtbxFacID.Text, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxCourse)
 
-        Catch ex As Exception
+                End If
 
-        End Try
+            Catch ex As Exception
 
-        cmbbxRemarks.SelectedIndex = -1
-        Check_Enable()
+            End Try
+
+            'cmbbxRemarks.SelectedIndex = -1
+            Check_Enable()
+        End If
+
     End Sub
 
     Private Sub cmbbxCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxCourse.SelectedIndexChanged
-        cmbbxSection.Items.Clear()
-        txtbxEnd.Clear()
-        txtbxStart.Clear()
-        txtbxDay.Clear()
-        txtbxRoom.Clear()
-        Try
-            If (String.IsNullOrEmpty(cmbbxTerm.SelectedItem)) Then
-                cmbbxSection.Enabled = False
-            Else
-                cmbbxSection.Enabled = True
-                Add_Section(txtbxFacID.Text, cmbbxCourse.SelectedItem.ToString, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxSection)
+        If bool = True Then
+            cmbbxSection.Items.Clear()
+            txtbxEnd.Clear()
+            txtbxStart.Clear()
+            txtbxDay.Clear()
+            txtbxRoom.Clear()
+            Try
+                If (String.IsNullOrEmpty(cmbbxTerm.SelectedItem)) Then
+                    cmbbxSection.Enabled = False
+                Else
+                    cmbbxSection.Enabled = True
+                    Add_Section(txtbxFacID.Text, cmbbxCourse.SelectedItem.ToString, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxSection)
 
-            End If
+                End If
 
-        Catch ex As Exception
+            Catch ex As Exception
 
-        End Try
-        cmbbxRemarks.SelectedIndex = -1
-        Check_Enable()
+            End Try
+            '  cmbbxRemarks.SelectedIndex = -1
+            Check_Enable()
+        End If
+
     End Sub
 
     Private Sub cmbbxSection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxSection.SelectedIndexChanged
         Fill_Room(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem.ToString, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, txtbxRoom)
         Fill_Sched(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, txtbxStart, txtbxEnd, txtbxDay)
         cmbbxRemarks.Enabled = True
-        cmbbxRemarks.SelectedIndex = -1
+        'cmbbxRemarks.SelectedIndex = -1
         Check_Enable()
     End Sub
 

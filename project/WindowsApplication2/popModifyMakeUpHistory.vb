@@ -1,5 +1,6 @@
 ﻿Public Class popModifyMakeUpHistory
     Dim dbAccess As New databaseAccessor
+    Dim bool As Boolean = False
 
     Private Sub Check_Enable()
         If (String.IsNullOrEmpty(txtbxFacID.Text) Or String.IsNullOrWhiteSpace(txtbxFacID.Text)) Or (String.IsNullOrEmpty(txtbxFacName.Text) Or String.IsNullOrWhiteSpace(txtbxFacName.Text)) Or cmbbxCourse.SelectedIndex = -1 Or cmbbxSec.SelectedIndex = -1 Or cmbbxTerm.SelectedIndex = -1 Or cmbbxSY.SelectedIndex = -1 Or (String.IsNullOrEmpty(txtbxRoom.Text) Or String.IsNullOrWhiteSpace(txtbxRoom.Text)) Or (String.IsNullOrEmpty(txtbxStart.Text) Or String.IsNullOrWhiteSpace(txtbxStart.Text)) Or (String.IsNullOrEmpty(txtbxEnd.Text) Or String.IsNullOrWhiteSpace(txtbxEnd.Text)) Or cmbbxReason.SelectedIndex = -1 Then
@@ -47,6 +48,14 @@
             End If
         End If
     End Sub
+    Private Function get_termindex(termno As String) As Integer
+        Dim index As Integer = 0
+
+        index = Convert.ToInt32(termno) - 1
+
+        Return index
+    End Function
+
     Public Sub Load_Form(rowData As List(Of String))
         Dim convertedDate As Date
         Dim day, month, year As String
@@ -59,9 +68,8 @@
         Add_Reasons(cmbbxReason)
         Add_SchoolYear(cmbbxSY)
         Add_Term(rowData(1), cmbbxTerm)
-        Add_Course(info(0), rowData(1), rowData(2), cmbbxCourse) ' may mali pa (no sy and term)
-        Add_Section(info(0), rowData(1), rowData(2), rowData(4), cmbbxSec) ' may mali pa (no sy and term)
-
+        Add_Course(info(0), rowData(1), rowData(2), cmbbxCourse)
+        Add_Section(info(0), rowData(4), rowData(1), rowData(2), cmbbxSec)
         If rowData.Count > 0 Then
 
             If String.IsNullOrEmpty(rowData(3)) Then
@@ -69,9 +77,12 @@
                 txtbxFacID.Text = info(0) ' fid
                 Add_Faculty_Name(txtbxFacID.Text, txtbxFacName)
                 cmbbxSY.SelectedItem = rowData(1)
-                cmbbxTerm.SelectedItem = rowData(2)
                 cmbbxCourse.SelectedItem = rowData(4) ' course
-                cmbbxSec.SelectedItem = rowData(5) ' section
+                If bool = False Then
+                    cmbbxTerm.SelectedIndex = get_termindex(rowData(2))
+                    cmbbxSec.SelectedItem = rowData(5) ' section
+                    bool = True
+                End If
                 txtbxStart.Text = info(4) 'start
                 txtbxEnd.Text = info(5) ' end
                 txtbxRoom.Text = info(6) ' room
@@ -86,9 +97,13 @@
                 txtbxFacID.Text = info(0) ' fid
                 Add_Faculty_Name(txtbxFacID.Text, txtbxFacName)
                 cmbbxSY.SelectedItem = rowData(1)
-                cmbbxTerm.SelectedItem = rowData(2)
                 cmbbxCourse.SelectedItem = rowData(4) ' course
-                cmbbxSec.SelectedItem = rowData(5) ' section
+                If bool = False Then
+                    cmbbxTerm.SelectedIndex = get_termindex(rowData(2))
+                    cmbbxSec.SelectedItem = rowData(5) ' section
+                    bool = True
+                End If
+
                 txtbxStart.Text = info(4) 'start
                 txtbxEnd.Text = info(5) ' end
                 txtbxRoom.Text = info(6) ' room
@@ -140,7 +155,6 @@
         combo.Enabled = True
         combo.Items.Clear()
         'combo.ResetText()
-
         Try
             years = schoolYear.Split("-")
             yearid = dbAccess.Get_Data("select yearid from introse.academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
@@ -191,9 +205,9 @@
         combo.Enabled = True
         combo.Items.Clear()
         'combo.ResetText()
-
         Try
             termid = Get_termID(schoolYear, termNo)
+
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
             coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) from introse.course c, introse.courseoffering co where (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.termid = '" & termid & "' order by 1;")
 
@@ -213,7 +227,6 @@
         combo.Enabled = True
         combo.Items.Clear()
         'combo.ResetText()
-
         Try
             termid = Get_termID(schoolYear, termNo)
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
@@ -246,61 +259,70 @@
     End Sub
 
     Private Sub cmbbxSY_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxSY.SelectedIndexChanged
-        cmbbxTerm.Items.Clear()
-        cmbbxTerm.ResetText()
-        cmbbxCourse.Items.Clear()
-        cmbbxCourse.ResetText()
-        cmbbxSec.Items.Clear()
-        cmbbxSec.ResetText()
-        'txtbxEnd.Clear()
-        'txtbxStart.Clear()
-        'txtbxRoom.Clear()
-        Try
-            If (String.IsNullOrEmpty(cmbbxSY.SelectedItem)) Then
-                cmbbxTerm.Enabled = False
-            Else
-                cmbbxTerm.Enabled = True
-            End If
+        If bool = True Then
+            cmbbxTerm.Items.Clear()
+            cmbbxTerm.ResetText()
+            cmbbxCourse.Items.Clear()
+            cmbbxCourse.ResetText()
+            cmbbxSec.Items.Clear()
+            cmbbxSec.ResetText()
+            'txtbxEnd.Clear()
+            'txtbxStart.Clear()
+            'txtbxRoom.Clear()
+            Try
+                If (String.IsNullOrEmpty(cmbbxSY.SelectedItem)) Then
+                    cmbbxTerm.Enabled = False
+                Else
+                    cmbbxTerm.Enabled = True
+                End If
 
-            Add_Term(cmbbxSY.SelectedItem.ToString, cmbbxTerm)
-        Catch ex As Exception
+                Add_Term(cmbbxSY.SelectedItem, cmbbxTerm)
+            Catch ex As Exception
 
-        End Try
-        cmbbxReason.SelectedIndex = -1
-        Check_Enable()
+            End Try
+            'cmbbxReason.SelectedIndex = -1
+            Check_Enable()
+        End If
+
     End Sub
     Private Sub cmbbxTerm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
-        cmbbxCourse.Items.Clear()
-        cmbbxCourse.ResetText()
-        cmbbxSec.Items.Clear()
-        cmbbxSec.ResetText()
-        'txtbxEnd.Clear()
-        'txtbxStart.Clear()
-        'txtbxRoom.Clear()
-        Try
-            If (String.IsNullOrEmpty(cmbbxTerm.SelectedItem)) Then
-                cmbbxCourse.Enabled = False
-            Else
-                cmbbxCourse.Enabled = True
-            End If
-            Add_Course(txtbxFacID.Text, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxCourse)
+        If bool = True Then
+            cmbbxCourse.Items.Clear()
+            cmbbxCourse.ResetText()
+            cmbbxSec.Items.Clear()
+            cmbbxSec.ResetText()
+            'txtbxEnd.Clear()
+            'txtbxStart.Clear()
+            'txtbxRoom.Clear()
+            Try
+                If (String.IsNullOrEmpty(cmbbxTerm.SelectedItem)) Then
+                    cmbbxCourse.Enabled = False
+                Else
+                    cmbbxCourse.Enabled = True
+                End If
+                Add_Course(txtbxFacID.Text, cmbbxSY.SelectedItem, cmbbxTerm.SelectedItem, cmbbxCourse)
 
-        Catch ex As Exception
+            Catch ex As Exception
 
-        End Try
+            End Try
 
-        cmbbxReason.SelectedIndex = -1
-        Check_Enable()
+            'cmbbxReason.SelectedIndex = -1
+            Check_Enable()
+        End If
+
     End Sub
     Private Sub cmbbxCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxCourse.SelectedIndexChanged
-        cmbbxSec.Items.Clear()
-        cmbbxSec.ResetText()
-        'txtbxEnd.Clear()
-        'txtbxStart.Clear()
-        'txtbxRoom.Clear()
-        Add_Section(txtbxFacID.Text, cmbbxCourse.SelectedItem.ToString, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxSec)
-        cmbbxReason.SelectedIndex = -1
-        Check_Enable()
+        If bool = True Then
+            cmbbxSec.Items.Clear()
+            cmbbxSec.ResetText()
+            'txtbxEnd.Clear()
+            'txtbxStart.Clear()
+            'txtbxRoom.Clear()
+            Add_Section(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSY.SelectedItem, cmbbxTerm.SelectedItem, cmbbxSec)
+            ' cmbbxReason.SelectedIndex = -1
+            Check_Enable()
+
+        End If
 
     End Sub
 
@@ -309,7 +331,7 @@
         txtbxStart.Enabled = True
         txtbxEnd.Enabled = True
         cmbbxReason.Enabled = True
-        cmbbxReason.SelectedIndex = -1
+        'cmbbxReason.SelectedIndex = -1
         Check_Enable()
 
     End Sub
@@ -365,53 +387,58 @@
         Dim startTime, endTime, tempStart, tempEnd As Integer
         Dim termid As Object
 
-        termid = Get_termID(cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString)
+        Try
+            termid = Get_termID(cmbbxSY.SelectedItem, cmbbxTerm.SelectedItem)
 
-        Dim absentHours As Double = dbAccess.Get_Data("select sum(co.hours) 
+            Dim absentHours As Double = dbAccess.Get_Data("select sum(co.hours) 
                                                       from introse.attendance a, introse.courseoffering co, introse.course c
                                                       where co.termid = '" & termid & "' and (co.status = 'A' or co.status = 'R') And (a.status = 'A' or a.status = 'R') And c.course_cd = '" & cmbbxCourse.SelectedItem & "' And c.course_id = co.course_id And co.section = '" & cmbbxSec.SelectedItem & "' And a.courseoffering_id = co.courseoffering_id;", "sum(co.hours)")
-        Dim ref = wdwAttendanceHistoryLog.getRefNo()
+            Dim ref = wdwAttendanceHistoryLog.getRefNo()
 
-        If Convert.ToInt32(ref) > 0 Then
-            If String.IsNullOrEmpty(cmbbxSY.Text) Or String.IsNullOrEmpty(cmbbxTerm.Text) Or String.IsNullOrEmpty(cmbbxReason.Text) Or String.IsNullOrEmpty(txtbxStart.Text) Or String.IsNullOrEmpty(txtbxEnd.Text) Or String.IsNullOrEmpty(txtbxRoom.Text) Or String.IsNullOrEmpty(dtp.Value.Date.ToString("yyyy-MM-dd")) Then
-                MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
-            Else
-                Dim wholeNumber As Integer
-                startTime = Convert.ToInt32(txtbxStart.Text)
-                endTime = Convert.ToInt32(txtbxEnd.Text)
-                tempStart = startTime
-                tempEnd = endTime
-                If ((tempStart Mod 100) > tempEnd Mod 100) Then
-                    Dim tempMinutes As Integer = startTime Mod 100
-                    tempStart -= tempMinutes
-                    tempEnd -= (tempMinutes + 40)
-                End If
-                wholeNumber = (tempEnd - tempStart) / 100
-
-                If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
-                    MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
-                ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
-                    MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
-                ElseIf ((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) > absentHours) Then
-                    MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")
+            If Convert.ToInt32(ref) > 0 Then
+                If String.IsNullOrEmpty(cmbbxSY.Text) Or String.IsNullOrEmpty(cmbbxTerm.Text) Or String.IsNullOrEmpty(cmbbxReason.Text) Or String.IsNullOrEmpty(txtbxStart.Text) Or String.IsNullOrEmpty(txtbxEnd.Text) Or String.IsNullOrEmpty(txtbxRoom.Text) Or String.IsNullOrEmpty(dtp.Value.Date.ToString("yyyy-MM-dd")) Then
+                    MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
                 Else
-                    makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
-                    course = cmbbxCourse.SelectedItem
-                    section = cmbbxSec.SelectedItem
-                    room = txtbxRoom.Text
-                    reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
-                    courseOfferingId = dbAccess.Get_Data("select courseoffering_id 
+                    Dim wholeNumber As Integer
+                    startTime = Convert.ToInt32(txtbxStart.Text)
+                    endTime = Convert.ToInt32(txtbxEnd.Text)
+                    tempStart = startTime
+                    tempEnd = endTime
+                    If ((tempStart Mod 100) > tempEnd Mod 100) Then
+                        Dim tempMinutes As Integer = startTime Mod 100
+                        tempStart -= tempMinutes
+                        tempEnd -= (tempMinutes + 40)
+                    End If
+                    wholeNumber = (tempEnd - tempStart) / 100
+
+                    If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
+                        MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
+                    ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
+                        MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
+                    ElseIf ((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) > absentHours) Then
+                        MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")
+                    Else
+                        makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
+                        course = cmbbxCourse.SelectedItem
+                        section = cmbbxSec.SelectedItem
+                        room = txtbxRoom.Text
+                        reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
+                        courseOfferingId = dbAccess.Get_Data("select courseoffering_id 
                                                             from introse.courseoffering c, introse.course cl 
                                                             where c.termid = '" & termid & "' and (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
-                    attstatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
+                        attstatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
-                    If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason) And Check_Entry(makeupDate, startTime, endTime, room, "R", courseOfferingId, reason)) Then
-                        dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  'unknown' WHERE makeupid = '" & ref & "' and status = '" & attstatus & "';")
-                        wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
-                        Me.Close()
+                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason) And Check_Entry(makeupDate, startTime, endTime, room, "R", courseOfferingId, reason)) Then
+                            dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  'unknown' WHERE makeupid = '" & ref & "' and status = '" & attstatus & "';")
+                            wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
+                            Me.Close()
+                        End If
                     End If
                 End If
             End If
-        End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class

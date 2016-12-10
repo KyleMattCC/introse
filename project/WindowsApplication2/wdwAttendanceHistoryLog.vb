@@ -5,13 +5,13 @@
     Dim rindexValue As Integer
     Public facultyID As String
 
-    Private Function Check_Button(ByVal bttn As Button) As Boolean
+    Private Function isEnable(ByVal bttn As Button) As Boolean
         Dim checkButton As Boolean = False
-        If (bttn.Enabled = False) Then
-            checkButton = False
+        If (bttn.Enabled = True) Then
+            checkButton = True
 
         Else
-            checkButton = True
+            checkButton = False
         End If
         Return checkButton
     End Function
@@ -41,6 +41,7 @@
         Return checkFac
     End Function
     Public Sub Load_form(id As String)
+        rindexValue = 0
         If Check_fac(id) Then
             txtbxFacID.Text = id
             txtbxName.Text = dbAccess.Get_Data("select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from introse.faculty where facultyid = '" & id & "';", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
@@ -78,6 +79,7 @@
 
     Public Sub Enable_After_Search_Form()
         Me.Show()
+        rindexValue = 0
         Me.Enabled = True
         Me.Focus()
     End Sub
@@ -100,21 +102,26 @@
     Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
         Try
             With grid
+                Dim result As DialogResult
                 Dim selectedRow As DataGridViewRow
                 If .SelectedRows.Count > 0 Then
-                    For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
-                        selectedRow = grid.Rows(.SelectedRows(ctr).Index)
-                        If BttnAttendance.Text = "Attendance" Then
-                            dbAccess.Update_Data("UPDATE `introse`.`attendance` SET `status` = 'D' WHERE `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
-                        ElseIf BttnAttendance.Text = "Make-up Class" Then
-                            dbAccess.Update_Data("UPDATE `introse`.`makeup` SET `status` = 'D' WHERE `makeupid` = '" & selectedRow.Cells(0).Value & "';")
-                        End If
-                    Next
+                    result = MsgBox("Are you sure you want to delete " & .SelectedRows.Count & " row/s?", MsgBoxStyle.YesNo, "")
+                    If result = DialogResult.Yes Then
 
-                    Load_form(txtbxFacID.Text)
+                        For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
+                            selectedRow = grid.Rows(.SelectedRows(ctr).Index)
+                            If BttnAttendance.Text = "Attendance" Then
+                                dbAccess.Update_Data("UPDATE `introse`.`attendance` SET `status` = 'D' WHERE `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
+                            ElseIf BttnAttendance.Text = "Make-up Class" Then
+                                dbAccess.Update_Data("UPDATE `introse`.`makeup` SET `status` = 'D' WHERE `makeupid` = '" & selectedRow.Cells(0).Value & "';")
+                            End If
+                        Next
+
+                        Load_form(txtbxFacID.Text)
+                    End If
 
                 Else
-                    MsgBox("No selected attendance", MsgBoxStyle.Critical, "")
+                    MsgBox("No row/s selected!", MsgBoxStyle.Critical, "")
 
                 End If
             End With
@@ -136,41 +143,13 @@
     End Function
     Private Sub grid_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grid.CellMouseDoubleClick
         Try
-            rindexValue = e.RowIndex
-            With grid
-                rowData.Clear()
-                Dim selectedRow As DataGridViewRow
-                Dim colCount As Integer
-                colCount = grid.ColumnCount
-                If .SelectedRows.Count = 0 Then
-                    MsgBox("No rows selected!", MsgBoxStyle.Critical, "")
-
-                ElseIf .SelectedRows.Count = 1 Then
-                    selectedRow = grid.Rows(rindexValue)
-
-                    For ctr As Integer = 0 To colCount - 1
-                        If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
-                            MsgBox("Missing data!", MsgBoxStyle.Critical, "")
-                            rowData.Add(selectedRow.Cells(ctr).Value.ToString)
-                        Else
-                            rowData.Add(selectedRow.Cells(ctr).Value.ToString)
-
-                        End If
-                    Next
-
-                    If BttnAttendance.Text = "Attendance" Then
-                        wdwMoreInfo.Load_Attendance_Form(rowData)
-                    ElseIf BttnAttendance.Text = "Make-up Class" Then
-                        wdwMoreInfo.Load_Makeup_Form(rowData)
-                    End If
-                    wdwMoreInfo.Show()
-                    Me.Enabled = False
-
-                Else
-                    MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
-
-                End If
-            End With
+            If BttnAttendance.Text = "Attendance" Then
+                wdwMoreInfo.Load_Attendance_Form(rowData)
+            ElseIf BttnAttendance.Text = "Make-up Class" Then
+                wdwMoreInfo.Load_Makeup_Form(rowData)
+            End If
+            wdwMoreInfo.Show()
+            Me.Enabled = False
         Catch ex As Exception
 
         End Try
@@ -206,6 +185,7 @@
 
     Private Sub bttnModify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
         With grid
+            rindexValue = grid.SelectedRows(0).Index
             rowData.Clear()
             Dim selectedRow As DataGridViewRow
             Dim colCount As Integer
@@ -242,5 +222,34 @@
 
     Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
 
+    End Sub
+
+    Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
+        rindexValue = e.RowIndex
+        With grid
+            rowData.Clear()
+            Dim selectedRow As DataGridViewRow
+            Dim colCount As Integer
+            colCount = grid.ColumnCount
+            If .SelectedRows.Count = 0 Then
+                MsgBox("No rows selected!", MsgBoxStyle.Critical, "")
+
+            ElseIf .SelectedRows.Count = 1 Then
+                selectedRow = grid.Rows(rindexValue)
+
+                For ctr As Integer = 0 To colCount - 1
+                    If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
+                        MsgBox("Missing data!", MsgBoxStyle.Critical, "")
+                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+                    Else
+                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+
+                    End If
+                Next
+            Else
+                MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
+
+            End If
+        End With
     End Sub
 End Class
