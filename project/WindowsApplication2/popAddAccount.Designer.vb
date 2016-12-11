@@ -40,9 +40,9 @@ Partial Class popAddAccount
         'bttnClear
         '
         Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnClear.Location = New System.Drawing.Point(150, 241)
+        Me.bttnClear.Location = New System.Drawing.Point(128, 249)
         Me.bttnClear.Name = "bttnClear"
-        Me.bttnClear.Size = New System.Drawing.Size(73, 44)
+        Me.bttnClear.Size = New System.Drawing.Size(90, 30)
         Me.bttnClear.TabIndex = 11
         Me.bttnClear.Text = "Clear"
         Me.bttnClear.UseVisualStyleBackColor = True
@@ -50,9 +50,9 @@ Partial Class popAddAccount
         'bttnAddAccount
         '
         Me.bttnAddAccount.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAddAccount.Location = New System.Drawing.Point(229, 241)
+        Me.bttnAddAccount.Location = New System.Drawing.Point(32, 249)
         Me.bttnAddAccount.Name = "bttnAddAccount"
-        Me.bttnAddAccount.Size = New System.Drawing.Size(73, 44)
+        Me.bttnAddAccount.Size = New System.Drawing.Size(90, 30)
         Me.bttnAddAccount.TabIndex = 10
         Me.bttnAddAccount.Text = "Add"
         Me.bttnAddAccount.UseVisualStyleBackColor = True
@@ -60,7 +60,7 @@ Partial Class popAddAccount
         'txtbxAddPass
         '
         Me.txtbxAddPass.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxAddPass.Location = New System.Drawing.Point(129, 90)
+        Me.txtbxAddPass.Location = New System.Drawing.Point(141, 102)
         Me.txtbxAddPass.Name = "txtbxAddPass"
         Me.txtbxAddPass.Size = New System.Drawing.Size(173, 26)
         Me.txtbxAddPass.TabIndex = 9
@@ -68,7 +68,7 @@ Partial Class popAddAccount
         'txtbxAddUser
         '
         Me.txtbxAddUser.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxAddUser.Location = New System.Drawing.Point(129, 58)
+        Me.txtbxAddUser.Location = New System.Drawing.Point(141, 70)
         Me.txtbxAddUser.Name = "txtbxAddUser"
         Me.txtbxAddUser.Size = New System.Drawing.Size(173, 26)
         Me.txtbxAddUser.TabIndex = 8
@@ -77,7 +77,7 @@ Partial Class popAddAccount
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(26, 90)
+        Me.Label2.Location = New System.Drawing.Point(38, 102)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 20)
         Me.Label2.TabIndex = 7
@@ -87,7 +87,7 @@ Partial Class popAddAccount
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(20, 58)
+        Me.Label1.Location = New System.Drawing.Point(32, 70)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(103, 20)
         Me.Label1.TabIndex = 6
@@ -96,9 +96,9 @@ Partial Class popAddAccount
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(71, 241)
+        Me.bttnBack.Location = New System.Drawing.Point(224, 249)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(73, 44)
+        Me.bttnBack.Size = New System.Drawing.Size(90, 30)
         Me.bttnBack.TabIndex = 12
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
@@ -107,7 +107,7 @@ Partial Class popAddAccount
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(58, 32)
+        Me.Label3.Location = New System.Drawing.Point(70, 44)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(65, 20)
         Me.Label3.TabIndex = 13
@@ -116,7 +116,7 @@ Partial Class popAddAccount
         'txtbxAddName
         '
         Me.txtbxAddName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxAddName.Location = New System.Drawing.Point(129, 26)
+        Me.txtbxAddName.Location = New System.Drawing.Point(141, 38)
         Me.txtbxAddName.Name = "txtbxAddName"
         Me.txtbxAddName.Size = New System.Drawing.Size(173, 26)
         Me.txtbxAddName.TabIndex = 14
@@ -150,7 +150,7 @@ Partial Class popAddAccount
         Me.GroupBox1.Controls.Add(Me.rbttnRegStaff)
         Me.GroupBox1.Controls.Add(Me.rbttnLeadStaff)
         Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(30, 139)
+        Me.GroupBox1.Location = New System.Drawing.Point(42, 151)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(272, 76)
         Me.GroupBox1.TabIndex = 17
@@ -161,7 +161,7 @@ Partial Class popAddAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(346, 298)
+        Me.ClientSize = New System.Drawing.Size(355, 301)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txtbxAddName)
         Me.Controls.Add(Me.Label3)
