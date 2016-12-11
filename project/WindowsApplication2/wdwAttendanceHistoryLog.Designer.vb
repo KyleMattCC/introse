@@ -116,6 +116,7 @@ Partial Class wdwAttendanceHistoryLog
         '
         'BttnAttendance
         '
+        Me.BttnAttendance.Enabled = False
         Me.BttnAttendance.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BttnAttendance.Location = New System.Drawing.Point(391, 142)
         Me.BttnAttendance.Name = "BttnAttendance"
