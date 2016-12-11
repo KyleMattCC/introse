@@ -43,6 +43,33 @@
             cmbbxRemarks.Enabled = False
 
         End If
+        If cmbbxCourse.SelectedIndex = -1 Or cmbbxSection.Items.Count = 0 Then
+            cmbbxSection.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+
+
+        End If
+        If cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.Items.Count = 0 Then
+            dtp.Enabled = False
+            cmbbxTerm.Enabled = False
+            cmbbxCourse.Enabled = False
+            cmbbxSection.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+
+        End If
+        If cmbbxTerm.SelectedIndex = -1 Or cmbbxCourse.Items.Count = 0 Then
+            cmbbxCourse.Enabled = False
+            cmbbxSection.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+
+        End If
+        If cmbbxSection.SelectedIndex = -1 Then
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+        End If
     End Sub
     Private Function get_termindex(termno As String) As Integer
         Dim index As Integer = 0
@@ -314,8 +341,8 @@
             Catch ex As Exception
 
             End Try
-
-            'cmbbxRemarks.SelectedIndex = -1
+            Check_Element_Enable()
+            cmbbxRemarks.SelectedIndex = -1
             Check_Enable()
         End If
 
@@ -346,8 +373,8 @@
             Catch ex As Exception
 
             End Try
-
-            'cmbbxRemarks.SelectedIndex = -1
+            Check_Element_Enable()
+            cmbbxRemarks.SelectedIndex = -1
             Check_Enable()
         End If
 
@@ -372,7 +399,8 @@
             Catch ex As Exception
 
             End Try
-            '  cmbbxRemarks.SelectedIndex = -1
+            Check_Element_Enable()
+            cmbbxRemarks.SelectedIndex = -1
             Check_Enable()
         End If
 
@@ -382,7 +410,8 @@
         Fill_Room(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem.ToString, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, txtbxRoom)
         Fill_Sched(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, txtbxStart, txtbxEnd, txtbxDay)
         cmbbxRemarks.Enabled = True
-        'cmbbxRemarks.SelectedIndex = -1
+        cmbbxRemarks.SelectedIndex = -1
+        Check_Element_Enable()
         Check_Enable()
     End Sub
 
@@ -450,7 +479,7 @@
                 attStatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
                 If (Check_Entry(absentDate, courseOfferingId, "A", rem_code, checker) = True And Check_Entry(absentDate, courseOfferingId, "R", rem_code, checker) = True) Then
-                    dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & rem_code & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = '" & attStatus & "';")
+                    dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & rem_code & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = '" & attStatus & "';")
                     wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
                     Me.Close()
 

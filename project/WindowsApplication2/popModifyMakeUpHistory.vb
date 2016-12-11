@@ -39,6 +39,33 @@
             txtbxEnd.Enabled = False
 
         End If
+        If cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.Items.Count = 0 Then
+            cmbbxTerm.Enabled = False
+            cmbbxCourse.Enabled = False
+            cmbbxSec.Enabled = False
+            dtp.Enabled = False
+            cmbbxReason.SelectedIndex = -1
+            cmbbxReason.Enabled = False
+        End If
+
+        If cmbbxTerm.SelectedIndex = -1 Or cmbbxCourse.Items.Count = 0 Then
+            cmbbxCourse.Enabled = False
+            cmbbxSec.Enabled = False
+            cmbbxReason.SelectedIndex = -1
+            cmbbxReason.Enabled = False
+        End If
+
+        If cmbbxCourse.SelectedIndex = -1 Or cmbbxSec.Items.Count = 0 Then
+            cmbbxSec.Enabled = False
+            cmbbxReason.SelectedIndex = -1
+            cmbbxReason.Enabled = False
+        End If
+
+        If cmbbxSec.SelectedIndex = -1 Then
+            cmbbxReason.SelectedIndex = -1
+            cmbbxReason.Enabled = False
+        End If
+
     End Sub
     Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
         If Not (Asc(e.KeyChar) = 8) Then
@@ -280,7 +307,8 @@
             Catch ex As Exception
 
             End Try
-            'cmbbxReason.SelectedIndex = -1
+            cmbbxReason.SelectedIndex = -1
+            Check_Element_Enable()
             Check_Enable()
         End If
 
@@ -306,7 +334,8 @@
 
             End Try
 
-            'cmbbxReason.SelectedIndex = -1
+            cmbbxReason.SelectedIndex = -1
+            Check_Element_Enable()
             Check_Enable()
         End If
 
@@ -319,7 +348,8 @@
             'txtbxStart.Clear()
             'txtbxRoom.Clear()
             Add_Section(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSY.SelectedItem, cmbbxTerm.SelectedItem, cmbbxSec)
-            ' cmbbxReason.SelectedIndex = -1
+            cmbbxReason.SelectedIndex = -1
+            Check_Element_Enable()
             Check_Enable()
 
         End If
@@ -331,7 +361,8 @@
         txtbxStart.Enabled = True
         txtbxEnd.Enabled = True
         cmbbxReason.Enabled = True
-        'cmbbxReason.SelectedIndex = -1
+        cmbbxReason.SelectedIndex = -1
+        Check_Element_Enable()
         Check_Enable()
 
     End Sub
@@ -429,7 +460,7 @@
                         attstatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
                         If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason) And Check_Entry(makeupDate, startTime, endTime, room, "R", courseOfferingId, reason)) Then
-                            dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  'unknown' WHERE makeupid = '" & ref & "' and status = '" & attstatus & "';")
+                            dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  '" & wdwLogin.Get_Encoder & "' WHERE makeupid = '" & ref & "' and status = '" & attstatus & "';")
                             wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
                             Me.Close()
                         End If

@@ -75,7 +75,6 @@
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
-                dtp.Enabled = True
                 cmbbxSY.Enabled = True
             Else
                 text.Text = fname + " " + MI + " " + lname
@@ -101,6 +100,7 @@
             For j As Integer = 0 To termno.Count - 1
                 combo.Items.Add(termno(j))
             Next
+            dtp.Enabled = True
         Catch ex As Exception
 
         End Try
@@ -109,6 +109,7 @@
     Private Sub Add_SchoolYear(ByVal combo As ComboBox)
 
         Dim schoolyear As New List(Of Object)()
+        combo.Enabled = True
         combo.Items.Clear()
         combo.ResetText()
 
@@ -169,7 +170,7 @@
         Try
             termid = Get_termID(schoolYear, termNo)
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) from introse.course c, introse.courseoffering co WHERE (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' AND c.course_cd = '" & course & "' AND co.termid = '" & termid & "' order by 1;")
+            section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) from introse.course c, introse.courseoffering co where (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' and c.course_cd = '" & course & "' and co.termid = '" & termid & "'  and co.course_id = c.course_id order by 1;")
 
             For j As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(j))
@@ -264,6 +265,7 @@
                 MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
                 Return False
             Else
+
                 courseid = dbAccess.Get_Data("select course_id from introse.course where course_cd ='" & course & "';", "course_id")
                 fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
                 termid = Get_termID(schoolYear, termNo)
@@ -303,6 +305,34 @@
             cmbbxRemarks.SelectedIndex = -1
             cmbbxRemarks.Enabled = False
 
+        End If
+
+        If cmbbxCourse.SelectedIndex = -1 Or cmbbxSection.Items.Count = 0 Then
+            cmbbxSection.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+
+
+        End If
+        If cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.Items.Count = 0 Then
+            dtp.Enabled = False
+            cmbbxTerm.Enabled = False
+            cmbbxCourse.Enabled = False
+            cmbbxSection.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+
+        End If
+        If cmbbxTerm.SelectedIndex = -1 Or cmbbxCourse.Items.Count = 0 Then
+            cmbbxCourse.Enabled = False
+            cmbbxSection.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+
+        End If
+        If cmbbxSection.SelectedIndex = -1 Then
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
         End If
     End Sub
     Private Sub txtbxFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacID.TextChanged
@@ -356,6 +386,7 @@
         End Try
 
         cmbbxRemarks.SelectedIndex = -1
+        Check_Element_Enable()
         Check_Enable()
     End Sub
 
@@ -378,6 +409,7 @@
         End Try
 
         cmbbxRemarks.SelectedIndex = -1
+        Check_Element_Enable()
         Check_Enable()
     End Sub
 
@@ -390,6 +422,7 @@
         txtbxRoom.Clear()
         Add_Section(txtbxFacID.Text, cmbbxCourse.SelectedItem.ToString, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxSection)
         cmbbxRemarks.SelectedIndex = -1
+        Check_Element_Enable()
         Check_Enable()
     End Sub
     Private Sub cmbbxSection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxSection.SelectedIndexChanged
@@ -397,6 +430,7 @@
         Fill_Sched(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, txtbxStart, txtbxEnd, txtbxDay)
         cmbbxRemarks.Enabled = True
         cmbbxRemarks.SelectedIndex = -1
+        Check_Element_Enable()
         Check_Enable()
 
     End Sub
@@ -413,7 +447,7 @@
 
     End Sub
     Private Sub bttnEncode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
-        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, "unknown", txtbxChecker.Text, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
+        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, wdwLogin.Get_Encoder, txtbxChecker.Text, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
 
         If (tempBoolean) Then
             wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
@@ -423,7 +457,7 @@
     End Sub
 
     Private Sub bttnAddClear_Click(sender As Object, e As EventArgs) Handles bttnAddClear.Click
-        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, "unknown", txtbxChecker.Text, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
+        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, wdwLogin.Get_Encoder, txtbxChecker.Text, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
 
         If (tempBoolean) Then
             cmbbxSY.Items.Clear()

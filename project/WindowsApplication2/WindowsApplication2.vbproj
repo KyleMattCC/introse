@@ -127,6 +127,12 @@
     <Compile Include="popModifyMakeUpHistory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="wdwDataEntry.Designer.vb">
+      <DependentUpon>wdwDataEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwDataEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="wdwLogin.Designer.vb">
       <DependentUpon>wdwLogin.vb</DependentUpon>
     </Compile>
@@ -367,6 +373,9 @@
     <EmbeddedResource Include="popModifyMakeUpHistory.resx">
       <DependentUpon>popModifyMakeUpHistory.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="wdwDataEntry.resx">
+      <DependentUpon>wdwDataEntry.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="wdwLogin.resx">
       <DependentUpon>wdwLogin.vb</DependentUpon>
     </EmbeddedResource>
@@ -508,6 +517,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLSU_Logo_Clear_Background.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

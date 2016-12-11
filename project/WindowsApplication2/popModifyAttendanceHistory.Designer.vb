@@ -76,7 +76,7 @@ Partial Class popModifyAttendanceHistory
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(73, 70)
+        Me.Label1.Location = New System.Drawing.Point(73, 130)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(121, 20)
         Me.Label1.TabIndex = 205
@@ -86,7 +86,7 @@ Partial Class popModifyAttendanceHistory
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(47, 100)
+        Me.Label4.Location = New System.Drawing.Point(47, 70)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(145, 20)
         Me.Label4.TabIndex = 206
@@ -96,7 +96,7 @@ Partial Class popModifyAttendanceHistory
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(133, 132)
+        Me.Label10.Location = New System.Drawing.Point(133, 102)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(61, 20)
         Me.Label10.TabIndex = 224
@@ -223,7 +223,7 @@ Partial Class popModifyAttendanceHistory
         'dtp
         '
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp.Location = New System.Drawing.Point(198, 70)
+        Me.dtp.Location = New System.Drawing.Point(198, 130)
         Me.dtp.Name = "dtp"
         Me.dtp.Size = New System.Drawing.Size(313, 26)
         Me.dtp.TabIndex = 238
@@ -233,7 +233,7 @@ Partial Class popModifyAttendanceHistory
         Me.cmbbxSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxSY.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSY.FormattingEnabled = True
-        Me.cmbbxSY.Location = New System.Drawing.Point(198, 100)
+        Me.cmbbxSY.Location = New System.Drawing.Point(198, 70)
         Me.cmbbxSY.Name = "cmbbxSY"
         Me.cmbbxSY.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxSY.TabIndex = 239
@@ -243,7 +243,7 @@ Partial Class popModifyAttendanceHistory
         Me.cmbbxTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxTerm.FormattingEnabled = True
-        Me.cmbbxTerm.Location = New System.Drawing.Point(198, 130)
+        Me.cmbbxTerm.Location = New System.Drawing.Point(198, 100)
         Me.cmbbxTerm.Name = "cmbbxTerm"
         Me.cmbbxTerm.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxTerm.TabIndex = 240

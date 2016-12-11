@@ -1,5 +1,12 @@
 ﻿Public Class wdwLogin
     Dim dbAccess As databaseAccessor = New databaseAccessor
+    Public Function Get_Encoder() As String
+        Dim encoder As String = ""
+
+        encoder = dbAccess.Get_Data("Select a.encodername from account a where a.username = '" & txtbxUser.Text & "' and a.password = '" & txtbxPass.Text & " '", "encodername")
+        Return encoder
+
+    End Function
 
     Private Sub bttnLogin_Click(sender As Object, e As EventArgs) Handles bttnLogin.Click
         Dim Found As Boolean

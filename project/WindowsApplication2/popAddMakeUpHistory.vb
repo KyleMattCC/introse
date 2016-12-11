@@ -44,6 +44,34 @@
             txtbxEnd.Enabled = False
 
         End If
+        If cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.Items.Count = 0 Then
+            cmbbxTerm.Enabled = False
+            cmbbxCourse.Enabled = False
+            cmbbxSec.Enabled = False
+            dtp.Enabled = False
+            cmbbxReason.SelectedIndex = -1
+            cmbbxReason.Enabled = False
+        End If
+
+        If cmbbxTerm.SelectedIndex = -1 Or cmbbxCourse.Items.Count = 0 Then
+            cmbbxCourse.Enabled = False
+            cmbbxSec.Enabled = False
+            cmbbxReason.SelectedIndex = -1
+            cmbbxReason.Enabled = False
+        End If
+
+        If cmbbxCourse.SelectedIndex = -1 Or cmbbxSec.Items.Count = 0 Then
+            cmbbxSec.Enabled = False
+            cmbbxReason.SelectedIndex = -1
+            cmbbxReason.Enabled = False
+        End If
+
+        If cmbbxSec.SelectedIndex = -1 Then
+            cmbbxReason.SelectedIndex = -1
+            cmbbxReason.Enabled = False
+        End If
+
+
     End Sub
     Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
         If Not (Asc(e.KeyChar) = 8) Then
@@ -70,6 +98,7 @@
 
     Private Sub Add_Reasons(ByVal combo As ComboBox)
         Dim reasons As New List(Of Object)()
+        combo.Enabled = True
         combo.Items.Clear()
         combo.ResetText()
 
@@ -105,7 +134,6 @@
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
-                dtp.Enabled = True
                 cmbbxSY.Enabled = True
             Else
                 text.Text = fname + " " + MI + " " + lname
@@ -119,6 +147,7 @@
         Dim termno As New List(Of Object)()
         Dim yearid As New Object
         Dim years() As String
+        combo.Enabled = True
         combo.Items.Clear()
         combo.ResetText()
 
@@ -126,6 +155,7 @@
             years = schoolYear.Split("-")
             yearid = dbAccess.Get_Data("select yearid from introse.academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
             termno = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where status = 'A' and yearid = '" & yearid & "';")
+            dtp.Enabled = True
 
             For j As Integer = 0 To termno.Count - 1
                 combo.Items.Add(termno(j))
@@ -138,6 +168,7 @@
     Private Sub Add_SchoolYear(ByVal combo As ComboBox)
 
         Dim schoolyear As New List(Of Object)()
+        combo.Enabled = True
         combo.Items.Clear()
         combo.ResetText()
 
@@ -169,6 +200,7 @@
         Dim coursecode As New List(Of Object)()
         Dim termid As Object
         Dim fac As Integer
+        combo.Enabled = True
         combo.Items.Clear()
         combo.ResetText()
 
@@ -201,7 +233,7 @@
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
             section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) 
                                                 from introse.course c, introse.courseoffering co, introse.attendance a 
-                                                where co.termid = '" & termid & "' and (co.status = 'A' or co.status = 'R') and (a.status = 'A' or a.status = 'R') and co.facref_no = '" & fac & "' AND co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;")
+                                                where co.termid = '" & termid & "' and (co.status = 'A' or co.status = 'R') and (a.status = 'A' or a.status = 'R') and co.facref_no = '" & fac & "' AND co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id and course_cd = '" & course & "' order by 1;")
 
             For ctr As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(ctr))
@@ -259,7 +291,7 @@
 
                     attstatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
                     If (Check_Entry(makeupDate, startTime, endTime, room, "A") And Check_Entry(makeupDate, startTime, endTime, room, "R")) Then
-                        dbAccess.Add_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values (" & courseOfferingId & ", " & startTime & ", " & endTime & ", " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ",'" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', 'unknown', '" & attstatus & "');")
+                        dbAccess.Add_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values (" & courseOfferingId & ", " & startTime & ", " & endTime & ", " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ",'" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', '" & wdwLogin.Get_Encoder & "', '" & attstatus & "');")
                         Return True
                     End If
                 End If
@@ -273,6 +305,7 @@
 
     Private Sub popAddMakeUpHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtp.Value = DateTime.Now.Date
+        dtp.Enabled = True
         Add_Reasons(cmbbxReason)
         load_form(wdwAttendanceHistoryLog.facultyID)
         Check_Enable()
@@ -334,6 +367,7 @@
 
         End Try
         cmbbxReason.SelectedIndex = -1
+        Check_Element_Enable()
         Check_Enable()
     End Sub
     Private Sub cmbbxTerm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
@@ -355,7 +389,7 @@
         Catch ex As Exception
 
         End Try
-
+        Check_Element_Enable()
         cmbbxReason.SelectedIndex = -1
         Check_Enable()
     End Sub
@@ -367,6 +401,7 @@
         'txtbxRoom.Clear()
         Add_Section(txtbxFacID.Text, cmbbxCourse.SelectedItem.ToString, cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString, cmbbxSec)
         cmbbxReason.SelectedIndex = -1
+        Check_Element_Enable()
         Check_Enable()
 
     End Sub
@@ -378,7 +413,7 @@
         cmbbxReason.Enabled = True
         cmbbxReason.SelectedIndex = -1
         Check_Enable()
-
+        Check_Element_Enable()
     End Sub
     Private Sub txtbxFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxFacID.KeyPress
         validateInput("0123456789", e)

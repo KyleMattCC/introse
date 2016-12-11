@@ -79,7 +79,6 @@
 
     Public Sub Enable_After_Search_Form()
         Me.Show()
-        rindexValue = 0
         Me.Enabled = True
         Me.Focus()
     End Sub
@@ -143,6 +142,8 @@
     End Function
     Private Sub grid_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grid.CellMouseDoubleClick
         Try
+            rindexValue = e.RowIndex
+
             If BttnAttendance.Text = "Attendance" Then
                 wdwMoreInfo.Load_Attendance_Form(rowData)
             ElseIf BttnAttendance.Text = "Make-up Class" Then
@@ -185,7 +186,6 @@
 
     Private Sub bttnModify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
         With grid
-            rindexValue = grid.SelectedRows(0).Index
             rowData.Clear()
             Dim selectedRow As DataGridViewRow
             Dim colCount As Integer

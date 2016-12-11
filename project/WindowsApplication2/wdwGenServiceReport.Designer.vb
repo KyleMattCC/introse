@@ -22,12 +22,15 @@ Partial Class wdwGenServiceReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wdwGenServiceReport))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.AxAcroPDF1 = New AxAcroPDFLib.AxAcroPDF()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -78,11 +81,21 @@ Partial Class wdwGenServiceReport
         Me.Button2.Text = "Export"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'AxAcroPDF1
+        '
+        Me.AxAcroPDF1.Enabled = True
+        Me.AxAcroPDF1.Location = New System.Drawing.Point(27, 12)
+        Me.AxAcroPDF1.Name = "AxAcroPDF1"
+        Me.AxAcroPDF1.OcxState = CType(resources.GetObject("AxAcroPDF1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxAcroPDF1.Size = New System.Drawing.Size(579, 385)
+        Me.AxAcroPDF1.TabIndex = 28
+        '
         'wdwGenServiceReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(630, 444)
+        Me.Controls.Add(Me.AxAcroPDF1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
@@ -92,6 +105,7 @@ Partial Class wdwGenServiceReport
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Generate Service Report"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -100,4 +114,5 @@ Partial Class wdwGenServiceReport
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents AxAcroPDF1 As AxAcroPDFLib.AxAcroPDF
 End Class
