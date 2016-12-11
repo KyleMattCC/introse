@@ -8,6 +8,16 @@
     End Sub
 
     Private Sub Load_form()
+        If wdwLogin.Get_accountType.Equals("Regular") Then
+            bttnAdd.Enabled = False
+            bttnDelete.Enabled = False
+            bttnModify.Enabled = False
+        Else
+            bttnAdd.Enabled = True
+            bttnDelete.Enabled = True
+            bttnModify.Enabled = True
+        End If
+
         Dim DeptValue As String
         rindexValue = 0
         bttnSearch.Enabled = False

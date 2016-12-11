@@ -266,7 +266,7 @@
                                                             where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
                 If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason)) Then
-                    dbAccess.Add_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values (" & courseOfferingId & ", " & startTime & ", " & endTime & ", " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ",'" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', 'unknown', 'A');")
+                    dbAccess.Add_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values (" & courseOfferingId & ", " & startTime & ", " & endTime & ", " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ",'" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', '" & wdwLogin.Get_Encoder & "', 'A');")
                     Return True
                 End If
             End If

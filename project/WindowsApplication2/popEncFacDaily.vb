@@ -300,7 +300,7 @@
     End Function
 
     Private Sub bttnEncode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
-        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, "unknown", txtbxChecker.Text, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
+        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, wdwLogin.Get_Encoder, txtbxChecker.Text, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
 
         If (tempBoolean) Then
             Me.Close()
@@ -309,7 +309,7 @@
     End Sub
 
     Private Sub bttnAddClear_Click(sender As Object, e As EventArgs) Handles bttnAddClear.Click
-        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, "unknown", txtbxChecker.Text, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
+        Dim tempBoolean As Boolean = Set_Attendance(txtbxFacID.Text, cmbbxCourse.SelectedItem, cmbbxSection.SelectedItem, cmbbxRemarks.SelectedItem, dtp.Value.Date, wdwLogin.Get_Encoder, txtbxChecker.Text, txtbxFacID, cmbbxRemarks, txtbxDay.Text, "Pending")
 
         If (tempBoolean) Then
             txtbxFacID.Clear()

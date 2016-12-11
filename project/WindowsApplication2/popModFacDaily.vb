@@ -325,7 +325,7 @@
 
                 courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
                 If (Check_Entry(absentDate, courseOfferingId, "A", remarks, checker) = True) Then
-                    dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = 'A';")
+                    dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = 'A';")
                     Me.Close()
 
                     txtbxFacID.Clear()

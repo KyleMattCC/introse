@@ -301,7 +301,7 @@
                                                             where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
                     If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason)) Then
-                        dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  'unknown' WHERE makeupid = '" & ref & "' and status = 'A';")
+                        dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  '" & wdwLogin.Get_Encoder & "' WHERE makeupid = '" & ref & "' and status = 'A';")
                         Me.Close()
                     End If
                 End If

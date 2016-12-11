@@ -29,6 +29,7 @@
 
     Private Sub bttnExit_Click(sender As Object, e As EventArgs) Handles bttnExit.Click
         Me.Close()
+
     End Sub
 
     Private Sub bttnNotice_Click(sender As Object, e As EventArgs) Handles bttnNotice.Click
