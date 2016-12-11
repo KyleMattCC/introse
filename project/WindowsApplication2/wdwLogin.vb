@@ -16,6 +16,18 @@
 
     End Function
 
+    Public Function Get_User() As String
+
+        Return txtbxUser.Text
+
+    End Function
+
+    Public Function Get_Pass() As String
+
+        Return txtbxPass.Text
+
+    End Function
+
     Private Sub bttnLogin_Click(sender As Object, e As EventArgs) Handles bttnLogin.Click
         Dim Found As Boolean
         Dim UserID As String

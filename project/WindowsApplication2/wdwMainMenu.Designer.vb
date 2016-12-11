@@ -23,9 +23,9 @@ Partial Class wdwMainMenu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.bttnAddAccount = New System.Windows.Forms.Button()
         Me.bttnDailyAtt = New System.Windows.Forms.Button()
         Me.bttnMakeUp = New System.Windows.Forms.Button()
+        Me.bttnAddAccount = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.bttnNotice = New System.Windows.Forms.Button()
         Me.bttnReport = New System.Windows.Forms.Button()
@@ -33,36 +33,27 @@ Partial Class wdwMainMenu
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.bttnTermPlantilla = New System.Windows.Forms.Button()
         Me.bttnHistory = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.bttnAddAccount)
         Me.GroupBox1.Controls.Add(Me.bttnDailyAtt)
         Me.GroupBox1.Controls.Add(Me.bttnMakeUp)
         Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(115, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(13, 56)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(567, 140)
+        Me.GroupBox1.Size = New System.Drawing.Size(370, 140)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Data Entry"
-        '
-        'bttnAddAccount
-        '
-        Me.bttnAddAccount.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAddAccount.Location = New System.Drawing.Point(399, 25)
-        Me.bttnAddAccount.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.bttnAddAccount.Name = "bttnAddAccount"
-        Me.bttnAddAccount.Size = New System.Drawing.Size(160, 100)
-        Me.bttnAddAccount.TabIndex = 13
-        Me.bttnAddAccount.Text = "Add Account"
-        Me.bttnAddAccount.UseVisualStyleBackColor = True
         '
         'bttnDailyAtt
         '
@@ -86,6 +77,17 @@ Partial Class wdwMainMenu
         Me.bttnMakeUp.Text = "Makeup Schedule"
         Me.bttnMakeUp.UseVisualStyleBackColor = True
         '
+        'bttnAddAccount
+        '
+        Me.bttnAddAccount.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAddAccount.Location = New System.Drawing.Point(6, 25)
+        Me.bttnAddAccount.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.bttnAddAccount.Name = "bttnAddAccount"
+        Me.bttnAddAccount.Size = New System.Drawing.Size(160, 100)
+        Me.bttnAddAccount.TabIndex = 13
+        Me.bttnAddAccount.Text = "Add Account"
+        Me.bttnAddAccount.UseVisualStyleBackColor = True
+        '
         'GroupBox3
         '
         Me.GroupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
@@ -93,7 +95,7 @@ Partial Class wdwMainMenu
         Me.GroupBox3.Controls.Add(Me.bttnReport)
         Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox3.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(211, 158)
+        Me.GroupBox3.Location = New System.Drawing.Point(401, 56)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -127,12 +129,12 @@ Partial Class wdwMainMenu
         'bttnExit
         '
         Me.bttnExit.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnExit.Location = New System.Drawing.Point(310, 460)
+        Me.bttnExit.Location = New System.Drawing.Point(304, 402)
         Me.bttnExit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.bttnExit.Name = "bttnExit"
         Me.bttnExit.Size = New System.Drawing.Size(175, 35)
         Me.bttnExit.TabIndex = 18
-        Me.bttnExit.Text = "Exit"
+        Me.bttnExit.Text = "Logout"
         Me.bttnExit.UseVisualStyleBackColor = True
         '
         'GroupBox2
@@ -142,7 +144,7 @@ Partial Class wdwMainMenu
         Me.GroupBox2.Controls.Add(Me.bttnHistory)
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(211, 304)
+        Me.GroupBox2.Location = New System.Drawing.Point(13, 234)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -173,11 +175,39 @@ Partial Class wdwMainMenu
         Me.bttnHistory.Text = "Faculty Attendance History"
         Me.bttnHistory.UseVisualStyleBackColor = True
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox4.Controls.Add(Me.Button1)
+        Me.GroupBox4.Controls.Add(Me.bttnAddAccount)
+        Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox4.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox4.Location = New System.Drawing.Point(401, 234)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox4.Size = New System.Drawing.Size(370, 140)
+        Me.GroupBox4.TabIndex = 20
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Account"
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(204, 25)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(160, 100)
+        Me.Button1.TabIndex = 14
+        Me.Button1.Text = "Edit My Account"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'wdwMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 507)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.bttnExit)
         Me.Controls.Add(Me.GroupBox3)
@@ -189,6 +219,7 @@ Partial Class wdwMainMenu
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -203,4 +234,6 @@ Partial Class wdwMainMenu
     Friend WithEvents bttnTermPlantilla As Button
     Friend WithEvents bttnHistory As Button
     Friend WithEvents bttnAddAccount As Button
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents Button1 As Button
 End Class

@@ -30,6 +30,10 @@
     Private Sub bttnExit_Click(sender As Object, e As EventArgs) Handles bttnExit.Click
         Me.Close()
 
+        wdwLogin.txtbxUser.Text = Nothing
+        wdwLogin.txtbxPass.Text = Nothing
+        wdwLogin.Show()
+
     End Sub
 
     Private Sub bttnNotice_Click(sender As Object, e As EventArgs) Handles bttnNotice.Click
@@ -55,5 +59,9 @@
 
     Private Sub bttnTermPlantilla_Click(sender As Object, e As EventArgs) Handles bttnTermPlantilla.Click
         wdwFacPlantilia.show()
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        popEditAccount.Show()
     End Sub
 End Class
