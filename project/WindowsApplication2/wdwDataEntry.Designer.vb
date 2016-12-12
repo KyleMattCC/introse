@@ -23,10 +23,14 @@ Partial Class wdwDataEntry
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.dtpEnd = New System.Windows.Forms.DateTimePicker()
+        Me.dtpStart = New System.Windows.Forms.DateTimePicker()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.cmbbxAcadYear = New System.Windows.Forms.ComboBox()
         Me.bttnBackTerm = New System.Windows.Forms.Button()
         Me.bttnAddTerm = New System.Windows.Forms.Button()
         Me.txtbxTerm = New System.Windows.Forms.TextBox()
-        Me.txtbxAcadYear = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
@@ -88,8 +92,16 @@ Partial Class wdwDataEntry
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.txtbxYearEnd = New System.Windows.Forms.TextBox()
+        Me.txtbxYearStart = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.TabPage6.SuspendLayout()
         Me.TabPage5.SuspendLayout()
@@ -99,15 +111,20 @@ Partial Class wdwDataEntry
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage7.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabPage6
         '
         Me.TabPage6.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage6.Controls.Add(Me.dtpEnd)
+        Me.TabPage6.Controls.Add(Me.dtpStart)
+        Me.TabPage6.Controls.Add(Me.Label26)
+        Me.TabPage6.Controls.Add(Me.Label25)
+        Me.TabPage6.Controls.Add(Me.cmbbxAcadYear)
         Me.TabPage6.Controls.Add(Me.bttnBackTerm)
         Me.TabPage6.Controls.Add(Me.bttnAddTerm)
         Me.TabPage6.Controls.Add(Me.txtbxTerm)
-        Me.TabPage6.Controls.Add(Me.txtbxAcadYear)
         Me.TabPage6.Controls.Add(Me.Label24)
         Me.TabPage6.Controls.Add(Me.Label23)
         Me.TabPage6.Location = New System.Drawing.Point(4, 25)
@@ -117,9 +134,52 @@ Partial Class wdwDataEntry
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "New Term"
         '
+        'dtpEnd
+        '
+        Me.dtpEnd.Location = New System.Drawing.Point(211, 210)
+        Me.dtpEnd.Name = "dtpEnd"
+        Me.dtpEnd.Size = New System.Drawing.Size(265, 22)
+        Me.dtpEnd.TabIndex = 41
+        '
+        'dtpStart
+        '
+        Me.dtpStart.Location = New System.Drawing.Point(211, 180)
+        Me.dtpStart.Name = "dtpStart"
+        Me.dtpStart.Size = New System.Drawing.Size(265, 22)
+        Me.dtpStart.TabIndex = 40
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(100, 210)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(104, 20)
+        Me.Label26.TabIndex = 39
+        Me.Label26.Text = "Start Date:"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(110, 181)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(94, 20)
+        Me.Label25.TabIndex = 38
+        Me.Label25.Text = "End Date:"
+        '
+        'cmbbxAcadYear
+        '
+        Me.cmbbxAcadYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxAcadYear.FormattingEnabled = True
+        Me.cmbbxAcadYear.Location = New System.Drawing.Point(210, 116)
+        Me.cmbbxAcadYear.Name = "cmbbxAcadYear"
+        Me.cmbbxAcadYear.Size = New System.Drawing.Size(266, 24)
+        Me.cmbbxAcadYear.TabIndex = 37
+        '
         'bttnBackTerm
         '
-        Me.bttnBackTerm.Location = New System.Drawing.Point(283, 236)
+        Me.bttnBackTerm.Location = New System.Drawing.Point(297, 281)
         Me.bttnBackTerm.Name = "bttnBackTerm"
         Me.bttnBackTerm.Size = New System.Drawing.Size(105, 29)
         Me.bttnBackTerm.TabIndex = 36
@@ -128,7 +188,7 @@ Partial Class wdwDataEntry
         '
         'bttnAddTerm
         '
-        Me.bttnAddTerm.Location = New System.Drawing.Point(154, 236)
+        Me.bttnAddTerm.Location = New System.Drawing.Point(168, 281)
         Me.bttnAddTerm.Name = "bttnAddTerm"
         Me.bttnAddTerm.Size = New System.Drawing.Size(105, 29)
         Me.bttnAddTerm.TabIndex = 35
@@ -142,14 +202,6 @@ Partial Class wdwDataEntry
         Me.txtbxTerm.Name = "txtbxTerm"
         Me.txtbxTerm.Size = New System.Drawing.Size(266, 26)
         Me.txtbxTerm.TabIndex = 34
-        '
-        'txtbxAcadYear
-        '
-        Me.txtbxAcadYear.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxAcadYear.Location = New System.Drawing.Point(210, 113)
-        Me.txtbxAcadYear.Name = "txtbxAcadYear"
-        Me.txtbxAcadYear.Size = New System.Drawing.Size(266, 26)
-        Me.txtbxAcadYear.TabIndex = 33
         '
         'Label24
         '
@@ -768,6 +820,7 @@ Partial Class wdwDataEntry
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.Silver
+        Me.TabPage1.Controls.Add(Me.TextBox1)
         Me.TabPage1.Controls.Add(Me.Button1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
@@ -776,13 +829,21 @@ Partial Class wdwDataEntry
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Upload"
         '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(36, 64)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(350, 26)
+        Me.TextBox1.TabIndex = 14
+        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(405, 61)
+        Me.Button1.Location = New System.Drawing.Point(401, 61)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 29)
+        Me.Button1.Size = New System.Drawing.Size(129, 29)
         Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Upload"
+        Me.Button1.Text = "Select Excel File"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TabControl1
@@ -793,12 +854,83 @@ Partial Class wdwDataEntry
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
+        Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(12, 28)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(595, 464)
         Me.TabControl1.TabIndex = 0
+        '
+        'TabPage7
+        '
+        Me.TabPage7.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage7.Controls.Add(Me.txtbxYearEnd)
+        Me.TabPage7.Controls.Add(Me.txtbxYearStart)
+        Me.TabPage7.Controls.Add(Me.Button2)
+        Me.TabPage7.Controls.Add(Me.Button3)
+        Me.TabPage7.Controls.Add(Me.Label28)
+        Me.TabPage7.Controls.Add(Me.Label27)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage7.Name = "TabPage7"
+        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage7.Size = New System.Drawing.Size(587, 435)
+        Me.TabPage7.TabIndex = 6
+        Me.TabPage7.Text = "New Year"
+        '
+        'txtbxYearEnd
+        '
+        Me.txtbxYearEnd.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxYearEnd.Location = New System.Drawing.Point(230, 171)
+        Me.txtbxYearEnd.Name = "txtbxYearEnd"
+        Me.txtbxYearEnd.Size = New System.Drawing.Size(206, 26)
+        Me.txtbxYearEnd.TabIndex = 47
+        '
+        'txtbxYearStart
+        '
+        Me.txtbxYearStart.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxYearStart.Location = New System.Drawing.Point(230, 131)
+        Me.txtbxYearStart.Name = "txtbxYearStart"
+        Me.txtbxYearStart.Size = New System.Drawing.Size(206, 26)
+        Me.txtbxYearStart.TabIndex = 46
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(302, 245)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(105, 29)
+        Me.Button2.TabIndex = 45
+        Me.Button2.Text = "Back"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(173, 245)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(105, 29)
+        Me.Button3.TabIndex = 44
+        Me.Button3.Text = "Add"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.Location = New System.Drawing.Point(130, 173)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(93, 20)
+        Me.Label28.TabIndex = 33
+        Me.Label28.Text = "End Year:"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(120, 131)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(103, 20)
+        Me.Label27.TabIndex = 32
+        Me.Label27.Text = "Start Year:"
         '
         'OpenFileDialog1
         '
@@ -825,7 +957,10 @@ Partial Class wdwDataEntry
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage7.ResumeLayout(False)
+        Me.TabPage7.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -896,7 +1031,19 @@ Partial Class wdwDataEntry
     Friend WithEvents bttnBackTerm As Button
     Friend WithEvents bttnAddTerm As Button
     Friend WithEvents txtbxTerm As TextBox
-    Friend WithEvents txtbxAcadYear As TextBox
     Friend WithEvents Label24 As Label
     Friend WithEvents Label23 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents cmbbxAcadYear As ComboBox
+    Friend WithEvents dtpStart As DateTimePicker
+    Friend WithEvents Label26 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents dtpEnd As DateTimePicker
+    Friend WithEvents TabPage7 As TabPage
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents txtbxYearEnd As TextBox
+    Friend WithEvents txtbxYearStart As TextBox
 End Class

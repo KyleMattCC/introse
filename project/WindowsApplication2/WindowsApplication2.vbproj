@@ -133,6 +133,12 @@
     <Compile Include="popModifyMakeUpHistory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="popModifyPlantilla.Designer.vb">
+      <DependentUpon>popModifyPlantilla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popModifyPlantilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="wdwDataEntry.Designer.vb">
       <DependentUpon>wdwDataEntry.vb</DependentUpon>
     </Compile>

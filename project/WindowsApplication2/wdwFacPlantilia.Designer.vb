@@ -23,76 +23,82 @@ Partial Class wdwFacPlantilia
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cmbbxAcadYear = New System.Windows.Forms.ComboBox()
+        Me.cmbbxTerm = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnView = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.bttnSearch = New System.Windows.Forms.Button()
+        Me.grid = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.txtbxSearch = New System.Windows.Forms.TextBox()
+        Me.bttnClear = New System.Windows.Forms.Button()
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(21, 29)
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(19, 46)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 16)
+        Me.Label1.Size = New System.Drawing.Size(145, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Academic Year:"
         '
-        'ComboBox1
+        'cmbbxAcadYear
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(124, 26)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.cmbbxAcadYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxAcadYear.Font = New System.Drawing.Font("Lucida Bright", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbxAcadYear.FormattingEnabled = True
+        Me.cmbbxAcadYear.Location = New System.Drawing.Point(165, 46)
+        Me.cmbbxAcadYear.Name = "cmbbxAcadYear"
+        Me.cmbbxAcadYear.Size = New System.Drawing.Size(119, 23)
+        Me.cmbbxAcadYear.TabIndex = 1
         '
-        'ComboBox2
+        'cmbbxTerm
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(333, 26)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 3
+        Me.cmbbxTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbxTerm.FormattingEnabled = True
+        Me.cmbbxTerm.Location = New System.Drawing.Point(359, 46)
+        Me.cmbbxTerm.Name = "cmbbxTerm"
+        Me.cmbbxTerm.Size = New System.Drawing.Size(119, 23)
+        Me.cmbbxTerm.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(293, 29)
+        Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(292, 46)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(43, 16)
+        Me.Label2.Size = New System.Drawing.Size(61, 20)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Term:"
         '
-        'btnView
+        'bttnSearch
         '
-        Me.btnView.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnView.Location = New System.Drawing.Point(485, 25)
-        Me.btnView.Name = "btnView"
-        Me.btnView.Size = New System.Drawing.Size(75, 23)
-        Me.btnView.TabIndex = 4
-        Me.btnView.Text = "View"
-        Me.btnView.UseVisualStyleBackColor = True
+        Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnSearch.Location = New System.Drawing.Point(731, 42)
+        Me.bttnSearch.Name = "bttnSearch"
+        Me.bttnSearch.Size = New System.Drawing.Size(105, 29)
+        Me.bttnSearch.TabIndex = 4
+        Me.bttnSearch.Text = "Search"
+        Me.bttnSearch.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'grid
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 66)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(561, 259)
-        Me.DataGridView1.TabIndex = 5
+        Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grid.Location = New System.Drawing.Point(23, 96)
+        Me.grid.Name = "grid"
+        Me.grid.Size = New System.Drawing.Size(931, 339)
+        Me.grid.TabIndex = 5
         '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(135, 345)
+        Me.Button2.Location = New System.Drawing.Point(218, 485)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(105, 28)
         Me.Button2.TabIndex = 6
@@ -102,7 +108,7 @@ Partial Class wdwFacPlantilia
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(246, 345)
+        Me.Button4.Location = New System.Drawing.Point(329, 485)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(105, 28)
         Me.Button4.TabIndex = 8
@@ -112,7 +118,7 @@ Partial Class wdwFacPlantilia
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(357, 345)
+        Me.Button6.Location = New System.Drawing.Point(440, 485)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(105, 28)
         Me.Button6.TabIndex = 10
@@ -122,45 +128,67 @@ Partial Class wdwFacPlantilia
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(468, 345)
+        Me.Button1.Location = New System.Drawing.Point(551, 485)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(105, 28)
         Me.Button1.TabIndex = 11
         Me.Button1.Text = "Back"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'txtbxSearch
+        '
+        Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxSearch.Location = New System.Drawing.Point(514, 44)
+        Me.txtbxSearch.Name = "txtbxSearch"
+        Me.txtbxSearch.Size = New System.Drawing.Size(211, 26)
+        Me.txtbxSearch.TabIndex = 15
+        '
+        'bttnClear
+        '
+        Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnClear.Location = New System.Drawing.Point(849, 42)
+        Me.bttnClear.Name = "bttnClear"
+        Me.bttnClear.Size = New System.Drawing.Size(105, 29)
+        Me.bttnClear.TabIndex = 16
+        Me.bttnClear.Text = "Clear"
+        Me.bttnClear.UseVisualStyleBackColor = True
+        '
         'wdwFacPlantilia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(620, 436)
+        Me.ClientSize = New System.Drawing.Size(1009, 552)
+        Me.Controls.Add(Me.bttnClear)
+        Me.Controls.Add(Me.txtbxSearch)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.btnView)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.grid)
+        Me.Controls.Add(Me.bttnSearch)
+        Me.Controls.Add(Me.cmbbxTerm)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmbbxAcadYear)
         Me.Controls.Add(Me.Label1)
         Me.Name = "wdwFacPlantilia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "wdwFacPlantilia"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents cmbbxAcadYear As ComboBox
+    Friend WithEvents cmbbxTerm As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents btnView As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents bttnSearch As Button
+    Friend WithEvents grid As DataGridView
     Friend WithEvents Button2 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents txtbxSearch As TextBox
+    Friend WithEvents bttnClear As Button
 End Class

@@ -2,6 +2,7 @@
     Dim dbAccess As New databaseAccessor
     Private Sub wdwDataEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim College As New List(Of Object)
+        Dim year As New List(Of Object)
 
 
 
@@ -13,9 +14,25 @@
             cmbbxCourseCol.Items.Add(College(i))
         Next
 
-        cmbbxFacCol.SelectedIndex = 0
-        cmbbxDeptCol.SelectedIndex = 0
-        cmbbxCourseCol.SelectedIndex = 0
+        If (cmbbxCourseCol.Items.Count <> 0) Then
+            cmbbxFacCol.SelectedIndex = 0
+        End If
+
+        If (cmbbxDeptCol.Items.Count <> 0) Then
+            cmbbxDeptCol.SelectedIndex = 0
+        End If
+        If (cmbbxCourseCol.Items.Count <> 0) Then
+            cmbbxCourseCol.SelectedIndex = 0
+        End If
+
+        year = dbAccess.Get_Multiple_Row_Data("Select concat(yearstart, ' - ', yearend) from academicyear")
+        For i As Integer = 0 To year.Count - 1
+            cmbbxAcadYear.Items.Add(year(i))
+        Next
+
+        If (cmbbxAcadYear.Items.Count <> 0) Then
+            cmbbxAcadYear.SelectedIndex = 0
+        End If
 
         rbttnUndergrad.Checked = True
 
@@ -147,7 +164,7 @@
 
 
     Private Sub txtbxIDNumber_TextChanged(sender As Object, e As EventArgs) Handles txtbxIDNumber.TextChanged
-
+        validateInput("0123456789", e)
     End Sub
 
     Private Sub Button1_Click_3(sender As Object, e As EventArgs)
@@ -540,13 +557,8 @@
         End If
     End Sub
 
-    Private Sub txtbxDeptName_TextChanged(sender As Object, e As EventArgs) Handles txtbxDeptName.TextChanged
 
-    End Sub
 
-    Private Sub TabPage6_Click(sender As Object, e As EventArgs) Handles TabPage6.Click
-
-    End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles bttnBackTerm.Click
         Me.Close()
@@ -569,6 +581,112 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles bttnAddTerm.Click
-        MsgBox("Are you sure you want to add a new term and delete the old one?")
+
+
+        Dim Term As Integer = Nothing
+        Dim YearID As Integer = Nothing
+        Dim TermDate As Integer = Nothing
+        Dim TermStatus As New List(Of Object)
+        Dim YearStatus As String = Nothing
+
+        If (txtbxTerm.Text <> Nothing) Then
+
+            YearID = dbAccess.Get_Data("Select yearid from academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'", "yearid")
+            Term = dbAccess.Get_Data("Select term_no from term where Term_no = '" & txtbxTerm.Text & "' and yearid = '" & YearID & "'", "term_no")
+            TermDate = dbAccess.Get_Data("Select termid from term where '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "' between start and end and '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "' between start and end", "termid")
+            YearStatus = dbAccess.Get_Data("Select status from academicyear where yearid = '" & YearID & "'", "status")
+            MsgBox(YearStatus)
+            If (dtpStart.Value.Date.ToString("yyyy-MM-dd") >= dtpEnd.Value.Date.ToString("yyyy-MM-dd")) Then
+                TermDate = 1
+            End If
+
+            If (Term = Nothing) Then
+                If (TermDate = Nothing) Then
+
+                    If (YearStatus = "A") Then
+
+                        TermStatus = dbAccess.Get_Multiple_Row_Data("Select termid from term where status = 'A'")
+
+                        For i As Integer = 0 To TermStatus.Count - 1
+                            dbAccess.Update_Data("UPDATE `introse`.`term` SET `status`='R' WHERE `termid`='" & TermStatus(i) & "';")
+                        Next
+
+                        dbAccess.Add_Data("INSERT INTO `introse`.`term` (`yearid`, `term_no`, `start`, `end`, `status`) VALUES ('" & YearID & "', '" & txtbxTerm.Text & "', '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "', '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "', 'A');")
+                        txtbxTerm.Text = Nothing
+                    Else
+
+                        MsgBox("Academic Year chosen is already finished. Try again.")
+
+                    End If
+                Else
+                    MsgBox("Invalid Date inputs. Try again.")
+                End If
+
+            Else
+                MsgBox("Term already exists in this Academic Year. Try again.")
+
+            End If
+
+        Else
+            MsgBox("Term textbox is empty. Try again.")
+        End If
+
+
+
+
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
+        OpenFileDialog1.Title = "Open Excel File"
+        OpenFileDialog1.Filter = "Microsoft Excel|*.xl*"
+        OpenFileDialog1.ShowDialog()
+
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Close()
+    End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim YearStart As Integer = Convert.ToInt32(txtbxYearStart.Text)
+        Dim YearEnd As Integer = Convert.ToInt32(txtbxYearEnd.Text)
+        Dim YearID As New List(Of Object)
+
+        If (txtbxYearStart.Text <> Nothing And txtbxYearEnd.Text <> Nothing) Then
+
+            If (YearStart >= YearEnd) Then
+                MsgBox("Invalid Year Inputs. Try again.")
+
+            Else
+
+                YearID = dbAccess.Get_Multiple_Row_Data("select yearid from academicyear where status = 'A'")
+
+                For i As Integer = 0 To YearID.Count - 1
+                    dbAccess.Update_Data("UPDATE `introse`.`academicyear` SET `status`='R' WHERE `termid`='" & YearID(i) & "';")
+                Next
+
+                dbAccess.Add_Data("INSERT INTO `introse`.`academicyear` (`yearstart`, `yearend`, `status`) VALUES ('" & YearStart & "', '" & YearEnd & "', 'A');")
+                txtbxYearStart.Text = Nothing
+                txtbxYearEnd.Text = Nothing
+
+            End If
+
+        Else
+            MsgBox("Some Textboxes are empty. Try again.")
+
+        End If
+
+    End Sub
+
+    Private Sub txtbxYearStart_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxYearStart.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub txtbxYearEnd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxYearEnd.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub txtbxTerm_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxTerm.KeyPress
+        validateInput("0123456789", e)
     End Sub
 End Class
