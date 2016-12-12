@@ -454,9 +454,9 @@
         If (tempBoolean) Then
             wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
             Me.Close()
-        Else
-            bttnAdd.Enabled = False
-            bttnAddClear.Enabled = False
+            'Else
+            '    bttnAdd.Enabled = False
+            '    bttnAddClear.Enabled = False
         End If
 
     End Sub
@@ -485,9 +485,9 @@
             Check_Enable()
             Check_Element_Enable()
             wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
-        Else
-            bttnAdd.Enabled = False
-            bttnAddClear.Enabled = False
+            'Else
+            '    bttnAdd.Enabled = False
+            '    bttnAddClear.Enabled = False
         End If
 
     End Sub
