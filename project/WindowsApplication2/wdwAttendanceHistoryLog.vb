@@ -208,31 +208,36 @@
     End Sub
 
     Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
-        rindexValue = e.RowIndex
-        With grid
-            rowData.Clear()
-            Dim selectedRow As DataGridViewRow
-            Dim colCount As Integer
-            colCount = grid.ColumnCount
-            If .SelectedRows.Count = 0 Then
-                MsgBox("No rows selected!", MsgBoxStyle.Critical, "")
+        Try
+            rindexValue = e.RowIndex
+            With grid
+                rowData.Clear()
+                Dim selectedRow As DataGridViewRow
+                Dim colCount As Integer
+                colCount = grid.ColumnCount
+                If .SelectedRows.Count = 0 Then
+                    MsgBox("No rows selected!", MsgBoxStyle.Critical, "")
 
-            ElseIf .SelectedRows.Count = 1 Then
-                selectedRow = grid.Rows(rindexValue)
+                ElseIf .SelectedRows.Count = 1 Then
+                    selectedRow = grid.Rows(rindexValue)
 
-                For ctr As Integer = 0 To colCount - 1
-                    If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
-                        MsgBox("Missing data!", MsgBoxStyle.Critical, "")
-                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
-                    Else
-                        rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+                    For ctr As Integer = 0 To colCount - 1
+                        If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
+                            MsgBox("Missing data!", MsgBoxStyle.Critical, "")
+                            rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+                        Else
+                            rowData.Add(selectedRow.Cells(ctr).Value.ToString)
 
-                    End If
-                Next
-            Else
-                MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
+                        End If
+                    Next
+                Else
+                    MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
 
-            End If
-        End With
+                End If
+            End With
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class
