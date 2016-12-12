@@ -283,13 +283,6 @@
                     tempEnd -= (tempMinutes + 40)
                 End If
 
-                Dim Hours As Integer = endTime / 100 - startTime / 100
-                Dim Minutes As Integer = endTime Mod 100 - startTime Mod 100
-                While (Hours > 0)
-                    Minutes = 60 + Minutes
-                    Hours -= 1
-                End While
-
                 wholeNumber = (tempEnd - tempStart) / 100
 
                 If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
@@ -302,13 +295,10 @@
                     MsgBox("Start Time cannot be ahead of End Time!", MsgBoxStyle.Critical, "")
                     Return False
                 ElseIf (startTime = endTime) Then
-                    MsgBox("Start and End Time cannot be at the same time!", MsgBoxStyle.Critical, "")
+                    MsgBox("Start and end time cannot be at the same time!", MsgBoxStyle.Critical, "")
                     Return False
-                ElseIf (Minutes < 90) Then
-                    MsgBox("Makeup hours is less than 1 hour and 30 minutes!", MsgBoxStyle.Critical, "")
-                    Return False
-                ElseIf ((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) > absentHours) Then
-                    MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")
+                ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) Or Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
+                    MsgBox("Makeup hours is not exact!", MsgBoxStyle.Critical, "")
                     Return False
                 Else
                     makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
