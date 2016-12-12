@@ -454,6 +454,14 @@
                         tempStart -= tempMinutes
                         tempEnd -= (tempMinutes + 40)
                     End If
+
+                    Dim Hours As Integer = endTime / 100 - startTime / 100
+                    Dim Minutes As Integer = endTime Mod 100 - startTime Mod 100
+                    While (Hours > 0)
+                        Minutes = 60 + Minutes
+                        Hours -= 1
+                    End While
+
                     wholeNumber = (tempEnd - tempStart) / 100
 
                     If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
@@ -464,6 +472,8 @@
                         MsgBox("Start Time cannot be ahead of End Time!", MsgBoxStyle.Critical, "")
                     ElseIf (startTime = endTime) Then
                         MsgBox("Start and End Time cannot be at the same time!", MsgBoxStyle.Critical, "")
+                    ElseIf (Minutes < 90) Then
+                        MsgBox("Makeup hours is less than 1 hour and 30 minutes!", MsgBoxStyle.Critical, "")
                     ElseIf ((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) > absentHours) Then
                         MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")
                     Else

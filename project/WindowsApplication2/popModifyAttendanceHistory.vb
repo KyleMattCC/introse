@@ -497,8 +497,6 @@
                     txtbxStart.Clear()
                     txtbxEnd.Clear()
                     txtbxChecker.Clear()
-                Else
-                    bttnAdd.Enabled = False
 
                 End If
             End If
