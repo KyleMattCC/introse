@@ -10,18 +10,19 @@
         End If
 
     End Sub
-    Private Function Check_Entry(absent As String, courseofferingid As String, stat As String, remarks As String, checker As String) As Boolean
+    Private Function Check_Entry(absent As String, courseofferingid As String, stat As String) As Boolean
         Dim att As String = ""
         Dim b As Boolean = False
-        att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "' and remarks_cd = '" & remarks & "' and checker = '" & checker & "';", "attendanceid")
+        att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
         If String.IsNullOrEmpty(att) Then
             b = True
         Else
-            MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
+            MsgBox("Duplicate attendance!", MsgBoxStyle.Critical, "")
         End If
         Return b
 
     End Function
+
     Private Sub Check_Enable()
         If String.IsNullOrEmpty(txtbxFacID.Text) Or String.IsNullOrEmpty(txtbxName.Text) Or cmbbxCourse.SelectedIndex = -1 Or cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.SelectedIndex = -1 Or cmbbxSection.SelectedIndex = -1 Or cmbbxRemarks.SelectedIndex = -1 Or String.IsNullOrEmpty(txtbxChecker.Text) Then
             bttnAdd.Enabled = False
@@ -480,7 +481,7 @@
                 courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.termid = '" & termid & "' and c.section = '" & section & "';", "courseoffering_id")
                 attStatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
-                If (Check_Entry(absentDate, courseOfferingId, "A", rem_code, checker) = True And Check_Entry(absentDate, courseOfferingId, "R", rem_code, checker) = True) Then
+                If (Check_Entry(absentDate, courseOfferingId, "A") = True And Check_Entry(absentDate, courseOfferingId, "R") = True) Then
                     dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & rem_code & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = '" & attStatus & "';")
                     wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
                     Me.Close()

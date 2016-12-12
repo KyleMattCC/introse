@@ -291,6 +291,9 @@
                 ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                     MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
                     Return False
+                ElseIf (startTime > endTime) Then
+                    MsgBox("Start Time cannot be ahead of End Time!", MsgBoxStyle.Critical, "")
+                    Return False
                 ElseIf (startTime = endTime) Then
                     MsgBox("Start and End Time cannot be at the same time!", MsgBoxStyle.Critical, "")
                     Return False
