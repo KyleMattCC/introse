@@ -134,9 +134,9 @@
             If AttendanceView = True Then
                 wdwMoreInfo.Load_Attendance_Form(rowData)
             ElseIf makeupview = True Then
-                wdwMoreInfo.Load_Makeup_Form(rowData)
+                wdwMoreInfoMakeupClass.Load_Makeup_Form(rowData)
             End If
-            wdwMoreInfo.Show()
+
             Me.Enabled = False
         Catch ex As Exception
 

@@ -51,24 +51,38 @@
             dtp.Enabled = False
             cmbbxReason.SelectedIndex = -1
             cmbbxReason.Enabled = False
+            txtbxRoom.Enabled = False
+            txtbxStart.Enabled = False
+            txtbxEnd.Enabled = False
+
         End If
 
         If cmbbxTerm.SelectedIndex = -1 Or cmbbxCourse.Items.Count = 0 Then
+            dtp.Enabled = False
             cmbbxCourse.Enabled = False
             cmbbxSec.Enabled = False
             cmbbxReason.SelectedIndex = -1
             cmbbxReason.Enabled = False
+            txtbxRoom.Enabled = False
+            txtbxStart.Enabled = False
+            txtbxEnd.Enabled = False
         End If
 
         If cmbbxCourse.SelectedIndex = -1 Or cmbbxSec.Items.Count = 0 Then
             cmbbxSec.Enabled = False
             cmbbxReason.SelectedIndex = -1
             cmbbxReason.Enabled = False
+            'txtbxRoom.Enabled = False
+            'txtbxStart.Enabled = False
+            'txtbxEnd.Enabled = False
         End If
 
         If cmbbxSec.SelectedIndex = -1 Then
             cmbbxReason.SelectedIndex = -1
             cmbbxReason.Enabled = False
+            'txtbxRoom.Enabled = False
+            'txtbxStart.Enabled = False
+            'txtbxEnd.Enabled = False
         End If
 
 
@@ -155,7 +169,7 @@
             years = schoolYear.Split("-")
             yearid = dbAccess.Get_Data("select yearid from introse.academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
             termno = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where status = 'A' and yearid = '" & yearid & "';")
-            dtp.Enabled = True
+
 
             For j As Integer = 0 To termno.Count - 1
                 combo.Items.Add(termno(j))
@@ -214,6 +228,7 @@
             For ctr As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(ctr))
             Next
+            dtp.Enabled = True
         Catch ex As Exception
 
         End Try
@@ -275,6 +290,9 @@
                     Return False
                 ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                     MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
+                    Return False
+                ElseIf (startTime = endTime) Then
+                    MsgBox("Start and End Time cannot be at the same time!", MsgBoxStyle.Critical, "")
                     Return False
                 ElseIf ((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) > absentHours) Then
                     MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")

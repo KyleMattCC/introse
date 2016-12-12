@@ -100,7 +100,7 @@
             For j As Integer = 0 To termno.Count - 1
                 combo.Items.Add(termno(j))
             Next
-            dtp.Enabled = True
+
         Catch ex As Exception
 
         End Try
@@ -153,6 +153,7 @@
             For ctr As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(ctr))
             Next
+            dtp.Enabled = True
         Catch ex As Exception
 
         End Try
@@ -324,6 +325,7 @@
 
         End If
         If cmbbxTerm.SelectedIndex = -1 Or cmbbxCourse.Items.Count = 0 Then
+            dtp.Enabled = False
             cmbbxCourse.Enabled = False
             cmbbxSection.Enabled = False
             cmbbxRemarks.SelectedIndex = -1

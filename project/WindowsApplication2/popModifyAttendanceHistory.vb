@@ -60,6 +60,7 @@
 
         End If
         If cmbbxTerm.SelectedIndex = -1 Or cmbbxCourse.Items.Count = 0 Then
+            dtp.Enabled = False
             cmbbxCourse.Enabled = False
             cmbbxSection.Enabled = False
             cmbbxRemarks.SelectedIndex = -1
@@ -160,7 +161,6 @@
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
-                dtp.Enabled = True
                 cmbbxSY.Enabled = True
             Else
                 text.Text = fname + " " + MI + " " + lname
@@ -238,6 +238,8 @@
             For j As Integer = 0 To coursecode.Count - 1
                 combo.Items.Add(coursecode(j))
             Next
+            dtp.Enabled = True
+
         Catch ex As Exception
 
         End Try

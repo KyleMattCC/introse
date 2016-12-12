@@ -96,7 +96,7 @@ Partial Class wdwMoreInfo
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(73, 99)
+        Me.Label3.Location = New System.Drawing.Point(73, 129)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(120, 20)
         Me.Label3.TabIndex = 164
@@ -106,7 +106,7 @@ Partial Class wdwMoreInfo
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(110, 129)
+        Me.Label4.Location = New System.Drawing.Point(110, 99)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(83, 20)
         Me.Label4.TabIndex = 165
@@ -136,7 +136,7 @@ Partial Class wdwMoreInfo
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(48, 189)
+        Me.Label8.Location = New System.Drawing.Point(48, 159)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(145, 20)
         Me.Label8.TabIndex = 168
@@ -146,7 +146,7 @@ Partial Class wdwMoreInfo
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(132, 159)
+        Me.Label9.Location = New System.Drawing.Point(132, 189)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(61, 20)
         Me.Label9.TabIndex = 169
@@ -301,7 +301,7 @@ Partial Class wdwMoreInfo
         '
         Me.txtbxSY.Enabled = False
         Me.txtbxSY.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxSY.Location = New System.Drawing.Point(199, 189)
+        Me.txtbxSY.Location = New System.Drawing.Point(199, 159)
         Me.txtbxSY.Name = "txtbxSY"
         Me.txtbxSY.Size = New System.Drawing.Size(165, 26)
         Me.txtbxSY.TabIndex = 187
@@ -310,7 +310,7 @@ Partial Class wdwMoreInfo
         '
         Me.txtbxTerm.Enabled = False
         Me.txtbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxTerm.Location = New System.Drawing.Point(199, 159)
+        Me.txtbxTerm.Location = New System.Drawing.Point(199, 189)
         Me.txtbxTerm.Name = "txtbxTerm"
         Me.txtbxTerm.Size = New System.Drawing.Size(165, 26)
         Me.txtbxTerm.TabIndex = 188
@@ -319,7 +319,7 @@ Partial Class wdwMoreInfo
         '
         Me.txtbxCollege.Enabled = False
         Me.txtbxCollege.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxCollege.Location = New System.Drawing.Point(199, 129)
+        Me.txtbxCollege.Location = New System.Drawing.Point(199, 99)
         Me.txtbxCollege.Name = "txtbxCollege"
         Me.txtbxCollege.Size = New System.Drawing.Size(313, 26)
         Me.txtbxCollege.TabIndex = 189
@@ -328,7 +328,7 @@ Partial Class wdwMoreInfo
         '
         Me.txtbxDept.Enabled = False
         Me.txtbxDept.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxDept.Location = New System.Drawing.Point(199, 99)
+        Me.txtbxDept.Location = New System.Drawing.Point(199, 129)
         Me.txtbxDept.Name = "txtbxDept"
         Me.txtbxDept.Size = New System.Drawing.Size(313, 26)
         Me.txtbxDept.TabIndex = 190
@@ -467,6 +467,7 @@ Partial Class wdwMoreInfo
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label5)
         Me.Name = "wdwMoreInfo"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "More Information"
         Me.ResumeLayout(False)
         Me.PerformLayout()
