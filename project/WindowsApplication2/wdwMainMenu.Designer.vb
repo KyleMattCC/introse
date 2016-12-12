@@ -33,27 +33,29 @@ Partial Class wdwMainMenu
         Me.bttnHistory = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'bttnDailyAtt
         '
         Me.bttnDailyAtt.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnDailyAtt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(113, Byte), Integer), CType(CType(78, Byte), Integer))
+        Me.bttnDailyAtt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bttnDailyAtt.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnDailyAtt.Location = New System.Drawing.Point(44, 75)
         Me.bttnDailyAtt.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -66,6 +68,8 @@ Partial Class wdwMainMenu
         'bttnMakeUp
         '
         Me.bttnMakeUp.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnMakeUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(113, Byte), Integer), CType(CType(78, Byte), Integer))
+        Me.bttnMakeUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bttnMakeUp.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnMakeUp.Location = New System.Drawing.Point(308, 75)
         Me.bttnMakeUp.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -78,6 +82,8 @@ Partial Class wdwMainMenu
         'bttnAddAccount
         '
         Me.bttnAddAccount.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnAddAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(113, Byte), Integer), CType(CType(78, Byte), Integer))
+        Me.bttnAddAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bttnAddAccount.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAddAccount.Location = New System.Drawing.Point(44, 744)
         Me.bttnAddAccount.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -90,6 +96,8 @@ Partial Class wdwMainMenu
         'bttnNotice
         '
         Me.bttnNotice.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnNotice.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(113, Byte), Integer), CType(CType(78, Byte), Integer))
+        Me.bttnNotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bttnNotice.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnNotice.Location = New System.Drawing.Point(308, 301)
         Me.bttnNotice.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -102,6 +110,8 @@ Partial Class wdwMainMenu
         'bttnReport
         '
         Me.bttnReport.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(113, Byte), Integer), CType(CType(78, Byte), Integer))
+        Me.bttnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bttnReport.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnReport.Location = New System.Drawing.Point(47, 301)
         Me.bttnReport.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -113,6 +123,9 @@ Partial Class wdwMainMenu
         '
         'bttnExit
         '
+        Me.bttnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.bttnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.bttnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bttnExit.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnExit.Location = New System.Drawing.Point(1689, 25)
         Me.bttnExit.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -125,6 +138,8 @@ Partial Class wdwMainMenu
         'bttnTermPlantilla
         '
         Me.bttnTermPlantilla.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnTermPlantilla.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(113, Byte), Integer), CType(CType(78, Byte), Integer))
+        Me.bttnTermPlantilla.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bttnTermPlantilla.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnTermPlantilla.Location = New System.Drawing.Point(44, 523)
         Me.bttnTermPlantilla.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -137,6 +152,8 @@ Partial Class wdwMainMenu
         'bttnHistory
         '
         Me.bttnHistory.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnHistory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(113, Byte), Integer), CType(CType(78, Byte), Integer))
+        Me.bttnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bttnHistory.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnHistory.Location = New System.Drawing.Point(308, 523)
         Me.bttnHistory.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -149,6 +166,8 @@ Partial Class wdwMainMenu
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(113, Byte), Integer), CType(CType(78, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(308, 744)
         Me.Button1.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -182,6 +201,33 @@ Partial Class wdwMainMenu
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(567, 779)
         Me.Panel1.TabIndex = 21
+        '
+        'Panel7
+        '
+        Me.Panel7.Location = New System.Drawing.Point(0, 896)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(546, 60)
+        Me.Panel7.TabIndex = 25
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(19, Byte), Integer), CType(CType(98, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.Label1)
+        Me.Panel3.Location = New System.Drawing.Point(0, 1)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(544, 57)
+        Me.Panel3.TabIndex = 21
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Eras Bold ITC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(38, 13)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(179, 35)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Data Entry"
         '
         'Panel6
         '
@@ -243,26 +289,6 @@ Partial Class wdwMainMenu
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Generate"
         '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(19, Byte), Integer), CType(CType(98, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Location = New System.Drawing.Point(0, 1)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(544, 57)
-        Me.Panel3.TabIndex = 21
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Eras Bold ITC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(38, 13)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(179, 35)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Data Entry"
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
@@ -273,18 +299,13 @@ Partial Class wdwMainMenu
         Me.Panel2.Size = New System.Drawing.Size(1710, 86)
         Me.Panel2.TabIndex = 22
         '
-        'Panel7
-        '
-        Me.Panel7.Location = New System.Drawing.Point(0, 896)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(546, 60)
-        Me.Panel7.TabIndex = 25
-        '
         'wdwMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1710, 865)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -299,14 +320,14 @@ Partial Class wdwMainMenu
         Me.Text = "Main Menu"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 

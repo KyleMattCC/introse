@@ -51,12 +51,6 @@
 
 
     End Sub
-
-    Private Sub bttnClear_Click(sender As Object, e As EventArgs)
-        txtbxPass.Text = Nothing
-        txtbxUser.Text = Nothing
-    End Sub
-
     Private Sub txtbxPass_TextChanged(sender As Object, e As EventArgs) Handles txtbxPass.TextChanged
         txtbxPass.PasswordChar = "*"
     End Sub

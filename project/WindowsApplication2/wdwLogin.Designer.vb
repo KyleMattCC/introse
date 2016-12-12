@@ -59,20 +59,20 @@ Partial Class wdwLogin
         '
         'txtbxUser
         '
-        Me.txtbxUser.Font = New System.Drawing.Font("Franklin Gothic Medium Cond", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxUser.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxUser.Location = New System.Drawing.Point(253, 243)
         Me.txtbxUser.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxUser.Name = "txtbxUser"
-        Me.txtbxUser.Size = New System.Drawing.Size(465, 30)
+        Me.txtbxUser.Size = New System.Drawing.Size(465, 32)
         Me.txtbxUser.TabIndex = 2
         '
         'txtbxPass
         '
-        Me.txtbxPass.Font = New System.Drawing.Font("Franklin Gothic Medium Cond", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxPass.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxPass.Location = New System.Drawing.Point(253, 317)
         Me.txtbxPass.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxPass.Name = "txtbxPass"
-        Me.txtbxPass.Size = New System.Drawing.Size(465, 30)
+        Me.txtbxPass.Size = New System.Drawing.Size(465, 32)
         Me.txtbxPass.TabIndex = 3
         '
         'bttnLogin
@@ -100,7 +100,7 @@ Partial Class wdwLogin
         Me.Controls.Add(Me.txtbxUser)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "wdwLogin"

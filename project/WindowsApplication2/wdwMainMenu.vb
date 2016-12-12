@@ -4,9 +4,11 @@
     End Sub
 
     Private Sub bttnDailyAtt_Click_1(sender As Object, e As EventArgs) Handles bttnDailyAtt.Click
+
         wdwDailyAttendanceLog.MdiParent = Me
         wdwDailyAttendanceLog.WindowState = FormWindowState.Normal
         wdwDailyAttendanceLog.Show()
+
     End Sub
 
     Private Sub bttnMakeUp_Click(sender As Object, e As EventArgs) Handles bttnMakeUp.Click
