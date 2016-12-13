@@ -38,7 +38,7 @@ Partial Class wdwReportGen
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(1084, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1084, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -46,14 +46,14 @@ Partial Class wdwReportGen
         '
         Me.EmailToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmailToolStripMenuItem.Name = "EmailToolStripMenuItem"
-        Me.EmailToolStripMenuItem.Size = New System.Drawing.Size(69, 24)
+        Me.EmailToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
         Me.EmailToolStripMenuItem.Text = "Email"
         '
         'BackToolStripMenuItem
         '
         Me.BackToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
-        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(67, 24)
+        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
         Me.BackToolStripMenuItem.Text = "Close"
         '
         'pdfViewer
@@ -62,14 +62,14 @@ Partial Class wdwReportGen
         Me.pdfViewer.Location = New System.Drawing.Point(0, 27)
         Me.pdfViewer.Name = "pdfViewer"
         Me.pdfViewer.OcxState = CType(resources.GetObject("pdfViewer.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.pdfViewer.Size = New System.Drawing.Size(1105, 666)
+        Me.pdfViewer.Size = New System.Drawing.Size(1084, 666)
         Me.pdfViewer.TabIndex = 2
         '
         'wdwReportGen
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1084, 873)
+        Me.ClientSize = New System.Drawing.Size(1084, 695)
         Me.Controls.Add(Me.pdfViewer)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

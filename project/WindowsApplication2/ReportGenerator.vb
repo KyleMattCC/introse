@@ -19,7 +19,7 @@ Public Class reportGenerator
         Try
             Dim fileName As String = "C:\Fams Reports\" & encdate.ToString("MM-dd-yyyy") & " " & name & ".pdf"
 
-            Dim pdfDoc As New Document()
+            Dim pdfDoc As New Document(PageSize.A4, 20.0F, 20.0F, 20.0F, 20.0F)
             Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(fileName, FileMode.Create))
 
             Dim fntTableFontHdr As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.BOLD, BaseColor.BLACK)
@@ -44,17 +44,17 @@ Public Class reportGenerator
             table.SpacingAfter = 10
             table.HorizontalAlignment = 1
             table.DefaultCell.Padding = 3
-            table.WidthPercentage = 100
+            table.WidthPercentage = 400.0F
             table.HorizontalAlignment = Element.ALIGN_LEFT
             table.DefaultCell.BorderWidth = 1
             Dim sglTblHdWidths(6) As Single
-            sglTblHdWidths(0) = 130
-            sglTblHdWidths(1) = 100
-            sglTblHdWidths(2) = 75
-            sglTblHdWidths(3) = 100
-            sglTblHdWidths(4) = 85
-            sglTblHdWidths(5) = 190
-            sglTblHdWidths(6) = 100
+            sglTblHdWidths(0) = 130.0F
+            sglTblHdWidths(1) = 100.0F
+            sglTblHdWidths(2) = 75.0F
+            sglTblHdWidths(3) = 100.0F
+            sglTblHdWidths(4) = 85.0F
+            sglTblHdWidths(5) = 190.0F
+            sglTblHdWidths(6) = 100.0F
             table.SetWidths(sglTblHdWidths)
             table.AddCell(New Phrase("Absent Date", fntTableFontHdr))
             table.AddCell(New Phrase("Course", fntTableFontHdr))
@@ -127,7 +127,7 @@ Public Class reportGenerator
         Try
             Dim fileName As String = "C:\Fams Reports\" & encDate.ToString("MM-dd-yyyy") & " Daily-Report.pdf"
             Dim pageNo As Integer = 1
-            Dim pdfDoc As New Document()
+            Dim pdfDoc As New Document(PageSize.A4, 20.0F, 20.0F, 20.0F, 20.0F)
             Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(fileName, FileMode.Create))
             Dim collegeGroup As String = Nothing
             Dim deptGroup As String = Nothing
@@ -175,97 +175,103 @@ Public Class reportGenerator
                 System.Windows.Forms.MessageBox.Show(ex.Message)
             End Try
 
-            Dim ctrLines As Integer = 0
-            Dim ctr As Integer = 0
-            While ctr < reportColumns.Count - 1
-                Dim pageHeader As New Paragraph("Page " & pageNo, fntTableFontHdr)
-                pageHeader.Alignment = 2
-                pdfDoc.Add(pageHeader)
-                pdfDoc.Add(New Paragraph(""))
-                pdfDoc.Add(New Paragraph("To:", fntTableFontHdr))
-                pdfDoc.Add(New Paragraph(" "))
-                Dim header1 As New Paragraph(header, fntTableFontHdr)
-                header1.Alignment = 1
-                Dim header2 As New Paragraph(encDate.ToLongDateString, fntTableFontHdr)
-                header2.Alignment = 1
-                Dim header3 As New Paragraph("TERM " & termAY(0) & ", SY " & termAY(1) & " - " & termAY(2), fntTableFontHdr)
-                header3.Alignment = 1
-                pdfDoc.Add(header1)
-                pdfDoc.Add(header2)
-                pdfDoc.Add(header3)
-                pdfDoc.Add(New Paragraph(""))
+            If reportColumns.Count = 0 Then
+                MsgBox("No existing record to be generated!", MsgBoxStyle.OkOnly, "")
+                Return False
+            Else
+                Dim ctrLines As Integer = 0
+                Dim ctr As Integer = 0
+                While ctr < reportColumns.Count - 1
+                    Dim pageHeader As New Paragraph("Page " & pageNo, fntTableFontHdr)
+                    pageHeader.Alignment = 2
+                    pdfDoc.Add(pageHeader)
+                    pdfDoc.Add(New Paragraph(""))
+                    pdfDoc.Add(New Paragraph("To:", fntTableFontHdr))
+                    pdfDoc.Add(New Paragraph(" "))
+                    Dim header1 As New Paragraph(header, fntTableFontHdr)
+                    header1.Alignment = 1
+                    Dim header2 As New Paragraph(encDate.ToLongDateString, fntTableFontHdr)
+                    header2.Alignment = 1
+                    Dim header3 As New Paragraph("TERM " & termAY(0) & ", SY " & termAY(1) & " - " & termAY(2), fntTableFontHdr)
+                    header3.Alignment = 1
+                    pdfDoc.Add(header1)
+                    pdfDoc.Add(header2)
+                    pdfDoc.Add(header3)
+                    pdfDoc.Add(New Paragraph(""))
 
-                Dim table As New PdfPTable(6)
-                table.SpacingBefore = 10
-                table.SpacingAfter = 10
-                table.HorizontalAlignment = 1
-                table.DefaultCell.Padding = 3
-                table.WidthPercentage = 100
-                table.HorizontalAlignment = Element.ALIGN_LEFT
-                table.DefaultCell.BorderWidth = 1
-                Dim sglTblHdWidths(5) As Single
-                sglTblHdWidths(0) = 200
-                sglTblHdWidths(1) = 90
-                sglTblHdWidths(2) = 75
-                sglTblHdWidths(3) = 85
-                sglTblHdWidths(4) = 100
-                sglTblHdWidths(5) = 190
-                table.SetWidths(sglTblHdWidths)
-                table.AddCell(New Phrase("", fntTableFontHdr))
-                table.AddCell(New Phrase("Course", fntTableFontHdr))
-                table.AddCell(New Phrase("Section", fntTableFontHdr))
-                table.AddCell(New Phrase("Room", fntTableFontHdr))
-                table.AddCell(New Phrase("Time", fntTableFontHdr))
-                table.AddCell(New Phrase("Remarks", fntTableFontHdr))
+                    Dim table As New PdfPTable(6)
+                    table.SpacingBefore = 10
+                    table.SpacingAfter = 10
+                    table.HorizontalAlignment = 1
+                    table.DefaultCell.Padding = 3
+                    table.WidthPercentage = 400.0F
+                    table.HorizontalAlignment = Element.ALIGN_LEFT
+                    table.DefaultCell.BorderWidth = 1
+                    Dim sglTblHdWidths(5) As Single
+                    sglTblHdWidths(0) = 200.0F
+                    sglTblHdWidths(1) = 90.0F
+                    sglTblHdWidths(2) = 75.0F
+                    sglTblHdWidths(3) = 85.0F
+                    sglTblHdWidths(4) = 100.0F
+                    sglTblHdWidths(5) = 190.0F
+                    table.SetWidths(sglTblHdWidths)
+                    table.AddCell(New Phrase("", fntTableFontHdr))
+                    table.AddCell(New Phrase("Course", fntTableFontHdr))
+                    table.AddCell(New Phrase("Section", fntTableFontHdr))
+                    table.AddCell(New Phrase("Room", fntTableFontHdr))
+                    table.AddCell(New Phrase("Time", fntTableFontHdr))
+                    table.AddCell(New Phrase("Remarks", fntTableFontHdr))
 
-                While ctrLines <= 30 And ctr < reportColumns.Count - 1
-                    If Not (reportColumns(ctr).Equals(collegeGroup)) Then
-                        Dim colCell As New PdfPCell(New Phrase(reportColumns(ctr), fntTableFontHdr))
-                        colCell.Colspan = 6
-                        colCell.HorizontalAlignment = 1
-                        table.AddCell(colCell)
+                    While ctrLines <= 30 And ctr < reportColumns.Count - 1
+                        If Not (reportColumns(ctr).Equals(collegeGroup)) Then
+                            Dim colCell As New PdfPCell(New Phrase(reportColumns(ctr), fntTableFontHdr))
+                            colCell.Colspan = 6
+                            colCell.HorizontalAlignment = 1
+                            table.AddCell(colCell)
+                            ctrLines += 1
+                            collegeGroup = reportColumns(ctr)
+                        End If
+                        ctr += 1
+                        If Not (reportColumns(ctr).Equals(deptGroup)) Then
+                            Dim depCell As New PdfPCell(New Phrase(reportColumns(ctr), fntTableFontHdr))
+                            depCell.Colspan = 6
+                            depCell.HorizontalAlignment = 0
+                            table.AddCell(depCell)
+                            ctrLines += 1
+                            deptGroup = reportColumns(ctr)
+                        End If
+                        ctr += 1
+                        table.AddCell(New Phrase(reportColumns(ctr), fntTableFont))
+                        table.AddCell(New Phrase(reportColumns(ctr + 1), fntTableFont))
+                        table.AddCell(New Phrase(reportColumns(ctr + 2), fntTableFont))
+                        table.AddCell(New Phrase(reportColumns(ctr + 3), fntTableFont))
+                        table.AddCell(New Phrase(reportColumns(ctr + 4) & "-" & reportColumns(ctr + 5), fntTableFont))
+                        table.AddCell(New Phrase(reportColumns(ctr + 6), fntTableFont))
+                        ctr += 7
                         ctrLines += 1
-                        collegeGroup = reportColumns(ctr)
-                    End If
-                    ctr += 1
-                    If Not (reportColumns(ctr).Equals(deptGroup)) Then
-                        Dim depCell As New PdfPCell(New Phrase(reportColumns(ctr), fntTableFontHdr))
-                        depCell.Colspan = 6
-                        depCell.HorizontalAlignment = 0
-                        table.AddCell(depCell)
-                        ctrLines += 1
-                        deptGroup = reportColumns(ctr)
-                    End If
-                    ctr += 1
-                    table.AddCell(New Phrase(reportColumns(ctr), fntTableFont))
-                    table.AddCell(New Phrase(reportColumns(ctr + 1), fntTableFont))
-                    table.AddCell(New Phrase(reportColumns(ctr + 2), fntTableFont))
-                    table.AddCell(New Phrase(reportColumns(ctr + 3), fntTableFont))
-                    table.AddCell(New Phrase(reportColumns(ctr + 4) & "-" & reportColumns(ctr + 5), fntTableFont))
-                    table.AddCell(New Phrase(reportColumns(ctr + 6), fntTableFont))
-                    ctr += 7
-                    ctrLines += 1
 
+                    End While
+                    pdfDoc.Add(table)
+                    ctrLines = 0
+                    pageNo += 1
+                    If ctr < reportColumns.Count - 1 Then
+                        pdfDoc.NewPage()
+                        collegeGroup = Nothing
+                        deptGroup = Nothing
+                    End If
                 End While
-                pdfDoc.Add(table)
-                ctrLines = 0
-                pageNo += 1
-                If ctr < reportColumns.Count - 1 Then
-                    pdfDoc.NewPage()
-                    collegeGroup = Nothing
-                    deptGroup = Nothing
-                End If
-            End While
-            pdfDoc.Close()
-            wdwReportGen.Load_Form(fileName, 2, "Registrar", Date.Now)
-            Return True
+                pdfDoc.Close()
+                wdwReportGen.Load_Form(fileName, 2, "Registrar", Date.Now)
+                Return True
+            End If
+
         Catch ex As Exception
             MsgBox("Notice generation failed!", MsgBoxStyle.Critical, "")
         End Try
         Return False
     End Function
 
-    Public Function Generate_College_Daily_Report(offeredType As Integer, encDate As Date) As Boolean
+    Public Function Generate_College_Daily_Report(college As String, offeredType As Integer, encDate As Date) As Boolean
         Try
             If Not Directory.Exists("C:\Fams Reports") Then
                 Directory.CreateDirectory("C:\Fams Reports")
@@ -278,10 +284,10 @@ Public Class reportGenerator
         End Try
 
         Try
-            Dim collegeGroup As String = wdwSelectReport.Get_Selected_College()
+            Dim collegeGroup As String = college
             Dim fileName As String = "C:\Fams Reports\" & encDate.ToString("MM-dd-yyyy") & " " & collegeGroup & " College-Daily-Report.pdf"
             Dim pageNo As Integer = 1
-            Dim pdfDoc As New Document()
+            Dim pdfDoc As New Document(PageSize.A4, 20.0F, 20.0F, 20.0F, 20.0F)
             Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(fileName, FileMode.Create))
             Dim deptGroup As String = Nothing
 
@@ -328,8 +334,8 @@ Public Class reportGenerator
             Catch ex As Exception
                 System.Windows.Forms.MessageBox.Show(ex.Message)
             End Try
-            If reportColumns.Count = 1 Then
-                MsgBox("No existing record to be generated!", MsgBoxStyle.Critical, "")
+            If reportColumns.Count = 0 Then
+                MsgBox("No existing record to be generated!", MsgBoxStyle.OkOnly, "")
                 Return False
             Else
                 Dim ctrLines As Integer = 0
@@ -357,16 +363,16 @@ Public Class reportGenerator
                     table.SpacingAfter = 10
                     table.HorizontalAlignment = 1
                     table.DefaultCell.Padding = 3
-                    table.WidthPercentage = 100
+                    table.WidthPercentage = 400.0F
                     table.HorizontalAlignment = Element.ALIGN_LEFT
                     table.DefaultCell.BorderWidth = 1
                     Dim sglTblHdWidths(5) As Single
-                    sglTblHdWidths(0) = 200
-                    sglTblHdWidths(1) = 90
-                    sglTblHdWidths(2) = 75
-                    sglTblHdWidths(3) = 85
-                    sglTblHdWidths(4) = 100
-                    sglTblHdWidths(5) = 190
+                    sglTblHdWidths(0) = 200.0F
+                    sglTblHdWidths(1) = 90.0F
+                    sglTblHdWidths(2) = 75.0F
+                    sglTblHdWidths(3) = 85.0F
+                    sglTblHdWidths(4) = 100.0F
+                    sglTblHdWidths(5) = 190.0F
                     table.SetWidths(sglTblHdWidths)
                     table.AddCell(New Phrase("", fntTableFontHdr))
                     table.AddCell(New Phrase("Course", fntTableFontHdr))
@@ -419,7 +425,7 @@ Public Class reportGenerator
         Return False
     End Function
 
-    Public Function Generate_Chair_Daily_Report(offeredType As Integer, encDate As Date) As Boolean
+    Public Function Generate_Chair_Daily_Report(department As String, offeredType As Integer, encDate As Date) As Boolean
         Try
             If Not Directory.Exists("C:\Fams Reports") Then
                 Directory.CreateDirectory("C:\Fams Reports")
@@ -432,7 +438,7 @@ Public Class reportGenerator
         End Try
 
         Try
-            Dim deptGroup As String = wdwSelectReport.Get_Selected_Chair()
+            Dim deptGroup As String = department
             Dim collegeGroup As String = Nothing
             Try
                 collegeGroup = dbAccess.Get_Data("select c.college_name from introse.college c, introse.department d where d.departmentname = '" & deptGroup & "' and d.college_code = c.college_code;", "college_name")
@@ -441,7 +447,7 @@ Public Class reportGenerator
             End Try
             Dim fileName As String = "C:\Fams Reports\" & encDate.ToString("MM-dd-yyyy") & " " & deptGroup & " Department-Daily-Report.pdf"
             Dim pageNo As Integer = 1
-            Dim pdfDoc As New Document()
+            Dim pdfDoc As New Document(PageSize.A4, 20.0F, 20.0F, 20.0F, 20.0F)
             Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(fileName, FileMode.Create))
 
             Dim fntTableFontHdr As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.BOLD, BaseColor.BLACK)
@@ -458,7 +464,7 @@ Public Class reportGenerator
                 query = "Select concat(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename), c.course_cd, co.section, co.room, co.timestart, co.timeend, r.remark_des
                          from introse.department dep, introse.faculty f, introse.course c, introse.courseoffering co, introse.remarks r, introse.attendance a
                          where co.status = 'A' and f.status = 'A' and a.status = 'A' and a.enc_date = '" & encDate.ToString("yyyy-MM-dd") & "' and a.courseoffering_id = co.courseoffering_id
-                         and a.remarks_cd = r.remark_cd and co.facref_no = f.facref_no and co.course_id = c.course_id and dep.departmentname = '" & deptGroup & "' and f.departmentid = dep.departmentid c.offered_to = 'U'
+                         and a.remarks_cd = r.remark_cd and co.facref_no = f.facref_no and co.course_id = c.course_id and dep.departmentname = '" & deptGroup & "' and f.departmentid = dep.departmentid and c.offered_to = 'U'
                          order by 1, 2, 3, c.offered_to;"
                 header = "Daily Faculty Attendance Report (Undergraduate)"
 
@@ -488,8 +494,8 @@ Public Class reportGenerator
             Catch ex As Exception
                 System.Windows.Forms.MessageBox.Show(ex.Message)
             End Try
-            If reportColumns.Count = 1 Then
-                MsgBox("No existing record to be generated!", MsgBoxStyle.Critical, "")
+            If reportColumns.Count = 0 Then
+                MsgBox("No existing record to be generated!", MsgBoxStyle.OkOnly, "")
                 Return False
             Else
                 Dim ctrLines As Integer = 0
@@ -517,16 +523,16 @@ Public Class reportGenerator
                     table.SpacingAfter = 10
                     table.HorizontalAlignment = 1
                     table.DefaultCell.Padding = 3
-                    table.WidthPercentage = 100
+                    table.WidthPercentage = 400.0F
                     table.HorizontalAlignment = Element.ALIGN_LEFT
                     table.DefaultCell.BorderWidth = 1
                     Dim sglTblHdWidths(5) As Single
-                    sglTblHdWidths(0) = 200
-                    sglTblHdWidths(1) = 90
-                    sglTblHdWidths(2) = 75
-                    sglTblHdWidths(3) = 85
-                    sglTblHdWidths(4) = 100
-                    sglTblHdWidths(5) = 190
+                    sglTblHdWidths(0) = 200.0F
+                    sglTblHdWidths(1) = 90.0F
+                    sglTblHdWidths(2) = 75.0F
+                    sglTblHdWidths(3) = 85.0F
+                    sglTblHdWidths(4) = 100.0F
+                    sglTblHdWidths(5) = 190.0F
                     table.SetWidths(sglTblHdWidths)
                     table.AddCell(New Phrase("", fntTableFontHdr))
                     table.AddCell(New Phrase("Course", fntTableFontHdr))
@@ -540,7 +546,6 @@ Public Class reportGenerator
                     colCell.HorizontalAlignment = 1
                     table.AddCell(colCell)
                     ctrLines += 1
-
 
                     Dim depCell As New PdfPCell(New Phrase(reportColumns(ctr), fntTableFontHdr))
                     depCell.Colspan = 6
@@ -581,4 +586,242 @@ Public Class reportGenerator
         Return False
 
     End Function
+
+    Public Function Generete_Monthly_Report(termId As Integer, month As Integer, offeredType As Integer) As Boolean
+        Try
+            If Not Directory.Exists("C:\Fams Reports") Then
+                Directory.CreateDirectory("C:\Fams Reports")
+
+            End If
+
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+
+        End Try
+
+        Try
+            Dim collegeGroup As String = Nothing
+            Dim deptGroup As String = Nothing
+            Dim currentFaculty As String = Nothing
+            Dim colleges As New List(Of Object)()
+            Dim departments As New List(Of Object)()
+            Dim remarks As New List(Of Object)()
+            Dim reasons As New List(Of Object)()
+            Dim termAY As New List(Of Object)()
+            Dim absentResults As New List(Of Object)()
+            Dim makeupResults As New List(Of Object)()
+            Dim absCtr As Integer
+            Dim makeupCtr As Integer
+            Dim ctrLines As Integer
+
+            Dim fileName As String = "C:\Fams Reports\" & Date.Now.ToString("MM-dd-yyyy") & "Monthly-Report.pdf"
+            Dim pageNo As Integer = 1
+            Dim pdfDoc As New Document(itextsharp.text.PageSize.A4.Rotate(), 20.0F, 20.0F, 20.0F, 20.0F)
+            Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(fileName, FileMode.Create))
+
+            Dim fntTableFontHdr As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.BOLD, BaseColor.BLACK)
+            Dim fntTableFont As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.NORMAL, BaseColor.BLACK)
+
+            pdfDoc.Open()
+
+            Dim header As String
+
+            If (offeredType = 1) Then
+                header = "FACULTY ATTENDANCE REPORT (Undergraduate)"
+
+            ElseIf offeredType = 2 Then
+                header = "FACULTY ATTENDANCE REPORT (Graduate)"
+
+            Else
+                header = "FACULTY ATTENDANCE REPORT (Undergraduate and Graduate)"
+
+            End If
+
+            Try
+                termAY = dbAccess.Get_Multiple_Column_Data("select t.term_no, a.yearstart, a.yearend
+                                                       from introse.term t, introse.academicyear a
+                                                       where t.termid = " & termId & " and t.yearid = a.yearid;", 3)
+                remarks = dbAccess.Get_Multiple_Column_Data("select * from introse.remarks", 2)
+                reasons = dbAccess.Get_Multiple_Column_Data("select * from introse.reasons", 2)
+                colleges = dbAccess.Get_Multiple_Column_Data("select * from introse.college", 2)
+            Catch ex As Exception
+                System.Windows.Forms.MessageBox.Show(ex.Message)
+            End Try
+
+            For collegeCtr As Integer = 0 To colleges.Count - 1 Step 2
+                departments = dbAccess.Get_Multiple_Column_Data("select departmentid, departmentname from introse.department where college_code = '" & colleges(collegeCtr) & "';", 2)
+
+                For depCtr As Integer = 0 To departments.Count - 1 Step 2
+                    If offeredType = 1 Then
+                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
+                                                                       from introse.faculty f, introse.remarks r, introse.courseoffering co, introse.course c, introse.attendance a
+                                                                       where (a.status = 'R' or a.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & " and co.facref_no = f.facref_no
+                                                                       and a.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and a.remarks_cd = r.remark_cd and MONTH(a.absent_date) = " & month & " and c.offered_to = 'U'
+                                                                       group by 1, 2
+                                                                       order by 1, 2;", 3)
+                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
+                                                                       from introse.faculty f, introse.makeup m, introse.reasons r, introse.courseoffering co, introse.course c
+                                                                       where (m.status = 'R' or m.status = 'A') and co.termid = 1 and f.departmentid = 1001
+                                                                       and co.facref_no = f.facref_no and m.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and m.reason_cd and r.reason_cd and MONTH(m.makeup_date) = " & month & " and c.offered_to = 'U'
+                                                                       group by 1, 2
+                                                                       order by 1, 2;", 3)
+
+                    ElseIf offeredType = 2 Then
+                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
+                                                                       from introse.faculty f, introse.remarks r, introse.courseoffering co, introse.course c, introse.attendance a
+                                                                       where (a.status = 'R' or a.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & " and co.facref_no = f.facref_no
+                                                                       and a.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and a.remarks_cd = r.remark_cd and MONTH(a.absent_date) = " & month & " and c.offered_to = 'G'
+                                                                       group by 1, 2
+                                                                       order by 1, 2;", 3)
+                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
+                                                                       from introse.faculty f, introse.makeup m, introse.reasons r, introse.courseoffering co, introse.course c
+                                                                       where (m.status = 'R' or m.status = 'A') and co.termid = 1 and f.departmentid = 1001
+                                                                       and co.facref_no = f.facref_no and m.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and m.reason_cd and r.reason_cd and MONTH(m.makeup_date) = " & month & " and c.offered_to = 'G'
+                                                                       group by 1, 2
+                                                                       order by 1, 2;", 3)
+
+                    Else
+                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
+                                                                       from introse.faculty f, introse.remarks r, introse.courseoffering co, introse.course c, introse.attendance a
+                                                                       where (a.status = 'R' or a.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & " and co.facref_no = f.facref_no
+                                                                       and a.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and a.remarks_cd = r.remark_cd and MONTH(a.absent_date) = " & month & "
+                                                                       group by 1, 2
+                                                                       order by 1, 2;", 3)
+                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
+                                                                       from introse.faculty f, introse.makeup m, introse.reasons r, introse.courseoffering co, introse.course c
+                                                                       where (m.status = 'R' or m.status = 'A') and co.termid = 1 and f.departmentid = 1001
+                                                                       and co.facref_no = f.facref_no and m.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and m.reason_cd and r.reason_cd and MONTH(m.makeup_date) = " & month & "
+                                                                       group by 1, 2
+                                                                       order by 1, 2;", 3)
+
+                    End If
+
+                    absCtr = 0
+                    makeupCtr = 0
+
+                    While (absCtr < absentResults.Count - 1 Or makeupCtr < makeupResults.Count - 1)
+                        Dim pageHeader As New Paragraph("Page " & pageNo, fntTableFontHdr)
+                        pageHeader.Alignment = 2
+                        pdfDoc.Add(pageHeader)
+                        pdfDoc.Add(New Paragraph(" "))
+                        Dim header1 As New Paragraph(header, fntTableFontHdr)
+                        header1.Alignment = 1
+                        Dim header2 As New Paragraph("TERM " & termAY(0) & ", SY " & termAY(1) & " - " & termAY(2), fntTableFontHdr)
+                        header2.Alignment = 1
+                        Dim header3 As New Paragraph("As of " & Date.Now.ToLongDateString, fntTableFontHdr)
+                        header3.Alignment = 1
+                        Dim header4 As New Paragraph(colleges(collegeCtr + 1), fntTableFontHdr)
+                        header4.Alignment = 1
+                        pdfDoc.Add(header1)
+                        pdfDoc.Add(header2)
+                        pdfDoc.Add(header3)
+                        pdfDoc.Add(header4)
+                        pdfDoc.Add(New Paragraph(""))
+
+                        'Legend code
+
+                        Dim colNum As Integer = 4 + remarks.Count / 2 + reasons.Count / 2
+                        Dim table As New PdfPTable(colNum)
+                        table.SpacingBefore = 10
+                        table.SpacingAfter = 10
+                        table.HorizontalAlignment = 1
+                        table.DefaultCell.Padding = 3
+                        table.WidthPercentage = 400.0F
+                        table.HorizontalAlignment = Element.ALIGN_LEFT
+                        table.DefaultCell.BorderWidth = 1
+                        Dim sglTblHdWidths(colNum - 1) As Single
+                        Dim colCnt As Integer
+                        sglTblHdWidths(0) = 200.0F
+                        sglTblHdWidths(1) = 90.0F
+                        For colCnt = 2 To (remarks.Count / 2) - 1
+                            sglTblHdWidths(colCnt) = 80.0F
+                        Next
+
+                        sglTblHdWidths(colCnt) = 90.0F
+                        For colCnt = colCnt + 1 To reasons.Count / 2 + (colCnt - 1)
+                            sglTblHdWidths(colCnt) = 80.0F
+                        Next
+
+                        sglTblHdWidths(colCnt) = 90.0F
+                        sglTblHdWidths(colCnt + 1) = 80.0F
+                        sglTblHdWidths(colCnt + 2) = 80.0F
+                        sglTblHdWidths(colCnt + 3) = 80.0F
+                        table.SetWidths(sglTblHdWidths)
+
+                        Dim cell As PdfPCell
+                        cell = New PdfPCell(New Phrase("FACULTY NAME", fntTableFontHdr))
+                        cell.Rowspan = 2
+                        cell.HorizontalAlignment = 1
+                        cell.VerticalAlignment = 1
+                        table.AddCell(cell)
+                        cell = New PdfPCell(New Phrase("LOAD", fntTableFontHdr))
+                        cell.Rowspan = 2
+                        cell.HorizontalAlignment = 1
+                        cell.VerticalAlignment = 1
+                        table.AddCell(cell)
+                        cell = New PdfPCell(New Phrase("ABSENCE (IN HOURS)", fntTableFontHdr))
+                        cell.Colspan = remarks.Count - 2
+                        cell.HorizontalAlignment = 1
+                        table.AddCell(cell)
+                        cell = New PdfPCell(New Phrase("MAKEUP (IN HOURS)", fntTableFontHdr))
+                        cell.Colspan = reasons.Count + 1
+                        cell.HorizontalAlignment = 1
+                        table.AddCell(cell)
+                        cell = New PdfPCell(New Phrase("IN FREQ.", fntTableFontHdr))
+                        cell.Colspan = 3
+                        cell.Rowspan = 2
+                        cell.HorizontalAlignment = 1
+                        cell.VerticalAlignment = 1
+                        table.AddCell(cell)
+
+                        For ctr = 0 To remarks.Count - 1 Step 2
+                            If Not (remarks(ctr) = "LA" Or remarks(ctr) = "ED" Or remarks(ctr) = "VR") Then
+                                cell = New PdfPCell(New Phrase(remarks(ctr), fntTableFontHdr))
+                                cell.HorizontalAlignment = 1
+                                table.AddCell(cell)
+                            End If
+                        Next
+
+                        For ctr = 0 To reasons.Count - 1 Step 2
+                            cell = New PdfPCell(New Phrase(reasons(ctr), fntTableFontHdr))
+                            cell.HorizontalAlignment = 1
+                            table.AddCell(cell)
+                        Next
+
+                        Dim depCell As New PdfPCell(New Phrase(departments(depCtr + 1), fntTableFontHdr))
+                        depCell.Colspan = colNum
+                        depCell.HorizontalAlignment = 0
+                        table.AddCell(depCell)
+
+                        Dim result As Integer = String.Compare(absentResults(absCtr), makeupResults(makeupCtr))
+                        If (result = -1) Then
+                            currentFaculty = makeupResults(makeupCtr)
+
+                        Else
+                            currentFaculty = absentResults(absCtr)
+
+                        End If
+
+                        ctrLines = 0
+                        While ctrLines <= 30 And (absCtr < absentResults.Count - 1 Or makeupCtr < makeupResults.Count - 1)
+
+                            Dim absHours As Integer = 0
+
+
+                        End While
+
+                    End While
+
+                Next
+
+            Next
+        Catch ex As Exception
+            MsgBox("Notice generation failed!", MsgBoxStyle.Critical, "")
+
+        End Try
+
+        Return False
+
+    End Function
+
 End Class
