@@ -35,18 +35,20 @@ Partial Class wdwGenServiceReport
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(27, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(36, 15)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(579, 385)
+        Me.PictureBox1.Size = New System.Drawing.Size(772, 474)
         Me.PictureBox1.TabIndex = 23
         Me.PictureBox1.TabStop = False
         '
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(473, 409)
+        Me.Button5.Location = New System.Drawing.Point(631, 503)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.Size = New System.Drawing.Size(100, 28)
         Me.Button5.TabIndex = 27
         Me.Button5.Text = "Back"
         Me.Button5.UseVisualStyleBackColor = True
@@ -54,9 +56,10 @@ Partial Class wdwGenServiceReport
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(201, 409)
+        Me.Button4.Location = New System.Drawing.Point(268, 503)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.Size = New System.Drawing.Size(100, 28)
         Me.Button4.TabIndex = 26
         Me.Button4.Text = "Print"
         Me.Button4.UseVisualStyleBackColor = True
@@ -64,9 +67,10 @@ Partial Class wdwGenServiceReport
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(340, 409)
+        Me.Button3.Location = New System.Drawing.Point(453, 503)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.Size = New System.Drawing.Size(100, 28)
         Me.Button3.TabIndex = 25
         Me.Button3.Text = "Email"
         Me.Button3.UseVisualStyleBackColor = True
@@ -74,9 +78,10 @@ Partial Class wdwGenServiceReport
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(67, 409)
+        Me.Button2.Location = New System.Drawing.Point(89, 503)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.Size = New System.Drawing.Size(100, 28)
         Me.Button2.TabIndex = 24
         Me.Button2.Text = "Export"
         Me.Button2.UseVisualStyleBackColor = True
@@ -85,6 +90,7 @@ Partial Class wdwGenServiceReport
         '
         Me.AxAcroPDF1.Enabled = True
         Me.AxAcroPDF1.Location = New System.Drawing.Point(27, 12)
+        Me.AxAcroPDF1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.AxAcroPDF1.Name = "AxAcroPDF1"
         Me.AxAcroPDF1.OcxState = CType(resources.GetObject("AxAcroPDF1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.AxAcroPDF1.Size = New System.Drawing.Size(579, 385)
@@ -92,15 +98,18 @@ Partial Class wdwGenServiceReport
         '
         'wdwGenServiceReport
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(630, 444)
+        Me.ClientSize = New System.Drawing.Size(840, 546)
         Me.Controls.Add(Me.AxAcroPDF1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "wdwGenServiceReport"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Generate Service Report"

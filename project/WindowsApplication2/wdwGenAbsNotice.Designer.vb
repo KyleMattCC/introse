@@ -22,6 +22,7 @@ Partial Class wdwGenAbsNotice
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wdwGenAbsNotice))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -32,18 +33,20 @@ Partial Class wdwGenAbsNotice
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(22, 19)
+        Me.PictureBox1.Location = New System.Drawing.Point(29, 23)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(579, 385)
+        Me.PictureBox1.Size = New System.Drawing.Size(772, 474)
         Me.PictureBox1.TabIndex = 12
         Me.PictureBox1.TabStop = False
         '
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(472, 416)
+        Me.Button5.Location = New System.Drawing.Point(629, 512)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.Size = New System.Drawing.Size(100, 28)
         Me.Button5.TabIndex = 16
         Me.Button5.Text = "Back"
         Me.Button5.UseVisualStyleBackColor = True
@@ -51,9 +54,10 @@ Partial Class wdwGenAbsNotice
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(200, 416)
+        Me.Button4.Location = New System.Drawing.Point(267, 512)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.Size = New System.Drawing.Size(100, 28)
         Me.Button4.TabIndex = 15
         Me.Button4.Text = "Print"
         Me.Button4.UseVisualStyleBackColor = True
@@ -61,9 +65,10 @@ Partial Class wdwGenAbsNotice
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(339, 416)
+        Me.Button3.Location = New System.Drawing.Point(452, 512)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.Size = New System.Drawing.Size(100, 28)
         Me.Button3.TabIndex = 14
         Me.Button3.Text = "Email"
         Me.Button3.UseVisualStyleBackColor = True
@@ -71,23 +76,27 @@ Partial Class wdwGenAbsNotice
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(66, 416)
+        Me.Button2.Location = New System.Drawing.Point(88, 512)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.Size = New System.Drawing.Size(100, 28)
         Me.Button2.TabIndex = 13
         Me.Button2.Text = "Export"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'wdwGenAbsNotice
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(622, 455)
+        Me.ClientSize = New System.Drawing.Size(829, 560)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "wdwGenAbsNotice"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Generate Notice"

@@ -22,6 +22,7 @@ Partial Class popServiceRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popServiceRecord))
         Me.btnGenerate = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -35,9 +36,10 @@ Partial Class popServiceRecord
         'btnGenerate
         '
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(39, 141)
+        Me.btnGenerate.Location = New System.Drawing.Point(52, 174)
+        Me.btnGenerate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(91, 23)
+        Me.btnGenerate.Size = New System.Drawing.Size(121, 28)
         Me.btnGenerate.TabIndex = 5
         Me.btnGenerate.Text = "Generate"
         Me.btnGenerate.UseVisualStyleBackColor = True
@@ -45,9 +47,10 @@ Partial Class popServiceRecord
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(164, 141)
+        Me.btnBack.Location = New System.Drawing.Point(219, 174)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(75, 23)
+        Me.btnBack.Size = New System.Drawing.Size(100, 28)
         Me.btnBack.TabIndex = 4
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = True
@@ -59,28 +62,32 @@ Partial Class popServiceRecord
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(17, 16)
+        Me.GroupBox1.Location = New System.Drawing.Point(23, 20)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(244, 114)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(325, 140)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Report by"
         '
         'txtID
         '
-        Me.txtID.Location = New System.Drawing.Point(91, 73)
+        Me.txtID.Location = New System.Drawing.Point(121, 90)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtID.Name = "txtID"
         Me.txtID.ReadOnly = True
-        Me.txtID.Size = New System.Drawing.Size(100, 26)
+        Me.txtID.Size = New System.Drawing.Size(132, 30)
         Me.txtID.TabIndex = 1
         '
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
         Me.RadioButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton3.Location = New System.Drawing.Point(9, 74)
+        Me.RadioButton3.Location = New System.Drawing.Point(12, 91)
+        Me.RadioButton3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(85, 20)
+        Me.RadioButton3.Size = New System.Drawing.Size(106, 24)
         Me.RadioButton3.TabIndex = 1
         Me.RadioButton3.Text = "Faculty ID"
         Me.RadioButton3.UseVisualStyleBackColor = True
@@ -89,9 +96,10 @@ Partial Class popServiceRecord
         '
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(9, 51)
+        Me.RadioButton2.Location = New System.Drawing.Point(12, 63)
+        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(216, 20)
+        Me.RadioButton2.Size = New System.Drawing.Size(270, 24)
         Me.RadioButton2.TabIndex = 1
         Me.RadioButton2.Text = "Faculty with no email addresses"
         Me.RadioButton2.UseVisualStyleBackColor = True
@@ -101,9 +109,10 @@ Partial Class popServiceRecord
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Checked = True
         Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(9, 28)
+        Me.RadioButton1.Location = New System.Drawing.Point(12, 34)
+        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(41, 20)
+        Me.RadioButton1.Size = New System.Drawing.Size(49, 24)
         Me.RadioButton1.TabIndex = 1
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "All"
@@ -111,15 +120,18 @@ Partial Class popServiceRecord
         '
         'popServiceRecord
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(278, 180)
+        Me.ClientSize = New System.Drawing.Size(371, 222)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "popServiceRecord"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "popServiceRecord"
+        Me.Text = "Service Record"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

@@ -394,6 +394,9 @@
     <EmbeddedResource Include="popModifyMakeUpHistory.resx">
       <DependentUpon>popModifyMakeUpHistory.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="popModifyPlantilla.resx">
+      <DependentUpon>popModifyPlantilla.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="wdwDataEntry.resx">
       <DependentUpon>wdwDataEntry.vb</DependentUpon>
     </EmbeddedResource>

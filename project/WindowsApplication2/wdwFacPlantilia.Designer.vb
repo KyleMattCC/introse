@@ -22,6 +22,7 @@ Partial Class wdwFacPlantilia
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wdwFacPlantilia))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbbxAcadYear = New System.Windows.Forms.ComboBox()
         Me.cmbbxTerm = New System.Windows.Forms.ComboBox()
@@ -41,9 +42,10 @@ Partial Class wdwFacPlantilia
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(19, 46)
+        Me.Label1.Location = New System.Drawing.Point(25, 57)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(145, 20)
+        Me.Label1.Size = New System.Drawing.Size(172, 23)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Academic Year:"
         '
@@ -52,9 +54,10 @@ Partial Class wdwFacPlantilia
         Me.cmbbxAcadYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxAcadYear.Font = New System.Drawing.Font("Lucida Bright", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxAcadYear.FormattingEnabled = True
-        Me.cmbbxAcadYear.Location = New System.Drawing.Point(165, 46)
+        Me.cmbbxAcadYear.Location = New System.Drawing.Point(220, 57)
+        Me.cmbbxAcadYear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmbbxAcadYear.Name = "cmbbxAcadYear"
-        Me.cmbbxAcadYear.Size = New System.Drawing.Size(119, 23)
+        Me.cmbbxAcadYear.Size = New System.Drawing.Size(157, 28)
         Me.cmbbxAcadYear.TabIndex = 1
         '
         'cmbbxTerm
@@ -62,27 +65,30 @@ Partial Class wdwFacPlantilia
         Me.cmbbxTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxTerm.FormattingEnabled = True
-        Me.cmbbxTerm.Location = New System.Drawing.Point(359, 46)
+        Me.cmbbxTerm.Location = New System.Drawing.Point(479, 57)
+        Me.cmbbxTerm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmbbxTerm.Name = "cmbbxTerm"
-        Me.cmbbxTerm.Size = New System.Drawing.Size(119, 23)
+        Me.cmbbxTerm.Size = New System.Drawing.Size(157, 28)
         Me.cmbbxTerm.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(292, 46)
+        Me.Label2.Location = New System.Drawing.Point(389, 57)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 20)
+        Me.Label2.Size = New System.Drawing.Size(72, 23)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Term:"
         '
         'bttnSearch
         '
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(731, 42)
+        Me.bttnSearch.Location = New System.Drawing.Point(975, 52)
+        Me.bttnSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnSearch.Name = "bttnSearch"
-        Me.bttnSearch.Size = New System.Drawing.Size(105, 29)
+        Me.bttnSearch.Size = New System.Drawing.Size(140, 36)
         Me.bttnSearch.TabIndex = 4
         Me.bttnSearch.Text = "Search"
         Me.bttnSearch.UseVisualStyleBackColor = True
@@ -90,17 +96,19 @@ Partial Class wdwFacPlantilia
         'grid
         '
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grid.Location = New System.Drawing.Point(23, 96)
+        Me.grid.Location = New System.Drawing.Point(31, 118)
+        Me.grid.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grid.Name = "grid"
-        Me.grid.Size = New System.Drawing.Size(931, 339)
+        Me.grid.Size = New System.Drawing.Size(1241, 417)
         Me.grid.TabIndex = 5
         '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(218, 485)
+        Me.Button2.Location = New System.Drawing.Point(291, 597)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(105, 28)
+        Me.Button2.Size = New System.Drawing.Size(140, 34)
         Me.Button2.TabIndex = 6
         Me.Button2.Text = "Data Entry"
         Me.Button2.UseVisualStyleBackColor = True
@@ -108,9 +116,10 @@ Partial Class wdwFacPlantilia
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(329, 485)
+        Me.Button4.Location = New System.Drawing.Point(439, 597)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(105, 28)
+        Me.Button4.Size = New System.Drawing.Size(140, 34)
         Me.Button4.TabIndex = 8
         Me.Button4.Text = "Modify"
         Me.Button4.UseVisualStyleBackColor = True
@@ -118,9 +127,10 @@ Partial Class wdwFacPlantilia
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(440, 485)
+        Me.Button6.Location = New System.Drawing.Point(587, 597)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(105, 28)
+        Me.Button6.Size = New System.Drawing.Size(140, 34)
         Me.Button6.TabIndex = 10
         Me.Button6.Text = "Delete"
         Me.Button6.UseVisualStyleBackColor = True
@@ -128,9 +138,10 @@ Partial Class wdwFacPlantilia
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(551, 485)
+        Me.Button1.Location = New System.Drawing.Point(735, 597)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 28)
+        Me.Button1.Size = New System.Drawing.Size(140, 34)
         Me.Button1.TabIndex = 11
         Me.Button1.Text = "Back"
         Me.Button1.UseVisualStyleBackColor = True
@@ -138,26 +149,28 @@ Partial Class wdwFacPlantilia
         'txtbxSearch
         '
         Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxSearch.Location = New System.Drawing.Point(514, 44)
+        Me.txtbxSearch.Location = New System.Drawing.Point(685, 54)
+        Me.txtbxSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtbxSearch.Name = "txtbxSearch"
-        Me.txtbxSearch.Size = New System.Drawing.Size(211, 26)
+        Me.txtbxSearch.Size = New System.Drawing.Size(280, 31)
         Me.txtbxSearch.TabIndex = 15
         '
         'bttnClear
         '
         Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnClear.Location = New System.Drawing.Point(849, 42)
+        Me.bttnClear.Location = New System.Drawing.Point(1132, 52)
+        Me.bttnClear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnClear.Name = "bttnClear"
-        Me.bttnClear.Size = New System.Drawing.Size(105, 29)
+        Me.bttnClear.Size = New System.Drawing.Size(140, 36)
         Me.bttnClear.TabIndex = 16
         Me.bttnClear.Text = "Clear"
         Me.bttnClear.UseVisualStyleBackColor = True
         '
         'wdwFacPlantilia
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1009, 552)
+        Me.ClientSize = New System.Drawing.Size(1345, 679)
         Me.Controls.Add(Me.bttnClear)
         Me.Controls.Add(Me.txtbxSearch)
         Me.Controls.Add(Me.Button1)
@@ -170,9 +183,12 @@ Partial Class wdwFacPlantilia
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cmbbxAcadYear)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "wdwFacPlantilia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "wdwFacPlantilia"
+        Me.Text = "Term Plantilla"
         CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

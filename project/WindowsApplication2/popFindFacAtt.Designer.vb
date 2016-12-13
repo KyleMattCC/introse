@@ -22,6 +22,7 @@ Partial Class popFindFacAtt
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popFindFacAtt))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtFirstname = New System.Windows.Forms.TextBox()
         Me.txtLastname = New System.Windows.Forms.TextBox()
@@ -49,9 +50,11 @@ Partial Class popFindFacAtt
         Me.GroupBox1.Controls.Add(Me.bttnCancel)
         Me.GroupBox1.Controls.Add(Me.bttnSearch)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 6)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 7)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(260, 248)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(347, 305)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Search Attendance By:"
@@ -59,26 +62,29 @@ Partial Class popFindFacAtt
         'txtFirstname
         '
         Me.txtFirstname.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFirstname.Location = New System.Drawing.Point(133, 49)
+        Me.txtFirstname.Location = New System.Drawing.Point(177, 60)
+        Me.txtFirstname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtFirstname.Name = "txtFirstname"
-        Me.txtFirstname.Size = New System.Drawing.Size(114, 20)
+        Me.txtFirstname.Size = New System.Drawing.Size(151, 23)
         Me.txtFirstname.TabIndex = 62
         '
         'txtLastname
         '
         Me.txtLastname.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLastname.Location = New System.Drawing.Point(13, 49)
+        Me.txtLastname.Location = New System.Drawing.Point(17, 60)
+        Me.txtLastname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtLastname.Name = "txtLastname"
-        Me.txtLastname.Size = New System.Drawing.Size(114, 20)
+        Me.txtLastname.Size = New System.Drawing.Size(151, 23)
         Me.txtLastname.TabIndex = 61
         '
         'rbttnName
         '
         Me.rbttnName.AutoSize = True
         Me.rbttnName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnName.Location = New System.Drawing.Point(13, 26)
+        Me.rbttnName.Location = New System.Drawing.Point(17, 32)
+        Me.rbttnName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbttnName.Name = "rbttnName"
-        Me.rbttnName.Size = New System.Drawing.Size(174, 20)
+        Me.rbttnName.Size = New System.Drawing.Size(214, 24)
         Me.rbttnName.TabIndex = 60
         Me.rbttnName.Text = "Lastname / Firstname"
         Me.rbttnName.UseVisualStyleBackColor = True
@@ -86,17 +92,19 @@ Partial Class popFindFacAtt
         'txtSec
         '
         Me.txtSec.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSec.Location = New System.Drawing.Point(93, 160)
+        Me.txtSec.Location = New System.Drawing.Point(124, 197)
+        Me.txtSec.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtSec.Name = "txtSec"
-        Me.txtSec.Size = New System.Drawing.Size(50, 20)
+        Me.txtSec.Size = New System.Drawing.Size(65, 23)
         Me.txtSec.TabIndex = 59
         '
         'txtCourse
         '
         Me.txtCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCourse.Location = New System.Drawing.Point(11, 160)
+        Me.txtCourse.Location = New System.Drawing.Point(15, 197)
+        Me.txtCourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtCourse.Name = "txtCourse"
-        Me.txtCourse.Size = New System.Drawing.Size(76, 20)
+        Me.txtCourse.Size = New System.Drawing.Size(100, 23)
         Me.txtCourse.TabIndex = 58
         '
         'rbttnID
@@ -104,9 +112,10 @@ Partial Class popFindFacAtt
         Me.rbttnID.AutoSize = True
         Me.rbttnID.Checked = True
         Me.rbttnID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnID.Location = New System.Drawing.Point(11, 79)
+        Me.rbttnID.Location = New System.Drawing.Point(15, 97)
+        Me.rbttnID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbttnID.Name = "rbttnID"
-        Me.rbttnID.Size = New System.Drawing.Size(95, 20)
+        Me.rbttnID.Size = New System.Drawing.Size(116, 24)
         Me.rbttnID.TabIndex = 55
         Me.rbttnID.TabStop = True
         Me.rbttnID.Text = "Faculty ID"
@@ -115,18 +124,20 @@ Partial Class popFindFacAtt
         'txtFacID
         '
         Me.txtFacID.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFacID.Location = New System.Drawing.Point(11, 102)
+        Me.txtFacID.Location = New System.Drawing.Point(15, 126)
+        Me.txtFacID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtFacID.Name = "txtFacID"
-        Me.txtFacID.Size = New System.Drawing.Size(234, 20)
+        Me.txtFacID.Size = New System.Drawing.Size(311, 23)
         Me.txtFacID.TabIndex = 57
         '
         'rbttnCourse
         '
         Me.rbttnCourse.AutoSize = True
         Me.rbttnCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnCourse.Location = New System.Drawing.Point(11, 137)
+        Me.rbttnCourse.Location = New System.Drawing.Point(15, 169)
+        Me.rbttnCourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbttnCourse.Name = "rbttnCourse"
-        Me.rbttnCourse.Size = New System.Drawing.Size(132, 20)
+        Me.rbttnCourse.Size = New System.Drawing.Size(159, 24)
         Me.rbttnCourse.TabIndex = 56
         Me.rbttnCourse.Text = "Course/Section"
         Me.rbttnCourse.UseVisualStyleBackColor = True
@@ -134,9 +145,10 @@ Partial Class popFindFacAtt
         'bttnCancel
         '
         Me.bttnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnCancel.Location = New System.Drawing.Point(134, 206)
+        Me.bttnCancel.Location = New System.Drawing.Point(179, 254)
+        Me.bttnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnCancel.Name = "bttnCancel"
-        Me.bttnCancel.Size = New System.Drawing.Size(90, 23)
+        Me.bttnCancel.Size = New System.Drawing.Size(120, 28)
         Me.bttnCancel.TabIndex = 54
         Me.bttnCancel.Text = "Cancel"
         Me.bttnCancel.UseVisualStyleBackColor = True
@@ -144,19 +156,23 @@ Partial Class popFindFacAtt
         'bttnSearch
         '
         Me.bttnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(28, 206)
+        Me.bttnSearch.Location = New System.Drawing.Point(37, 254)
+        Me.bttnSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnSearch.Name = "bttnSearch"
-        Me.bttnSearch.Size = New System.Drawing.Size(90, 23)
+        Me.bttnSearch.Size = New System.Drawing.Size(120, 28)
         Me.bttnSearch.TabIndex = 48
         Me.bttnSearch.Text = "Search"
         Me.bttnSearch.UseVisualStyleBackColor = True
         '
         'popFindFacAtt
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(379, 321)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "popFindFacAtt"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Find Faculty Attendance"
