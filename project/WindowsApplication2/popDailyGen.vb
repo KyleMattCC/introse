@@ -17,9 +17,9 @@
         If reportTo = 1 Then
             reportSuccess = repGen.Generate_Registrar_Daily_Report(offered, dtp.Value)
         ElseIf reportTo = 3 Then
-            reportSuccess = repGen.Generate_College_Daily_Report(offered, dtp.Value)
+            reportSuccess = repGen.Generate_College_Daily_Report(wdwSelectReport.Get_Selected_College(), offered, dtp.Value)
         ElseIf reportTo = 4 Then
-            reportSuccess = repGen.Generate_Chair_Daily_Report(offered, dtp.Value)
+            reportSuccess = repGen.Generate_Chair_Daily_Report(wdwSelectReport.Get_Selected_Chair(), offered, dtp.Value)
         End If
 
         If (reportSuccess) Then
