@@ -15,6 +15,7 @@
         wdwFacultyMakeUp.MdiParent = Me
         wdwFacultyMakeUp.WindowState = FormWindowState.Normal
         wdwFacultyMakeUp.Show()
+        wdwDailyAttendanceLog.Close()
     End Sub
 
     Private Sub bttn_Click(sender As Object, e As EventArgs)
@@ -79,5 +80,9 @@
         popEditAccount.MdiParent = Me
         popEditAccount.WindowState = FormWindowState.Normal
         popEditAccount.Show()
+    End Sub
+
+    Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
+        End
     End Sub
 End Class

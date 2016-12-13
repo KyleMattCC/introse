@@ -36,7 +36,7 @@
             End If
 
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -56,7 +56,7 @@
                 combo.Items.Add(coursecode(ctr))
             Next
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -77,7 +77,7 @@
                 combo.Items.Add(section(ctr))
             Next
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -94,7 +94,7 @@
             Next
 
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -252,26 +252,33 @@
             ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                 MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
                 Return False
-            ElseIf (startTime = endTime) Then
-                MsgBox("Start and End Time cannot be at the same time!", MsgBoxStyle.Critical, "")
+            ElseIf (endTime < startTime) Then
+                MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
                 Return False
-            ElseIf ((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) > absentHours) Then
-                MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")
+            ElseIf (startTime = endTime) Then
+                MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
+                Return False
+            ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) Or Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
+                MsgBox("Makeup hours is not exact!", MsgBoxStyle.Critical, "")
                 Return False
             Else
-                makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
-                course = cmbbxCourse.SelectedItem
-                section = cmbbxSec.SelectedItem
-                room = txtbxRoom.Text
-                reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
-                courseOfferingId = dbAccess.Get_Data("select courseoffering_id 
+                Try
+                    makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
+                    course = cmbbxCourse.SelectedItem
+                    section = cmbbxSec.SelectedItem
+                    room = txtbxRoom.Text
+                    reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
+                    courseOfferingId = dbAccess.Get_Data("select courseoffering_id 
                                                            from introse.courseoffering c, introse.course cl 
                                                             where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
-                If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason)) Then
-                    dbAccess.Add_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values (" & courseOfferingId & ", " & startTime & ", " & endTime & ", " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ",'" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', '" & wdwLogin.Get_Encoder & "', 'A');")
-                    Return True
-                End If
+                    If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason)) Then
+                        dbAccess.Add_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values (" & courseOfferingId & ", " & startTime & ", " & endTime & ", " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ",'" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', '" & wdwLogin.Get_Encoder & "', 'A');")
+                        Return True
+                    End If
+                Catch Ex As Exception
+                    System.Windows.Forms.MessageBox.Show(Ex.Message)
+                End Try
             End If
         End If
         Return False

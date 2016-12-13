@@ -162,6 +162,8 @@
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwMainMenu.Enable_Form()
+        popEncFacDaily.Close()
+        wdwModFacultyDaily.Close()
     End Sub
 
     Public Function getRefNo() As Integer
@@ -205,9 +207,5 @@
 
             End If
         End If
-    End Sub
-
-    Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
-
     End Sub
 End Class

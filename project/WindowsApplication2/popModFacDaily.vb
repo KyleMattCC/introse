@@ -76,7 +76,7 @@
                 text.Text = fname + " " + MI + " " + lname
             End If
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -94,7 +94,7 @@
                 combo.Items.Add(coursecode(ctr))
             Next
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -115,7 +115,7 @@
                 combo.Items.Add(section(ctr))
             Next
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -132,7 +132,7 @@
             Next
 
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -146,7 +146,7 @@
 
             text.Text = room
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -168,7 +168,7 @@
             TimeEnd.Text = endtime
             DaySched.Text = sched
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -263,8 +263,8 @@
     Private Function Check_Entry(absent As String, courseofferingid As String, stat As String, remarks As String, checker As String) As Boolean
         Dim att As String = ""
         Dim b As Boolean = False
-        att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "' and remarks_cd = '" & remarks & "' and checker = '" & checker & "';", "attendanceid")
-        If String.IsNullOrEmpty(att) Then
+        att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
+        If att.Count < 2 Then
             b = True
         Else
             MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
@@ -316,29 +316,32 @@
             ElseIf Not (tempBool) Then
                 MsgBox("Absent date does Not match class schedule!", MsgBoxStyle.Critical, "")
             Else
+                Try
+                    absentDate = dtp.Value.Date.ToString("yyyy-MM-dd")
+                    course = cmbbxCourse.SelectedItem
+                    section = cmbbxSection.SelectedItem
+                    remarks = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
+                    checker = txtbxChecker.Text
 
-                absentDate = dtp.Value.Date.ToString("yyyy-MM-dd")
-                course = cmbbxCourse.SelectedItem
-                section = cmbbxSection.SelectedItem
-                remarks = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
-                checker = txtbxChecker.Text
+                    courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
+                    If (Check_Entry(absentDate, courseOfferingId, "A", remarks, checker) = True) Then
+                        dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = 'A';")
+                        Me.Close()
 
-                courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
-                If (Check_Entry(absentDate, courseOfferingId, "A", remarks, checker) = True) Then
-                    dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = 'A';")
-                    Me.Close()
+                        txtbxFacID.Clear()
+                        txtbxName.Clear()
+                        cmbbxCourse.Items.Clear()
+                        cmbbxSection.Items.Clear()
+                        txtbxRoom.Clear()
+                        txtbxDay.Clear()
+                        txtbxStart.Clear()
+                        txtbxEnd.Clear()
+                        txtbxChecker.Clear()
 
-                    txtbxFacID.Clear()
-                    txtbxName.Clear()
-                    cmbbxCourse.Items.Clear()
-                    cmbbxSection.Items.Clear()
-                    txtbxRoom.Clear()
-                    txtbxDay.Clear()
-                    txtbxStart.Clear()
-                    txtbxEnd.Clear()
-                    txtbxChecker.Clear()
-
-                End If
+                    End If
+                Catch Ex As Exception
+                    System.Windows.Forms.MessageBox.Show(Ex.Message)
+                End Try
             End If
         End If
 

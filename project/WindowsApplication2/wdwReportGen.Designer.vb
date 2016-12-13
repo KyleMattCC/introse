@@ -25,7 +25,6 @@ Partial Class wdwReportGen
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wdwReportGen))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.EmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pdfViewer = New AxAcroPDFLib.AxAcroPDF()
         Me.MenuStrip1.SuspendLayout()
@@ -34,11 +33,11 @@ Partial Class wdwReportGen
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmailToolStripMenuItem, Me.PrintToolStripMenuItem, Me.BackToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmailToolStripMenuItem, Me.BackToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(884, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1084, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -48,13 +47,6 @@ Partial Class wdwReportGen
         Me.EmailToolStripMenuItem.Name = "EmailToolStripMenuItem"
         Me.EmailToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
         Me.EmailToolStripMenuItem.Text = "Email"
-        '
-        'PrintToolStripMenuItem
-        '
-        Me.PrintToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
-        Me.PrintToolStripMenuItem.Text = "Print"
         '
         'BackToolStripMenuItem
         '
@@ -69,14 +61,14 @@ Partial Class wdwReportGen
         Me.pdfViewer.Location = New System.Drawing.Point(0, 27)
         Me.pdfViewer.Name = "pdfViewer"
         Me.pdfViewer.OcxState = CType(resources.GetObject("pdfViewer.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.pdfViewer.Size = New System.Drawing.Size(884, 533)
+        Me.pdfViewer.Size = New System.Drawing.Size(1084, 847)
         Me.pdfViewer.TabIndex = 2
         '
         'wdwReportGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(884, 561)
+        Me.ClientSize = New System.Drawing.Size(1084, 873)
         Me.Controls.Add(Me.pdfViewer)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -94,7 +86,6 @@ Partial Class wdwReportGen
 
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents EmailToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PrintToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents pdfViewer As AxAcroPDFLib.AxAcroPDF
 End Class

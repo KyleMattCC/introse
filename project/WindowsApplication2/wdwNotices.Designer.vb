@@ -66,18 +66,18 @@ Partial Class wdwNotices
         'dtp
         '
         Me.dtp.CalendarFont = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Location = New System.Drawing.Point(74, 9)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(200, 22)
+        Me.dtp.Size = New System.Drawing.Size(315, 26)
         Me.dtp.TabIndex = 4
         '
         'txtbxSearch
         '
-        Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxSearch.Location = New System.Drawing.Point(16, 42)
+        Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxSearch.Location = New System.Drawing.Point(16, 45)
         Me.txtbxSearch.Name = "txtbxSearch"
-        Me.txtbxSearch.Size = New System.Drawing.Size(258, 22)
+        Me.txtbxSearch.Size = New System.Drawing.Size(253, 26)
         Me.txtbxSearch.TabIndex = 5
         '
         'grid
@@ -94,9 +94,9 @@ Partial Class wdwNotices
         'bttnSearch
         '
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(280, 40)
+        Me.bttnSearch.Location = New System.Drawing.Point(275, 44)
         Me.bttnSearch.Name = "bttnSearch"
-        Me.bttnSearch.Size = New System.Drawing.Size(90, 25)
+        Me.bttnSearch.Size = New System.Drawing.Size(90, 30)
         Me.bttnSearch.TabIndex = 8
         Me.bttnSearch.Text = "Search"
         Me.bttnSearch.UseVisualStyleBackColor = True
@@ -104,9 +104,9 @@ Partial Class wdwNotices
         'bttnClear
         '
         Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnClear.Location = New System.Drawing.Point(371, 40)
+        Me.bttnClear.Location = New System.Drawing.Point(371, 44)
         Me.bttnClear.Name = "bttnClear"
-        Me.bttnClear.Size = New System.Drawing.Size(90, 25)
+        Me.bttnClear.Size = New System.Drawing.Size(90, 30)
         Me.bttnClear.TabIndex = 9
         Me.bttnClear.Text = "Clear"
         Me.bttnClear.UseVisualStyleBackColor = True

@@ -35,7 +35,7 @@
                 text.Text = fname + " " + MI + " " + lname
             End If
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -55,7 +55,7 @@
                 combo.Items.Add(coursecode(ctr))
             Next
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -76,7 +76,7 @@
                 combo.Items.Add(section(ctr))
             Next
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -93,7 +93,7 @@
             Next
 
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -107,7 +107,7 @@
 
             text.Text = room
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -129,7 +129,7 @@
             TimeEnd.Text = endtime
             DaySched.Text = sched
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -245,8 +245,7 @@
         Dim remark_cd As String = ""
         Dim daySched As New List(Of String)
         Dim tempBool As Boolean = False
-        Try
-            currentdate = DateTime.Now.Date
+        currentdate = DateTime.Now.Date
             result = DateTime.Compare(inputdate, currentdate)
             If days.Contains("M") Then
                 daySched.Add("Monday")
@@ -273,16 +272,17 @@
                 End If
             Next
 
-            If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark) Or String.IsNullOrEmpty(checker)) Then
-                MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
-                Return False
-            ElseIf result > 0 Then
-                MsgBox("Absent date is earlier than the current date!", MsgBoxStyle.Critical, "")
-                Return False
-            ElseIf Not (tempBool) Then
-                MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
-                Return False
-            Else
+        If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark) Or String.IsNullOrEmpty(checker)) Then
+            MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
+            Return False
+        ElseIf result > 0 Then
+            MsgBox("Absent date is earlier than the current date!", MsgBoxStyle.Critical, "")
+            Return False
+        ElseIf Not (tempBool) Then
+            MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
+            Return False
+        Else
+            Try
                 courseid = dbAccess.Get_Data("select course_id from introse.course where course_cd ='" & course & "';", "course_id")
                 fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
                 courseofferingid = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering  where status = 'A' and course_id = " & courseid & " and facref_no = '" & fac & "' and section = '" & section & "';", "courseoffering_id")
@@ -291,11 +291,10 @@
                     dbAccess.Add_Data("insert into `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) values('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark_cd & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
                     Return True
                 End If
-
-            End If
-        Catch ex As Exception
-            Return False
-        End Try
+            Catch ex As Exception
+                Return False
+            End Try
+        End If
         Return False
     End Function
 

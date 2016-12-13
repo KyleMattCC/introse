@@ -11,7 +11,7 @@
 
     End Sub
 
-    Public Sub Load_Form(filename As String)
+    Public Sub Load_Form(filename As String, reportType As Integer, reportFor As String, reportDay As Date)
         Me.Show()
         pdfViewer.src = filename
     End Sub

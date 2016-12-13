@@ -72,7 +72,7 @@
                 text.Text = fname + " " + MI + " " + lname
             End If
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -92,7 +92,7 @@
                 combo.Items.Add(coursecode(ctr))
             Next
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -113,7 +113,7 @@
                 combo.Items.Add(section(ctr))
             Next
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -130,7 +130,7 @@
             Next
 
         Catch ex As Exception
-
+            System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -251,7 +251,7 @@
         makeupCheck = dbAccess.Get_Data("select makeupid
                                          from introse.makeup
                                          where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "';", "makeupid")
-        If String.IsNullOrEmpty(makeupCheck) Then
+        If makeupCheck.Count < 2 Then
             b = True
         Else
             MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
@@ -288,24 +288,31 @@
                     MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
                 ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                     MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
+                ElseIf (endTime < startTime) Then
+                    MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
                 ElseIf (startTime = endTime) Then
-                    MsgBox("Start and End Time cannot be at the same time!", MsgBoxStyle.Critical, "")
-                ElseIf ((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) > absentHours) Then
-                    MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")
+                    MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
+                ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) Or Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
+                    MsgBox("Makeup hours is not exact!", MsgBoxStyle.Critical, "")
                 Else
-                    makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
-                    course = cmbbxCourse.SelectedItem
-                    section = cmbbxSection.SelectedItem
-                    room = txtbxRoom.Text
-                    reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
-                    courseOfferingId = dbAccess.Get_Data("select courseoffering_id 
+                    Try
+                        makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
+                        course = cmbbxCourse.SelectedItem
+                        section = cmbbxSection.SelectedItem
+                        room = txtbxRoom.Text
+                        reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
+                        courseOfferingId = dbAccess.Get_Data("select courseoffering_id 
                                                            from introse.courseoffering c, introse.course cl 
                                                             where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
-                    If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason)) Then
-                        dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  '" & wdwLogin.Get_Encoder & "' WHERE makeupid = '" & ref & "' and status = 'A';")
-                        Me.Close()
-                    End If
+                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason)) Then
+                            dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  '" & wdwLogin.Get_Encoder & "' WHERE makeupid = '" & ref & "' and status = 'A';")
+                            Me.Close()
+                        End If
+
+                    Catch Ex As Exception
+                        System.Windows.Forms.MessageBox.Show(Ex.Message)
+                    End Try
                 End If
             End If
         End If

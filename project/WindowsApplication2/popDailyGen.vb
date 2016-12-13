@@ -1,18 +1,34 @@
 ﻿Public Class popDailyGen
     Dim repGen As New reportGenerator
-    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Me.Close()
+    Dim offered As Integer
+    Dim reportTo As Integer
+    Private Sub popDailyGen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Public Sub Load_Form(offeredType As Integer, reportFor As Integer)
+        offered = offeredType
+        reportTo = reportFor
+        Me.Show()
     End Sub
 
     Private Sub btnGenerate_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
-        Me.Hide()
-        Dim filename As String
-        filename = repGen.Generate_Daily_Report(dtp.Value)
-        wdwReportGen.Load_Form("C:\Users\Aeinstein Villamayor\Documents\GitHub\introse\project\WindowsApplication2\bin\Debug\" & filename)
+        Dim reportSuccess As Boolean = False
+        If reportTo = 1 Then
+            reportSuccess = repGen.Generate_Registrar_Daily_Report(offered, dtp.Value)
+        ElseIf reportTo = 3 Then
+            reportSuccess = repGen.Generate_College_Daily_Report(offered, dtp.Value)
+        ElseIf reportTo = 4 Then
+            reportSuccess = repGen.Generate_Chair_Daily_Report(offered, dtp.Value)
+        End If
+
+        If (reportSuccess) Then
+            Me.Hide()
+        End If
     End Sub
 
-    Private Sub popDailyGen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Me.Close()
 
     End Sub
 

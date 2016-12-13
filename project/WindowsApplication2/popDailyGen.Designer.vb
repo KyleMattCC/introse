@@ -30,17 +30,17 @@ Partial Class popDailyGen
         '
         'dtp
         '
-        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp.Location = New System.Drawing.Point(90, 34)
+        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp.Location = New System.Drawing.Point(65, 20)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(217, 22)
+        Me.dtp.Size = New System.Drawing.Size(315, 26)
         Me.dtp.TabIndex = 162
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(32, 34)
+        Me.Label1.Location = New System.Drawing.Point(12, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(56, 20)
         Me.Label1.TabIndex = 163
@@ -49,7 +49,7 @@ Partial Class popDailyGen
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(185, 69)
+        Me.btnBack.Location = New System.Drawing.Point(212, 69)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(90, 30)
         Me.btnBack.TabIndex = 165
@@ -59,7 +59,7 @@ Partial Class popDailyGen
         'btnGenerate
         '
         Me.btnGenerate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(65, 69)
+        Me.btnGenerate.Location = New System.Drawing.Point(100, 69)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(90, 30)
         Me.btnGenerate.TabIndex = 164
@@ -70,7 +70,7 @@ Partial Class popDailyGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(344, 131)
+        Me.ClientSize = New System.Drawing.Size(399, 117)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.Label1)
