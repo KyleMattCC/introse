@@ -152,7 +152,7 @@ Partial Class wdwDataEntry
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(100, 210)
+        Me.Label26.Location = New System.Drawing.Point(101, 181)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(104, 20)
         Me.Label26.TabIndex = 39
@@ -162,7 +162,7 @@ Partial Class wdwDataEntry
         '
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(110, 181)
+        Me.Label25.Location = New System.Drawing.Point(110, 210)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(94, 20)
         Me.Label25.TabIndex = 38

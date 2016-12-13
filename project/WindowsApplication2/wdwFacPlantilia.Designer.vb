@@ -98,7 +98,7 @@ Partial Class wdwFacPlantilia
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(218, 485)
+        Me.Button2.Location = New System.Drawing.Point(189, 485)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(105, 28)
         Me.Button2.TabIndex = 6
@@ -108,7 +108,7 @@ Partial Class wdwFacPlantilia
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(329, 485)
+        Me.Button4.Location = New System.Drawing.Point(336, 485)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(105, 28)
         Me.Button4.TabIndex = 8
@@ -118,7 +118,7 @@ Partial Class wdwFacPlantilia
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(440, 485)
+        Me.Button6.Location = New System.Drawing.Point(484, 485)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(105, 28)
         Me.Button6.TabIndex = 10
@@ -128,7 +128,7 @@ Partial Class wdwFacPlantilia
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(551, 485)
+        Me.Button1.Location = New System.Drawing.Point(630, 485)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(105, 28)
         Me.Button1.TabIndex = 11

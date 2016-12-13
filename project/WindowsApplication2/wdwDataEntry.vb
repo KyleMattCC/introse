@@ -266,6 +266,8 @@
             If (Department = Nothing) Then
                 dbAccess.Add_Data("INSERT INTO `introse`.`department` (`departmentname`, `college_code`) VALUES ('" & txtbxDeptName.Text & "', '" & College & "');")
                 txtbxDeptName.Text = Nothing
+                cmbbxFacCol.SelectedIndex = 1
+                cmbbxFacCol.SelectedIndex = 0
 
             Else
                 MsgBox("Department already exists. Try again!")
@@ -307,23 +309,23 @@
     End Sub
 
     Private Sub bttnCourseAdd_Click(sender As Object, e As EventArgs) Handles bttnCourseAdd.Click
-        Dim Course As Integer = Nothing
-        Dim OfferedTo As Char = "U"
-        Dim StartTime As Integer = Convert.ToInt32(txtbxStartTime.Text)
-        Dim EndTime As Integer = Convert.ToInt32(txtbxEndTime.Text)
-        Dim Term As Integer
-        Dim TempDate As Date = Date.Now
-        Dim DateToday As String = TempDate.ToString("yyyy-MM-dd")
-        Dim FacrefNo As String = Nothing
-        Dim Hours As Double
-        Dim Minutes As Double
-        Dim Temp As Double
-        Dim Holder As String
-
 
         If (txtbxCourseFacID.Text = Nothing Or txtbxCourseCode.Text = Nothing Or txtbxSection.Text = Nothing Or txtbxUnit.Text = Nothing Or txtbxDay.Text = Nothing Or txtbxStartTime.Text = Nothing Or txtbxRoom.Text = Nothing Or txtbxEndTime.Text = Nothing) Then
             MsgBox("Some textboxes are empty. Try Again!")
         Else
+
+            Dim Course As Integer = Nothing
+            Dim OfferedTo As Char = "U"
+            Dim StartTime As Integer = Convert.ToInt32(txtbxStartTime.Text)
+            Dim EndTime As Integer = Convert.ToInt32(txtbxEndTime.Text)
+            Dim Term As Integer
+            Dim TempDate As Date = Date.Now
+            Dim DateToday As String = TempDate.ToString("yyyy-MM-dd")
+            Dim FacrefNo As String = Nothing
+            Dim Hours As Double
+            Dim Minutes As Double
+            Dim Temp As Double
+            Dim Holder As String
 
             If (StartTime > 2400 Or EndTime > 2400 Or StartTime <= 0 Or EndTime <= 0 Or StartTime >= EndTime) Then
 
@@ -362,6 +364,7 @@
 
 
                     dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & Course & "', '" & Term & "', '" & FacrefNo & "', '" & txtbxSection.Text & "', '" & txtbxRoom.Text & "', '" & txtbxDay.Text & "', '" & txtbxStartTime.Text & "', '" & txtbxEndTime.Text & "', '" & Hours & "', 'A');")
+                    wdwFacPlantilia.Load_form()
                     Me.Close()
                 Else
                     If (FacrefNo = Nothing) Then
@@ -476,23 +479,23 @@
     End Sub
 
     Private Sub bttnAddClear_Click(sender As Object, e As EventArgs) Handles bttnAddClear.Click
-        Dim Course As Integer = Nothing
-        Dim OfferedTo As Char = "U"
-        Dim StartTime As Integer = Convert.ToInt32(txtbxStartTime.Text)
-        Dim EndTime As Integer = Convert.ToInt32(txtbxEndTime.Text)
-        Dim Term As Integer
-        Dim TempDate As Date = Date.Now
-        Dim DateToday As String = TempDate.ToString("yyyy-MM-dd")
-        Dim FacrefNo As String = Nothing
-        Dim Hours As Double
-        Dim Minutes As Double
-        Dim Temp As Double
-        Dim Holder As String
-
 
         If (txtbxCourseFacID.Text = Nothing Or txtbxCourseCode.Text = Nothing Or txtbxSection.Text = Nothing Or txtbxUnit.Text = Nothing Or txtbxDay.Text = Nothing Or txtbxStartTime.Text = Nothing Or txtbxRoom.Text = Nothing Or txtbxEndTime.Text = Nothing) Then
             MsgBox("Some textboxes are empty. Try Again!")
         Else
+
+            Dim Course As Integer = Nothing
+            Dim OfferedTo As Char = "U"
+            Dim StartTime As Integer = Convert.ToInt32(txtbxStartTime.Text)
+            Dim EndTime As Integer = Convert.ToInt32(txtbxEndTime.Text)
+            Dim Term As Integer
+            Dim TempDate As Date = Date.Now
+            Dim DateToday As String = TempDate.ToString("yyyy-MM-dd")
+            Dim FacrefNo As String = Nothing
+            Dim Hours As Double
+            Dim Minutes As Double
+            Dim Temp As Double
+            Dim Holder As String
 
             If (StartTime > 2400 Or EndTime > 2400 Or StartTime <= 0 Or EndTime <= 0 Or StartTime >= EndTime) Then
 
@@ -540,6 +543,9 @@
                     txtbxStartTime.Text = Nothing
                     txtbxEndTime.Text = Nothing
                     rbttnUndergrad.Checked = True
+
+                    wdwFacPlantilia.Load_form()
+
                 Else
                     If (FacrefNo = Nothing) Then
                         MsgBox("Faculty ID does not exist. Try again!")
@@ -588,6 +594,8 @@
         Dim TermDate As Integer = Nothing
         Dim TermStatus As New List(Of Object)
         Dim YearStatus As String = Nothing
+        Dim FacStatus As New List(Of Object)
+        Dim result As DialogResult
 
         If (txtbxTerm.Text <> Nothing) Then
 
@@ -595,6 +603,8 @@
             Term = dbAccess.Get_Data("Select term_no from term where Term_no = '" & txtbxTerm.Text & "' and yearid = '" & YearID & "'", "term_no")
             TermDate = dbAccess.Get_Data("Select termid from term where '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "' between start and end and '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "' between start and end", "termid")
             YearStatus = dbAccess.Get_Data("Select status from academicyear where yearid = '" & YearID & "'", "status")
+
+
             MsgBox(YearStatus)
             If (dtpStart.Value.Date.ToString("yyyy-MM-dd") >= dtpEnd.Value.Date.ToString("yyyy-MM-dd")) Then
                 TermDate = 1
@@ -605,14 +615,28 @@
 
                     If (YearStatus = "A") Then
 
-                        TermStatus = dbAccess.Get_Multiple_Row_Data("Select termid from term where status = 'A'")
+                        result = MsgBox("Are you sure you want to start a new term? ", MsgBoxStyle.YesNo, "")
+                        If result = DialogResult.Yes Then
 
-                        For i As Integer = 0 To TermStatus.Count - 1
-                            dbAccess.Update_Data("UPDATE `introse`.`term` SET `status`='R' WHERE `termid`='" & TermStatus(i) & "';")
-                        Next
 
-                        dbAccess.Add_Data("INSERT INTO `introse`.`term` (`yearid`, `term_no`, `start`, `end`, `status`) VALUES ('" & YearID & "', '" & txtbxTerm.Text & "', '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "', '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "', 'A');")
-                        txtbxTerm.Text = Nothing
+                            TermStatus = dbAccess.Get_Multiple_Row_Data("Select termid from term where status = 'A'")
+                            FacStatus = dbAccess.Get_Multiple_Row_Data("Select courseoffering_id from courseoffering where status = 'A'")
+
+                            For i As Integer = 0 To TermStatus.Count - 1
+                                dbAccess.Update_Data("UPDATE `introse`.`term` SET `status`='R' WHERE `termid`='" & TermStatus(i) & "';")
+                            Next
+
+                            For i As Integer = 0 To FacStatus.Count - 1
+                                dbAccess.Update_Data("UPDATE `introse`.`courseoffering` SET `status` = 'R' WHERE `courseoffering_id` = '" & FacStatus(i) & "'")
+                            Next
+
+                            dbAccess.Add_Data("INSERT INTO `introse`.`term` (`yearid`, `term_no`, `start`, `end`, `status`) VALUES ('" & YearID & "', '" & txtbxTerm.Text & "', '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "', '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "', 'A');")
+                            txtbxTerm.Text = Nothing
+
+                            wdwFacPlantilia.Load_form()
+
+                        End If
+
                     Else
 
                         MsgBox("Academic Year chosen is already finished. Try again.")
@@ -688,5 +712,9 @@
 
     Private Sub txtbxTerm_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxTerm.KeyPress
         validateInput("0123456789", e)
+    End Sub
+
+    Private Sub Label25_Click(sender As Object, e As EventArgs) Handles Label25.Click
+
     End Sub
 End Class
