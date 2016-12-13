@@ -610,6 +610,11 @@ Public Class reportGenerator
             Dim termAY As New List(Of Object)()
             Dim absentResults As New List(Of Object)()
             Dim makeupResults As New List(Of Object)()
+            Dim load As Double
+            Dim absHours As Integer
+            Dim lateNum As Integer
+            Dim edNum As Integer
+            Dim vrNum As Integer
             Dim absCtr As Integer
             Dim makeupCtr As Integer
             Dim ctrLines As Integer
@@ -653,13 +658,13 @@ Public Class reportGenerator
 
                 For depCtr As Integer = 0 To departments.Count - 1 Step 2
                     If offeredType = 1 Then
-                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
+                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
                                                                        from introse.faculty f, introse.remarks r, introse.courseoffering co, introse.course c, introse.attendance a
                                                                        where (a.status = 'R' or a.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & " and co.facref_no = f.facref_no
                                                                        and a.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and a.remarks_cd = r.remark_cd and MONTH(a.absent_date) = " & month & " and c.offered_to = 'U'
                                                                        group by 1, 2
                                                                        order by 1, 2;", 3)
-                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
+                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
                                                                        from introse.faculty f, introse.makeup m, introse.reasons r, introse.courseoffering co, introse.course c
                                                                        where (m.status = 'R' or m.status = 'A') and co.termid = 1 and f.departmentid = 1001
                                                                        and co.facref_no = f.facref_no and m.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and m.reason_cd and r.reason_cd and MONTH(m.makeup_date) = " & month & " and c.offered_to = 'U'
@@ -667,13 +672,13 @@ Public Class reportGenerator
                                                                        order by 1, 2;", 3)
 
                     ElseIf offeredType = 2 Then
-                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
+                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
                                                                        from introse.faculty f, introse.remarks r, introse.courseoffering co, introse.course c, introse.attendance a
                                                                        where (a.status = 'R' or a.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & " and co.facref_no = f.facref_no
                                                                        and a.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and a.remarks_cd = r.remark_cd and MONTH(a.absent_date) = " & month & " and c.offered_to = 'G'
                                                                        group by 1, 2
                                                                        order by 1, 2;", 3)
-                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
+                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
                                                                        from introse.faculty f, introse.makeup m, introse.reasons r, introse.courseoffering co, introse.course c
                                                                        where (m.status = 'R' or m.status = 'A') and co.termid = 1 and f.departmentid = 1001
                                                                        and co.facref_no = f.facref_no and m.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and m.reason_cd and r.reason_cd and MONTH(m.makeup_date) = " & month & " and c.offered_to = 'G'
@@ -681,13 +686,13 @@ Public Class reportGenerator
                                                                        order by 1, 2;", 3)
 
                     Else
-                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
+                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
                                                                        from introse.faculty f, introse.remarks r, introse.courseoffering co, introse.course c, introse.attendance a
                                                                        where (a.status = 'R' or a.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & " and co.facref_no = f.facref_no
                                                                        and a.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and a.remarks_cd = r.remark_cd and MONTH(a.absent_date) = " & month & "
                                                                        group by 1, 2
                                                                        order by 1, 2;", 3)
-                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
+                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
                                                                        from introse.faculty f, introse.makeup m, introse.reasons r, introse.courseoffering co, introse.course c
                                                                        where (m.status = 'R' or m.status = 'A') and co.termid = 1 and f.departmentid = 1001
                                                                        and co.facref_no = f.facref_no and m.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and m.reason_cd and r.reason_cd and MONTH(m.makeup_date) = " & month & "
@@ -805,8 +810,11 @@ Public Class reportGenerator
                         ctrLines = 0
                         While ctrLines <= 30 And (absCtr < absentResults.Count - 1 Or makeupCtr < makeupResults.Count - 1)
 
-                            Dim absHours As Integer = 0
-
+                            absHours = 0
+                            lateNum = 0
+                            edNum = 0
+                            vrNum = 0
+                            'CONTINUE, ADD FACULTY TO TABLE AND GET UNITS
 
                         End While
 
