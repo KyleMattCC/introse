@@ -29,3 +29,4 @@ project/WindowsApplication2/.vs/WindowsApplication2/v14/.suo
 project/WindowsApplication2/wdwLogin.resx
 project/WindowsApplication2/wdwMainMenu.resx
 project/.vs/WindowsApplication2/v14/.suo
+*.exe

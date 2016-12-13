@@ -126,5 +126,9 @@
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwMainMenu.Enable_Form()
+        popDailyGen.Close()
+        popMonthlyGen.Close()
+        popTermEndGen.Close()
     End Sub
+
 End Class

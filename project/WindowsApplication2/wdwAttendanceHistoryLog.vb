@@ -26,6 +26,7 @@
         End If
         Return checkFac
     End Function
+
     Public Sub Load_form(id As String)
         rindexValue = 0
         If Check_fac(id) Then
@@ -35,15 +36,15 @@
 
 
             If AttendanceView = True Then
-                dbAccess.Fill_Data_Grid("select a.attendanceid 'Attendance Reference No', concat(ac.yearstart, '-', ac.yearend) 'Academic Year', t.term_no 'Term', a.absent_date 'Absent Date', cl.course_cd 'Course', c.section 'Section'
-                                from introse.attendance a, introse.courseoffering c, introse.term t, introse.academicyear ac, introse.course cl, introse.faculty f
-                                where a.courseoffering_id = c.courseoffering_id and (c.status = 'A' or c.status = 'R') and (a.status = 'A' or a.status = 'R') and c.course_id = cl.course_id and c.termid = t.termid and t.yearid = ac.yearid and f.facultyid = '" + id + "' and f.facref_no = c.facref_no
+                dbAccess.Fill_Data_Grid("select a.attendanceid 'Attendance reference no.', concat(ac.yearstart, '-', ac.yearend) 'Academic year', t.term_no 'Term', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section', r.remark_des 'Remark'
+                                from introse.attendance a, introse.courseoffering c, introse.term t, introse.academicyear ac, introse.course cl, introse.faculty f, introse.remarks r
+                                where a.courseoffering_id = c.courseoffering_id and (c.status = 'A' or c.status = 'R') and (a.status = 'A' or a.status = 'R') and c.course_id = cl.course_id and c.termid = t.termid and t.yearid = ac.yearid and f.facultyid = '" + id + "' and f.facref_no = c.facref_no and a.remarks_cd = r.remark_cd
                                 order by concat(ac.yearstart, '-', ac.yearend) and t.term_no asc LIMIT 1000 ;", grid)
 
             ElseIf makeupView = True Then
-                dbAccess.Fill_Data_Grid("select m.makeupid 'Makeup Reference No', concat(ac.yearstart, '-', ac.yearend) 'Academic Year', t.term_no 'Term', m.makeup_date 'Make-Up Date', cl.course_cd 'Course', c.section 'Section'
-                                from introse.makeup m, introse.faculty f, introse.courseoffering c , introse.term t, introse.academicyear ac, introse.course cl
-                                where m.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and (c.status = 'A' or c.status = 'R') and (m.status = 'A' or m.status = 'R') and cl.course_id = c.course_id and c.termid = t.termid and t.yearid = ac.yearid  and f.facultyid = '" + id + "'
+                dbAccess.Fill_Data_Grid("select m.makeupid 'Makeup reference no.', concat(ac.yearstart, '-', ac.yearend) 'Academic year', t.term_no 'Term', m.makeup_date 'Makeup date', cl.course_cd 'Course', c.section 'Section', r.reason_des
+                                from introse.makeup m, introse.faculty f, introse.courseoffering c , introse.term t, introse.academicyear ac, introse.course cl, introse.reason r
+                                where m.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and (c.status = 'A' or c.status = 'R') and (m.status = 'A' or m.status = 'R') and cl.course_id = c.course_id and c.termid = t.termid and t.yearid = ac.yearid  and m.reason_cd = r.reason_cd and f.facultyid = '" + id + "'
                                 order by concat(ac.yearstart, '-', ac.yearend) and t.term_no asc LIMIT 1000 ;", grid)
 
             End If
@@ -86,34 +87,31 @@
         End If
     End Sub
     Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
-        Try
-            With grid
-                Dim result As DialogResult
-                Dim selectedRow As DataGridViewRow
-                If .SelectedRows.Count > 0 Then
-                    result = MsgBox("Are you sure you want to delete " & .SelectedRows.Count & " row/s?", MsgBoxStyle.YesNo, "")
-                    If result = DialogResult.Yes Then
 
-                        For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
-                            selectedRow = grid.Rows(.SelectedRows(ctr).Index)
-                            If AttendanceView = True Then
-                                dbAccess.Update_Data("UPDATE `introse`.`attendance` SET `status` = 'D' WHERE `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
-                            ElseIf MakeupView = True Then
-                                dbAccess.Update_Data("UPDATE `introse`.`makeup` SET `status` = 'D' WHERE `makeupid` = '" & selectedRow.Cells(0).Value & "';")
-                            End If
-                        Next
+        With grid
+            Dim result As DialogResult
+            Dim selectedRow As DataGridViewRow
+            If .SelectedRows.Count > 0 Then
+                result = MsgBox("Are you sure you want to delete " & .SelectedRows.Count & " row/s?", MsgBoxStyle.YesNo, "")
+                If result = DialogResult.Yes Then
 
-                        Load_form(txtbxFacID.Text)
-                    End If
+                    For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
+                        selectedRow = grid.Rows(.SelectedRows(ctr).Index)
+                        If AttendanceView = True Then
+                            dbAccess.Update_Data("UPDATE `introse`.`attendance` SET `status` = 'D' WHERE `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
+                        ElseIf MakeupView = True Then
+                            dbAccess.Update_Data("UPDATE `introse`.`makeup` SET `status` = 'D' WHERE `makeupid` = '" & selectedRow.Cells(0).Value & "';")
+                        End If
+                    Next
 
-                Else
-                    MsgBox("No row/s selected!", MsgBoxStyle.Critical, "")
-
+                    Load_form(txtbxFacID.Text)
                 End If
-            End With
-        Catch ex As Exception
 
-        End Try
+            Else
+                MsgBox("No row/s selected!", MsgBoxStyle.Critical, "")
+
+            End If
+        End With
     End Sub
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Close()
@@ -127,22 +125,6 @@
     Public Function getRefNo() As Integer
         Return rowData(0)
     End Function
-    Private Sub grid_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grid.CellMouseDoubleClick
-        Try
-            rindexValue = e.RowIndex
-
-            If AttendanceView = True Then
-                wdwMoreInfo.Load_Attendance_Form(rowData)
-            ElseIf makeupview = True Then
-                wdwMoreInfoMakeupClass.Load_Makeup_Form(rowData)
-            End If
-
-            Me.Enabled = False
-        Catch ex As Exception
-
-        End Try
-
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BttnAttendance.Click
         BttnAttendance.Enabled = False
@@ -195,7 +177,6 @@
                     popModifyMakeUpHistory.Load_Form(rowData)
                 End If
 
-
             Else
                 MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
 
@@ -203,41 +184,39 @@
         End With
     End Sub
 
-    Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
+    Private Sub grid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellDoubleClick
+        With grid
+            rindexValue = e.RowIndex
+
+            rowData.Clear()
+            Dim selectedRow As DataGridViewRow
+            Dim colCount As Integer
+            colCount = grid.ColumnCount
+
+            selectedRow = grid.Rows(rindexValue)
+            For ctr As Integer = 0 To colCount - 1
+                If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
+                    MsgBox("Missing data!", MsgBoxStyle.Critical, "")
+                    rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+                Else
+                    rowData.Add(selectedRow.Cells(ctr).Value.ToString)
+
+                End If
+            Next
+
+            Me.Enabled = False
+            If AttendanceView = True Then
+                wdwMoreInfo.Load_Attendance_Form(rowData)
+            ElseIf MakeupView = True Then
+                wdwMoreInfoMakeupClass.Load_Makeup_Form(rowData)
+            End If
+
+        End With
 
     End Sub
 
     Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
-        Try
-            rindexValue = e.RowIndex
-            With grid
-                rowData.Clear()
-                Dim selectedRow As DataGridViewRow
-                Dim colCount As Integer
-                colCount = grid.ColumnCount
-                If .SelectedRows.Count = 0 Then
-                    MsgBox("No rows selected!", MsgBoxStyle.Critical, "")
-
-                ElseIf .SelectedRows.Count = 1 Then
-                    selectedRow = grid.Rows(rindexValue)
-
-                    For ctr As Integer = 0 To colCount - 1
-                        If String.IsNullOrEmpty(selectedRow.Cells(ctr).Value.ToString) Then
-                            MsgBox("Missing data!", MsgBoxStyle.Critical, "")
-                            rowData.Add(selectedRow.Cells(ctr).Value.ToString)
-                        Else
-                            rowData.Add(selectedRow.Cells(ctr).Value.ToString)
-
-                        End If
-                    Next
-                Else
-                    MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
-
-                End If
-            End With
-        Catch ex As Exception
-
-        End Try
+        rindexValue = e.RowIndex
 
     End Sub
 End Class
