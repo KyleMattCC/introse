@@ -95,13 +95,14 @@
             End If
         End If
     End Sub
-    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String) As Boolean
-        Dim att As String = ""
+    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String, reason As String) As Boolean
+        Dim makeupCheck As String = ""
         Dim b As Boolean = False
-        att = dbAccess.Get_Data("select makeupid 
-                                from introse.makeup 
-                                where makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and status = '" & stat & "';", "attendanceid")
-        If String.IsNullOrEmpty(att) Then
+
+        makeupCheck = dbAccess.Get_Data("select makeupid
+                                         from introse.makeup
+                                         where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "';", "makeupid")
+        If String.IsNullOrEmpty(makeupCheck) Then
             b = True
         Else
             MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
@@ -286,6 +287,7 @@
                 End If
 
                 wholeNumber = (tempEnd - tempStart) / 100
+                MsgBox(((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1))
 
                 If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
                     MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
@@ -293,8 +295,8 @@
                 ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                     MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
                     Return False
-                ElseIf (startTime > endTime) Then
-                    MsgBox("Start Time cannot be ahead of End Time!", MsgBoxStyle.Critical, "")
+                ElseIf (endTime < startTime) Then
+                    MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
                     Return False
                 ElseIf (startTime = endTime) Then
                     MsgBox("Start and end time cannot be at the same time!", MsgBoxStyle.Critical, "")
@@ -313,7 +315,7 @@
                                                             where c.termid = '" & termid & "' and (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
                     attstatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
-                    If (Check_Entry(makeupDate, startTime, endTime, room, "A") And Check_Entry(makeupDate, startTime, endTime, room, "R")) Then
+                    If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason) And Check_Entry(makeupDate, startTime, endTime, room, "R", courseOfferingId, reason)) Then
                         dbAccess.Add_Data("insert into `introse`.`makeup` (`courseoffering_id`, `timestart`, `timeend`, `hours`, `room`, `reason_cd`, `makeup_date`, `enc_date`, `encoder`, `status`) values (" & courseOfferingId & ", " & startTime & ", " & endTime & ", " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ",'" & room & "', '" & reason & "', '" & makeupDate & "', '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', '" & wdwLogin.Get_Encoder & "', '" & attstatus & "');")
                         Return True
                     End If

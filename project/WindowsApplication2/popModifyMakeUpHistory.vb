@@ -463,8 +463,8 @@
                         MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
                     ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                         MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
-                    ElseIf (startTime > endTime) Then
-                        MsgBox("Start Time cannot be ahead of End Time!", MsgBoxStyle.Critical, "")
+                    ElseIf (endTime < startTime) Then
+                        MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
                     ElseIf (startTime = endTime) Then
                         MsgBox("Start and end time cannot be at the same time!", MsgBoxStyle.Critical, "")
                     ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) Or Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
