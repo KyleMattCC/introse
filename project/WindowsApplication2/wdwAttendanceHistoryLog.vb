@@ -34,6 +34,19 @@
             txtbxName.Text = dbAccess.Get_Data("select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from introse.faculty where facultyid = '" & id & "';", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
             facultyID = txtbxFacID.Text
 
+            If wdwLogin.Get_accountType.Equals("Regular") And AttendanceView = True Then
+                bttnAdd.Enabled = True
+                bttnDelete.Enabled = False
+                bttnModify.Enabled = False
+            ElseIf wdwLogin.Get_accountType.Equals("Regular") And MakeupView = True Then
+                bttnAdd.Enabled = False
+                bttnDelete.Enabled = False
+                bttnModify.Enabled = False
+            Else
+                bttnAdd.Enabled = True
+                bttnDelete.Enabled = True
+                bttnModify.Enabled = True
+            End If
 
             If AttendanceView = True Then
                 dbAccess.Fill_Data_Grid("select a.attendanceid 'Attendance reference no.', concat(ac.yearstart, '-', ac.yearend) 'Academic year', t.term_no 'Term', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section', r.remark_des 'Remark'
