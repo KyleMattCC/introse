@@ -29,6 +29,30 @@
 
     End Function
 
+    Public Function Get_AcadTerm() As String
+        Dim acadterm As String = ""
+
+        acadterm = dbAccess.Get_Data("Select term_no from term t, academicyear a where a.yearid = t.yearid and t.status = 'A' ", "term_no")
+        Return acadterm
+
+    End Function
+
+    Public Function Get_AcadYearstart() As String
+        Dim acadyearstart As String = ""
+
+        acadyearstart = dbAccess.Get_Data("Select yearstart from term t, academicyear a where a.yearid = t.yearid and t.status = 'A' ", "yearstart")
+        Return acadyearstart
+
+    End Function
+
+    Public Function Get_AcadYearend() As String
+        Dim acadyearend As String = ""
+
+        acadyearend = dbAccess.Get_Data("Select yearend from term t, academicyear a where a.yearid = t.yearid and t.status = 'A' ", "yearend")
+        Return acadyearend
+
+    End Function
+
     Private Sub bttnLogin_Click(sender As Object, e As EventArgs) Handles bttnLogin.Click
         Dim Found As Boolean
         Dim UserID As String

@@ -45,13 +45,13 @@ Partial Class wdwMainMenu
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lblTime = New System.Windows.Forms.Label()
+        Me.lblAY = New System.Windows.Forms.Label()
         Me.lblDate = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TimerLoop = New System.Windows.Forms.Timer(Me.components)
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.lblAY = New System.Windows.Forms.Label()
+        Me.lblTime = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TimerLoop = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -335,15 +335,15 @@ Partial Class wdwMainMenu
         Me.Panel2.Size = New System.Drawing.Size(1799, 85)
         Me.Panel2.TabIndex = 23
         '
-        'lblTime
+        'lblAY
         '
-        Me.lblTime.AutoSize = True
-        Me.lblTime.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTime.Location = New System.Drawing.Point(576, 32)
-        Me.lblTime.Name = "lblTime"
-        Me.lblTime.Size = New System.Drawing.Size(102, 29)
-        Me.lblTime.TabIndex = 2
-        Me.lblTime.Text = "Label8"
+        Me.lblAY.AutoSize = True
+        Me.lblAY.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAY.Location = New System.Drawing.Point(945, 27)
+        Me.lblAY.Name = "lblAY"
+        Me.lblAY.Size = New System.Drawing.Size(119, 29)
+        Me.lblAY.TabIndex = 26
+        Me.lblAY.Text = "Label10"
         '
         'lblDate
         '
@@ -354,19 +354,6 @@ Partial Class wdwMainMenu
         Me.lblDate.Size = New System.Drawing.Size(102, 29)
         Me.lblDate.TabIndex = 1
         Me.lblDate.Text = "Label7"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(31, 23)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(126, 36)
-        Me.Label6.TabIndex = 0
-        Me.Label6.Text = "Label6"
-        '
-        'TimerLoop
-        '
         '
         'Panel8
         '
@@ -385,20 +372,33 @@ Partial Class wdwMainMenu
         Me.Label9.ForeColor = System.Drawing.Color.Transparent
         Me.Label9.Location = New System.Drawing.Point(127, 21)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(207, 41)
+        Me.Label9.Size = New System.Drawing.Size(197, 40)
         Me.Label9.TabIndex = 3
         Me.Label9.Text = "FillerHere"
         Me.Label9.Visible = False
         '
-        'lblAY
+        'lblTime
         '
-        Me.lblAY.AutoSize = True
-        Me.lblAY.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAY.Location = New System.Drawing.Point(945, 27)
-        Me.lblAY.Name = "lblAY"
-        Me.lblAY.Size = New System.Drawing.Size(119, 29)
-        Me.lblAY.TabIndex = 26
-        Me.lblAY.Text = "Label10"
+        Me.lblTime.AutoSize = True
+        Me.lblTime.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTime.Location = New System.Drawing.Point(576, 32)
+        Me.lblTime.Name = "lblTime"
+        Me.lblTime.Size = New System.Drawing.Size(102, 29)
+        Me.lblTime.TabIndex = 2
+        Me.lblTime.Text = "Label8"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(31, 23)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(126, 36)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Label6"
+        '
+        'TimerLoop
+        '
         '
         'wdwMainMenu
         '

@@ -3,9 +3,6 @@
         Load_Form()
 
     End Sub
-    Public Sub SyncTime()
-
-    End Sub
 
     Public Sub Load_Form()
         Close_Forms()
@@ -16,6 +13,7 @@
         End If
 
         Label6.Text = "Welcome, " + wdwLogin.Get_Encoder() + "!"
+        lblAY.Text = "Term " + wdwLogin.Get_AcadTerm() + ", A.Y. " + wdwLogin.Get_AcadYearstart() + " - " + wdwLogin.Get_AcadYearend
         TimerLoop.Enabled = True
         Me.Show()
     End Sub
@@ -110,11 +108,6 @@
         lblDate.Text = Date.Now.ToLongDateString
         lblTime.Text = TimeOfDay.ToLongTimeString
 
-
-
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
-
-    End Sub
 End Class
