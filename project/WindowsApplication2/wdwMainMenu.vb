@@ -1,13 +1,22 @@
 ﻿Public Class wdwMainMenu
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Load_Form()
+
+    End Sub
+    Public Sub SyncTime()
+
     End Sub
 
     Public Sub Load_Form()
         Close_Forms()
         If wdwLogin.Get_accountType.Equals("Regular") Then
             bttnAddAccount.Enabled = False
+        Else
+            bttnAddAccount.Enabled = True
         End If
+
+        Label6.Text = "Welcome, " + wdwLogin.Get_Encoder() + "!"
+        TimerLoop.Enabled = True
         Me.Show()
     End Sub
 
@@ -19,8 +28,9 @@
         popFacSearch.Close()
         wdwAttendanceHistoryLog.Close()
         popAddAccount.Close()
-        wdwFacPlantilia.Close()
         popEditAccount.Close()
+        wdwFacPlantilia.Close()
+
     End Sub
 
     Private Sub bttnDailyAtt_Click_1(sender As Object, e As EventArgs) Handles bttnDailyAtt.Click
@@ -72,6 +82,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnAddAccount.Click
+        Close_Forms()
         popAddAccount.MdiParent = Me
         popAddAccount.WindowState = FormWindowState.Normal
         popAddAccount.Show()
@@ -95,4 +106,15 @@
         End
     End Sub
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles TimerLoop.Tick
+        lblDate.Text = Date.Now.ToLongDateString
+        lblTime.Text = TimeOfDay.ToLongTimeString
+
+
+
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
 End Class

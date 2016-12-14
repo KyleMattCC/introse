@@ -1,5 +1,6 @@
 ﻿Public Class wdwLogin
     Dim dbAccess As databaseAccessor = New databaseAccessor
+
     Public Function Get_Encoder() As String
         Dim encoder As String = ""
 
@@ -41,7 +42,7 @@
 
         If (UserID <> Nothing) Then
             Me.Hide()
-            wdwMainMenu.Show()
+            wdwMainMenu.Load_Form()
         Else
             MsgBox("Incorrect Username/Password. Try Again.")
 

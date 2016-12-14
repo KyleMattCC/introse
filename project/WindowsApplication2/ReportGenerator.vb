@@ -731,50 +731,57 @@ Public Class reportGenerator
                         table.SpacingAfter = 10
                         table.HorizontalAlignment = 1
                         table.DefaultCell.Padding = 3
-                        table.WidthPercentage = 400.0F
+                        table.WidthPercentage = 100.0F
                         table.HorizontalAlignment = Element.ALIGN_LEFT
                         table.DefaultCell.BorderWidth = 1
                         Dim sglTblHdWidths(colNum - 1) As Single
                         Dim colCnt As Integer
-                        sglTblHdWidths(0) = 200.0F
-                        sglTblHdWidths(1) = 90.0F
-                        For colCnt = 2 To (remarks.Count / 2) - 1
-                            sglTblHdWidths(colCnt) = 80.0F
+                        sglTblHdWidths(0) = 100.0F
+                        sglTblHdWidths(1) = 40.0F
+                        For colCnt = 2 To (remarks.Count / 2) - 2
+                            sglTblHdWidths(colCnt) = 40.0F
                         Next
 
-                        sglTblHdWidths(colCnt) = 90.0F
-                        For colCnt = colCnt + 1 To reasons.Count / 2 + (colCnt - 1)
-                            sglTblHdWidths(colCnt) = 80.0F
+                        sglTblHdWidths(colCnt) = 45.0F
+
+                        For colCnt = colCnt + 1 To reasons.Count / 2 + colCnt
+                            sglTblHdWidths(colCnt) = 40.0F
                         Next
 
-                        sglTblHdWidths(colCnt) = 90.0F
-                        sglTblHdWidths(colCnt + 1) = 80.0F
-                        sglTblHdWidths(colCnt + 2) = 80.0F
-                        sglTblHdWidths(colCnt + 3) = 80.0F
+                        sglTblHdWidths(colCnt) = 45.0F
+                        sglTblHdWidths(colCnt + 1) = 40.0F
+                        sglTblHdWidths(colCnt + 2) = 40.0F
+                        sglTblHdWidths(colCnt + 3) = 40.0F
                         table.SetWidths(sglTblHdWidths)
 
                         Dim cell As PdfPCell
-                        cell = New PdfPCell(New Phrase("FACULTY NAME", fntTableFontHdr))
-                        cell.Rowspan = 2
+                        cell = New PdfPCell(New Phrase("", fntTableFontHdr))
                         cell.HorizontalAlignment = 1
                         cell.VerticalAlignment = 1
                         table.AddCell(cell)
-                        cell = New PdfPCell(New Phrase("LOAD", fntTableFontHdr))
-                        cell.Rowspan = 2
+                        cell = New PdfPCell(New Phrase("", fntTableFontHdr))
                         cell.HorizontalAlignment = 1
                         cell.VerticalAlignment = 1
                         table.AddCell(cell)
                         cell = New PdfPCell(New Phrase("ABSENCE (IN HOURS)", fntTableFontHdr))
-                        cell.Colspan = remarks.Count - 2
+                        cell.Colspan = remarks.Count / 2 - 2
                         cell.HorizontalAlignment = 1
                         table.AddCell(cell)
                         cell = New PdfPCell(New Phrase("MAKEUP (IN HOURS)", fntTableFontHdr))
-                        cell.Colspan = reasons.Count + 1
+                        cell.Colspan = reasons.Count / 2 + 1
                         cell.HorizontalAlignment = 1
                         table.AddCell(cell)
                         cell = New PdfPCell(New Phrase("IN FREQ.", fntTableFontHdr))
                         cell.Colspan = 3
-                        cell.Rowspan = 2
+                        cell.HorizontalAlignment = 1
+                        cell.VerticalAlignment = 1
+                        table.AddCell(cell)
+
+                        cell = New PdfPCell(New Phrase("FACULTY NAME", fntTableFontHdr))
+                        cell.HorizontalAlignment = 1
+                        cell.VerticalAlignment = 1
+                        table.AddCell(cell)
+                        cell = New PdfPCell(New Phrase("LOAD", fntTableFontHdr))
                         cell.HorizontalAlignment = 1
                         cell.VerticalAlignment = 1
                         table.AddCell(cell)
@@ -786,12 +793,28 @@ Public Class reportGenerator
                                 table.AddCell(cell)
                             End If
                         Next
+                        cell = New PdfPCell(New Phrase("TOTAL", fntTableFontHdr))
+                        cell.HorizontalAlignment = 1
+                        table.AddCell(cell)
 
                         For ctr = 0 To reasons.Count - 1 Step 2
                             cell = New PdfPCell(New Phrase(reasons(ctr), fntTableFontHdr))
                             cell.HorizontalAlignment = 1
                             table.AddCell(cell)
                         Next
+                        cell = New PdfPCell(New Phrase("TOTAL", fntTableFontHdr))
+                        cell.HorizontalAlignment = 1
+                        table.AddCell(cell)
+
+                        cell = New PdfPCell(New Phrase("LA", fntTableFontHdr))
+                        cell.HorizontalAlignment = 1
+                        table.AddCell(cell)
+                        cell = New PdfPCell(New Phrase("ED", fntTableFontHdr))
+                        cell.HorizontalAlignment = 1
+                        table.AddCell(cell)
+                        cell = New PdfPCell(New Phrase("VR", fntTableFontHdr))
+                        cell.HorizontalAlignment = 1
+                        table.AddCell(cell)
 
                         Dim depCell As New PdfPCell(New Phrase(departments(depCtr + 1), fntTableFontHdr))
                         depCell.Colspan = colNum
@@ -814,8 +837,16 @@ Public Class reportGenerator
                             lateNum = 0
                             edNum = 0
                             vrNum = 0
-                            'CONTINUE, ADD FACULTY TO TABLE AND GET UNITS
+                            load = dbAccess.Get_Data("select SUM(c.units)
+                                                        from introse.course c, introse.courseoffering co, introse.faculty f
+                                                        where CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename) = '" & currentFaculty & "' and co.facref_no = f.facref_no and co.termid = 1 and co.course_id = c.course_id;", "SUM(c.units)")
 
+                            table.AddCell(New Phrase(currentFaculty))
+                            table.AddCell(New Phrase(load.ToString))
+                            lateNum = 0
+                            edNum = 0
+                            vrNum = 0
+                            'Remarks 
                         End While
 
                     End While
