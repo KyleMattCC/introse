@@ -69,9 +69,11 @@
         Try
 
             facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", 3)
-            fname = facName(0).ToString
-            MI = facName(1).ToString
-            lname = facName(2).ToString
+            If facName.Count > 0 Then
+                fname = facName(0).ToString
+                MI = facName(1).ToString
+                lname = facName(2).ToString
+            End If
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
