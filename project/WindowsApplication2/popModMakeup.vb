@@ -246,13 +246,13 @@
         validateInput("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ", e)
     End Sub
 
-    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String, reason As String) As Boolean
-        Dim makeupCheck As String = ""
+    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String) As Boolean
+        Dim makeupCheck As New List(Of Object)()
         Dim b As Boolean = False
 
-        makeupCheck = dbAccess.Get_Data("select makeupid
+        makeupCheck = dbAccess.Get_Multiple_Row_Data("select makeupid
                                          from introse.makeup
-                                         where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "';", "makeupid")
+                                         where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "';")
         If makeupCheck.Count < 2 Then
             b = True
         Else
@@ -294,7 +294,7 @@
                     MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
                 ElseIf (startTime = endTime) Then
                     MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
-                ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) Or Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
+                ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) And Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
                     MsgBox("Makeup hours is not exact!", MsgBoxStyle.Critical, "")
                 Else
                     Try
@@ -307,7 +307,7 @@
                                                            from introse.courseoffering c, introse.course cl 
                                                             where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
-                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason)) Then
+                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId)) Then
                             dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  '" & wdwLogin.Get_Encoder & "' WHERE makeupid = '" & ref & "' and status = 'A';")
                             Me.Close()
                         End If

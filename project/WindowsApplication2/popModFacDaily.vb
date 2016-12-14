@@ -263,9 +263,9 @@
     End Sub
 
     Private Function Check_Entry(absent As String, courseofferingid As String, stat As String, remarks As String, checker As String) As Boolean
-        Dim att As String = ""
+        Dim att As New List(Of Object)()
         Dim b As Boolean = False
-        att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
+        att = dbAccess.Get_Multiple_Row_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';")
         If att.Count < 2 Then
             b = True
         Else
