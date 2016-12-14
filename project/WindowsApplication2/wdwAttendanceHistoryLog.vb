@@ -42,7 +42,7 @@
                                 order by concat(ac.yearstart, '-', ac.yearend) and t.term_no asc LIMIT 1000 ;", grid)
 
             ElseIf makeupView = True Then
-                dbAccess.Fill_Data_Grid("select m.makeupid 'Makeup reference no.', concat(ac.yearstart, '-', ac.yearend) 'Academic year', t.term_no 'Term', m.makeup_date 'Makeup date', cl.course_cd 'Course', c.section 'Section', r.reason_des 'Reason'
+                dbAccess.Fill_Data_Grid("select m.makeupid 'Makeup reference no.', concat(ac.yearstart, '-', ac.yearend) 'Academic year', t.term_no 'Term', m.makeup_date 'Makeup date', cl.course_cd 'Course', c.section 'Section', r.reason_des 'Reasons'
                                 from introse.makeup m, introse.faculty f, introse.courseoffering c , introse.term t, introse.academicyear ac, introse.course cl, introse.reasons r
                                 where m.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and (c.status = 'A' or c.status = 'R') and (m.status = 'A' or m.status = 'R') and cl.course_id = c.course_id and c.termid = t.termid and t.yearid = ac.yearid  and m.reason_cd = r.reason_cd and f.facultyid = '" + id + "'
                                 order by concat(ac.yearstart, '-', ac.yearend) and t.term_no asc LIMIT 1000 ;", grid)
@@ -118,8 +118,7 @@
     End Sub
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
-        popFacSearch.Set_Path("Main")
-        popFacSearch.Enable_Form()
+        wdwMainMenu.Show()
     End Sub
 
     Public Function getRefNo() As Integer

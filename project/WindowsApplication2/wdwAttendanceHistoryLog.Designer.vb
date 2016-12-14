@@ -44,9 +44,10 @@ Partial Class wdwAttendanceHistoryLog
         'bttnSearch
         '
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(29, 612)
+        Me.bttnSearch.Location = New System.Drawing.Point(39, 753)
+        Me.bttnSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnSearch.Name = "bttnSearch"
-        Me.bttnSearch.Size = New System.Drawing.Size(204, 40)
+        Me.bttnSearch.Size = New System.Drawing.Size(272, 49)
         Me.bttnSearch.TabIndex = 175
         Me.bttnSearch.Text = "Search"
         Me.bttnSearch.UseVisualStyleBackColor = True
@@ -66,21 +67,23 @@ Partial Class wdwAttendanceHistoryLog
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grid.DefaultCellStyle = DataGridViewCellStyle1
-        Me.grid.Location = New System.Drawing.Point(29, 192)
+        Me.grid.Location = New System.Drawing.Point(39, 236)
+        Me.grid.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grid.Name = "grid"
         Me.grid.ReadOnly = True
         Me.grid.RowHeadersWidth = 45
         Me.grid.RowTemplate.ReadOnly = True
         Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grid.Size = New System.Drawing.Size(1266, 404)
+        Me.grid.Size = New System.Drawing.Size(1688, 497)
         Me.grid.TabIndex = 177
         '
         'bttnAdd
         '
         Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAdd.Location = New System.Drawing.Point(283, 612)
+        Me.bttnAdd.Location = New System.Drawing.Point(377, 753)
+        Me.bttnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnAdd.Name = "bttnAdd"
-        Me.bttnAdd.Size = New System.Drawing.Size(204, 40)
+        Me.bttnAdd.Size = New System.Drawing.Size(272, 49)
         Me.bttnAdd.TabIndex = 178
         Me.bttnAdd.Text = "Add"
         Me.bttnAdd.UseVisualStyleBackColor = True
@@ -88,9 +91,10 @@ Partial Class wdwAttendanceHistoryLog
         'bttnModify
         '
         Me.bttnModify.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnModify.Location = New System.Drawing.Point(551, 612)
+        Me.bttnModify.Location = New System.Drawing.Point(735, 753)
+        Me.bttnModify.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnModify.Name = "bttnModify"
-        Me.bttnModify.Size = New System.Drawing.Size(204, 40)
+        Me.bttnModify.Size = New System.Drawing.Size(272, 49)
         Me.bttnModify.TabIndex = 179
         Me.bttnModify.Text = "Modify"
         Me.bttnModify.UseVisualStyleBackColor = True
@@ -98,9 +102,10 @@ Partial Class wdwAttendanceHistoryLog
         'bttnDelete
         '
         Me.bttnDelete.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnDelete.Location = New System.Drawing.Point(823, 612)
+        Me.bttnDelete.Location = New System.Drawing.Point(1097, 753)
+        Me.bttnDelete.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnDelete.Name = "bttnDelete"
-        Me.bttnDelete.Size = New System.Drawing.Size(204, 40)
+        Me.bttnDelete.Size = New System.Drawing.Size(272, 49)
         Me.bttnDelete.TabIndex = 180
         Me.bttnDelete.Text = "Delete"
         Me.bttnDelete.UseVisualStyleBackColor = True
@@ -108,9 +113,10 @@ Partial Class wdwAttendanceHistoryLog
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(1091, 612)
+        Me.bttnBack.Location = New System.Drawing.Point(1455, 753)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(204, 40)
+        Me.bttnBack.Size = New System.Drawing.Size(272, 49)
         Me.bttnBack.TabIndex = 181
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
@@ -119,9 +125,10 @@ Partial Class wdwAttendanceHistoryLog
         '
         Me.BttnAttendance.Enabled = False
         Me.BttnAttendance.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BttnAttendance.Location = New System.Drawing.Point(391, 142)
+        Me.BttnAttendance.Location = New System.Drawing.Point(521, 175)
+        Me.BttnAttendance.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BttnAttendance.Name = "BttnAttendance"
-        Me.BttnAttendance.Size = New System.Drawing.Size(204, 40)
+        Me.BttnAttendance.Size = New System.Drawing.Size(272, 49)
         Me.BttnAttendance.TabIndex = 182
         Me.BttnAttendance.Text = "Attendance"
         Me.BttnAttendance.UseVisualStyleBackColor = True
@@ -133,9 +140,11 @@ Partial Class wdwAttendanceHistoryLog
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(29, 9)
+        Me.GroupBox4.Location = New System.Drawing.Point(39, 11)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(653, 127)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Size = New System.Drawing.Size(871, 156)
         Me.GroupBox4.TabIndex = 183
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Faculty Information:"
@@ -144,27 +153,30 @@ Partial Class wdwAttendanceHistoryLog
         '
         Me.txtbxFacID.Enabled = False
         Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxFacID.Location = New System.Drawing.Point(216, 36)
+        Me.txtbxFacID.Location = New System.Drawing.Point(288, 44)
+        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtbxFacID.Name = "txtbxFacID"
-        Me.txtbxFacID.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxFacID.Size = New System.Drawing.Size(465, 31)
         Me.txtbxFacID.TabIndex = 175
         '
         'txtbxName
         '
         Me.txtbxName.Enabled = False
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxName.Location = New System.Drawing.Point(216, 82)
+        Me.txtbxName.Location = New System.Drawing.Point(288, 101)
+        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtbxName.Name = "txtbxName"
-        Me.txtbxName.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxName.Size = New System.Drawing.Size(465, 31)
         Me.txtbxName.TabIndex = 174
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(77, 84)
+        Me.Label1.Location = New System.Drawing.Point(103, 103)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(133, 20)
+        Me.Label1.Size = New System.Drawing.Size(158, 23)
         Me.Label1.TabIndex = 173
         Me.Label1.Text = "Faculty Name:"
         '
@@ -172,27 +184,29 @@ Partial Class wdwAttendanceHistoryLog
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(108, 37)
+        Me.Label6.Location = New System.Drawing.Point(144, 46)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(102, 20)
+        Me.Label6.Size = New System.Drawing.Size(121, 23)
         Me.Label6.TabIndex = 172
         Me.Label6.Text = "Faculty ID:"
         '
         'BttnMakeup
         '
         Me.BttnMakeup.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BttnMakeup.Location = New System.Drawing.Point(776, 142)
+        Me.BttnMakeup.Location = New System.Drawing.Point(1035, 175)
+        Me.BttnMakeup.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BttnMakeup.Name = "BttnMakeup"
-        Me.BttnMakeup.Size = New System.Drawing.Size(204, 40)
+        Me.BttnMakeup.Size = New System.Drawing.Size(272, 49)
         Me.BttnMakeup.TabIndex = 184
         Me.BttnMakeup.Text = "Make-Up Class"
         Me.BttnMakeup.UseVisualStyleBackColor = True
         '
         'wdwAttendanceHistoryLog
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1307, 668)
+        Me.ClientSize = New System.Drawing.Size(1764, 825)
         Me.Controls.Add(Me.BttnMakeup)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.BttnAttendance)
@@ -204,6 +218,7 @@ Partial Class wdwAttendanceHistoryLog
         Me.Controls.Add(Me.bttnSearch)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "wdwAttendanceHistoryLog"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Attendance History Log"

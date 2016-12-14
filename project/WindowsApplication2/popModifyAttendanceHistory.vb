@@ -10,14 +10,14 @@
         End If
 
     End Sub
-    Private Function Check_Entry(absent As String, courseofferingid As String, stat As String) As Boolean
-        Dim att As String = ""
+    Private Function Check_Entry(absent As String, courseofferingid As String, stat As String, remarks As String, checker As String) As Boolean
+        Dim att As New List(Of Object)()
         Dim b As Boolean = False
-        att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
-        If String.IsNullOrEmpty(att) Then
+        att = dbAccess.Get_Multiple_Row_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';")
+        If att.Count < 2 Then
             b = True
         Else
-            MsgBox("Duplicate attendance!", MsgBoxStyle.Critical, "")
+            MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
         End If
         Return b
 
@@ -482,7 +482,7 @@
                 courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.termid = '" & termid & "' and c.section = '" & section & "';", "courseoffering_id")
                 attStatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
-                If (Check_Entry(absentDate, courseOfferingId, "A") = True And Check_Entry(absentDate, courseOfferingId, "R") = True) Then
+                If (Check_Entry(absentDate, courseOfferingId, "A", rem_code, checker) = True And Check_Entry(absentDate, courseOfferingId, "R", rem_code, checker) = True) Then
                     dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & rem_code & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = '" & attStatus & "';")
                     wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
                     Me.Close()

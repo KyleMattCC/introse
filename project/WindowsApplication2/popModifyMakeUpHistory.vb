@@ -10,14 +10,14 @@
         End If
 
     End Sub
-    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String, reason As String) As Boolean
-        Dim makeupCheck As String = ""
+    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String) As Boolean
+        Dim makeupCheck As New List(Of Object)()
         Dim b As Boolean = False
 
-        makeupCheck = dbAccess.Get_Data("select makeupid
+        makeupCheck = dbAccess.Get_Multiple_Row_Data("select makeupid
                                          from introse.makeup
-                                         where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "';", "makeupid")
-        If String.IsNullOrEmpty(makeupCheck) Then
+                                         where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "';")
+        If makeupCheck.Count < 2 Then
             b = True
         Else
             MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
@@ -25,6 +25,7 @@
         Return b
 
     End Function
+
     Private Sub Check_Element_Enable()
         If String.IsNullOrEmpty(txtbxFacName.Text) Then
             cmbbxSY.Enabled = False
@@ -467,7 +468,7 @@
                         MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
                     ElseIf (startTime = endTime) Then
                         MsgBox("Start and end time cannot be at the same time!", MsgBoxStyle.Critical, "")
-                    ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) Or Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
+                    ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) And Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
                         MsgBox("Makeup hours is not exact!", MsgBoxStyle.Critical, "")
                     Else
                         makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
@@ -480,7 +481,7 @@
                                                             where c.termid = '" & termid & "' and (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
                         attstatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
-                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, reason) And Check_Entry(makeupDate, startTime, endTime, room, "R", courseOfferingId, reason)) Then
+                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId) And Check_Entry(makeupDate, startTime, endTime, room, "R", courseOfferingId)) Then
                             dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  '" & wdwLogin.Get_Encoder & "' WHERE makeupid = '" & ref & "' and status = '" & attstatus & "';")
                             wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
                             Me.Close()

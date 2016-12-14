@@ -37,9 +37,10 @@
     End Sub
 
     Private Sub bttnSearch_Click(sender As Object, e As EventArgs) Handles bttnSearch.Click
-        Me.Enabled = False
         wdwAttendanceHistoryLog.Enable_Form()
         txtFacID.Clear()
+        Me.Close()
+
     End Sub
     Private Sub txtFacID_TextChanged(sender As Object, e As EventArgs) Handles txtFacID.TextChanged
         If String.IsNullOrEmpty(txtFacID.Text) = False Then

@@ -29,7 +29,6 @@
         Return b
 
     End Function
-
     Private Sub Validate_Input(allowed As String, e As KeyPressEventArgs)
         If Not (Asc(e.KeyChar) = 8) Then
             If Not allowed.Contains(e.KeyChar.ToString) Then
