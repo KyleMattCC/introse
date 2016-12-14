@@ -729,7 +729,7 @@ Partial Class wdwDataEntry
         Me.txtbxFirstName.Location = New System.Drawing.Point(323, 105)
         Me.txtbxFirstName.Name = "txtbxFirstName"
         Me.txtbxFirstName.Size = New System.Drawing.Size(175, 26)
-        Me.txtbxFirstName.TabIndex = 4
+        Me.txtbxFirstName.TabIndex = 3
         '
         'txtbxMI
         '
@@ -737,7 +737,7 @@ Partial Class wdwDataEntry
         Me.txtbxMI.Location = New System.Drawing.Point(503, 105)
         Me.txtbxMI.Name = "txtbxMI"
         Me.txtbxMI.Size = New System.Drawing.Size(47, 26)
-        Me.txtbxMI.TabIndex = 3
+        Me.txtbxMI.TabIndex = 4
         '
         'txtbxEmail
         '
@@ -851,7 +851,7 @@ Partial Class wdwDataEntry
         Me.TextBox1.Location = New System.Drawing.Point(36, 64)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(350, 26)
-        Me.TextBox1.TabIndex = 14
+        Me.TextBox1.TabIndex = 1
         '
         'Button1
         '

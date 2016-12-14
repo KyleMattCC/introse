@@ -143,8 +143,8 @@ Partial Class wdwFacultyMakeUp
         Me.txtbxDepartment.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDepartment.Location = New System.Drawing.Point(216, 85)
         Me.txtbxDepartment.Name = "txtbxDepartment"
-        Me.txtbxDepartment.Size = New System.Drawing.Size(350, 31)
-        Me.txtbxDepartment.TabIndex = 177
+        Me.txtbxDepartment.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxDepartment.TabIndex = 5
         '
         'Label3
         '
@@ -152,7 +152,7 @@ Partial Class wdwFacultyMakeUp
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(90, 85)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(141, 23)
+        Me.Label3.Size = New System.Drawing.Size(120, 20)
         Me.Label3.TabIndex = 176
         Me.Label3.Text = "Department:"
         '
@@ -162,8 +162,8 @@ Partial Class wdwFacultyMakeUp
         Me.txtbxFacultyID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacultyID.Location = New System.Drawing.Point(216, 25)
         Me.txtbxFacultyID.Name = "txtbxFacultyID"
-        Me.txtbxFacultyID.Size = New System.Drawing.Size(350, 31)
-        Me.txtbxFacultyID.TabIndex = 175
+        Me.txtbxFacultyID.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxFacultyID.TabIndex = 3
         '
         'txtbxFacultyName
         '
@@ -171,8 +171,8 @@ Partial Class wdwFacultyMakeUp
         Me.txtbxFacultyName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacultyName.Location = New System.Drawing.Point(216, 55)
         Me.txtbxFacultyName.Name = "txtbxFacultyName"
-        Me.txtbxFacultyName.Size = New System.Drawing.Size(350, 31)
-        Me.txtbxFacultyName.TabIndex = 174
+        Me.txtbxFacultyName.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxFacultyName.TabIndex = 4
         '
         'Label1
         '
@@ -180,7 +180,7 @@ Partial Class wdwFacultyMakeUp
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(77, 55)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(158, 23)
+        Me.Label1.Size = New System.Drawing.Size(133, 20)
         Me.Label1.TabIndex = 173
         Me.Label1.Text = "Faculty Name:"
         '
@@ -190,7 +190,7 @@ Partial Class wdwFacultyMakeUp
         Me.Label6.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(108, 25)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(121, 23)
+        Me.Label6.Size = New System.Drawing.Size(102, 20)
         Me.Label6.TabIndex = 172
         Me.Label6.Text = "Faculty ID:"
         '
@@ -219,16 +219,16 @@ Partial Class wdwFacultyMakeUp
         Me.txtbxSearch.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxSearch.Location = New System.Drawing.Point(722, 17)
         Me.txtbxSearch.Name = "txtbxSearch"
-        Me.txtbxSearch.Size = New System.Drawing.Size(350, 31)
-        Me.txtbxSearch.TabIndex = 7
+        Me.txtbxSearch.Size = New System.Drawing.Size(350, 26)
+        Me.txtbxSearch.TabIndex = 2
         '
         'dtp
         '
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Location = New System.Drawing.Point(86, 17)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(300, 31)
-        Me.dtp.TabIndex = 174
+        Me.dtp.Size = New System.Drawing.Size(300, 26)
+        Me.dtp.TabIndex = 1
         '
         'Label5
         '
@@ -236,13 +236,13 @@ Partial Class wdwFacultyMakeUp
         Me.Label5.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(24, 17)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(65, 23)
+        Me.Label5.Size = New System.Drawing.Size(56, 20)
         Me.Label5.TabIndex = 173
         Me.Label5.Text = "Date:"
         '
         'wdwFacultyMakeUp
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1323, 670)
         Me.Controls.Add(Me.GroupBox4)

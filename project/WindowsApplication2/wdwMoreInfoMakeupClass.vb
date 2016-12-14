@@ -41,4 +41,8 @@
     Private Sub wdwMoreInfoMakeupClass_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub txtbxRef_TextChanged(sender As Object, e As EventArgs) Handles txtbxRef.TextChanged
+
+    End Sub
 End Class

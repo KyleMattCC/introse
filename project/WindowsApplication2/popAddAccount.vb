@@ -59,4 +59,8 @@
     Private Sub txtbxAddPass_TextChanged(sender As Object, e As EventArgs) Handles txtbxAddPass.TextChanged
         txtbxAddPass.PasswordChar = "*"
     End Sub
+
+    Private Sub txtbxAddName_TextChanged(sender As Object, e As EventArgs) Handles txtbxAddName.TextChanged
+
+    End Sub
 End Class

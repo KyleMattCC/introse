@@ -35,20 +35,18 @@ Partial Class popTermEndGen
         '
         Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxTerm.FormattingEnabled = True
-        Me.cmbbxTerm.Location = New System.Drawing.Point(209, 53)
-        Me.cmbbxTerm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxTerm.Location = New System.Drawing.Point(157, 43)
         Me.cmbbxTerm.Name = "cmbbxTerm"
-        Me.cmbbxTerm.Size = New System.Drawing.Size(160, 25)
-        Me.cmbbxTerm.TabIndex = 9
+        Me.cmbbxTerm.Size = New System.Drawing.Size(121, 23)
+        Me.cmbbxTerm.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(43, 21)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(32, 17)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(139, 23)
+        Me.Label2.Size = New System.Drawing.Size(119, 20)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "School Year:"
         '
@@ -56,10 +54,9 @@ Partial Class popTermEndGen
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(120, 53)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(90, 43)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 23)
+        Me.Label1.Size = New System.Drawing.Size(61, 20)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Term:"
         '
@@ -68,39 +65,36 @@ Partial Class popTermEndGen
         Me.cmbbxYear.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxYear.FormattingEnabled = True
         Me.cmbbxYear.Items.AddRange(New Object() {"1", "2", "3"})
-        Me.cmbbxYear.Location = New System.Drawing.Point(209, 21)
-        Me.cmbbxYear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxYear.Location = New System.Drawing.Point(157, 17)
         Me.cmbbxYear.Name = "cmbbxYear"
-        Me.cmbbxYear.Size = New System.Drawing.Size(160, 25)
+        Me.cmbbxYear.Size = New System.Drawing.Size(121, 23)
         Me.cmbbxYear.TabIndex = 6
         '
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(223, 110)
-        Me.btnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnBack.Location = New System.Drawing.Point(167, 89)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(120, 37)
-        Me.btnBack.TabIndex = 167
+        Me.btnBack.Size = New System.Drawing.Size(90, 30)
+        Me.btnBack.TabIndex = 4
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = True
         '
         'btnGenerate
         '
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(63, 110)
-        Me.btnGenerate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnGenerate.Location = New System.Drawing.Point(47, 89)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(120, 37)
-        Me.btnGenerate.TabIndex = 166
+        Me.btnGenerate.Size = New System.Drawing.Size(90, 30)
+        Me.btnGenerate.TabIndex = 3
         Me.btnGenerate.Text = "Generate"
         Me.btnGenerate.UseVisualStyleBackColor = True
         '
         'popTermEndGen
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(405, 161)
+        Me.ClientSize = New System.Drawing.Size(304, 131)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.cmbbxTerm)
@@ -109,7 +103,6 @@ Partial Class popTermEndGen
         Me.Controls.Add(Me.cmbbxYear)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "popTermEndGen"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Term End Generator"

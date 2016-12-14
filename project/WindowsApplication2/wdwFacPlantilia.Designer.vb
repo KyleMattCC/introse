@@ -65,7 +65,7 @@ Partial Class wdwFacPlantilia
         Me.cmbbxTerm.Location = New System.Drawing.Point(359, 46)
         Me.cmbbxTerm.Name = "cmbbxTerm"
         Me.cmbbxTerm.Size = New System.Drawing.Size(119, 23)
-        Me.cmbbxTerm.TabIndex = 3
+        Me.cmbbxTerm.TabIndex = 2
         '
         'Label2
         '
@@ -141,7 +141,7 @@ Partial Class wdwFacPlantilia
         Me.txtbxSearch.Location = New System.Drawing.Point(514, 44)
         Me.txtbxSearch.Name = "txtbxSearch"
         Me.txtbxSearch.Size = New System.Drawing.Size(211, 26)
-        Me.txtbxSearch.TabIndex = 15
+        Me.txtbxSearch.TabIndex = 3
         '
         'bttnClear
         '

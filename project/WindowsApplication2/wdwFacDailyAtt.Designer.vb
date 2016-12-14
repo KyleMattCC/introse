@@ -40,39 +40,35 @@ Partial Class wdwFacDailyAtt
         '
         'txtFacID
         '
-        Me.txtFacID.Location = New System.Drawing.Point(273, 14)
-        Me.txtFacID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtFacID.Location = New System.Drawing.Point(205, 11)
         Me.txtFacID.Name = "txtFacID"
         Me.txtFacID.ReadOnly = True
-        Me.txtFacID.Size = New System.Drawing.Size(375, 22)
-        Me.txtFacID.TabIndex = 41
+        Me.txtFacID.Size = New System.Drawing.Size(282, 20)
+        Me.txtFacID.TabIndex = 1
         '
         'txtFacName
         '
-        Me.txtFacName.Location = New System.Drawing.Point(273, 42)
-        Me.txtFacName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtFacName.Location = New System.Drawing.Point(205, 34)
         Me.txtFacName.Name = "txtFacName"
         Me.txtFacName.ReadOnly = True
-        Me.txtFacName.Size = New System.Drawing.Size(375, 22)
-        Me.txtFacName.TabIndex = 40
+        Me.txtFacName.Size = New System.Drawing.Size(282, 20)
+        Me.txtFacName.TabIndex = 2
         '
         'txtDept
         '
-        Me.txtDept.Location = New System.Drawing.Point(273, 69)
-        Me.txtDept.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtDept.Location = New System.Drawing.Point(205, 56)
         Me.txtDept.Name = "txtDept"
         Me.txtDept.ReadOnly = True
-        Me.txtDept.Size = New System.Drawing.Size(375, 22)
-        Me.txtDept.TabIndex = 39
+        Me.txtDept.Size = New System.Drawing.Size(282, 20)
+        Me.txtDept.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(103, 71)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(77, 58)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(123, 25)
+        Me.Label3.Size = New System.Drawing.Size(104, 20)
         Me.Label3.TabIndex = 38
         Me.Label3.Text = "Department"
         '
@@ -80,29 +76,26 @@ Partial Class wdwFacDailyAtt
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(103, 44)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(77, 36)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 23)
+        Me.Label1.Size = New System.Drawing.Size(122, 18)
         Me.Label1.TabIndex = 37
         Me.Label1.Text = "Faculty Name"
         '
         'grid
         '
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grid.Location = New System.Drawing.Point(20, 110)
-        Me.grid.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grid.Location = New System.Drawing.Point(15, 89)
         Me.grid.Name = "grid"
-        Me.grid.Size = New System.Drawing.Size(744, 378)
+        Me.grid.Size = New System.Drawing.Size(558, 307)
         Me.grid.TabIndex = 36
         '
         'bttnAdd
         '
         Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAdd.Location = New System.Drawing.Point(172, 497)
-        Me.bttnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnAdd.Location = New System.Drawing.Point(129, 404)
         Me.bttnAdd.Name = "bttnAdd"
-        Me.bttnAdd.Size = New System.Drawing.Size(129, 28)
+        Me.bttnAdd.Size = New System.Drawing.Size(97, 23)
         Me.bttnAdd.TabIndex = 35
         Me.bttnAdd.Text = "Add"
         Me.bttnAdd.UseVisualStyleBackColor = True
@@ -110,10 +103,9 @@ Partial Class wdwFacDailyAtt
         'bttnModify
         '
         Me.bttnModify.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnModify.Location = New System.Drawing.Point(324, 497)
-        Me.bttnModify.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnModify.Location = New System.Drawing.Point(243, 404)
         Me.bttnModify.Name = "bttnModify"
-        Me.bttnModify.Size = New System.Drawing.Size(129, 28)
+        Me.bttnModify.Size = New System.Drawing.Size(97, 23)
         Me.bttnModify.TabIndex = 34
         Me.bttnModify.Text = "Modify"
         Me.bttnModify.UseVisualStyleBackColor = True
@@ -121,10 +113,9 @@ Partial Class wdwFacDailyAtt
         'bttnDelete
         '
         Me.bttnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnDelete.Location = New System.Drawing.Point(481, 497)
-        Me.bttnDelete.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnDelete.Location = New System.Drawing.Point(361, 404)
         Me.bttnDelete.Name = "bttnDelete"
-        Me.bttnDelete.Size = New System.Drawing.Size(129, 28)
+        Me.bttnDelete.Size = New System.Drawing.Size(97, 23)
         Me.bttnDelete.TabIndex = 33
         Me.bttnDelete.Text = "Delete"
         Me.bttnDelete.UseVisualStyleBackColor = True
@@ -132,10 +123,9 @@ Partial Class wdwFacDailyAtt
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(635, 497)
-        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnBack.Location = New System.Drawing.Point(476, 404)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(129, 28)
+        Me.bttnBack.Size = New System.Drawing.Size(97, 23)
         Me.bttnBack.TabIndex = 32
         Me.bttnBack.Text = "Back "
         Me.bttnBack.UseVisualStyleBackColor = True
@@ -144,29 +134,27 @@ Partial Class wdwFacDailyAtt
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(103, 16)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(77, 13)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(138, 23)
+        Me.Label6.Size = New System.Drawing.Size(108, 18)
         Me.Label6.TabIndex = 31
         Me.Label6.Text = "Faculty ID   "
         '
         'bttnFind
         '
         Me.bttnFind.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnFind.Location = New System.Drawing.Point(20, 497)
-        Me.bttnFind.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnFind.Location = New System.Drawing.Point(15, 404)
         Me.bttnFind.Name = "bttnFind"
-        Me.bttnFind.Size = New System.Drawing.Size(129, 28)
+        Me.bttnFind.Size = New System.Drawing.Size(97, 23)
         Me.bttnFind.TabIndex = 169
         Me.bttnFind.Text = "Find"
         Me.bttnFind.UseVisualStyleBackColor = True
         '
         'wdwFacDailyAtt
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(783, 540)
+        Me.ClientSize = New System.Drawing.Size(587, 439)
         Me.Controls.Add(Me.bttnFind)
         Me.Controls.Add(Me.txtFacID)
         Me.Controls.Add(Me.txtFacName)
@@ -181,7 +169,6 @@ Partial Class wdwFacDailyAtt
         Me.Controls.Add(Me.Label6)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "wdwFacDailyAtt"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Faculty Daily Attendance"
