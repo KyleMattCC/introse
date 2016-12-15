@@ -26,8 +26,9 @@
     End Sub
 
     Public Sub Enable_Form()
+        Me.Load_form()
         Me.Enabled = True
-        Load_form()
+
         Me.Focus()
     End Sub
 

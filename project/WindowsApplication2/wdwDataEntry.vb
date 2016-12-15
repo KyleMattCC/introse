@@ -83,6 +83,13 @@ Public Class wdwDataEntry
         End If
 
 
+        cmbbxTerm.Items.Add(1)
+        cmbbxTerm.Items.Add(2)
+        cmbbxTerm.Items.Add(3)
+        dtpStart.Enabled = False
+        dtpEnd.Enabled = False
+
+
     End Sub
 
 
@@ -488,18 +495,17 @@ Public Class wdwDataEntry
 
             Dim Course As Integer = Nothing
             Dim OfferedTo As Char = "U"
-            Dim StartTime As Integer = Convert.ToInt32(txtbxStartTime.Text)
-            Dim EndTime As Integer = Convert.ToInt32(txtbxEndTime.Text)
+            Dim startTime As Integer = Convert.ToInt32(txtbxStartTime.Text)
+            Dim endTime As Integer = Convert.ToInt32(txtbxEndTime.Text)
             Dim Term As Integer
             Dim TempDate As Date = Date.Now
             Dim DateToday As String = TempDate.ToString("yyyy-MM-dd")
             Dim FacrefNo As String = Nothing
-            Dim Hours As Double
-            Dim Minutes As Double
-            Dim Temp As Double
-            Dim Holder As String
+            Dim wholeNumber As Integer
+            Dim tempStart As Double
+            Dim tempEnd As String
 
-            If (StartTime > 2400 Or EndTime > 2400 Or StartTime <= 0 Or EndTime <= 0 Or StartTime >= EndTime) Then
+            If (startTime > 2400 Or endTime > 2400 Or startTime <= 0 Or endTime <= 0 Or startTime >= endTime) Then
 
                 MsgBox("Invalid time input. Try again!")
 
@@ -520,33 +526,50 @@ Public Class wdwDataEntry
                 Course = dbAccess.Get_Data("Select course_id from course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
 
                 If (FacrefNo <> Nothing And Term <> Nothing) Then
-                    Hours = EndTime / 100 - StartTime / 100
-                    Minutes = EndTime Mod 100 - StartTime Mod 100
 
-                    If (Minutes < 0) Then
-                        Minutes = 60 + Minutes
-                        Hours -= 1
+                    startTime = Convert.ToInt32(txtbxStartTime.Text)
+                    endTime = Convert.ToInt32(txtbxEndTime.Text)
+                    tempStart = startTime
+                    tempEnd = endTime
+                    If ((tempStart Mod 100) > tempEnd Mod 100) Then
+                        Dim tempMinutes As Integer = startTime Mod 100
+                        tempStart -= tempMinutes
+                        tempEnd -= (tempMinutes + 40)
+                    End If
+                    wholeNumber = (tempEnd - tempStart) / 100
+
+                    If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
+                        MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
+
+                    ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
+                        MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
+
+                    ElseIf (endTime < startTime) Then
+                        MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
+
+                    ElseIf (startTime = endTime) Then
+                        MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
+
+                    ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) And Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
+                        MsgBox("Makeup hours is not exact!", MsgBoxStyle.Critical, "")
+
+                    Else
+
+
+                        dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & Course & "', '" & Term & "', '" & FacrefNo & "', '" & txtbxSection.Text & "', '" & txtbxRoom.Text & "', '" & txtbxDay.Text & "', '" & txtbxStartTime.Text & "', '" & txtbxEndTime.Text & "', " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", 'A');")
+                        txtbxCourseCode.Text = Nothing
+                        txtbxCourseFacID.Text = Nothing
+                        txtbxSection.Text = Nothing
+                        txtbxUnit.Text = Nothing
+                        txtbxDay.Text = Nothing
+                        txtbxRoom.Text = Nothing
+                        txtbxStartTime.Text = Nothing
+                        txtbxEndTime.Text = Nothing
+                        rbttnUndergrad.Checked = True
+
+                        wdwFacPlantilia.Load_form()
                     End If
 
-                    Minutes = Minutes / 60.0
-                    Temp = Minutes + Hours
-
-                    Holder = Temp.ToString("0.00")
-                    Hours = Convert.ToDouble(Holder)
-
-
-                    dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & Course & "', '" & Term & "', '" & FacrefNo & "', '" & txtbxSection.Text & "', '" & txtbxRoom.Text & "', '" & txtbxDay.Text & "', '" & txtbxStartTime.Text & "', '" & txtbxEndTime.Text & "', '" & Hours & "', 'A');")
-                    txtbxCourseCode.Text = Nothing
-                    txtbxCourseFacID.Text = Nothing
-                    txtbxSection.Text = Nothing
-                    txtbxUnit.Text = Nothing
-                    txtbxDay.Text = Nothing
-                    txtbxRoom.Text = Nothing
-                    txtbxStartTime.Text = Nothing
-                    txtbxEndTime.Text = Nothing
-                    rbttnUndergrad.Checked = True
-
-                    wdwFacPlantilia.Load_form()
 
                 Else
                     If (FacrefNo = Nothing) Then
@@ -604,10 +627,10 @@ Public Class wdwDataEntry
         Dim FacStatus As New List(Of Object)
         Dim result As DialogResult
 
-        If (txtbxTerm.Text <> Nothing) Then
+        If (cmbbxTerm.SelectedIndex = -1) Then
 
             YearID = dbAccess.Get_Data("Select yearid from academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'", "yearid")
-            Term = dbAccess.Get_Data("Select term_no from term where Term_no = '" & txtbxTerm.Text & "' and yearid = '" & YearID & "'", "term_no")
+            Term = dbAccess.Get_Data("Select term_no from term where Term_no = '" & cmbbxTerm.SelectedItem & "' and yearid = '" & YearID & "'", "term_no")
             TermDate = dbAccess.Get_Data("Select termid from term where '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "' between start and end and '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "' between start and end", "termid")
             YearStatus = dbAccess.Get_Data("Select status from academicyear where yearid = '" & YearID & "'", "status")
 
@@ -637,8 +660,8 @@ Public Class wdwDataEntry
                                 dbAccess.Update_Data("UPDATE `introse`.`courseoffering` SET `status` = 'R' WHERE `courseoffering_id` = '" & FacStatus(i) & "'")
                             Next
 
-                            dbAccess.Add_Data("INSERT INTO `introse`.`term` (`yearid`, `term_no`, `start`, `end`, `status`) VALUES ('" & YearID & "', '" & txtbxTerm.Text & "', '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "', '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "', 'A');")
-                            txtbxTerm.Text = Nothing
+                            dbAccess.Add_Data("INSERT INTO `introse`.`term` (`yearid`, `term_no`, `start`, `end`, `status`) VALUES ('" & YearID & "', '" & cmbbxTerm.SelectedItem & "', '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "', '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "', 'A');")
+                            cmbbxTerm.SelectedIndex = -1
 
                             wdwFacPlantilia.Load_form()
 
@@ -744,7 +767,7 @@ Public Class wdwDataEntry
         validateInput("0123456789", e)
     End Sub
 
-    Private Sub txtbxTerm_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxTerm.KeyPress
+    Private Sub txtbxTerm_KeyPress(sender As Object, e As KeyPressEventArgs)
         validateInput("0123456789", e)
     End Sub
 
@@ -772,10 +795,17 @@ Public Class wdwDataEntry
         Dim section As String
         Dim room As String
         Dim daySched As String
-        Dim timeStart As Integer
-        Dim timeEnd As Integer
-        Dim hours As Integer
-        Dim status As String
+        Dim startTime As Integer
+        Dim endTime As Integer
+
+
+        Dim facultyName As String
+        Dim courseCode As String
+        Dim temp1() As String
+        Dim temp As String
+        Dim time1 As String = Nothing
+        Dim time2 As String = Nothing
+        Dim wholeNumber As Integer
 
 
 
@@ -787,19 +817,43 @@ Public Class wdwDataEntry
 
             If (IsDBNull(grid.Rows(i).Cells(0).Value)) Then
             Else
-                courseID = grid.Rows(i).Cells(0).Value
-                termID = grid.Rows(i).Cells(1).Value
-                facrefNo = grid.Rows(i).Cells(2).Value
+                facultyName = grid.Rows(i).Cells(0).Value
+                courseCode = grid.Rows(i).Cells(2).Value
                 section = grid.Rows(i).Cells(3).Value
-                room = grid.Rows(i).Cells(4).Value
-                daySched = grid.Rows(i).Cells(5).Value
-                timeStart = grid.Rows(i).Cells(6).Value
-                timeEnd = grid.Rows(i).Cells(7).Value
-                hours = grid.Rows(i).Cells(8).Value
-                status = grid.Rows(i).Cells(9).Value
+                daySched = grid.Rows(i).Cells(4).Value
 
 
-                dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & courseID & "', '" & termID & "', '" & facrefNo & "', '" & section & "', '" & room & "', '" & daySched & "', '" & timeStart & "', '" & timeEnd & "', '" & hours & "', '" & status & "');")
+
+                temp = grid.Rows(i).Cells(5).Value
+
+                time1 = temp.Chars(0) + temp.Chars(1) + temp.Chars(2) + temp.Chars(3)
+                time2 = temp.Chars(5) + temp.Chars(6) + temp.Chars(7) + temp.Chars(8)
+
+
+                startTime = Convert.ToInt32(time1)
+                endTime = Convert.ToInt32(time2)
+                time1 = startTime
+                time2 = endTime
+                If ((time1 Mod 100) > time2 Mod 100) Then
+                    Dim tempMinutes As Integer = startTime Mod 100
+                    time1 -= tempMinutes
+                    time2 -= (tempMinutes + 40)
+                End If
+                wholeNumber = (time2 - time1) / 100
+
+
+                room = grid.Rows(i).Cells(6).Value
+
+                MsgBox(facultyName)
+                MsgBox(courseCode)
+                MsgBox(section)
+
+                courseID = dbAccess.Get_Data("Select course_id from course where course_cd = '" & courseCode & "';", "course_id")
+                facrefNo = dbAccess.Get_Data("Select facref_no from faculty where concat(f_lastname, ', ', f_firstname, ' ', f_middlename) = '" & facultyName & "';", "facref_no")
+                termID = dbAccess.Get_Data("Select termid from term where status = 'A';", "termid")
+
+
+                dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & courseID & "', '" & termID & "', '" & facrefNo & "', '" & section & "', '" & room & "', '" & daySched & "', '" & startTime & "', '" & endTime & "', '" & (wholeNumber + ((time2 - time1) Mod 100) / 60) & "', 'A');")
             End If
 
         Next
@@ -810,6 +864,21 @@ Public Class wdwDataEntry
 
     End Sub
 
+    Private Sub txtbxTerm_TextChanged(sender As Object, e As EventArgs)
 
+    End Sub
 
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
+        If (cmbbxTerm.SelectedIndex <> -1 And cmbbxAcadYear.SelectedIndex <> -1) Then
+            dtpStart.Enabled = True
+            dtpEnd.Enabled = True
+        End If
+    End Sub
+
+    Private Sub cmbbxAcadYear_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxAcadYear.SelectedIndexChanged
+        If (cmbbxTerm.SelectedIndex <> -1 And cmbbxAcadYear.SelectedIndex <> -1) Then
+            dtpStart.Enabled = True
+            dtpEnd.Enabled = True
+        End If
+    End Sub
 End Class

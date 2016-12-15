@@ -23,6 +23,7 @@ Partial Class wdwDataEntry
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.cmbbxTerm = New System.Windows.Forms.ComboBox()
         Me.dtpEnd = New System.Windows.Forms.DateTimePicker()
         Me.dtpStart = New System.Windows.Forms.DateTimePicker()
         Me.Label26 = New System.Windows.Forms.Label()
@@ -30,7 +31,6 @@ Partial Class wdwDataEntry
         Me.cmbbxAcadYear = New System.Windows.Forms.ComboBox()
         Me.bttnBackTerm = New System.Windows.Forms.Button()
         Me.bttnAddTerm = New System.Windows.Forms.Button()
-        Me.txtbxTerm = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
@@ -121,33 +121,39 @@ Partial Class wdwDataEntry
         'TabPage6
         '
         Me.TabPage6.BackColor = System.Drawing.Color.LightGray
-        Me.TabPage6.Controls.Add(Me.dtpEnd)
-        Me.TabPage6.Controls.Add(Me.dtpStart)
-        Me.TabPage6.Controls.Add(Me.Label26)
-        Me.TabPage6.Controls.Add(Me.Label25)
-        Me.TabPage6.Controls.Add(Me.cmbbxAcadYear)
-        Me.TabPage6.Controls.Add(Me.bttnBackTerm)
-        Me.TabPage6.Controls.Add(Me.bttnAddTerm)
-        Me.TabPage6.Controls.Add(Me.txtbxTerm)
-        Me.TabPage6.Controls.Add(Me.Label24)
-        Me.TabPage6.Controls.Add(Me.Label23)
+        Me.TabPage6.Controls.Add(Me.txtbxYearEnd)
+        Me.TabPage6.Controls.Add(Me.Button2)
+        Me.TabPage6.Controls.Add(Me.txtbxYearStart)
+        Me.TabPage6.Controls.Add(Me.Label27)
+        Me.TabPage6.Controls.Add(Me.Label28)
+        Me.TabPage6.Controls.Add(Me.Button3)
         Me.TabPage6.Location = New System.Drawing.Point(4, 25)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage6.Size = New System.Drawing.Size(587, 435)
         Me.TabPage6.TabIndex = 5
-        Me.TabPage6.Text = "Term"
+        Me.TabPage6.Text = "Year"
+        '
+        'cmbbxTerm
+        '
+        Me.cmbbxTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbxTerm.FormattingEnabled = True
+        Me.cmbbxTerm.Location = New System.Drawing.Point(205, 132)
+        Me.cmbbxTerm.Name = "cmbbxTerm"
+        Me.cmbbxTerm.Size = New System.Drawing.Size(266, 28)
+        Me.cmbbxTerm.TabIndex = 42
         '
         'dtpEnd
         '
-        Me.dtpEnd.Location = New System.Drawing.Point(211, 210)
+        Me.dtpEnd.Location = New System.Drawing.Point(206, 196)
         Me.dtpEnd.Name = "dtpEnd"
         Me.dtpEnd.Size = New System.Drawing.Size(265, 22)
         Me.dtpEnd.TabIndex = 41
         '
         'dtpStart
         '
-        Me.dtpStart.Location = New System.Drawing.Point(211, 180)
+        Me.dtpStart.Location = New System.Drawing.Point(206, 166)
         Me.dtpStart.Name = "dtpStart"
         Me.dtpStart.Size = New System.Drawing.Size(265, 22)
         Me.dtpStart.TabIndex = 40
@@ -156,7 +162,7 @@ Partial Class wdwDataEntry
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(101, 181)
+        Me.Label26.Location = New System.Drawing.Point(96, 167)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(104, 20)
         Me.Label26.TabIndex = 39
@@ -166,7 +172,7 @@ Partial Class wdwDataEntry
         '
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(110, 210)
+        Me.Label25.Location = New System.Drawing.Point(105, 196)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(94, 20)
         Me.Label25.TabIndex = 38
@@ -177,7 +183,7 @@ Partial Class wdwDataEntry
         Me.cmbbxAcadYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxAcadYear.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxAcadYear.FormattingEnabled = True
-        Me.cmbbxAcadYear.Location = New System.Drawing.Point(210, 113)
+        Me.cmbbxAcadYear.Location = New System.Drawing.Point(205, 99)
         Me.cmbbxAcadYear.Name = "cmbbxAcadYear"
         Me.cmbbxAcadYear.Size = New System.Drawing.Size(266, 28)
         Me.cmbbxAcadYear.TabIndex = 37
@@ -185,7 +191,7 @@ Partial Class wdwDataEntry
         'bttnBackTerm
         '
         Me.bttnBackTerm.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBackTerm.Location = New System.Drawing.Point(297, 281)
+        Me.bttnBackTerm.Location = New System.Drawing.Point(292, 267)
         Me.bttnBackTerm.Name = "bttnBackTerm"
         Me.bttnBackTerm.Size = New System.Drawing.Size(105, 29)
         Me.bttnBackTerm.TabIndex = 36
@@ -195,27 +201,18 @@ Partial Class wdwDataEntry
         'bttnAddTerm
         '
         Me.bttnAddTerm.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAddTerm.Location = New System.Drawing.Point(168, 281)
+        Me.bttnAddTerm.Location = New System.Drawing.Point(163, 267)
         Me.bttnAddTerm.Name = "bttnAddTerm"
         Me.bttnAddTerm.Size = New System.Drawing.Size(105, 29)
         Me.bttnAddTerm.TabIndex = 35
         Me.bttnAddTerm.Text = "Add"
         Me.bttnAddTerm.UseVisualStyleBackColor = True
         '
-        'txtbxTerm
-        '
-        Me.txtbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxTerm.Location = New System.Drawing.Point(210, 146)
-        Me.txtbxTerm.MaxLength = 1
-        Me.txtbxTerm.Name = "txtbxTerm"
-        Me.txtbxTerm.Size = New System.Drawing.Size(266, 26)
-        Me.txtbxTerm.TabIndex = 34
-        '
         'Label24
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(67, 148)
+        Me.Label24.Location = New System.Drawing.Point(62, 134)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(137, 20)
         Me.Label24.TabIndex = 32
@@ -225,7 +222,7 @@ Partial Class wdwDataEntry
         '
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(59, 115)
+        Me.Label23.Location = New System.Drawing.Point(54, 101)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(145, 20)
         Me.Label23.TabIndex = 31
@@ -234,34 +231,23 @@ Partial Class wdwDataEntry
         'TabPage5
         '
         Me.TabPage5.BackColor = System.Drawing.Color.LightGray
-        Me.TabPage5.Controls.Add(Me.txtbxFacName)
-        Me.TabPage5.Controls.Add(Me.Label29)
-        Me.TabPage5.Controls.Add(Me.bttnAddClear)
-        Me.TabPage5.Controls.Add(Me.rbttnGrad)
-        Me.TabPage5.Controls.Add(Me.rbttnUndergrad)
-        Me.TabPage5.Controls.Add(Me.txtbxCourseFacID)
-        Me.TabPage5.Controls.Add(Me.Label22)
-        Me.TabPage5.Controls.Add(Me.bttnCourseBack)
-        Me.TabPage5.Controls.Add(Me.bttnCourseAdd)
-        Me.TabPage5.Controls.Add(Me.txtbxUnit)
-        Me.TabPage5.Controls.Add(Me.txtbxSection)
-        Me.TabPage5.Controls.Add(Me.txtbxCourseCode)
-        Me.TabPage5.Controls.Add(Me.GroupBox1)
-        Me.TabPage5.Controls.Add(Me.Label18)
-        Me.TabPage5.Controls.Add(Me.Label13)
-        Me.TabPage5.Controls.Add(Me.Label10)
-        Me.TabPage5.Controls.Add(Me.Label11)
+        Me.TabPage5.Controls.Add(Me.bttnDeptBack)
+        Me.TabPage5.Controls.Add(Me.bttnDeptAdd)
+        Me.TabPage5.Controls.Add(Me.Label9)
+        Me.TabPage5.Controls.Add(Me.cmbbxDeptCol)
+        Me.TabPage5.Controls.Add(Me.Label8)
+        Me.TabPage5.Controls.Add(Me.txtbxDeptName)
         Me.TabPage5.Location = New System.Drawing.Point(4, 25)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage5.Size = New System.Drawing.Size(587, 435)
         Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Course"
+        Me.TabPage5.Text = "Department"
         '
         'txtbxFacName
         '
         Me.txtbxFacName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxFacName.Location = New System.Drawing.Point(176, 70)
+        Me.txtbxFacName.Location = New System.Drawing.Point(168, 61)
         Me.txtbxFacName.Name = "txtbxFacName"
         Me.txtbxFacName.Size = New System.Drawing.Size(350, 26)
         Me.txtbxFacName.TabIndex = 36
@@ -270,7 +256,7 @@ Partial Class wdwDataEntry
         '
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(37, 72)
+        Me.Label29.Location = New System.Drawing.Point(29, 63)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(133, 20)
         Me.Label29.TabIndex = 35
@@ -279,7 +265,7 @@ Partial Class wdwDataEntry
         'bttnAddClear
         '
         Me.bttnAddClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAddClear.Location = New System.Drawing.Point(228, 366)
+        Me.bttnAddClear.Location = New System.Drawing.Point(220, 357)
         Me.bttnAddClear.Name = "bttnAddClear"
         Me.bttnAddClear.Size = New System.Drawing.Size(119, 29)
         Me.bttnAddClear.TabIndex = 34
@@ -290,7 +276,7 @@ Partial Class wdwDataEntry
         '
         Me.rbttnGrad.AutoSize = True
         Me.rbttnGrad.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnGrad.Location = New System.Drawing.Point(365, 324)
+        Me.rbttnGrad.Location = New System.Drawing.Point(357, 315)
         Me.rbttnGrad.Name = "rbttnGrad"
         Me.rbttnGrad.Size = New System.Drawing.Size(86, 20)
         Me.rbttnGrad.TabIndex = 33
@@ -302,7 +288,7 @@ Partial Class wdwDataEntry
         '
         Me.rbttnUndergrad.AutoSize = True
         Me.rbttnUndergrad.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnUndergrad.Location = New System.Drawing.Point(200, 324)
+        Me.rbttnUndergrad.Location = New System.Drawing.Point(192, 315)
         Me.rbttnUndergrad.Name = "rbttnUndergrad"
         Me.rbttnUndergrad.Size = New System.Drawing.Size(123, 20)
         Me.rbttnUndergrad.TabIndex = 32
@@ -313,7 +299,7 @@ Partial Class wdwDataEntry
         'txtbxCourseFacID
         '
         Me.txtbxCourseFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxCourseFacID.Location = New System.Drawing.Point(176, 38)
+        Me.txtbxCourseFacID.Location = New System.Drawing.Point(168, 29)
         Me.txtbxCourseFacID.Name = "txtbxCourseFacID"
         Me.txtbxCourseFacID.Size = New System.Drawing.Size(350, 26)
         Me.txtbxCourseFacID.TabIndex = 31
@@ -322,7 +308,7 @@ Partial Class wdwDataEntry
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(68, 40)
+        Me.Label22.Location = New System.Drawing.Point(60, 31)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(102, 20)
         Me.Label22.TabIndex = 30
@@ -331,7 +317,7 @@ Partial Class wdwDataEntry
         'bttnCourseBack
         '
         Me.bttnCourseBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnCourseBack.Location = New System.Drawing.Point(376, 366)
+        Me.bttnCourseBack.Location = New System.Drawing.Point(368, 357)
         Me.bttnCourseBack.Name = "bttnCourseBack"
         Me.bttnCourseBack.Size = New System.Drawing.Size(105, 29)
         Me.bttnCourseBack.TabIndex = 28
@@ -341,7 +327,7 @@ Partial Class wdwDataEntry
         'bttnCourseAdd
         '
         Me.bttnCourseAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnCourseAdd.Location = New System.Drawing.Point(88, 366)
+        Me.bttnCourseAdd.Location = New System.Drawing.Point(80, 357)
         Me.bttnCourseAdd.Name = "bttnCourseAdd"
         Me.bttnCourseAdd.Size = New System.Drawing.Size(105, 29)
         Me.bttnCourseAdd.TabIndex = 27
@@ -351,7 +337,7 @@ Partial Class wdwDataEntry
         'txtbxUnit
         '
         Me.txtbxUnit.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxUnit.Location = New System.Drawing.Point(176, 168)
+        Me.txtbxUnit.Location = New System.Drawing.Point(168, 159)
         Me.txtbxUnit.Name = "txtbxUnit"
         Me.txtbxUnit.Size = New System.Drawing.Size(350, 26)
         Me.txtbxUnit.TabIndex = 24
@@ -359,7 +345,7 @@ Partial Class wdwDataEntry
         'txtbxSection
         '
         Me.txtbxSection.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxSection.Location = New System.Drawing.Point(176, 136)
+        Me.txtbxSection.Location = New System.Drawing.Point(168, 127)
         Me.txtbxSection.Name = "txtbxSection"
         Me.txtbxSection.Size = New System.Drawing.Size(350, 26)
         Me.txtbxSection.TabIndex = 23
@@ -367,7 +353,7 @@ Partial Class wdwDataEntry
         'txtbxCourseCode
         '
         Me.txtbxCourseCode.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxCourseCode.Location = New System.Drawing.Point(176, 104)
+        Me.txtbxCourseCode.Location = New System.Drawing.Point(168, 95)
         Me.txtbxCourseCode.MaxLength = 7
         Me.txtbxCourseCode.Name = "txtbxCourseCode"
         Me.txtbxCourseCode.Size = New System.Drawing.Size(350, 26)
@@ -385,7 +371,7 @@ Partial Class wdwDataEntry
         Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.Label17)
         Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(45, 196)
+        Me.GroupBox1.Location = New System.Drawing.Point(37, 187)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(481, 116)
         Me.GroupBox1.TabIndex = 21
@@ -470,7 +456,7 @@ Partial Class wdwDataEntry
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(67, 322)
+        Me.Label18.Location = New System.Drawing.Point(59, 313)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(107, 20)
         Me.Label18.TabIndex = 20
@@ -480,7 +466,7 @@ Partial Class wdwDataEntry
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(118, 168)
+        Me.Label13.Location = New System.Drawing.Point(110, 159)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(51, 20)
         Me.Label13.TabIndex = 14
@@ -490,7 +476,7 @@ Partial Class wdwDataEntry
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(89, 138)
+        Me.Label10.Location = New System.Drawing.Point(81, 129)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(80, 20)
         Me.Label10.TabIndex = 13
@@ -500,7 +486,7 @@ Partial Class wdwDataEntry
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(41, 106)
+        Me.Label11.Location = New System.Drawing.Point(33, 97)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(128, 20)
         Me.Label11.TabIndex = 12
@@ -509,23 +495,23 @@ Partial Class wdwDataEntry
         'TabPage4
         '
         Me.TabPage4.BackColor = System.Drawing.Color.LightGray
-        Me.TabPage4.Controls.Add(Me.bttnDeptBack)
-        Me.TabPage4.Controls.Add(Me.bttnDeptAdd)
-        Me.TabPage4.Controls.Add(Me.cmbbxDeptCol)
-        Me.TabPage4.Controls.Add(Me.txtbxDeptName)
-        Me.TabPage4.Controls.Add(Me.Label8)
-        Me.TabPage4.Controls.Add(Me.Label9)
+        Me.TabPage4.Controls.Add(Me.bttnCollegeBack)
+        Me.TabPage4.Controls.Add(Me.Label6)
+        Me.TabPage4.Controls.Add(Me.Label7)
+        Me.TabPage4.Controls.Add(Me.txtbxCollegeCode)
+        Me.TabPage4.Controls.Add(Me.bttnCollegeAdd)
+        Me.TabPage4.Controls.Add(Me.txtbxCollegeName)
         Me.TabPage4.Location = New System.Drawing.Point(4, 25)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage4.Size = New System.Drawing.Size(587, 435)
         Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Department"
+        Me.TabPage4.Text = "College"
         '
         'bttnDeptBack
         '
         Me.bttnDeptBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnDeptBack.Location = New System.Drawing.Point(307, 208)
+        Me.bttnDeptBack.Location = New System.Drawing.Point(316, 237)
         Me.bttnDeptBack.Name = "bttnDeptBack"
         Me.bttnDeptBack.Size = New System.Drawing.Size(105, 29)
         Me.bttnDeptBack.TabIndex = 16
@@ -535,7 +521,7 @@ Partial Class wdwDataEntry
         'bttnDeptAdd
         '
         Me.bttnDeptAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnDeptAdd.Location = New System.Drawing.Point(179, 208)
+        Me.bttnDeptAdd.Location = New System.Drawing.Point(188, 237)
         Me.bttnDeptAdd.Name = "bttnDeptAdd"
         Me.bttnDeptAdd.Size = New System.Drawing.Size(105, 29)
         Me.bttnDeptAdd.TabIndex = 15
@@ -547,7 +533,7 @@ Partial Class wdwDataEntry
         Me.cmbbxDeptCol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxDeptCol.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxDeptCol.FormattingEnabled = True
-        Me.cmbbxDeptCol.Location = New System.Drawing.Point(193, 103)
+        Me.cmbbxDeptCol.Location = New System.Drawing.Point(202, 132)
         Me.cmbbxDeptCol.Name = "cmbbxDeptCol"
         Me.cmbbxDeptCol.Size = New System.Drawing.Size(350, 28)
         Me.cmbbxDeptCol.TabIndex = 14
@@ -555,7 +541,7 @@ Partial Class wdwDataEntry
         'txtbxDeptName
         '
         Me.txtbxDeptName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxDeptName.Location = New System.Drawing.Point(193, 137)
+        Me.txtbxDeptName.Location = New System.Drawing.Point(202, 166)
         Me.txtbxDeptName.Name = "txtbxDeptName"
         Me.txtbxDeptName.Size = New System.Drawing.Size(350, 26)
         Me.txtbxDeptName.TabIndex = 13
@@ -564,7 +550,7 @@ Partial Class wdwDataEntry
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(11, 139)
+        Me.Label8.Location = New System.Drawing.Point(20, 168)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(176, 20)
         Me.Label8.TabIndex = 11
@@ -574,7 +560,7 @@ Partial Class wdwDataEntry
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(104, 111)
+        Me.Label9.Location = New System.Drawing.Point(113, 140)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(83, 20)
         Me.Label9.TabIndex = 10
@@ -583,23 +569,34 @@ Partial Class wdwDataEntry
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.LightGray
-        Me.TabPage3.Controls.Add(Me.bttnCollegeBack)
-        Me.TabPage3.Controls.Add(Me.bttnCollegeAdd)
-        Me.TabPage3.Controls.Add(Me.txtbxCollegeName)
-        Me.TabPage3.Controls.Add(Me.txtbxCollegeCode)
-        Me.TabPage3.Controls.Add(Me.Label7)
-        Me.TabPage3.Controls.Add(Me.Label6)
+        Me.TabPage3.Controls.Add(Me.GroupBox1)
+        Me.TabPage3.Controls.Add(Me.txtbxUnit)
+        Me.TabPage3.Controls.Add(Me.txtbxFacName)
+        Me.TabPage3.Controls.Add(Me.txtbxSection)
+        Me.TabPage3.Controls.Add(Me.bttnCourseAdd)
+        Me.TabPage3.Controls.Add(Me.txtbxCourseCode)
+        Me.TabPage3.Controls.Add(Me.Label22)
+        Me.TabPage3.Controls.Add(Me.Label29)
+        Me.TabPage3.Controls.Add(Me.Label18)
+        Me.TabPage3.Controls.Add(Me.txtbxCourseFacID)
+        Me.TabPage3.Controls.Add(Me.bttnCourseBack)
+        Me.TabPage3.Controls.Add(Me.Label13)
+        Me.TabPage3.Controls.Add(Me.rbttnUndergrad)
+        Me.TabPage3.Controls.Add(Me.bttnAddClear)
+        Me.TabPage3.Controls.Add(Me.Label10)
+        Me.TabPage3.Controls.Add(Me.Label11)
+        Me.TabPage3.Controls.Add(Me.rbttnGrad)
         Me.TabPage3.Location = New System.Drawing.Point(4, 25)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(587, 435)
         Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "College"
+        Me.TabPage3.Text = "Course"
         '
         'bttnCollegeBack
         '
         Me.bttnCollegeBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnCollegeBack.Location = New System.Drawing.Point(297, 235)
+        Me.bttnCollegeBack.Location = New System.Drawing.Point(299, 250)
         Me.bttnCollegeBack.Name = "bttnCollegeBack"
         Me.bttnCollegeBack.Size = New System.Drawing.Size(105, 29)
         Me.bttnCollegeBack.TabIndex = 11
@@ -609,7 +606,7 @@ Partial Class wdwDataEntry
         'bttnCollegeAdd
         '
         Me.bttnCollegeAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnCollegeAdd.Location = New System.Drawing.Point(169, 235)
+        Me.bttnCollegeAdd.Location = New System.Drawing.Point(171, 250)
         Me.bttnCollegeAdd.Name = "bttnCollegeAdd"
         Me.bttnCollegeAdd.Size = New System.Drawing.Size(105, 29)
         Me.bttnCollegeAdd.TabIndex = 10
@@ -619,7 +616,7 @@ Partial Class wdwDataEntry
         'txtbxCollegeName
         '
         Me.txtbxCollegeName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxCollegeName.Location = New System.Drawing.Point(183, 153)
+        Me.txtbxCollegeName.Location = New System.Drawing.Point(185, 168)
         Me.txtbxCollegeName.Name = "txtbxCollegeName"
         Me.txtbxCollegeName.Size = New System.Drawing.Size(350, 26)
         Me.txtbxCollegeName.TabIndex = 9
@@ -627,7 +624,7 @@ Partial Class wdwDataEntry
         'txtbxCollegeCode
         '
         Me.txtbxCollegeCode.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxCollegeCode.Location = New System.Drawing.Point(183, 123)
+        Me.txtbxCollegeCode.Location = New System.Drawing.Point(185, 138)
         Me.txtbxCollegeCode.Name = "txtbxCollegeCode"
         Me.txtbxCollegeCode.Size = New System.Drawing.Size(350, 26)
         Me.txtbxCollegeCode.TabIndex = 8
@@ -636,7 +633,7 @@ Partial Class wdwDataEntry
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(38, 155)
+        Me.Label7.Location = New System.Drawing.Point(40, 170)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(139, 20)
         Me.Label7.TabIndex = 2
@@ -646,7 +643,7 @@ Partial Class wdwDataEntry
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(43, 125)
+        Me.Label6.Location = New System.Drawing.Point(45, 140)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(134, 20)
         Me.Label6.TabIndex = 1
@@ -921,23 +918,27 @@ Partial Class wdwDataEntry
         'TabPage7
         '
         Me.TabPage7.BackColor = System.Drawing.Color.LightGray
-        Me.TabPage7.Controls.Add(Me.txtbxYearEnd)
-        Me.TabPage7.Controls.Add(Me.txtbxYearStart)
-        Me.TabPage7.Controls.Add(Me.Button2)
-        Me.TabPage7.Controls.Add(Me.Button3)
-        Me.TabPage7.Controls.Add(Me.Label28)
-        Me.TabPage7.Controls.Add(Me.Label27)
+        Me.TabPage7.Controls.Add(Me.bttnBackTerm)
+        Me.TabPage7.Controls.Add(Me.cmbbxTerm)
+        Me.TabPage7.Controls.Add(Me.cmbbxAcadYear)
+        Me.TabPage7.Controls.Add(Me.Label25)
+        Me.TabPage7.Controls.Add(Me.bttnAddTerm)
+        Me.TabPage7.Controls.Add(Me.Label26)
+        Me.TabPage7.Controls.Add(Me.Label24)
+        Me.TabPage7.Controls.Add(Me.dtpEnd)
+        Me.TabPage7.Controls.Add(Me.dtpStart)
+        Me.TabPage7.Controls.Add(Me.Label23)
         Me.TabPage7.Location = New System.Drawing.Point(4, 25)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage7.Size = New System.Drawing.Size(587, 435)
         Me.TabPage7.TabIndex = 6
-        Me.TabPage7.Text = "Year"
+        Me.TabPage7.Text = "Term"
         '
         'txtbxYearEnd
         '
         Me.txtbxYearEnd.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxYearEnd.Location = New System.Drawing.Point(230, 171)
+        Me.txtbxYearEnd.Location = New System.Drawing.Point(225, 164)
         Me.txtbxYearEnd.MaxLength = 4
         Me.txtbxYearEnd.Name = "txtbxYearEnd"
         Me.txtbxYearEnd.Size = New System.Drawing.Size(206, 26)
@@ -946,7 +947,7 @@ Partial Class wdwDataEntry
         'txtbxYearStart
         '
         Me.txtbxYearStart.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxYearStart.Location = New System.Drawing.Point(230, 131)
+        Me.txtbxYearStart.Location = New System.Drawing.Point(225, 124)
         Me.txtbxYearStart.MaxLength = 4
         Me.txtbxYearStart.Name = "txtbxYearStart"
         Me.txtbxYearStart.Size = New System.Drawing.Size(206, 26)
@@ -955,7 +956,7 @@ Partial Class wdwDataEntry
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(302, 245)
+        Me.Button2.Location = New System.Drawing.Point(297, 238)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(105, 29)
         Me.Button2.TabIndex = 45
@@ -965,7 +966,7 @@ Partial Class wdwDataEntry
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(173, 245)
+        Me.Button3.Location = New System.Drawing.Point(168, 238)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(105, 29)
         Me.Button3.TabIndex = 44
@@ -976,7 +977,7 @@ Partial Class wdwDataEntry
         '
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(130, 173)
+        Me.Label28.Location = New System.Drawing.Point(125, 166)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(93, 20)
         Me.Label28.TabIndex = 33
@@ -986,7 +987,7 @@ Partial Class wdwDataEntry
         '
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(120, 131)
+        Me.Label27.Location = New System.Drawing.Point(115, 124)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(103, 20)
         Me.Label27.TabIndex = 32
@@ -1000,7 +1001,7 @@ Partial Class wdwDataEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(613, 501)
+        Me.ClientSize = New System.Drawing.Size(618, 518)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "wdwDataEntry"
         Me.Text = "Data Entry"
@@ -1089,7 +1090,6 @@ Partial Class wdwDataEntry
     Friend WithEvents bttnAddClear As Button
     Friend WithEvents bttnBackTerm As Button
     Friend WithEvents bttnAddTerm As Button
-    Friend WithEvents txtbxTerm As TextBox
     Friend WithEvents Label24 As Label
     Friend WithEvents Label23 As Label
     Friend WithEvents txtbxUploadSearch As TextBox
@@ -1110,4 +1110,5 @@ Partial Class wdwDataEntry
     Friend WithEvents Back As Button
     Friend WithEvents bttnUpload As Button
     Friend WithEvents grid As DataGridView
+    Friend WithEvents cmbbxTerm As ComboBox
 End Class
