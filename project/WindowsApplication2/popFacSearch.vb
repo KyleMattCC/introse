@@ -37,6 +37,8 @@
     End Sub
 
     Private Sub bttnSearch_Click(sender As Object, e As EventArgs) Handles bttnSearch.Click
+        wdwAttendanceHistoryLog.MdiParent = wdwMainMenu
+        wdwAttendanceHistoryLog.WindowState = FormWindowState.Normal
         wdwAttendanceHistoryLog.Enable_Form()
         txtFacID.Clear()
         Me.Close()

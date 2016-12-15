@@ -34,12 +34,8 @@
             txtbxName.Text = dbAccess.Get_Data("select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from introse.faculty where facultyid = '" & id & "';", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
             facultyID = txtbxFacID.Text
 
-            If wdwLogin.Get_accountType.Equals("Regular") And AttendanceView = True Then
+            If wdwLogin.Get_accountType.Equals("Regular") Then
                 bttnAdd.Enabled = True
-                bttnDelete.Enabled = False
-                bttnModify.Enabled = False
-            ElseIf wdwLogin.Get_accountType.Equals("Regular") And MakeupView = True Then
-                bttnAdd.Enabled = False
                 bttnDelete.Enabled = False
                 bttnModify.Enabled = False
             Else
