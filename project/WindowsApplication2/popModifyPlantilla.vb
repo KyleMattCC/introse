@@ -92,8 +92,6 @@
             ElseIf (StartTime = EndTime) Then
                 MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
 
-            ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) And Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
-                MsgBox("Makeup hours is not exact!", MsgBoxStyle.Critical, "")
 
             Else
 
