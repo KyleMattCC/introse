@@ -14,7 +14,7 @@ Public Class wdwEmailReports
         Dim emailAdd As String = Nothing
 
         If reportType = 1 Then
-            emailAdd = dbAccess.Get_Data("select email from introse.faculty where concat(f_lastname, ', ', f_fistname, ' ', f_middlename) = '" & reportFor & ";", "email")
+            emailAdd = dbAccess.Get_Data("select email from introse.faculty where concat(f_lastname, ', ', f_fistname, ' ', f_middlename) = '" & reportFor & "';", "email")
             If String.IsNullOrEmpty(emailAdd) Then
                 txtbxTo.Text = Nothing
 
@@ -86,13 +86,13 @@ Public Class wdwEmailReports
             SendMail.Subject = txtbxSubject.Text
             SendMail.IsBodyHtml = False
             SendMail.Body = txtbxBody.Text
-            'Dim msgAtt As New Attachment(file)
-            'SendMail.Attachments.Add(msgAtt)
+            Dim msgAtt As New Attachment(file)
+            SendMail.Attachments.Add(msgAtt)
             SMTPcl.Send(SendMail)
             MsgBox("E-mail sent!", MsgBoxStyle.OkOnly, "")
 
         Catch ex As Exception
-            MsgBox("E-mail sending failed!", MsgBoxStyle.Critical, "")
+            MsgBox(ex.ToString, MsgBoxStyle.Critical, "")
 
         End Try
 

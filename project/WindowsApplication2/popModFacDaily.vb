@@ -60,16 +60,19 @@
         Dim lname As String
         Dim name As String
 
-        name = ""
-        fname = ""
-        MI = ""
-        lname = ""
+        name = Nothing
+        fname = Nothing
+        MI = Nothing
+        lname = Nothing
         Try
+
             facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyId & "';", 3)
+
             If facName.Count > 0 Then
                 fname = facName(0).ToString
                 MI = facName(1).ToString
                 lname = facName(2).ToString
+
             End If
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
@@ -78,7 +81,7 @@
                 cmbbxCourse.Enabled = True
 
             Else
-                text.Text = fname + " " + MI + " " + lname
+                text.Text = Nothing
 
             End If
 
