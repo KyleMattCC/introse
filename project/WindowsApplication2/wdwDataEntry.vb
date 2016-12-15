@@ -287,7 +287,7 @@ Public Class wdwDataEntry
 
 
 
-            Course = dbAccess.Get_Data("select course_id from course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
+            Course = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
             If (Course = Nothing) Then
 
                 If (rbttnGrad.Checked = True) Then
@@ -297,9 +297,9 @@ Public Class wdwDataEntry
                 dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & txtbxCourseCode.Text & "' , '" & txtbxUnit.Text & "', '" & offeredTo & "');")
             End If
 
-            FacrefNo = dbAccess.Get_Data("select facref_no from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
-            term = dbAccess.Get_Data("select termid from term where '" & dateToday & "' between start and end", "termid")
-            Course = dbAccess.Get_Data("select course_id from course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
+            facrefNo = dbAccess.Get_Data("select facref_no from introse.faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
+            term = dbAccess.Get_Data("select termid from introse.term where '" & dateToday & "' between start and end", "termid")
+            Course = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
 
             If (facrefNo <> Nothing And term <> Nothing) Then
                 Dim wholeNumber As Integer
@@ -334,7 +334,7 @@ Public Class wdwDataEntry
                     Me.Close()
                 End If
 
-           Else
+            Else
                 If (facrefNo = Nothing) Then
                     MsgBox("Faculty ID does not exist. Try again!")
 
@@ -384,7 +384,7 @@ Public Class wdwDataEntry
 
         Dim FacName As String = Nothing
 
-        FacName = dbAccess.Get_Data("select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
+        FacName = dbAccess.Get_Data("select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from introse.faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
 
         If (FacName <> Nothing) Then
             txtbxFacName.Text = FacName
@@ -464,96 +464,89 @@ Public Class wdwDataEntry
 
             Dim Course As Integer = Nothing
             Dim offeredTo As Char = "U"
-            Dim startTime As Integer = Convert.ToInt32(txtbxStartTime.Text)
-            Dim endTime As Integer = Convert.ToInt32(txtbxEndTime.Text)
-            Dim Term As Integer
-            Dim TempDate As Date = Date.Now
-            Dim DateToday As String = TempDate.ToString("yyyy-MM-dd")
-            Dim FacrefNo As String = Nothing
-            Dim wholeNumber As Integer
-            Dim tempStart As Double
-            Dim tempEnd As String
 
-            If (startTime > 2400 Or endTime > 2400 Or startTime <= 0 Or endTime <= 0 Or startTime >= endTime) Then
+            Dim term As Integer
+            Dim tempDate As Date = Date.Now
+            Dim dateToday As String = tempDate.ToString("yyyy-MM-dd")
+            Dim facrefNo As String = Nothing
+            Dim startTime As Integer
+            Dim endTime As Integer
+            Dim tempStart As Integer
+            Dim tempEnd As Integer
 
-                MsgBox("Invalid time input. Try again!")
 
-            Else
 
-                Course = dbAccess.Get_Data("select course_id from course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
-                If (Course = Nothing) Then
+            Course = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
+            If (Course = Nothing) Then
 
-                    If (rbttnGrad.Checked = True) Then
-                        offeredTo = "G"
-                    End If
-
-                    dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & txtbxCourseCode.Text & "' , '" & txtbxUnit.Text & "', '" & offeredTo & "');")
+                If (rbttnGrad.Checked = True) Then
+                    offeredTo = "G"
                 End If
 
-                FacrefNo = dbAccess.Get_Data("select facref_no from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
-                Term = dbAccess.Get_Data("select termid from term where '" & DateToday & "' between start and end", "termid")
-                Course = dbAccess.Get_Data("select course_id from course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
+                dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & txtbxCourseCode.Text & "' , '" & txtbxUnit.Text & "', '" & offeredTo & "');")
+            End If
 
-                If (FacrefNo <> Nothing And Term <> Nothing) Then
+            facrefNo = dbAccess.Get_Data("select facref_no from introse.faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
+            term = dbAccess.Get_Data("select termid from introse.term where '" & dateToday & "' between start and end", "termid")
+            Course = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
 
-                    startTime = Convert.ToInt32(txtbxStartTime.Text)
-                    endTime = Convert.ToInt32(txtbxEndTime.Text)
-                    tempStart = startTime
-                    tempEnd = endTime
-                    If ((tempStart Mod 100) > tempEnd Mod 100) Then
-                        Dim tempMinutes As Integer = startTime Mod 100
-                        tempStart -= tempMinutes
-                        tempEnd -= (tempMinutes + 40)
-                    End If
-                    wholeNumber = (tempEnd - tempStart) / 100
+            If (facrefNo <> Nothing And term <> Nothing) Then
+                Dim wholeNumber As Integer
+                startTime = Convert.ToInt32(txtbxStartTime.Text)
+                endTime = Convert.ToInt32(txtbxEndTime.Text)
+                tempStart = startTime
+                tempEnd = endTime
+                If ((tempStart Mod 100) > tempEnd Mod 100) Then
+                    Dim tempMinutes As Integer = startTime Mod 100
+                    tempStart -= tempMinutes
+                    tempEnd -= (tempMinutes + 40)
+                End If
+                wholeNumber = (tempEnd - tempStart) / 100
 
-                    If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
-                        MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
+                If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
+                    MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
 
-                    ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
-                        MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
+                ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
+                    MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
 
-                    ElseIf (endTime < startTime) Then
-                        MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
+                ElseIf (endTime < startTime) Then
+                    MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
 
-                    ElseIf (startTime = endTime) Then
-                        MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
-
-
-
-                    Else
-
-
-                        dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & Course & "', '" & Term & "', '" & FacrefNo & "', '" & txtbxSection.Text & "', '" & txtbxRoom.Text & "', '" & txtbxDay.Text & "', '" & txtbxStartTime.Text & "', '" & txtbxEndTime.Text & "', " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", 'A');")
-                        txtbxCourseCode.Text = Nothing
-                        txtbxCourseFacID.Text = Nothing
-                        txtbxSection.Text = Nothing
-                        txtbxUnit.Text = Nothing
-                        txtbxDay.Text = Nothing
-                        txtbxRoom.Text = Nothing
-                        txtbxStartTime.Text = Nothing
-                        txtbxEndTime.Text = Nothing
-                        rbttnUndergrad.Checked = True
-
-                        wdwFacPlantilia.Load_form()
-                    End If
-
+                ElseIf (startTime = endTime) Then
+                    MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
 
                 Else
-                    If (FacrefNo = Nothing) Then
-                        MsgBox("Faculty ID does not exist. Try again!")
 
-                    ElseIf (Term = Nothing) Then
-                        MsgBox("Create a new term first.")
 
-                    End If
+                    dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & Course & "', '" & term & "', '" & facrefNo & "', '" & txtbxSection.Text & "', '" & txtbxRoom.Text & "', '" & txtbxDay.Text & "', '" & txtbxStartTime.Text & "', '" & txtbxEndTime.Text & "', '" & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & "', 'A');")
+                    txtbxCourseCode.Text = Nothing
+                    txtbxCourseFacID.Text = Nothing
+                    txtbxSection.Text = Nothing
+                    txtbxUnit.Text = Nothing
+                    txtbxDay.Text = Nothing
+                    txtbxRoom.Text = Nothing
+                    txtbxStartTime.Text = Nothing
+                    txtbxEndTime.Text = Nothing
+                    rbttnUndergrad.Checked = True
+
+                    wdwFacPlantilia.Load_form()
+
 
                 End If
 
+            Else
+                If (facrefNo = Nothing) Then
+                    MsgBox("Faculty ID does not exist. Try again!")
 
+                ElseIf (term = Nothing) Then
+                    MsgBox("Create a new term first.")
+
+                End If
 
             End If
+
         End If
+
     End Sub
 
 
@@ -597,10 +590,10 @@ Public Class wdwDataEntry
 
         If (cmbbxTerm.SelectedIndex = -1) Then
 
-            yearID = dbAccess.Get_Data("select yearID from academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'", "yearID")
-            term = dbAccess.Get_Data("select term_no from term where Term_no = '" & cmbbxTerm.SelectedItem & "' and yearID = '" & yearID & "'", "term_no")
-            termDate = dbAccess.Get_Data("select termid from term where '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "' between start and end and '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "' between start and end", "termid")
-            yearStatus = dbAccess.Get_Data("select status from academicyear where yearID = '" & yearID & "'", "status")
+            yearID = dbAccess.Get_Data("select yearID from introse.academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'", "yearID")
+            term = dbAccess.Get_Data("select term_no from introse.term where Term_no = '" & cmbbxTerm.SelectedItem & "' and yearID = '" & yearID & "'", "term_no")
+            termDate = dbAccess.Get_Data("select termid from introse.term where '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "' between start and end and '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "' between start and end", "termid")
+            yearStatus = dbAccess.Get_Data("select status from introse.academicyear where yearID = '" & yearID & "'", "status")
 
 
             MsgBox(yearStatus)
@@ -617,8 +610,8 @@ Public Class wdwDataEntry
                         If result = DialogResult.Yes Then
 
 
-                            termStatus = dbAccess.Get_Multiple_Row_Data("select termid from term where status = 'A'")
-                            facStatus = dbAccess.Get_Multiple_Row_Data("select courseoffering_id from courseoffering where status = 'A'")
+                            termStatus = dbAccess.Get_Multiple_Row_Data("select termid from introse.term where status = 'A'")
+                            facStatus = dbAccess.Get_Multiple_Row_Data("select courseoffering_id from introse.courseoffering where status = 'A'")
 
                             For i As Integer = 0 To termStatus.Count - 1
                                 dbAccess.Update_Data("UPDATE `introse`.`term` SET `status`='R' WHERE `termid`='" & termStatus(i) & "';")
@@ -662,6 +655,11 @@ Public Class wdwDataEntry
         Dim dialog As New OpenFileDialog
         dialog.Title = "Open Excel File"
         dialog.Filter = "Microsoft Excel|*.xl*"
+        If (txtbxUploadSearch.Text <> Nothing) Then
+
+            dialog.InitialDirectory = txtbxUploadSearch.Text
+        End If
+
         If (dialog.ShowDialog() = DialogResult.OK) Then
 
 
@@ -706,7 +704,7 @@ Public Class wdwDataEntry
 
             Else
 
-                yearID = dbAccess.Get_Multiple_Row_Data("select yearID from academicyear where status = 'A'")
+                yearID = dbAccess.Get_Multiple_Row_Data("select yearID from introse.academicyear where status = 'A'")
 
                 If (yearID.Count <> 0) Then
 
@@ -771,25 +769,31 @@ Public Class wdwDataEntry
         Dim time1 As String = Nothing
         Dim time2 As String = Nothing
         Dim wholeNumber As Integer
+        Dim offeredTo As String = Nothing
+        Dim units As Integer
+        Dim firstName As String
+        Dim middleName As String
+        Dim lastName As String
+        Dim facultyID As String
+        Dim temp1() As String
+        Dim email As String
+        Dim department As String
+        Dim departmentID As String
 
 
         For i As Integer = 0 To grid.RowCount - 2
 
             If (IsDBNull(grid.Rows(i).Cells(0).Value)) Then
             Else
-                facultyName = grid.Rows(i).Cells(0).Value
-                courseCode = grid.Rows(i).Cells(2).Value
-                section = grid.Rows(i).Cells(3).Value
-                daySched = grid.Rows(i).Cells(4).Value
+                facultyName = grid.Rows(i).Cells(1).Value
+                courseCode = grid.Rows(i).Cells(5).Value
+                section = grid.Rows(i).Cells(6).Value
+                daySched = grid.Rows(i).Cells(7).Value
+                room = grid.Rows(i).Cells(9).Value
 
-
-
-                temp = grid.Rows(i).Cells(5).Value
-
+                temp = grid.Rows(i).Cells(8).Value
                 time1 = temp.Chars(0) + temp.Chars(1) + temp.Chars(2) + temp.Chars(3)
                 time2 = temp.Chars(5) + temp.Chars(6) + temp.Chars(7) + temp.Chars(8)
-
-
                 startTime = Convert.ToInt32(time1)
                 endTime = Convert.ToInt32(time2)
                 time1 = startTime
@@ -802,17 +806,50 @@ Public Class wdwDataEntry
                 wholeNumber = (time2 - time1) / 100
 
 
-                room = grid.Rows(i).Cells(6).Value
 
-                MsgBox(grid.RowCount)
+                courseID = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & courseCode & "';", "course_id")
+                facrefNo = dbAccess.Get_Data("select facref_no from introse.faculty where concat(f_lastname, ', ', f_firstname, ' ', f_middlename) = '" & facultyName & "';", "facref_no")
+                termID = dbAccess.Get_Data("select termid from introse.term where status = 'A';", "termid")
+
+                If (courseID = Nothing) Then
+
+                    temp = grid.Rows(i).Cells(15).Value
+                    offeredTo = temp.Chars(14) + temp.Chars(15)
+                    units = grid.Rows(i).Cells(14).Value
+
+                    If (offeredTo = "us") Then
+                        dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & courseCode & "' , '" & units & "', 'U');")
+                    ElseIf (offeredTo = "gs") Then
+                        dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & courseCode & "' , '" & units & "', 'G');")
+                    End If
+
+                End If
+
+                If (facrefNo = Nothing) Then
+
+                    temp = grid.Rows(i).Cells(1).Value
+                    temp1 = Split(temp, ", ")
+
+                    lastName = temp1(0)
+                    temp = temp1(1)
+                    temp1 = Split(temp, " ")
+                    middleName = temp1(1)
+                    firstName = temp1(0)
 
 
-                courseID = dbAccess.Get_Data("select course_id from course where course_cd = '" & courseCode & "';", "course_id")
-                facrefNo = dbAccess.Get_Data("select facref_no from faculty where concat(f_lastname, ', ', f_firstname, ' ', f_middlename) = '" & facultyName & "';", "facref_no")
-                termID = dbAccess.Get_Data("select termid from term where status = 'A';", "termid")
+                    facultyID = grid.Rows(i).Cells(2).Value
+                    email = grid.Rows(i).Cells(3).Value
+                    department = grid.Rows(i).Cells(0).Value
 
+                    departmentID = dbAccess.Get_Data("select departmentid from introse.department where departmentname = '" & department & "'", "departmentid")
+
+                    dbAccess.Add_Data("INSERT INTO `introse`.`faculty` (`facultyid`, `f_firstname`, `f_middlename`, `f_lastname`, `email`, `departmentid`, `status`) VALUES ('" & facultyID & "', '" & firstName & "', '" & middleName & "', '" & lastName & "', '" & email & "', '" & departmentID & "', 'A');")
+
+                End If
+                courseID = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & courseCode & "';", "course_id")
 
                 dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & courseID & "', '" & termID & "', '" & facrefNo & "', '" & section & "', '" & room & "', '" & daySched & "', '" & startTime & "', '" & endTime & "', '" & (wholeNumber + ((time2 - time1) Mod 100) / 60) & "', 'A');")
+
             End If
 
         Next
