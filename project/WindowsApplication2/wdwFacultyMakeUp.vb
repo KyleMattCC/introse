@@ -67,8 +67,8 @@
         Search += "%"
 
 
-        dbAccess.Fill_Data_Grid("Select distinct m.makeupid 'Reference', m.makeup_date 'Make-up date', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', cl.course_cd 'Course', c.section 'Section', m.timestart 'Start time', m.timeend 'End time', m.room 'Room', r.reason_desc 'Reason', m.enc_date 'Date Encoded', m.encoder 'Encoder' 
-                                    from faculty f, department d , makeup m, courseoffering c, reason r, course cl
+        dbAccess.Fill_Data_Grid("select DISTINCT m.makeupid 'Reference no.', f.facultyid 'Faculty ID', concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename) 'Name', m.makeup_date 'Makeup date', cl.course_cd 'Course', c.section 'Section', m.room 'Room', m.timestart 'Start time', m.timeend 'End time', m.hours 'Hours', r.reason_des 'Reason', m.enc_date 'Date encoded', m.encoder 'Encoder' 
+                                    from faculty f, department d , makeup m, courseoffering c, reasons r, course cl
                                     where m.courseoffering_id = c.courseoffering_id and c.course_id = cl.course_id and c.facref_no = f.facref_no and m.reason_cd = r.reason_cd and m.status = 'A' and m.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' and c.facref_no = f.facref_no and c.course_id = cl.course_id and m.status = 'A' and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename like '" + Search.ToString + "') or (f_lastname like '" + Search.ToString + "') or (concat(f_lastname, ', ', f_firstname, ' ', f_middlename) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_lastname,' ', f_firstname) like '" + Search.ToString + "') or (concat(f_lastname,' ', ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' ,f_firstname) like '" + Search.ToString + "'))
                                     order by 1, 3, 12;", grid)
 
