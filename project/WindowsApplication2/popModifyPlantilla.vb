@@ -70,26 +70,26 @@
 
             Dim wholeNumber As Integer
             startTime = Convert.ToInt32(txtbxStartTime.Text)
-            EndTime = Convert.ToInt32(txtbxEndTime.Text)
-            tempStart = StartTime
-            tempEnd = EndTime
+            endTime = Convert.ToInt32(txtbxEndTime.Text)
+            tempStart = startTime
+            tempEnd = endTime
             If ((tempStart Mod 100) > tempEnd Mod 100) Then
-                Dim tempMinutes As Integer = StartTime Mod 100
+                Dim tempMinutes As Integer = startTime Mod 100
                 tempStart -= tempMinutes
                 tempEnd -= (tempMinutes + 40)
             End If
             wholeNumber = (tempEnd - tempStart) / 100
 
-            If ((StartTime < 0 Or StartTime > 2359) Or (StartTime / 100 > 24 Or StartTime Mod 100 > 59)) Then
+            If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
                 MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
 
-            ElseIf ((EndTime < 0 Or EndTime > 2359) Or (EndTime / 100 > 24 Or EndTime Mod 100 > 59)) Then
+            ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                 MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
 
-            ElseIf (EndTime < StartTime) Then
+            ElseIf (endTime < startTime) Then
                 MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
 
-            ElseIf (StartTime = EndTime) Then
+            ElseIf (startTime = endTime) Then
                 MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
 
 
