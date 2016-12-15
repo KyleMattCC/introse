@@ -1,9 +1,61 @@
 ﻿Public Class popMonthlyGen
-    Dim dbAccess As databaseAccessor = New databaseAccessor
+    Dim dbAccess As New databaseAccessor
+    Dim repGen As New reportGenerator
+    Dim offered As Integer
+    Dim reportTo As Integer
+    Dim month As Integer
 
     Private Sub bttnGenerate_Click(sender As Object, e As EventArgs) Handles bttnGenerate.Click
-        Me.Hide()
-        wdwReportGen.Show()
+        Dim reportSuccess As Boolean = False
+        Dim term As Integer
+
+        term = dbAccess.Get_Data("Select termid from term, academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxYear.SelectedItem & "' and term.yearid = academicyear.yearid and term_no = " & cmbbxTerm.SelectedItem & ";", "termid")
+
+        If (cmbbxMonth.SelectedItem.Equals("January")) Then
+            month = 1
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("February")) Then
+            month = 2
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("March")) Then
+            month = 3
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("April")) Then
+            month = 4
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("May")) Then
+            month = 5
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("June")) Then
+            month = 6
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("July")) Then
+            month = 7
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("August")) Then
+            month = 8
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("September")) Then
+            month = 9
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("October")) Then
+            month = 10
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("November")) Then
+            month = 11
+
+        ElseIf (cmbbxMonth.SelectedItem.Equals("December")) Then
+            month = 12
+        End If
+        If reportTo = 1 Then
+            reportSuccess = repGen.Generate_Monthly_Report(term, month, offered)
+
+        ElseIf reportTo = 2 Then
+            reportSuccess = repGen.Generate_Monthly_Report(term, month, offered)
+
+        End If
+
+        MsgBox(term)
     End Sub
 
     Private Sub bttnBack_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
@@ -11,7 +63,7 @@
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxMonth.SelectedIndexChanged
-
+        bttnGenerate.Enabled = True
     End Sub
 
     Private Sub popMonthlyGen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -31,6 +83,12 @@
             cmbbxYear.SelectedIndex = -1
         End If
 
+    End Sub
+
+    Public Sub Load_Form(offeredType As Integer, reportFor As Integer)
+        offered = offeredType
+        reportTo = reportFor
+        Me.Show()
     End Sub
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed

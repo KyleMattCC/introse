@@ -89,7 +89,7 @@ Partial Class popMonthlyGen
         Me.cmbbxMonth.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxMonth.FormattingEnabled = True
         Me.cmbbxMonth.Items.AddRange(New Object() {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
-        Me.cmbbxMonth.Location = New System.Drawing.Point(230, 115)
+        Me.cmbbxMonth.Location = New System.Drawing.Point(161, 90)
         Me.cmbbxMonth.Name = "cmbbxMonth"
         Me.cmbbxMonth.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxMonth.TabIndex = 3

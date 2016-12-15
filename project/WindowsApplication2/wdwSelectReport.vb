@@ -102,7 +102,7 @@
             popDailyGen.Load_Form(offeredType, reportFor)
 
         ElseIf reportType = 2 Then
-            popMonthlyGen.Show()
+            popMonthlyGen.Load_Form(offeredType, reportFor)
 
         ElseIf reportType = 3 Then
             popTermEndGen.Show()

@@ -568,7 +568,7 @@ Public Class reportGenerator
                     pdfDoc.Add(table)
                     ctrLines = 0
                     pageNo += 1
-                    If ctr < reportColumns.Count - 1 Then
+                    If ctr < reportColumns.Count Then
                         pdfDoc.NewPage()
                     End If
 
@@ -587,7 +587,7 @@ Public Class reportGenerator
 
     End Function
 
-    Public Function Generete_Monthly_Report(termId As Integer, month As Integer, offeredType As Integer) As Boolean
+    Public Function Generate_Monthly_Report(termId As Integer, month As Integer, offeredType As Integer) As Boolean
         Try
             If Not Directory.Exists("C:\Fams Reports") Then
                 Directory.CreateDirectory("C:\Fams Reports")
@@ -600,8 +600,6 @@ Public Class reportGenerator
         End Try
 
         Try
-            Dim collegeGroup As String = Nothing
-            Dim deptGroup As String = Nothing
             Dim currentFaculty As String = Nothing
             Dim colleges As New List(Of Object)()
             Dim departments As New List(Of Object)()
@@ -611,7 +609,7 @@ Public Class reportGenerator
             Dim absentResults As New List(Of Object)()
             Dim makeupResults As New List(Of Object)()
             Dim load As Double
-            Dim absHours As Integer
+            Dim hours As Integer
             Dim lateNum As Integer
             Dim edNum As Integer
             Dim vrNum As Integer
@@ -619,13 +617,13 @@ Public Class reportGenerator
             Dim makeupCtr As Integer
             Dim ctrLines As Integer
 
-            Dim fileName As String = "C:\Fams Reports\" & Date.Now.ToString("MM-dd-yyyy") & "Monthly-Report.pdf"
+            Dim fileName As String = "C:\Fams Reports\" & Date.Now.ToString("MM-dd-yyyy") & " Monthly-Report.pdf"
             Dim pageNo As Integer = 1
-            Dim pdfDoc As New Document(itextsharp.text.PageSize.A4.Rotate(), 20.0F, 20.0F, 20.0F, 20.0F)
+            Dim pdfDoc As New Document(iTextSharp.text.PageSize.A4.Rotate(), 20.0F, 20.0F, 20.0F, 20.0F)
             Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(fileName, FileMode.Create))
 
-            Dim fntTableFontHdr As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.BOLD, BaseColor.BLACK)
-            Dim fntTableFont As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.NORMAL, BaseColor.BLACK)
+            Dim fntTableFontHdr As iTextSharp.text.Font = FontFactory.GetFont("Times New Roman", 12, iTextSharp.text.Font.BOLD, BaseColor.BLACK)
+            Dim fntTableFont As iTextSharp.text.Font = FontFactory.GetFont("Times New Roman", 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)
 
             pdfDoc.Open()
 
@@ -652,49 +650,48 @@ Public Class reportGenerator
             Catch ex As Exception
                 System.Windows.Forms.MessageBox.Show(ex.Message)
             End Try
-
             For collegeCtr As Integer = 0 To colleges.Count - 1 Step 2
+                MsgBox("Loop3")
                 departments = dbAccess.Get_Multiple_Column_Data("select departmentid, departmentname from introse.department where college_code = '" & colleges(collegeCtr) & "';", 2)
-
                 For depCtr As Integer = 0 To departments.Count - 1 Step 2
                     If offeredType = 1 Then
-                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
+                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_cd, SUM(co.hours)
                                                                        from introse.faculty f, introse.remarks r, introse.courseoffering co, introse.course c, introse.attendance a
                                                                        where (a.status = 'R' or a.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & " and co.facref_no = f.facref_no
                                                                        and a.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and a.remarks_cd = r.remark_cd and MONTH(a.absent_date) = " & month & " and c.offered_to = 'U'
                                                                        group by 1, 2
                                                                        order by 1, 2;", 3)
-                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
+                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_cd, SUM(m.hours)
                                                                        from introse.faculty f, introse.makeup m, introse.reasons r, introse.courseoffering co, introse.course c
-                                                                       where (m.status = 'R' or m.status = 'A') and co.termid = 1 and f.departmentid = 1001
+                                                                       where (m.status = 'R' or m.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & "
                                                                        and co.facref_no = f.facref_no and m.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and m.reason_cd and r.reason_cd and MONTH(m.makeup_date) = " & month & " and c.offered_to = 'U'
                                                                        group by 1, 2
                                                                        order by 1, 2;", 3)
 
                     ElseIf offeredType = 2 Then
-                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
+                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_cd, SUM(co.hours)
                                                                        from introse.faculty f, introse.remarks r, introse.courseoffering co, introse.course c, introse.attendance a
                                                                        where (a.status = 'R' or a.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & " and co.facref_no = f.facref_no
                                                                        and a.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and a.remarks_cd = r.remark_cd and MONTH(a.absent_date) = " & month & " and c.offered_to = 'G'
                                                                        group by 1, 2
                                                                        order by 1, 2;", 3)
-                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
+                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_cd, SUM(m.hours)
                                                                        from introse.faculty f, introse.makeup m, introse.reasons r, introse.courseoffering co, introse.course c
-                                                                       where (m.status = 'R' or m.status = 'A') and co.termid = 1 and f.departmentid = 1001
+                                                                       where (m.status = 'R' or m.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & "
                                                                        and co.facref_no = f.facref_no and m.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and m.reason_cd and r.reason_cd and MONTH(m.makeup_date) = " & month & " and c.offered_to = 'G'
                                                                        group by 1, 2
                                                                        order by 1, 2;", 3)
 
                     Else
-                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_des, SUM(co.hours)
+                        absentResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.remark_cd, SUM(co.hours)
                                                                        from introse.faculty f, introse.remarks r, introse.courseoffering co, introse.course c, introse.attendance a
                                                                        where (a.status = 'R' or a.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & " and co.facref_no = f.facref_no
                                                                        and a.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and a.remarks_cd = r.remark_cd and MONTH(a.absent_date) = " & month & "
                                                                        group by 1, 2
                                                                        order by 1, 2;", 3)
-                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_des, SUM(m.hours)
+                        makeupResults = dbAccess.Get_Multiple_Column_Data("select CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename), r.reason_cd, SUM(m.hours)
                                                                        from introse.faculty f, introse.makeup m, introse.reasons r, introse.courseoffering co, introse.course c
-                                                                       where (m.status = 'R' or m.status = 'A') and co.termid = 1 and f.departmentid = 1001
+                                                                       where (m.status = 'R' or m.status = 'A') and co.termid = " & termId & " and f.departmentid = " & departments(depCtr) & "
                                                                        and co.facref_no = f.facref_no and m.courseoffering_id = co.courseoffering_id and c.course_id = co.course_id and m.reason_cd and r.reason_cd and MONTH(m.makeup_date) = " & month & "
                                                                        group by 1, 2
                                                                        order by 1, 2;", 3)
@@ -703,8 +700,8 @@ Public Class reportGenerator
 
                     absCtr = 0
                     makeupCtr = 0
-
-                    While (absCtr < absentResults.Count - 1 Or makeupCtr < makeupResults.Count - 1)
+                    While (absCtr < absentResults.Count Or makeupCtr < makeupResults.Count)
+                        MsgBox("Loop?1")
                         Dim pageHeader As New Paragraph("Page " & pageNo, fntTableFontHdr)
                         pageHeader.Alignment = 2
                         pdfDoc.Add(pageHeader)
@@ -755,13 +752,11 @@ Public Class reportGenerator
                         table.SetWidths(sglTblHdWidths)
 
                         Dim cell As PdfPCell
-                        cell = New PdfPCell(New Phrase("", fntTableFontHdr))
+                        cell = New PdfPCell(New Phrase(" ", fntTableFontHdr))
                         cell.HorizontalAlignment = 1
-                        cell.VerticalAlignment = 1
                         table.AddCell(cell)
-                        cell = New PdfPCell(New Phrase("", fntTableFontHdr))
+                        cell = New PdfPCell(New Phrase(" ", fntTableFontHdr))
                         cell.HorizontalAlignment = 1
-                        cell.VerticalAlignment = 1
                         table.AddCell(cell)
                         cell = New PdfPCell(New Phrase("ABSENCE (IN HOURS)", fntTableFontHdr))
                         cell.Colspan = remarks.Count / 2 - 2
@@ -774,16 +769,14 @@ Public Class reportGenerator
                         cell = New PdfPCell(New Phrase("IN FREQ.", fntTableFontHdr))
                         cell.Colspan = 3
                         cell.HorizontalAlignment = 1
-                        cell.VerticalAlignment = 1
                         table.AddCell(cell)
 
                         cell = New PdfPCell(New Phrase("FACULTY NAME", fntTableFontHdr))
                         cell.HorizontalAlignment = 1
-                        cell.VerticalAlignment = 1
                         table.AddCell(cell)
                         cell = New PdfPCell(New Phrase("LOAD", fntTableFontHdr))
                         cell.HorizontalAlignment = 1
-                        cell.VerticalAlignment = 1
+
                         table.AddCell(cell)
 
                         For ctr = 0 To remarks.Count - 1 Step 2
@@ -820,40 +813,168 @@ Public Class reportGenerator
                         depCell.Colspan = colNum
                         depCell.HorizontalAlignment = 0
                         table.AddCell(depCell)
+                        MsgBox(absentResults(absCtr))
 
-                        Dim result As Integer = String.Compare(absentResults(absCtr), makeupResults(makeupCtr))
-                        If (result = -1) Then
-                            currentFaculty = makeupResults(makeupCtr)
-
-                        Else
-                            currentFaculty = absentResults(absCtr)
-
-                        End If
 
                         ctrLines = 0
-                        While ctrLines <= 30 And (absCtr < absentResults.Count - 1 Or makeupCtr < makeupResults.Count - 1)
+                        While ctrLines < 30 And (absCtr < absentResults.Count Or makeupCtr < makeupResults.Count)
+                            'MsgBox("Loop?")
+                            If (absentResults.Count > 0 And makeupResults.Count > 0) And (absCtr < absentResults.Count And makeupCtr < makeupResults.Count) Then
+                                Dim result As Integer = String.Compare(absentResults(absCtr), makeupResults(makeupCtr))
 
-                            absHours = 0
+                                If (result = -1) Then
+                                    currentFaculty = makeupResults(makeupCtr)
+
+                                Else
+                                    currentFaculty = absentResults(absCtr)
+                                End If
+
+                            ElseIf absentResults.Count = 0 Or absCtr = absentResults.Count Then
+                                currentFaculty = makeupResults(makeupCtr)
+
+                            ElseIf makeupResults.Count = 0 Or makeupCtr = makeupResults.Count Then
+                                currentFaculty = absentResults(absCtr)
+
+                            End If
+                            'MsgBox(currentFaculty)
+
+                            hours = 0
                             lateNum = 0
                             edNum = 0
                             vrNum = 0
                             load = dbAccess.Get_Data("select SUM(c.units)
                                                         from introse.course c, introse.courseoffering co, introse.faculty f
-                                                        where CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f_middlename) = '" & currentFaculty & "' and co.facref_no = f.facref_no and co.termid = 1 and co.course_id = c.course_id;", "SUM(c.units)")
+                                                        where CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) = '" & currentFaculty & "' and co.facref_no = f.facref_no and co.termid = '" & termId & "' and co.course_id = c.course_id;", "SUM(c.units)")
 
                             table.AddCell(New Phrase(currentFaculty))
                             table.AddCell(New Phrase(load.ToString))
-                            lateNum = 0
-                            edNum = 0
-                            vrNum = 0
-                            'Remarks 
+
+                            For remCtr As Integer = 0 To remarks.Count - 1 Step 2
+                                If (absentResults.Count > 0 And absCtr < absentResults.Count) Then
+                                    If Not (currentFaculty.Equals(absentResults(absCtr))) Then
+                                        While remCtr < remarks.Count
+                                            cell = New PdfPCell(New Phrase("-", fntTableFontHdr))
+                                            cell.HorizontalAlignment = 1
+                                            table.AddCell(cell)
+                                            remCtr += 2
+                                        End While
+
+                                    Else
+                                        absCtr += 1
+                                        If (absentResults(absCtr).Equals(remarks(remCtr))) Then
+                                            If (remarks(remCtr).Equals("LA")) Then
+                                                absCtr += 2
+                                                lateNum += 1
+                                            ElseIf (remarks(remCtr).Equals("VR")) Then
+                                                absCtr += 2
+                                                vrNum += 1
+                                            ElseIf (remarks(remCtr).Equals("ED")) Then
+                                                absCtr += 2
+                                                edNum += 1
+                                            Else
+                                                absCtr += 1
+                                                cell = New PdfPCell(New Phrase(absentResults(absCtr), fntTableFontHdr))
+                                                cell.HorizontalAlignment = 1
+                                                table.AddCell(cell)
+                                                hours += absentResults(absCtr)
+                                                absCtr += 1
+                                            End If
+                                        Else
+                                            cell = New PdfPCell(New Phrase("-", fntTableFontHdr))
+                                            cell.HorizontalAlignment = 1
+                                            table.AddCell(cell)
+                                            absCtr -= 1
+                                        End If
+
+                                    End If
+                                Else
+                                    While remCtr < remarks.Count
+                                        cell = New PdfPCell(New Phrase("-", fntTableFontHdr))
+                                        cell.HorizontalAlignment = 1
+                                        table.AddCell(cell)
+                                        remCtr += 2
+                                    End While
+                                End If
+                            Next
+
+                            cell = New PdfPCell(New Phrase(hours, fntTableFontHdr))
+                            cell.HorizontalAlignment = 1
+                            table.AddCell(cell)
+                            hours = 0
+
+                            For reasonCtr As Integer = 0 To reasons.Count - 1 Step 2
+                                If (makeupResults.Count > 0 And makeupCtr < makeupResults.Count) Then
+                                    If Not (currentFaculty.Equals(makeupResults(makeupCtr))) Then
+                                        While reasonCtr < reasons.Count
+                                            cell = New PdfPCell(New Phrase("-", fntTableFontHdr))
+                                            cell.HorizontalAlignment = 1
+                                            table.AddCell(cell)
+                                            reasonCtr += 2
+                                        End While
+
+                                    Else
+                                        makeupCtr += 1
+                                        If (makeupResults(makeupCtr).Equals(reasons(reasonCtr))) Then
+                                            makeupCtr += 1
+                                            cell = New PdfPCell(New Phrase(makeupResults(makeupCtr), fntTableFontHdr))
+                                            cell.HorizontalAlignment = 1
+                                            table.AddCell(cell)
+                                            hours += makeupResults(makeupCtr)
+                                            makeupCtr += 1
+                                        Else
+                                            cell = New PdfPCell(New Phrase("-", fntTableFontHdr))
+                                            cell.HorizontalAlignment = 1
+                                            table.AddCell(cell)
+                                            makeupCtr -= 1
+                                        End If
+                                    End If
+
+
+                                Else
+                                    While reasonCtr < reasons.Count
+                                        cell = New PdfPCell(New Phrase("-", fntTableFontHdr))
+                                        cell.HorizontalAlignment = 1
+                                        table.AddCell(cell)
+                                        reasonCtr += 2
+                                    End While
+                                End If
+                            Next
+
+                            cell = New PdfPCell(New Phrase(hours, fntTableFontHdr))
+                            cell.HorizontalAlignment = 1
+                            table.AddCell(cell)
+                            hours = 0
+
+                            cell = New PdfPCell(New Phrase(lateNum, fntTableFontHdr))
+                            cell.HorizontalAlignment = 1
+                            table.AddCell(cell)
+
+                            cell = New PdfPCell(New Phrase(edNum, fntTableFontHdr))
+                            cell.HorizontalAlignment = 1
+                            table.AddCell(cell)
+
+                            cell = New PdfPCell(New Phrase(vrNum, fntTableFontHdr))
+                            cell.HorizontalAlignment = 1
+                            table.AddCell(cell)
+                            ctrLines += 1
                         End While
+                        pdfDoc.Add(table)
+
+                        If absCtr < absentResults.Count - 1 Or makeupCtr < makeupResults.Count - 1 Or collegeCtr < colleges.Count - 1 Or depCtr < departments.Count - 1 Then
+                            pdfDoc.NewPage()
+                            ctrLines = 0
+                            pageNo += 1
+                        End If
 
                     End While
 
                 Next
 
             Next
+            pdfDoc.Close()
+            wdwReportGen.Load_Form(fileName, 5, "Registrar", Date.Now)
+            Return True
+
         Catch ex As Exception
             MsgBox("Notice generation failed!", MsgBoxStyle.Critical, "")
 

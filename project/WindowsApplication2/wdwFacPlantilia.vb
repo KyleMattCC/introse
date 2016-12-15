@@ -56,10 +56,8 @@
 
         End If
 
-        YearID = dbAccess.Get_Data("Select yearid from academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'", "yearid")
-
-
-        Term = dbAccess.Get_Multiple_Row_Data("Select term_no from term where yearid = '" & YearID & "'")
+        YearID = dbAccess.Get_Data("Select yearid from academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "';", "yearid")
+        Term = dbAccess.Get_Multiple_Row_Data("Select term_no from term where yearid = '" & YearID & "';")
         cmbbxTerm.Items.Clear()
 
         For i As Integer = 0 To Term.Count - 1

@@ -32,7 +32,7 @@ Partial Class popDailyGen
         'dtp
         '
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp.Location = New System.Drawing.Point(65, 20)
+        Me.dtp.Location = New System.Drawing.Point(74, 20)
         Me.dtp.Name = "dtp"
         Me.dtp.Size = New System.Drawing.Size(315, 26)
         Me.dtp.TabIndex = 162
@@ -50,7 +50,7 @@ Partial Class popDailyGen
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(212, 57)
+        Me.btnBack.Location = New System.Drawing.Point(220, 57)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(90, 30)
         Me.btnBack.TabIndex = 165
@@ -71,7 +71,7 @@ Partial Class popDailyGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(399, 101)
+        Me.ClientSize = New System.Drawing.Size(405, 101)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.Label1)
