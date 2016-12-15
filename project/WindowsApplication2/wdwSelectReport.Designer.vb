@@ -49,11 +49,10 @@ Partial Class wdwSelectReport
         '
         Me.rbttnUnder.AutoSize = True
         Me.rbttnUnder.Checked = True
-        Me.rbttnUnder.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnUnder.Location = New System.Drawing.Point(8, 28)
-        Me.rbttnUnder.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnUnder.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnUnder.Location = New System.Drawing.Point(6, 16)
         Me.rbttnUnder.Name = "rbttnUnder"
-        Me.rbttnUnder.Size = New System.Drawing.Size(169, 25)
+        Me.rbttnUnder.Size = New System.Drawing.Size(159, 24)
         Me.rbttnUnder.TabIndex = 0
         Me.rbttnUnder.TabStop = True
         Me.rbttnUnder.Text = "Undergraduate"
@@ -62,11 +61,10 @@ Partial Class wdwSelectReport
         'rbttnGrad
         '
         Me.rbttnGrad.AutoSize = True
-        Me.rbttnGrad.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnGrad.Location = New System.Drawing.Point(8, 57)
-        Me.rbttnGrad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnGrad.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnGrad.Location = New System.Drawing.Point(6, 39)
         Me.rbttnGrad.Name = "rbttnGrad"
-        Me.rbttnGrad.Size = New System.Drawing.Size(115, 25)
+        Me.rbttnGrad.Size = New System.Drawing.Size(108, 24)
         Me.rbttnGrad.TabIndex = 1
         Me.rbttnGrad.TabStop = True
         Me.rbttnGrad.Text = "Graduate"
@@ -75,11 +73,10 @@ Partial Class wdwSelectReport
         'rbttnBoth
         '
         Me.rbttnBoth.AutoSize = True
-        Me.rbttnBoth.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnBoth.Location = New System.Drawing.Point(8, 85)
-        Me.rbttnBoth.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnBoth.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnBoth.Location = New System.Drawing.Point(6, 62)
         Me.rbttnBoth.Name = "rbttnBoth"
-        Me.rbttnBoth.Size = New System.Drawing.Size(72, 25)
+        Me.rbttnBoth.Size = New System.Drawing.Size(66, 24)
         Me.rbttnBoth.TabIndex = 2
         Me.rbttnBoth.TabStop = True
         Me.rbttnBoth.Text = "Both"
@@ -91,11 +88,9 @@ Partial Class wdwSelectReport
         Me.GroupBox1.Controls.Add(Me.rbttnBoth)
         Me.GroupBox1.Controls.Add(Me.rbttnGrad)
         Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(16, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(223, 118)
+        Me.GroupBox1.Size = New System.Drawing.Size(173, 96)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Report for"
@@ -107,11 +102,9 @@ Partial Class wdwSelectReport
         Me.GroupBox2.Controls.Add(Me.rbttnMonthly)
         Me.GroupBox2.Controls.Add(Me.rbttnDaily)
         Me.GroupBox2.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(16, 140)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 114)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(688, 246)
+        Me.GroupBox2.Size = New System.Drawing.Size(554, 205)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Type of Report"
@@ -124,11 +117,9 @@ Partial Class wdwSelectReport
         Me.GroupBox3.Controls.Add(Me.rbttnRegistrar)
         Me.GroupBox3.Controls.Add(Me.cmbbxChair)
         Me.GroupBox3.Controls.Add(Me.cmbbxDean)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 60)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Location = New System.Drawing.Point(9, 49)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox3.Size = New System.Drawing.Size(668, 162)
+        Me.GroupBox3.Size = New System.Drawing.Size(532, 145)
         Me.GroupBox3.TabIndex = 6
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Report to"
@@ -136,11 +127,10 @@ Partial Class wdwSelectReport
         'rbttnChair
         '
         Me.rbttnChair.AutoSize = True
-        Me.rbttnChair.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnChair.Location = New System.Drawing.Point(16, 117)
-        Me.rbttnChair.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnChair.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnChair.Location = New System.Drawing.Point(12, 104)
         Me.rbttnChair.Name = "rbttnChair"
-        Me.rbttnChair.Size = New System.Drawing.Size(195, 25)
+        Me.rbttnChair.Size = New System.Drawing.Size(185, 24)
         Me.rbttnChair.TabIndex = 23
         Me.rbttnChair.TabStop = True
         Me.rbttnChair.Text = "Department Chair"
@@ -149,11 +139,10 @@ Partial Class wdwSelectReport
         'rbttnDean
         '
         Me.rbttnDean.AutoSize = True
-        Me.rbttnDean.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnDean.Location = New System.Drawing.Point(16, 86)
-        Me.rbttnDean.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnDean.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnDean.Location = New System.Drawing.Point(12, 70)
         Me.rbttnDean.Name = "rbttnDean"
-        Me.rbttnDean.Size = New System.Drawing.Size(155, 25)
+        Me.rbttnDean.Size = New System.Drawing.Size(146, 24)
         Me.rbttnDean.TabIndex = 22
         Me.rbttnDean.TabStop = True
         Me.rbttnDean.Text = "College Dean"
@@ -162,11 +151,10 @@ Partial Class wdwSelectReport
         'rbttnVCA
         '
         Me.rbttnVCA.AutoSize = True
-        Me.rbttnVCA.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnVCA.Location = New System.Drawing.Point(16, 55)
-        Me.rbttnVCA.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnVCA.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnVCA.Location = New System.Drawing.Point(12, 45)
         Me.rbttnVCA.Name = "rbttnVCA"
-        Me.rbttnVCA.Size = New System.Drawing.Size(69, 25)
+        Me.rbttnVCA.Size = New System.Drawing.Size(62, 24)
         Me.rbttnVCA.TabIndex = 21
         Me.rbttnVCA.TabStop = True
         Me.rbttnVCA.Text = "VCA"
@@ -176,11 +164,10 @@ Partial Class wdwSelectReport
         '
         Me.rbttnRegistrar.AutoSize = True
         Me.rbttnRegistrar.Checked = True
-        Me.rbttnRegistrar.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnRegistrar.Location = New System.Drawing.Point(16, 25)
-        Me.rbttnRegistrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnRegistrar.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnRegistrar.Location = New System.Drawing.Point(12, 20)
         Me.rbttnRegistrar.Name = "rbttnRegistrar"
-        Me.rbttnRegistrar.Size = New System.Drawing.Size(115, 25)
+        Me.rbttnRegistrar.Size = New System.Drawing.Size(108, 24)
         Me.rbttnRegistrar.TabIndex = 20
         Me.rbttnRegistrar.TabStop = True
         Me.rbttnRegistrar.Text = "Registrar"
@@ -189,33 +176,30 @@ Partial Class wdwSelectReport
         'cmbbxChair
         '
         Me.cmbbxChair.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbbxChair.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbxChair.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxChair.FormattingEnabled = True
-        Me.cmbbxChair.Location = New System.Drawing.Point(228, 117)
-        Me.cmbbxChair.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxChair.Location = New System.Drawing.Point(208, 104)
         Me.cmbbxChair.Name = "cmbbxChair"
-        Me.cmbbxChair.Size = New System.Drawing.Size(408, 25)
+        Me.cmbbxChair.Size = New System.Drawing.Size(307, 28)
         Me.cmbbxChair.TabIndex = 13
         '
         'cmbbxDean
         '
         Me.cmbbxDean.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbbxDean.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbxDean.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxDean.FormattingEnabled = True
-        Me.cmbbxDean.Location = New System.Drawing.Point(228, 82)
-        Me.cmbbxDean.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxDean.Location = New System.Drawing.Point(208, 70)
         Me.cmbbxDean.Name = "cmbbxDean"
-        Me.cmbbxDean.Size = New System.Drawing.Size(408, 25)
+        Me.cmbbxDean.Size = New System.Drawing.Size(307, 28)
         Me.cmbbxDean.TabIndex = 11
         '
         'rbttnTermEnd
         '
         Me.rbttnTermEnd.AutoSize = True
-        Me.rbttnTermEnd.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnTermEnd.Location = New System.Drawing.Point(221, 32)
-        Me.rbttnTermEnd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnTermEnd.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnTermEnd.Location = New System.Drawing.Point(190, 19)
         Me.rbttnTermEnd.Name = "rbttnTermEnd"
-        Me.rbttnTermEnd.Size = New System.Drawing.Size(123, 25)
+        Me.rbttnTermEnd.Size = New System.Drawing.Size(115, 24)
         Me.rbttnTermEnd.TabIndex = 5
         Me.rbttnTermEnd.TabStop = True
         Me.rbttnTermEnd.Text = "Term-End"
@@ -224,11 +208,10 @@ Partial Class wdwSelectReport
         'rbttnMonthly
         '
         Me.rbttnMonthly.AutoSize = True
-        Me.rbttnMonthly.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnMonthly.Location = New System.Drawing.Point(101, 32)
-        Me.rbttnMonthly.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnMonthly.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnMonthly.Location = New System.Drawing.Point(86, 19)
         Me.rbttnMonthly.Name = "rbttnMonthly"
-        Me.rbttnMonthly.Size = New System.Drawing.Size(104, 25)
+        Me.rbttnMonthly.Size = New System.Drawing.Size(97, 24)
         Me.rbttnMonthly.TabIndex = 4
         Me.rbttnMonthly.TabStop = True
         Me.rbttnMonthly.Text = "Monthly"
@@ -238,11 +221,10 @@ Partial Class wdwSelectReport
         '
         Me.rbttnDaily.AutoSize = True
         Me.rbttnDaily.Checked = True
-        Me.rbttnDaily.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnDaily.Location = New System.Drawing.Point(9, 32)
-        Me.rbttnDaily.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rbttnDaily.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbttnDaily.Location = New System.Drawing.Point(6, 19)
         Me.rbttnDaily.Name = "rbttnDaily"
-        Me.rbttnDaily.Size = New System.Drawing.Size(78, 25)
+        Me.rbttnDaily.Size = New System.Drawing.Size(71, 24)
         Me.rbttnDaily.TabIndex = 3
         Me.rbttnDaily.TabStop = True
         Me.rbttnDaily.Text = "Daily"
@@ -251,11 +233,10 @@ Partial Class wdwSelectReport
         'bttnGen
         '
         Me.bttnGen.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnGen.Location = New System.Drawing.Point(167, 400)
-        Me.bttnGen.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnGen.Location = New System.Drawing.Point(146, 324)
         Me.bttnGen.Name = "bttnGen"
         Me.bttnGen.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.bttnGen.Size = New System.Drawing.Size(120, 37)
+        Me.bttnGen.Size = New System.Drawing.Size(90, 30)
         Me.bttnGen.TabIndex = 5
         Me.bttnGen.Text = "Generate"
         Me.bttnGen.UseVisualStyleBackColor = True
@@ -263,26 +244,24 @@ Partial Class wdwSelectReport
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(433, 400)
-        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnBack.Location = New System.Drawing.Point(327, 325)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(120, 37)
+        Me.bttnBack.Size = New System.Drawing.Size(90, 30)
         Me.bttnBack.TabIndex = 6
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
         '
         'wdwSelectReport
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(719, 450)
+        Me.ClientSize = New System.Drawing.Size(578, 366)
         Me.Controls.Add(Me.bttnBack)
         Me.Controls.Add(Me.bttnGen)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "wdwSelectReport"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select Report"

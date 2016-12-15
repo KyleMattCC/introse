@@ -49,7 +49,7 @@
     Private Sub Load_form()
         dbAccess.Fill_Data_Grid("Select distinct f.facultyid 'Faculty ID', concat(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) 'Name', a.absent_date 'Absent date', a.report_status 'Report status'
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c
-                                where a.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and a.status = 'A' and c.status = 'A' and f.status = 'A' and a.absent_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'
+                                where a.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and a.status = 'A' and c.status = 'A' and f.status = 'A' and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "'
                                 order by 3, 2;", grid)
 
         If (txtbxSearch.Text = Nothing) Then
@@ -94,7 +94,7 @@
 
         dbAccess.Fill_Data_Grid("Select distinct f.facultyid 'Faculty ID', concat(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) 'Name', a.absent_date 'Absent date', a.report_status 'Report status'
                                 from introse.attendance a, introse.faculty f, introse.courseoffering c
-                                where a.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and a.status = 'A' and c.status = 'A' and f.status = 'A' and a.absent_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "') or (concat(f_lastname, ', ', f_firstname, ' ', f_middlename) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "') or (concat(f_lastname,' ', f_firstname) like '" + Search.ToString + "') or (concat(f_lastname,' ', ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' ,f_firstname) like '" + Search.ToString + "'))
+                                where a.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and a.status = 'A' and c.status = 'A' and f.status = 'A' and a.enc_date = '" & dtp.Value.Date.ToString("yyyy-MM-dd") & "' and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "') or (concat(f_lastname, ', ', f_firstname, ' ', f_middlename) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "') or (concat(f_lastname,' ', f_firstname) like '" + Search.ToString + "') or (concat(f_lastname,' ', ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' ,f_firstname) like '" + Search.ToString + "'))
                                 order by 3, 2;", grid)
     End Sub
 

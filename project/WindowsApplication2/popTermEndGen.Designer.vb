@@ -27,24 +27,25 @@ Partial Class popTermEndGen
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbbxYear = New System.Windows.Forms.ComboBox()
-        Me.btnBack = New System.Windows.Forms.Button()
-        Me.btnGenerate = New System.Windows.Forms.Button()
+        Me.bttnBack = New System.Windows.Forms.Button()
+        Me.bttnGenerate = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cmbbxTerm
         '
-        Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbxTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxTerm.FormattingEnabled = True
-        Me.cmbbxTerm.Location = New System.Drawing.Point(157, 43)
+        Me.cmbbxTerm.Location = New System.Drawing.Point(137, 49)
         Me.cmbbxTerm.Name = "cmbbxTerm"
-        Me.cmbbxTerm.Size = New System.Drawing.Size(121, 23)
+        Me.cmbbxTerm.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxTerm.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(32, 17)
+        Me.Label2.Location = New System.Drawing.Point(12, 17)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(119, 20)
         Me.Label2.TabIndex = 8
@@ -54,7 +55,7 @@ Partial Class popTermEndGen
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(90, 43)
+        Me.Label1.Location = New System.Drawing.Point(70, 51)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 20)
         Me.Label1.TabIndex = 7
@@ -62,41 +63,41 @@ Partial Class popTermEndGen
         '
         'cmbbxYear
         '
-        Me.cmbbxYear.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbxYear.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxYear.FormattingEnabled = True
-        Me.cmbbxYear.Items.AddRange(New Object() {"1", "2", "3"})
-        Me.cmbbxYear.Location = New System.Drawing.Point(157, 17)
+        Me.cmbbxYear.Location = New System.Drawing.Point(137, 15)
         Me.cmbbxYear.Name = "cmbbxYear"
-        Me.cmbbxYear.Size = New System.Drawing.Size(121, 23)
+        Me.cmbbxYear.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxYear.TabIndex = 6
         '
-        'btnBack
+        'bttnBack
         '
-        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(167, 89)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(90, 30)
-        Me.btnBack.TabIndex = 4
-        Me.btnBack.Text = "Back"
-        Me.btnBack.UseVisualStyleBackColor = True
+        Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnBack.Location = New System.Drawing.Point(174, 89)
+        Me.bttnBack.Name = "bttnBack"
+        Me.bttnBack.Size = New System.Drawing.Size(90, 30)
+        Me.bttnBack.TabIndex = 4
+        Me.bttnBack.Text = "Back"
+        Me.bttnBack.UseVisualStyleBackColor = True
         '
-        'btnGenerate
+        'bttnGenerate
         '
-        Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(47, 89)
-        Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(90, 30)
-        Me.btnGenerate.TabIndex = 3
-        Me.btnGenerate.Text = "Generate"
-        Me.btnGenerate.UseVisualStyleBackColor = True
+        Me.bttnGenerate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnGenerate.Location = New System.Drawing.Point(55, 89)
+        Me.bttnGenerate.Name = "bttnGenerate"
+        Me.bttnGenerate.Size = New System.Drawing.Size(90, 30)
+        Me.bttnGenerate.TabIndex = 3
+        Me.bttnGenerate.Text = "Generate"
+        Me.bttnGenerate.UseVisualStyleBackColor = True
         '
         'popTermEndGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(304, 131)
-        Me.Controls.Add(Me.btnBack)
-        Me.Controls.Add(Me.btnGenerate)
+        Me.ClientSize = New System.Drawing.Size(318, 131)
+        Me.Controls.Add(Me.bttnBack)
+        Me.Controls.Add(Me.bttnGenerate)
         Me.Controls.Add(Me.cmbbxTerm)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -105,7 +106,7 @@ Partial Class popTermEndGen
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "popTermEndGen"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Term End Generator"
+        Me.Text = "Select Term"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -115,6 +116,6 @@ Partial Class popTermEndGen
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents cmbbxYear As ComboBox
-    Friend WithEvents btnBack As Button
-    Friend WithEvents btnGenerate As Button
+    Friend WithEvents bttnBack As Button
+    Friend WithEvents bttnGenerate As Button
 End Class

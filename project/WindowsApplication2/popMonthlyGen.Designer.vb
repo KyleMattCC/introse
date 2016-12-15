@@ -90,6 +90,7 @@ Partial Class popMonthlyGen
         Me.cmbbxMonth.FormattingEnabled = True
         Me.cmbbxMonth.Items.AddRange(New Object() {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
         Me.cmbbxMonth.Location = New System.Drawing.Point(161, 90)
+        Me.cmbbxMonth.MaxDropDownItems = 12
         Me.cmbbxMonth.Name = "cmbbxMonth"
         Me.cmbbxMonth.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxMonth.TabIndex = 3
