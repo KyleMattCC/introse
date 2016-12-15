@@ -18,10 +18,8 @@ Public Class reportGenerator
 
         Try
             Dim fileName As String = "C:\Fams Reports\" & encdate.ToString("MM-dd-yyyy") & " " & name & ".pdf"
-
             Dim pdfDoc As New Document(PageSize.A4, 20.0F, 20.0F, 20.0F, 20.0F)
             Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(fileName, FileMode.Create))
-
             Dim fntTableFontHdr As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.BOLD, BaseColor.BLACK)
             Dim fntTableFont As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.NORMAL, BaseColor.BLACK)
 
@@ -44,7 +42,7 @@ Public Class reportGenerator
             table.SpacingAfter = 10
             table.HorizontalAlignment = 1
             table.DefaultCell.Padding = 3
-            table.WidthPercentage = 400.0F
+            table.WidthPercentage = 100.0F
             table.HorizontalAlignment = Element.ALIGN_LEFT
             table.DefaultCell.BorderWidth = 1
             Dim sglTblHdWidths(6) As Single
@@ -71,8 +69,10 @@ Public Class reportGenerator
                                             from introse.course c, introse.courseoffering co, introse.attendance a, introse.faculty f, introse.remarks r
                                             where f.facultyid = '" & idnumber & "' and f.status = 'A' and co.facref_no = f.facref_no and co.course_id = c.course_id and co.status = 'A' and a.courseoffering_id = co.courseoffering_id 
                                             and a.enc_date = '" & encdate.ToString("yyyy-MM-dd") & "' And a.remarks_cd = r.remark_cd And a.status = 'A';", 9)
+
             Catch ex As Exception
                 System.Windows.Forms.MessageBox.Show(ex.Message)
+
             End Try
 
             For ctr = 0 To reportColumns.Count - 1 Step 9
@@ -86,7 +86,6 @@ Public Class reportGenerator
             Next
 
             pdfDoc.Add(table)
-
             pdfDoc.Add(New Paragraph("If correct, no reply is necessary."))
             pdfDoc.Add(New Paragraph(" "))
             pdfDoc.Add(New Paragraph("If incorrect, please rectify this report by filling up the online feedback form."))
@@ -97,10 +96,13 @@ Public Class reportGenerator
             For ctr = 0 To reportColumns.Count - 9 Step 9
                 Try
                     dbAccess.Update_Data("update introse.attendance set report_status = 'Generated' where attendanceid = '" & reportColumns(ctr) & "';")
+
                 Catch ex As Exception
                     System.Windows.Forms.MessageBox.Show(ex.Message)
+
                 End Try
             Next
+
             wdwReportGen.Load_Form(fileName, 1, idnumber, Date.Now)
 
             Return True
@@ -109,7 +111,9 @@ Public Class reportGenerator
             MsgBox("Notice generation failed!", MsgBoxStyle.Critical, "")
 
         End Try
+
         Return False
+
     End Function
 
     Public Function Generate_Registrar_Daily_Report(offeredType As Integer, encDate As Date) As Boolean
@@ -131,7 +135,6 @@ Public Class reportGenerator
             Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(fileName, FileMode.Create))
             Dim collegeGroup As String = Nothing
             Dim deptGroup As String = Nothing
-
             Dim fntTableFontHdr As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.BOLD, BaseColor.BLACK)
             Dim fntTableFont As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.NORMAL, BaseColor.BLACK)
 
@@ -204,7 +207,7 @@ Public Class reportGenerator
                     table.SpacingAfter = 10
                     table.HorizontalAlignment = 1
                     table.DefaultCell.Padding = 3
-                    table.WidthPercentage = 400.0F
+                    table.WidthPercentage = 100.0F
                     table.HorizontalAlignment = Element.ALIGN_LEFT
                     table.DefaultCell.BorderWidth = 1
                     Dim sglTblHdWidths(5) As Single
@@ -363,7 +366,7 @@ Public Class reportGenerator
                     table.SpacingAfter = 10
                     table.HorizontalAlignment = 1
                     table.DefaultCell.Padding = 3
-                    table.WidthPercentage = 400.0F
+                    table.WidthPercentage = 100.0F
                     table.HorizontalAlignment = Element.ALIGN_LEFT
                     table.DefaultCell.BorderWidth = 1
                     Dim sglTblHdWidths(5) As Single
@@ -523,7 +526,7 @@ Public Class reportGenerator
                     table.SpacingAfter = 10
                     table.HorizontalAlignment = 1
                     table.DefaultCell.Padding = 3
-                    table.WidthPercentage = 400.0F
+                    table.WidthPercentage = 100.0F
                     table.HorizontalAlignment = Element.ALIGN_LEFT
                     table.DefaultCell.BorderWidth = 1
                     Dim sglTblHdWidths(5) As Single
@@ -651,7 +654,6 @@ Public Class reportGenerator
                 System.Windows.Forms.MessageBox.Show(ex.Message)
             End Try
             For collegeCtr As Integer = 0 To colleges.Count - 1 Step 2
-                MsgBox("Loop3")
                 departments = dbAccess.Get_Multiple_Column_Data("select departmentid, departmentname from introse.department where college_code = '" & colleges(collegeCtr) & "';", 2)
                 For depCtr As Integer = 0 To departments.Count - 1 Step 2
                     If offeredType = 1 Then
@@ -701,7 +703,6 @@ Public Class reportGenerator
                     absCtr = 0
                     makeupCtr = 0
                     While (absCtr < absentResults.Count Or makeupCtr < makeupResults.Count)
-                        MsgBox("Loop?1")
                         Dim pageHeader As New Paragraph("Page " & pageNo, fntTableFontHdr)
                         pageHeader.Alignment = 2
                         pdfDoc.Add(pageHeader)
@@ -843,8 +844,8 @@ Public Class reportGenerator
                             edNum = 0
                             vrNum = 0
                             load = dbAccess.Get_Data("select SUM(c.units)
-                                                        from introse.course c, introse.courseoffering co, introse.faculty f
-                                                        where CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) = '" & currentFaculty & "' and co.facref_no = f.facref_no and co.termid = '" & termId & "' and co.course_id = c.course_id;", "SUM(c.units)")
+                                                      from introse.course c, introse.courseoffering co, introse.faculty f
+                                                      where CONCAT(f.f_lastname, ', ', f.f_firstname, ' ', f.f_middlename) = '" & currentFaculty & "' and co.facref_no = f.facref_no and co.termid = '" & termId & "' and co.course_id = c.course_id;", "SUM(c.units)")
 
                             table.AddCell(New Phrase(currentFaculty))
                             table.AddCell(New Phrase(load.ToString))

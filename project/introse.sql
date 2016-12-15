@@ -89,7 +89,7 @@ CREATE TABLE `attendance` (
   `report_status` varchar(45) NOT NULL DEFAULT 'Pending',
   PRIMARY KEY (`attendanceid`),
   UNIQUE KEY `attendanceid_UNIQUE` (`attendanceid`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,'2016-11-16',1,'LA','2016-11-21','unknown','checker','A','Pending'),(2,'2016-11-24',2,'ED','2016-12-05','unknown','egul2','D','Pending'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','A','Pending'),(10,'2016-11-03',2,'CF','2016-12-05','unknown','wew','A','Pending'),(11,'2016-12-06',2,'CF','2016-12-06','unknown','ako','A','Generated'),(12,'2016-11-29',2,'CF','2016-12-07','unknown','kf','A','Pending'),(13,'2016-12-01',2,'CF','2016-12-07','unknown','fsdfs','A','Generated'),(14,'2016-12-07',1,'CF','2016-12-07','unknown','ce','A','Pending'),(15,'2016-12-07',3,'CF','2016-12-07','unknown','few','A','Pending');
+INSERT INTO `attendance` VALUES (1,'2016-11-16',1,'LA','2016-11-21','unknown','checker','A','Pending'),(2,'2016-11-24',2,'ED','2016-12-05','unknown','egul2','D','Pending'),(6,'2016-11-21',3,'ED','2016-11-21','unknown','me','A','Pending'),(10,'2016-11-03',2,'CF','2016-12-05','unknown','wew','A','Generated'),(11,'2016-12-06',2,'CF','2016-12-06','unknown','ako','A','Generated'),(12,'2016-11-29',2,'CF','2016-12-07','unknown','kf','A','Generated'),(13,'2016-12-01',2,'CF','2016-12-07','unknown','fsdfs','A','Generated'),(14,'2016-12-07',1,'CF','2016-12-07','unknown','ce','A','Pending'),(15,'2016-12-07',3,'CF','2016-12-07','unknown','few','A','Pending'),(16,'2016-12-15',5,'SW','2016-12-15','Kyle Chuapapi','Noel','A','Pending'),(17,'2016-12-15',9,'XX','2016-12-15','Kyle Chuapapi','Noel','A','Pending'),(18,'2016-12-15',10,'XX','2016-12-15','Kyle Chuapapi','Noel','A','Pending'),(19,'2016-12-15',12,'XX','2016-12-15','Kyle Chuapapi','Noel','A','Generated');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -280,30 +280,6 @@ INSERT INTO `makeup` VALUES (1,2,900,1030,1.5,'g203','SW','2016-12-05','2016-12-
 UNLOCK TABLES;
 
 --
--- Table structure for table `reason`
---
-
-DROP TABLE IF EXISTS `reason`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `reason` (
-  `reason_cd` char(2) NOT NULL,
-  `reason_desc` varchar(45) NOT NULL,
-  PRIMARY KEY (`reason_cd`),
-  UNIQUE KEY `reason_cd_UNIQUE` (`reason_cd`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `reason`
---
-
-LOCK TABLES `reason` WRITE;
-/*!40000 ALTER TABLE `reason` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reason` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `reasons`
 --
 
@@ -324,7 +300,7 @@ CREATE TABLE `reasons` (
 
 LOCK TABLES `reasons` WRITE;
 /*!40000 ALTER TABLE `reasons` DISABLE KEYS */;
-INSERT INTO `reasons` VALUES ('AC','Alternative Class'),('FT','Field Trip'),('OB','Official Business'),('OL','Online Class'),('SB','Substitute'),('SW','Seatwork'),('XX','Others');
+INSERT INTO `reasons` VALUES ('AC','Alternative Class'),('CF','Attended Conference'),('FT','Field Trip'),('OB','Official Business'),('OL','Online Class'),('PM','Personal Matter'),('XX','Others');
 /*!40000 ALTER TABLE `reasons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -349,7 +325,7 @@ CREATE TABLE `remarks` (
 
 LOCK TABLES `remarks` WRITE;
 /*!40000 ALTER TABLE `remarks` DISABLE KEYS */;
-INSERT INTO `remarks` VALUES ('CF','Conference'),('ED','Early Dismissal'),('LA','Late'),('PM','Personal Matter'),('SI','Sickness'),('VR','Vacant Room'),('XX','Reason Unknown');
+INSERT INTO `remarks` VALUES ('AB','Absent'),('ED','Early Dismissal'),('LA','Late'),('SB','Substitute'),('SW','Seatwork'),('VR','Vacant Room'),('XX','Reason Unknown');
 /*!40000 ALTER TABLE `remarks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,4 +367,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-10 20:53:17
+-- Dump completed on 2016-12-15 22:30:01

@@ -28,17 +28,22 @@
                 fname = facName(0).ToString
                 MI = facName(1).ToString
                 lname = facName(2).ToString
+
             End If
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
                 dtp.Enabled = True
                 cmbbxCourse.Enabled = True
+
             Else
                 text.Text = fname + " " + MI + " " + lname
+
             End If
+
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
+
         End Try
 
     End Sub
@@ -57,8 +62,10 @@
             For ctr As Integer = 0 To courseCode.Count - 1
                 combo.Items.Add(courseCode(ctr))
             Next
+
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
+
         End Try
 
     End Sub
@@ -78,8 +85,10 @@
             For ctr As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(ctr))
             Next
+
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
+
         End Try
 
     End Sub
@@ -104,11 +113,12 @@
     Private Sub Fill_Room(facultyId As String, course As String, section As String, ByVal text As TextBox)
         Dim room As String = ""
         Dim fac As String = ""
+
         Try
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
             room = dbAccess.Get_Data("select co.room from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and c.course_id = co.course_id and co.facref_no = '" & fac & "'  and co.section = '" & section & "';", "room")
-
             text.Text = room
+
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
@@ -121,6 +131,7 @@
         Dim endTime As String
         Dim fac As String
         Dim sched As String = ""
+
         Try
             fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
             courseSched = dbAccess.Get_Multiple_Column_Data("select co.timestart, co.timeend, co.daysched from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.section = '" & section & "';", 3)
@@ -129,10 +140,12 @@
             sched = courseSched(2)
 
             timeStart.Text = starttime
-            timeEnd.Text = endtime
+            timeEnd.Text = endTime
             daySched.Text = sched
+
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
+
         End Try
 
     End Sub
@@ -201,6 +214,7 @@
                 e.KeyChar = ChrW(0)
                 e.Handled = True
             End If
+
         End If
 
     End Sub
@@ -244,12 +258,11 @@
         Dim courseOfferingId As String = ""
         Dim fac As String = ""
         Dim currentDate As Date
-        Dim result As Integer
         Dim remarkCd As String = ""
         Dim daySched As New List(Of String)
         Dim tempBool As Boolean = False
         currentDate = DateTime.Now.Date
-        result = DateTime.Compare(inputDate, currentDate)
+
         If days.Contains("M") Then
             daySched.Add("Monday")
         End If
@@ -278,13 +291,13 @@
         If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark) Or String.IsNullOrEmpty(checker)) Then
             MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
             Return False
-        ElseIf result > 0 Then
-            MsgBox("Absent date is earlier than the current date!", MsgBoxStyle.Critical, "")
-            Return False
+
         ElseIf Not (tempBool) Then
             MsgBox("Absent date does not match class schedule!", MsgBoxStyle.Critical, "")
             Return False
+
         Else
+
             Try
                 courseId = dbAccess.Get_Data("select course_id from introse.course where course_cd ='" & course & "';", "course_id")
                 fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
@@ -294,11 +307,16 @@
                     dbAccess.Add_Data("insert into `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) values('" & inputDate.ToString("yyyy-MM-dd") & "'," & courseOfferingId & ",'" & remarkCd & "','" & currentDate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
                     Return True
                 End If
+
             Catch ex As Exception
                 Return False
+
             End Try
+
         End If
+
         Return False
+
     End Function
 
     Private Sub bttnEncode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
@@ -315,6 +333,7 @@
 
         If (tempBoolean) Then
             txtbxFacID.Clear()
+            cmbbxRemarks.SelectedIndex = -1
         End If
 
     End Sub
@@ -326,5 +345,6 @@
 
     Private Sub popEndFacDaily_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwDailyAttendanceLog.Enable_Form()
+
     End Sub
 End Class
