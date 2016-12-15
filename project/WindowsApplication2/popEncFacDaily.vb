@@ -9,7 +9,7 @@
 
     End Sub
 
-    Private Sub Add_Faculty_Name(facultyid As String, ByVal text As TextBox)
+    Private Sub Add_Faculty_Name(facultyId As String, ByVal text As TextBox)
         Dim facName As New List(Of Object)
         Dim fname As String
         Dim MI As String
@@ -22,7 +22,7 @@
         lname = ""
         Try
 
-            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyid & "';", 3)
+            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyId & "';", 3)
 
             If facName.Count > 0 Then
                 fname = facName(0).ToString
@@ -43,19 +43,19 @@
 
     End Sub
 
-    Private Sub Add_Course(facultyid As String, ByVal combo As ComboBox)
-        Dim coursecode As New List(Of Object)()
+    Private Sub Add_Course(facultyId As String, ByVal combo As ComboBox)
+        Dim courseCode As New List(Of Object)()
         Dim fac As Integer
         combo.Items.Clear()
 
         Try
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) 
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            courseCode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) 
                                                    from introse.course c, introse.courseoffering co 
                                                    where co.status = 'A' and co.facref_no = '" & fac & "' and co.course_id = c.course_id order by 1;")
 
-            For ctr As Integer = 0 To coursecode.Count - 1
-                combo.Items.Add(coursecode(ctr))
+            For ctr As Integer = 0 To courseCode.Count - 1
+                combo.Items.Add(courseCode(ctr))
             Next
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
@@ -63,14 +63,14 @@
 
     End Sub
 
-    Private Sub Add_Section(facultyid As String, course As String, ByVal combo As ComboBox)
+    Private Sub Add_Section(facultyId As String, course As String, ByVal combo As ComboBox)
         Dim section As New List(Of Object)()
         Dim fac As String
         combo.Enabled = True
         combo.Items.Clear()
 
         Try
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
             section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) 
                                                 from introse.course c, introse.courseoffering co 
                                                 where co.status = 'A' and c.course_cd = '" & course & "' and c.course_id = co.course_id and co.facref_no = '" & fac & "' order by 1;")
@@ -101,12 +101,12 @@
 
     End Sub
 
-    Private Sub Fill_Room(facultyid As String, course As String, section As String, ByVal text As TextBox)
+    Private Sub Fill_Room(facultyId As String, course As String, section As String, ByVal text As TextBox)
         Dim room As String = ""
         Dim fac As String = ""
         Try
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' AND facultyid = '" & facultyid & "';", "facref_no")
-            room = dbAccess.Get_Data("select co.room from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' AND c.course_id = co.course_id AND co.facref_no = '" & fac & "'  AND co.section = '" & section & "';", "room")
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            room = dbAccess.Get_Data("select co.room from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and c.course_id = co.course_id and co.facref_no = '" & fac & "'  and co.section = '" & section & "';", "room")
 
             text.Text = room
         Catch ex As Exception
@@ -115,22 +115,22 @@
 
     End Sub
 
-    Private Sub Fill_Sched(facultyid As String, course As String, section As String, ByVal TimeStart As TextBox, ByVal TimeEnd As TextBox, ByVal DaySched As TextBox)
+    Private Sub Fill_Sched(facultyId As String, course As String, section As String, ByVal timeStart As TextBox, ByVal timeEnd As TextBox, ByVal daySched As TextBox)
         Dim courseSched As New List(Of Object)
-        Dim starttime As String
-        Dim endtime As String
+        Dim startTime As String
+        Dim endTime As String
         Dim fac As String
         Dim sched As String = ""
         Try
-            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            courseSched = dbAccess.Get_Multiple_Column_Data("select co.timestart, co.timeend, co.daysched from introse.courseoffering co, introse.course c where co.status = 'A' AND c.course_cd = '" & course & "' AND co.course_id = c.course_id AND co.facref_no = '" & fac & "' AND co.section = '" & section & "';", 3)
-            starttime = courseSched(0)
-            endtime = courseSched(1)
+            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            courseSched = dbAccess.Get_Multiple_Column_Data("select co.timestart, co.timeend, co.daysched from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.section = '" & section & "';", 3)
+            startTime = courseSched(0)
+            endTime = courseSched(1)
             sched = courseSched(2)
 
-            TimeStart.Text = starttime
-            TimeEnd.Text = endtime
-            DaySched.Text = sched
+            timeStart.Text = starttime
+            timeEnd.Text = endtime
+            daySched.Text = sched
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
@@ -182,16 +182,16 @@
         Check_Enable()
     End Sub
 
-    Private Function Check_Entry(absent As String, courseofferingid As String, stat As String) As Boolean
+    Private Function Check_Entry(absent As String, courseOfferingId As String, stat As String) As Boolean
         Dim att As String = ""
-        Dim b As Boolean = False
-        att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';", "attendanceid")
+        Dim bool As Boolean = False
+        att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseOfferingId & "' and status = '" & stat & "';", "attendanceid")
         If String.IsNullOrEmpty(att) Then
-            b = True
+            bool = True
         Else
             MsgBox("Duplicate attendance!", MsgBoxStyle.Critical, "")
         End If
-        Return b
+        Return bool
 
     End Function
 
@@ -239,41 +239,41 @@
         End If
     End Sub
 
-    Private Function Set_Attendance(facultyid As String, course As String, section As String, remark As String, inputdate As Date, encoder As String, checker As String, ByVal text As TextBox, ByVal combo As ComboBox, days As String, stat As String) As Boolean
-        Dim courseid As String = ""
-        Dim courseofferingid As String = ""
+    Private Function Set_Attendance(facultyId As String, course As String, section As String, remark As String, inputDate As Date, encoder As String, checker As String, ByVal text As TextBox, ByVal combo As ComboBox, days As String, stat As String) As Boolean
+        Dim courseId As String = ""
+        Dim courseOfferingId As String = ""
         Dim fac As String = ""
-        Dim currentdate As Date
+        Dim currentDate As Date
         Dim result As Integer
-        Dim remark_cd As String = ""
+        Dim remarkCd As String = ""
         Dim daySched As New List(Of String)
         Dim tempBool As Boolean = False
-        currentdate = DateTime.Now.Date
-            result = DateTime.Compare(inputdate, currentdate)
-            If days.Contains("M") Then
-                daySched.Add("Monday")
-            End If
-            If days.Contains("T") Then
-                daySched.Add("Tuesday")
-            End If
-            If days.Contains("W") Then
-                daySched.Add("Wednesday")
-            End If
-            If days.Contains("H") Then
-                daySched.Add("Thursday")
-            End If
-            If days.Contains("F") Then
-                daySched.Add("Friday")
-            End If
-            If days.Contains("S") Then
-                daySched.Add("Saturday")
-            End If
+        currentDate = DateTime.Now.Date
+        result = DateTime.Compare(inputDate, currentDate)
+        If days.Contains("M") Then
+            daySched.Add("Monday")
+        End If
+        If days.Contains("T") Then
+            daySched.Add("Tuesday")
+        End If
+        If days.Contains("W") Then
+            daySched.Add("Wednesday")
+        End If
+        If days.Contains("H") Then
+            daySched.Add("Thursday")
+        End If
+        If days.Contains("F") Then
+            daySched.Add("Friday")
+        End If
+        If days.Contains("S") Then
+            daySched.Add("Saturday")
+        End If
 
-            For ctr As Integer = 0 To daySched.Count - 1
-                If (daySched(ctr) = inputdate.DayOfWeek.ToString) Then
-                    tempBool = True
-                End If
-            Next
+        For ctr As Integer = 0 To daySched.Count - 1
+            If (daySched(ctr) = inputDate.DayOfWeek.ToString) Then
+                tempBool = True
+            End If
+        Next
 
         If (text.Text.Length = 0 Or String.IsNullOrEmpty(combo.Text) Or String.IsNullOrEmpty(course) Or String.IsNullOrEmpty(remark) Or String.IsNullOrEmpty(checker)) Then
             MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
@@ -286,12 +286,12 @@
             Return False
         Else
             Try
-                courseid = dbAccess.Get_Data("select course_id from introse.course where course_cd ='" & course & "';", "course_id")
-                fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-                courseofferingid = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering  where status = 'A' and course_id = " & courseid & " and facref_no = '" & fac & "' and section = '" & section & "';", "courseoffering_id")
-                remark_cd = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & remark & "';", "remark_cd")
-                If (Check_Entry(inputdate.ToString("yyyy-MM-dd"), courseofferingid, "A") = True) Then
-                    dbAccess.Add_Data("insert into `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) values('" & inputdate.ToString("yyyy-MM-dd") & "'," & courseofferingid & ",'" & remark_cd & "','" & currentdate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
+                courseId = dbAccess.Get_Data("select course_id from introse.course where course_cd ='" & course & "';", "course_id")
+                fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+                courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering  where status = 'A' and course_id = " & courseId & " and facref_no = '" & fac & "' and section = '" & section & "';", "courseoffering_id")
+                remarkCd = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & remark & "';", "remark_cd")
+                If (Check_Entry(inputDate.ToString("yyyy-MM-dd"), courseofferingid, "A") = True) Then
+                    dbAccess.Add_Data("insert into `attendance`(`absent_date`, `courseoffering_id`, `remarks_cd`, `enc_date`, `encoder`,`checker`,`status`,`report_status`) values('" & inputDate.ToString("yyyy-MM-dd") & "'," & courseOfferingId & ",'" & remarkCd & "','" & currentDate.ToString("yyyy-MM-dd") & "','" & encoder & "','" & checker & "','A','" & stat & "');")
                     Return True
                 End If
             Catch ex As Exception

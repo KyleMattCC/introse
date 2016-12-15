@@ -46,7 +46,7 @@
         Me.Show()
     End Sub
 
-    Private Sub Add_Faculty_Name(facultyid As String, ByVal text As TextBox)
+    Private Sub Add_Faculty_Name(facultyId As String, ByVal text As TextBox)
         Dim facName As New List(Of Object)
         Dim fname As String
         Dim MI As String
@@ -59,7 +59,7 @@
         lname = ""
         Try
 
-            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyid & "';", 3)
+            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyId & "';", 3)
             If facName.Count > 0 Then
                 fname = facName(0).ToString
                 MI = facName(1).ToString
@@ -79,19 +79,19 @@
 
     End Sub
 
-    Private Sub Add_Course(facultyid As String, ByVal combo As ComboBox)
-        Dim coursecode As New List(Of Object)()
+    Private Sub Add_Course(facultyId As String, ByVal combo As ComboBox)
+        Dim courseCode As New List(Of Object)()
         Dim fac As Integer
         combo.Items.Clear()
 
         Try
-            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) 
+            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            courseCode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) 
                                                     from introse.course c, introse.courseoffering co, introse.attendance a 
                                                     where co.status = 'A' and a.status = 'A' and co.courseoffering_id = a.courseoffering_id and co.facref_no = '" & fac & "' and co.course_id = c.course_id order by 1;")
 
-            For ctr As Integer = 0 To coursecode.Count - 1
-                combo.Items.Add(coursecode(ctr))
+            For ctr As Integer = 0 To courseCode.Count - 1
+                combo.Items.Add(courseCode(ctr))
             Next
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
@@ -99,14 +99,14 @@
 
     End Sub
 
-    Private Sub Add_Section(facultyid As String, course As String, ByVal combo As ComboBox)
+    Private Sub Add_Section(facultyId As String, course As String, ByVal combo As ComboBox)
         Dim section As New List(Of Object)()
         Dim fac As String
         combo.Enabled = True
         combo.Items.Clear()
 
         Try
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
             section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) 
                                                 from introse.course c, introse.courseoffering co, introse.attendance a 
                                                 where co.status = 'A' and a.status = 'A' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.courseoffering_id = a.courseoffering_id order by 1;")
@@ -267,7 +267,7 @@
         Dim startTime, endTime, tempStart, tempEnd As Integer
         Dim absentHours As Double = dbAccess.Get_Data("Select sum(co.hours)
                                                       From introse.attendance a, introse.courseoffering co, introse.course c
-                                                      where co.status = 'A' And a.status = 'A' And c.course_cd = '" & cmbbxCourse.SelectedItem & "' And c.course_id = co.course_id And co.section = '" & cmbbxSection.SelectedItem & "' And a.courseoffering_id = co.courseoffering_id;", "sum(co.hours)")
+                                                      where co.status = 'A' and a.status = 'A' and c.course_cd = '" & cmbbxCourse.SelectedItem & "' and c.course_id = co.course_id and co.section = '" & cmbbxSection.SelectedItem & "' and a.courseoffering_id = co.courseoffering_id;", "sum(co.hours)")
         Dim ref = wdwFacultyMakeUp.getRefNo()
 
         If Convert.ToInt32(ref) > 0 Then
