@@ -133,4 +133,16 @@
     Private Sub txtbxCourseFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxCourseFacID.KeyPress
         validateInput("0123456789", e)
     End Sub
+
+    Private Sub txtbxStartTime_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxStartTime.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub txtbxEndTime_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxEndTime.KeyPress
+        validateInput("0123456789", e)
+    End Sub
+
+    Private Sub txtbxUnit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxUnit.KeyPress
+        validateInput("0123456789", e)
+    End Sub
 End Class

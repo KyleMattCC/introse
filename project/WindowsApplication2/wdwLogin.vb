@@ -54,17 +54,17 @@
     End Function
 
     Private Sub bttnLogin_Click(sender As Object, e As EventArgs) Handles bttnLogin.Click
-        Dim Found As Boolean
-        Dim UserID As String
-        Found = False
-        UserID = Nothing
-        Dim User As String = txtbxUser.Text
-        Dim Pass As String = txtbxPass.Text
+        Dim found As Boolean
+        Dim userID As String
+        found = False
+        userID = Nothing
+        Dim user As String = txtbxUser.Text
+        Dim pass As String = txtbxPass.Text
 
 
-        UserID = dbAccess.Get_Data("select id from account where BINARY username = '" & User & "' and BINARY password = '" & Pass & "'", "id")
+        userID = dbAccess.Get_Data("select id from account where BINARY username = '" & User & "' and BINARY password = '" & Pass & "'", "id")
 
-        If (UserID <> Nothing) Then
+        If (userID <> Nothing) Then
             Me.Hide()
             wdwMainMenu.Load_Form()
         Else
@@ -72,16 +72,9 @@
 
         End If
 
-
-
-
-
     End Sub
     Private Sub txtbxPass_TextChanged(sender As Object, e As EventArgs) Handles txtbxPass.TextChanged
         txtbxPass.PasswordChar = "*"
     End Sub
 
-    Private Sub wdwLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class

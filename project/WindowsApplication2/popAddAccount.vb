@@ -3,23 +3,23 @@
 
 
     Private Sub bttnLogin_Click(sender As Object, e As EventArgs) Handles bttnAddAccount.Click
-        Dim UserID As String = Nothing
-        Dim AccType As String = ""
-        UserID = dbAccess.Get_Data("Select a.id from account a where a.username = '" & txtbxAddUser.Text & "' ", "id")
+        Dim userID As String = Nothing
+        Dim accType As String = ""
+        userID = dbAccess.Get_Data("Select a.id from account a where a.username = '" & txtbxAddUser.Text & "' ", "id")
 
 
         If (rbttnLeadStaff.Checked = True) Then
-            AccType = "Lead"
+            accType = "Lead"
         ElseIf (rbttnRegStaff.Checked = True) Then
-            AccType = "Regular"
+            accType = "Regular"
 
         End If
 
         If (txtbxAddUser.Text <> Nothing And txtbxAddPass.Text <> Nothing And txtbxAddName.Text <> Nothing) Then
-            If (UserID <> Nothing) Then
+            If (userID <> Nothing) Then
                 MsgBox("User already exists. Try again.")
             Else
-                dbAccess.Add_Data("INSERT INTO `introse`.`account` (`encodername`,  `username`, `password`, `accounttype`) VALUES ('" & txtbxAddName.Text & "','" & txtbxAddUser.Text & "', '" & txtbxAddPass.Text & "', '" & AccType & "');")
+                dbAccess.Add_Data("INSERT INTO `introse`.`account` (`encodername`,  `username`, `password`, `accounttype`) VALUES ('" & txtbxAddName.Text & "','" & txtbxAddUser.Text & "', '" & txtbxAddPass.Text & "', '" & accType & "');")
 
                 txtbxAddPass.Text = Nothing
                 txtbxAddName.Text = Nothing

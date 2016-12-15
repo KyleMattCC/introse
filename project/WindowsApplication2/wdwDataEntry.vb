@@ -288,68 +288,64 @@ Public Class wdwDataEntry
 
 
             Course = dbAccess.Get_Data("select course_id from course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
-                If (Course = Nothing) Then
+            If (Course = Nothing) Then
 
-                    If (rbttnGrad.Checked = True) Then
-                        offeredTo = "G"
-                    End If
-
-                    dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & txtbxCourseCode.Text & "' , '" & txtbxUnit.Text & "', '" & offeredTo & "');")
+                If (rbttnGrad.Checked = True) Then
+                    offeredTo = "G"
                 End If
 
-                FacrefNo = dbAccess.Get_Data("select facref_no from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
-                Term = dbAccess.Get_Data("select termid from term where '" & DateToday & "' between start and end", "termid")
-                Course = dbAccess.Get_Data("select course_id from course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
+                dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & txtbxCourseCode.Text & "' , '" & txtbxUnit.Text & "', '" & offeredTo & "');")
+            End If
 
-                If (FacrefNo <> Nothing And Term <> Nothing) Then
-                    Dim wholeNumber As Integer
-                    startTime = Convert.ToInt32(txtbxStartTime.Text)
-                    endTime = Convert.ToInt32(txtbxEndTime.Text)
-                    tempStart = startTime
-                    tempEnd = endTime
-                    If ((tempStart Mod 100) > tempEnd Mod 100) Then
-                        Dim tempMinutes As Integer = startTime Mod 100
-                        tempStart -= tempMinutes
-                        tempEnd -= (tempMinutes + 40)
-                    End If
-                    wholeNumber = (tempEnd - tempStart) / 100
+            FacrefNo = dbAccess.Get_Data("select facref_no from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
+            term = dbAccess.Get_Data("select termid from term where '" & dateToday & "' between start and end", "termid")
+            Course = dbAccess.Get_Data("select course_id from course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
 
-                    If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
-                        MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
+            If (facrefNo <> Nothing And term <> Nothing) Then
+                Dim wholeNumber As Integer
+                startTime = Convert.ToInt32(txtbxStartTime.Text)
+                endTime = Convert.ToInt32(txtbxEndTime.Text)
+                tempStart = startTime
+                tempEnd = endTime
+                If ((tempStart Mod 100) > tempEnd Mod 100) Then
+                    Dim tempMinutes As Integer = startTime Mod 100
+                    tempStart -= tempMinutes
+                    tempEnd -= (tempMinutes + 40)
+                End If
+                wholeNumber = (tempEnd - tempStart) / 100
 
-                    ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
-                        MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
+                If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
+                    MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
 
-                    ElseIf (endTime < startTime) Then
-                        MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
+                ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
+                    MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
 
-                    ElseIf (startTime = endTime) Then
-                        MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
+                ElseIf (endTime < startTime) Then
+                    MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
 
-
+                ElseIf (startTime = endTime) Then
+                    MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
 
                 Else
 
 
                     dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & Course & "', '" & term & "', '" & facrefNo & "', '" & txtbxSection.Text & "', '" & txtbxRoom.Text & "', '" & txtbxDay.Text & "', '" & txtbxStartTime.Text & "', '" & txtbxEndTime.Text & "', '" & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & "', 'A');")
                     wdwFacPlantilia.Load_form()
-                        Me.Close()
-                    End If
+                    Me.Close()
+                End If
 
-                Else
-                    If (FacrefNo = Nothing) Then
-                        MsgBox("Faculty ID does not exist. Try again!")
+           Else
+                If (facrefNo = Nothing) Then
+                    MsgBox("Faculty ID does not exist. Try again!")
 
-                    ElseIf (Term = Nothing) Then
-                        MsgBox("Create a new term first.")
-
-                    End If
+                ElseIf (term = Nothing) Then
+                    MsgBox("Create a new term first.")
 
                 End If
 
-
-
             End If
+
+        End If
 
 
 
