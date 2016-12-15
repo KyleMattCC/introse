@@ -11,6 +11,7 @@
         offered = offeredType
         reportTo = reportFor
         Me.Show()
+
     End Sub
 
     Private Sub btnGenerate_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
@@ -24,12 +25,10 @@
 
         ElseIf reportTo = 4 Then
             reportSuccess = repGen.Generate_Chair_Daily_Report(wdwSelectReport.Get_Selected_Chair(), offered, dtp.Value)
-
         End If
 
         If (reportSuccess) Then
             Me.Hide()
-
         End If
 
     End Sub
@@ -41,6 +40,7 @@
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwSelectReport.Enable_Form()
+
     End Sub
 
 End Class

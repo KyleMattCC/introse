@@ -28,7 +28,6 @@
                 fname = facName(0).ToString
                 MI = facName(1).ToString
                 lname = facName(2).ToString
-
             End If
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
@@ -38,7 +37,6 @@
 
             Else
                 text.Text = Nothing
-
             End If
 
         Catch ex As Exception
@@ -193,17 +191,21 @@
 
     Private Sub cmbbxRemarks_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxRemarks.SelectedIndexChanged
         Check_Enable()
+
     End Sub
 
     Private Function Check_Entry(absent As String, courseOfferingId As String, stat As String) As Boolean
         Dim att As String = ""
         Dim bool As Boolean = False
         att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseOfferingId & "' and status = '" & stat & "';", "attendanceid")
+
         If String.IsNullOrEmpty(att) Then
             bool = True
+
         Else
             MsgBox("Duplicate attendance!", MsgBoxStyle.Critical, "")
         End If
+
         Return bool
 
     End Function
@@ -251,6 +253,7 @@
             cmbbxRemarks.Enabled = False
 
         End If
+
     End Sub
 
     Private Function Set_Attendance(facultyId As String, course As String, section As String, remark As String, inputDate As Date, encoder As String, checker As String, ByVal text As TextBox, ByVal combo As ComboBox, days As String, stat As String) As Boolean
@@ -297,7 +300,6 @@
             Return False
 
         Else
-
             Try
                 courseId = dbAccess.Get_Data("select course_id from introse.course where course_cd ='" & course & "';", "course_id")
                 fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
@@ -347,4 +349,5 @@
         wdwDailyAttendanceLog.Enable_Form()
 
     End Sub
+
 End Class
