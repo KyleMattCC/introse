@@ -42,7 +42,7 @@
         Dim Index As Integer
 
 
-        Year = dbAccess.Get_Multiple_Row_Data("Select concat(yearstart, ' - ', yearend) from academicyear")
+        Year = dbAccess.Get_Multiple_Row_Data("select concat(yearstart, ' - ', yearend) from academicyear")
         Active = dbAccess.Get_Data("select concat(yearstart, ' - ', yearend) from academicyear where status = 'A'", "concat(yearstart, ' - ', yearend)")
 
         For i As Integer = 0 To Year.Count - 1
@@ -57,8 +57,8 @@
 
         End If
 
-        YearID = dbAccess.Get_Data("Select yearid from academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "';", "yearid")
-        Term = dbAccess.Get_Multiple_Row_Data("Select term_no from term where yearid = '" & YearID & "';")
+        YearID = dbAccess.Get_Data("select yearid from academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "';", "yearid")
+        Term = dbAccess.Get_Multiple_Row_Data("select term_no from term where yearid = '" & YearID & "';")
         cmbbxTerm.Items.Clear()
 
         For i As Integer = 0 To Term.Count - 1
@@ -86,7 +86,7 @@
     Public Sub Load_form()
 
 
-        dbAccess.Fill_Data_Grid("Select co.courseoffering_id 'Reference No.', course_cd 'Course', concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty Name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status' 
+        dbAccess.Fill_Data_Grid("select co.courseoffering_id 'Reference No.', course_cd 'Course', concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status' 
                                 from courseoffering co, course c, term t, academicyear a, faculty f 
                                 where c.course_id = co.course_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'
                                 order by 10, 1, 3", grid)
@@ -103,7 +103,7 @@
 
     Public Function getTermID() As String
 
-        Dim TermID As String = dbAccess.Get_Data("Select termid from academicyear a, term t where  concat(a.yearstart, ' - ', a.yearend) = '" & cmbbxAcadYear.SelectedItem & "' and t.term_no = '" & cmbbxTerm.SelectedItem & "' and a.yearid = t.yearid", "termid")
+        Dim TermID As String = dbAccess.Get_Data("select termid from academicyear a, term t where  concat(a.yearstart, ' - ', a.yearend) = '" & cmbbxAcadYear.SelectedItem & "' and t.term_no = '" & cmbbxTerm.SelectedItem & "' and a.yearid = t.yearid", "termid")
 
         Return TermID
 
@@ -116,9 +116,9 @@
 
 
 
-        YearID = dbAccess.Get_Data("Select yearid from academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'", "yearid")
+        YearID = dbAccess.Get_Data("select yearid from academicyear where concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'", "yearid")
 
-        Term = dbAccess.Get_Multiple_Row_Data("Select term_no from term where yearid = '" & YearID & "'")
+        Term = dbAccess.Get_Multiple_Row_Data("select term_no from term where yearid = '" & YearID & "'")
         For i As Integer = 0 To Term.Count - 1
             cmbbxTerm.Items.Add(Term(i))
         Next
@@ -129,7 +129,7 @@
 
 
 
-        dbAccess.Fill_Data_Grid("Select co.courseoffering_id 'Reference No.', course_cd 'Course',  concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty Name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status' 
+        dbAccess.Fill_Data_Grid("select co.courseoffering_id 'Reference No.', course_cd 'Course',  concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status' 
                                 from courseoffering co, course c, term t, academicyear a, faculty f 
                                 where c.course_id = co.course_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'
                                 order by 10, 1, 3", grid)
@@ -137,7 +137,7 @@
     End Sub
 
     Private Sub cmbbxTerm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
-        dbAccess.Fill_Data_Grid("Select co.courseoffering_id 'Reference No.', course_cd 'Course',  concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty Name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status'
+        dbAccess.Fill_Data_Grid("select co.courseoffering_id 'Reference No.', course_cd 'Course',  concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status'
                                 from courseoffering co, course c, term t, academicyear a, faculty f 
                                 where c.course_id = co.course_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'
                                 order by 10, 1, 3", grid)
@@ -189,7 +189,7 @@
         Search += txtbxSearch.Text
         Search += "%"
 
-        dbAccess.Fill_Data_Grid("Select co.courseoffering_id 'Reference No.', course_cd 'Course', concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty Name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status' 
+        dbAccess.Fill_Data_Grid("select co.courseoffering_id 'Reference No.', course_cd 'Course', concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status' 
                                 from courseoffering co, course c, term t, academicyear a, faculty f 
                                 where c.course_id = co.course_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "' and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "')  or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "') or (concat(f_lastname,' ', f_firstname) like '" + Search.ToString + "') or (concat(f_lastname,' ', ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' ,f_firstname) like '" + Search.ToString + "'))
                                 order by 10, 1, 3", grid)

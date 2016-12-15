@@ -12,39 +12,37 @@
 
     End Sub
 
+    Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
+        If Not (Asc(e.KeyChar) = 8) Then
+            If Not allowed.Contains(e.KeyChar.ToString) Then
+                e.KeyChar = ChrW(0)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
     Public Sub Load_Form(rowData As List(Of String))
-        Dim FacultyID As String
-        Dim Units As Integer
-        Dim College As New List(Of Object)
-        Dim Offer As String
+        Dim facultyID As String
+        Dim units As Integer
+        Dim college As New List(Of Object)
+        Dim offer As String
 
+        facultyID = dbAccess.Get_Data("select facultyid from faculty where concat(f_lastname, ', ', f_firstname, ' ', f_middlename) = '" & rowData(2).ToString & "'", "facultyid")
+        units = dbAccess.Get_Data("select units from course where course_cd = '" & rowData(1) & "'", "units")
+        college = dbAccess.Get_Multiple_Row_Data("select college_name from college")
+        offer = dbAccess.Get_Data("select offered_to from course where course_cd = '" & rowData(1) & "'", "offered_to")
 
-        FacultyID = dbAccess.Get_Data("Select facultyid from faculty where concat(f_lastname, ', ', f_firstname, ' ', f_middlename) = '" & rowData(2).ToString & "'", "facultyid")
-        Units = dbAccess.Get_Data("Select units from course where course_cd = '" & rowData(1) & "'", "units")
-        College = dbAccess.Get_Multiple_Row_Data("Select college_name from College")
-        Offer = dbAccess.Get_Data("Select offered_to from course where course_cd = '" & rowData(1) & "'", "offered_to")
-
-
-        txtbxCourseFacID.Text = FacultyID
+        txtbxCourseFacID.Text = facultyID
         txtbxFacName.Text = rowData(2)
         txtbxCourseCode.Text = rowData(1)
         txtbxSection.Text = rowData(3)
-        txtbxUnit.Text = Units
+        txtbxUnit.Text = units
         txtbxDay.Text = rowData(5)
         txtbxRoom.Text = rowData(4)
         txtbxStartTime.Text = rowData(6)
         txtbxEndTime.Text = rowData(7)
 
-
-
-
-
         Me.Show()
-
-
-
-
-
 
     End Sub
 
@@ -67,8 +65,8 @@
 
         Else
             termID = wdwFacPlantilia.getTermID
-            courseID = dbAccess.Get_Data("Select course_id from course where course_cd = '" & txtbxCourseCode.Text & "' ", "course_id")
-            facrefNo = dbAccess.Get_Data("Select Facref_No from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
+            courseID = dbAccess.Get_Data("select course_id from course where course_cd = '" & txtbxCourseCode.Text & "' ", "course_id")
+            facrefNo = dbAccess.Get_Data("select Facref_No from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
 
             Dim wholeNumber As Integer
             startTime = Convert.ToInt32(txtbxStartTime.Text)
@@ -131,10 +129,10 @@
     End Sub
 
     Private Sub txtbxCourseFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxCourseFacID.TextChanged
-        txtbxFacName.Text = dbAccess.Get_Data("Select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
+        txtbxFacName.Text = dbAccess.Get_Data("select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
     End Sub
 
-    Private Sub txtbxCourseCode_TextChanged(sender As Object, e As EventArgs) Handles txtbxCourseCode.TextChanged
-
+    Private Sub txtbxCourseFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxCourseFacID.KeyPress
+        validateInput("0123456789", e)
     End Sub
 End Class
