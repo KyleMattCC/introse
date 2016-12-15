@@ -174,7 +174,7 @@ Partial Class wdwFacPlantilia
         Me.Controls.Add(Me.Label1)
         Me.Name = "wdwFacPlantilia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "wdwFacPlantilia"
+        Me.Text = "Term Plantilia"
         CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
