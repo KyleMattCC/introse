@@ -54,43 +54,50 @@ Partial Class popAddFacultyDaily
         '
         'txtEnd
         '
-        Me.txtEnd.Location = New System.Drawing.Point(400, 183)
+        Me.txtEnd.Location = New System.Drawing.Point(533, 225)
+        Me.txtEnd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtEnd.Name = "txtEnd"
-        Me.txtEnd.Size = New System.Drawing.Size(121, 20)
+        Me.txtEnd.Size = New System.Drawing.Size(160, 22)
         Me.txtEnd.TabIndex = 9
         '
         'dtpDate
         '
-        Me.dtpDate.Location = New System.Drawing.Point(167, 104)
+        Me.dtpDate.Location = New System.Drawing.Point(223, 128)
+        Me.dtpDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dtpDate.Name = "dtpDate"
-        Me.dtpDate.Size = New System.Drawing.Size(200, 20)
+        Me.dtpDate.Size = New System.Drawing.Size(265, 22)
         Me.dtpDate.TabIndex = 4
         '
         'bttnBack
         '
-        Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(302, 273)
+        Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnBack.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnBack.Location = New System.Drawing.Point(403, 341)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(95, 70)
+        Me.bttnBack.Size = New System.Drawing.Size(127, 60)
         Me.bttnBack.TabIndex = 64
         Me.bttnBack.Text = "Back"
-        Me.bttnBack.UseVisualStyleBackColor = True
+        Me.bttnBack.UseVisualStyleBackColor = False
         '
         'bttnAdd
         '
-        Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAdd.Location = New System.Drawing.Point(125, 273)
+        Me.bttnAdd.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAdd.Location = New System.Drawing.Point(167, 341)
+        Me.bttnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.bttnAdd.Name = "bttnAdd"
-        Me.bttnAdd.Size = New System.Drawing.Size(95, 70)
+        Me.bttnAdd.Size = New System.Drawing.Size(127, 60)
         Me.bttnAdd.TabIndex = 63
         Me.bttnAdd.Text = "Add"
-        Me.bttnAdd.UseVisualStyleBackColor = True
+        Me.bttnAdd.UseVisualStyleBackColor = False
         '
         'txtStartT
         '
-        Me.txtStartT.Location = New System.Drawing.Point(167, 183)
+        Me.txtStartT.Location = New System.Drawing.Point(223, 225)
+        Me.txtStartT.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtStartT.Name = "txtStartT"
-        Me.txtStartT.Size = New System.Drawing.Size(121, 20)
+        Me.txtStartT.Size = New System.Drawing.Size(160, 22)
         Me.txtStartT.TabIndex = 8
         '
         'Label14
@@ -98,9 +105,10 @@ Partial Class popAddFacultyDaily
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label14.Location = New System.Drawing.Point(303, 183)
+        Me.Label14.Location = New System.Drawing.Point(404, 225)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(94, 18)
+        Me.Label14.Size = New System.Drawing.Size(117, 23)
         Me.Label14.TabIndex = 61
         Me.Label14.Text = "End Time:"
         '
@@ -109,17 +117,19 @@ Partial Class popAddFacultyDaily
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label13.Location = New System.Drawing.Point(54, 183)
+        Me.Label13.Location = New System.Drawing.Point(72, 225)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(103, 18)
+        Me.Label13.Size = New System.Drawing.Size(129, 23)
         Me.Label13.TabIndex = 60
         Me.Label13.Text = "Start Time:"
         '
         'txtChecker
         '
-        Me.txtChecker.Location = New System.Drawing.Point(400, 237)
+        Me.txtChecker.Location = New System.Drawing.Point(533, 292)
+        Me.txtChecker.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtChecker.Name = "txtChecker"
-        Me.txtChecker.Size = New System.Drawing.Size(121, 20)
+        Me.txtChecker.Size = New System.Drawing.Size(160, 22)
         Me.txtChecker.TabIndex = 13
         '
         'Label11
@@ -127,47 +137,53 @@ Partial Class popAddFacultyDaily
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label11.Location = New System.Drawing.Point(314, 237)
+        Me.Label11.Location = New System.Drawing.Point(419, 292)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(83, 18)
+        Me.Label11.Size = New System.Drawing.Size(103, 23)
         Me.Label11.TabIndex = 58
         Me.Label11.Text = "Checker:"
         '
         'txtEncoder
         '
-        Me.txtEncoder.Location = New System.Drawing.Point(167, 236)
+        Me.txtEncoder.Location = New System.Drawing.Point(223, 290)
+        Me.txtEncoder.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtEncoder.Name = "txtEncoder"
-        Me.txtEncoder.Size = New System.Drawing.Size(121, 20)
+        Me.txtEncoder.Size = New System.Drawing.Size(160, 22)
         Me.txtEncoder.TabIndex = 12
         '
         'txtRem
         '
-        Me.txtRem.Location = New System.Drawing.Point(226, 209)
+        Me.txtRem.Location = New System.Drawing.Point(301, 257)
+        Me.txtRem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtRem.Name = "txtRem"
-        Me.txtRem.Size = New System.Drawing.Size(295, 20)
+        Me.txtRem.Size = New System.Drawing.Size(392, 22)
         Me.txtRem.TabIndex = 11
         '
         'cmbRem
         '
         Me.cmbRem.FormattingEnabled = True
         Me.cmbRem.Items.AddRange(New Object() {"ABS"})
-        Me.cmbRem.Location = New System.Drawing.Point(167, 209)
+        Me.cmbRem.Location = New System.Drawing.Point(223, 257)
+        Me.cmbRem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmbRem.Name = "cmbRem"
-        Me.cmbRem.Size = New System.Drawing.Size(53, 21)
+        Me.cmbRem.Size = New System.Drawing.Size(69, 24)
         Me.cmbRem.TabIndex = 10
         '
         'txtRoom
         '
-        Me.txtRoom.Location = New System.Drawing.Point(400, 157)
+        Me.txtRoom.Location = New System.Drawing.Point(533, 193)
+        Me.txtRoom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtRoom.Name = "txtRoom"
-        Me.txtRoom.Size = New System.Drawing.Size(121, 20)
+        Me.txtRoom.Size = New System.Drawing.Size(160, 22)
         Me.txtRoom.TabIndex = 7
         '
         'txtSection
         '
-        Me.txtSection.Location = New System.Drawing.Point(167, 157)
+        Me.txtSection.Location = New System.Drawing.Point(223, 193)
+        Me.txtSection.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtSection.Name = "txtSection"
-        Me.txtSection.Size = New System.Drawing.Size(121, 20)
+        Me.txtSection.Size = New System.Drawing.Size(160, 22)
         Me.txtSection.TabIndex = 6
         '
         'Label10
@@ -175,9 +191,10 @@ Partial Class popAddFacultyDaily
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label10.Location = New System.Drawing.Point(75, 236)
+        Me.Label10.Location = New System.Drawing.Point(100, 290)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(82, 18)
+        Me.Label10.Size = New System.Drawing.Size(102, 23)
         Me.Label10.TabIndex = 52
         Me.Label10.Text = "Encoder:"
         '
@@ -186,9 +203,10 @@ Partial Class popAddFacultyDaily
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label9.Location = New System.Drawing.Point(71, 209)
+        Me.Label9.Location = New System.Drawing.Point(95, 257)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(86, 18)
+        Me.Label9.Size = New System.Drawing.Size(108, 23)
         Me.Label9.TabIndex = 51
         Me.Label9.Text = "Remarks:"
         '
@@ -197,9 +215,10 @@ Partial Class popAddFacultyDaily
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label8.Location = New System.Drawing.Point(337, 157)
+        Me.Label8.Location = New System.Drawing.Point(449, 193)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(60, 18)
+        Me.Label8.Size = New System.Drawing.Size(76, 23)
         Me.Label8.TabIndex = 50
         Me.Label8.Text = "Room:"
         '
@@ -208,18 +227,20 @@ Partial Class popAddFacultyDaily
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label7.Location = New System.Drawing.Point(81, 157)
+        Me.Label7.Location = New System.Drawing.Point(108, 193)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(76, 18)
+        Me.Label7.Size = New System.Drawing.Size(94, 23)
         Me.Label7.TabIndex = 49
         Me.Label7.Text = "Section:"
         '
         'cmbCourse
         '
         Me.cmbCourse.FormattingEnabled = True
-        Me.cmbCourse.Location = New System.Drawing.Point(167, 130)
+        Me.cmbCourse.Location = New System.Drawing.Point(223, 160)
+        Me.cmbCourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmbCourse.Name = "cmbCourse"
-        Me.cmbCourse.Size = New System.Drawing.Size(121, 21)
+        Me.cmbCourse.Size = New System.Drawing.Size(160, 24)
         Me.cmbCourse.TabIndex = 5
         '
         'Label6
@@ -227,31 +248,35 @@ Partial Class popAddFacultyDaily
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label6.Location = New System.Drawing.Point(84, 130)
+        Me.Label6.Location = New System.Drawing.Point(112, 160)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(73, 18)
+        Me.Label6.Size = New System.Drawing.Size(91, 23)
         Me.Label6.TabIndex = 47
         Me.Label6.Text = "Course:"
         '
         'txtRef
         '
-        Me.txtRef.Location = New System.Drawing.Point(167, 78)
+        Me.txtRef.Location = New System.Drawing.Point(223, 96)
+        Me.txtRef.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtRef.Name = "txtRef"
-        Me.txtRef.Size = New System.Drawing.Size(121, 20)
+        Me.txtRef.Size = New System.Drawing.Size(160, 22)
         Me.txtRef.TabIndex = 3
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(167, 52)
+        Me.txtName.Location = New System.Drawing.Point(223, 64)
+        Me.txtName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(354, 20)
+        Me.txtName.Size = New System.Drawing.Size(471, 22)
         Me.txtName.TabIndex = 2
         '
         'txtID
         '
-        Me.txtID.Location = New System.Drawing.Point(167, 26)
+        Me.txtID.Location = New System.Drawing.Point(223, 32)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(121, 20)
+        Me.txtID.Size = New System.Drawing.Size(160, 22)
         Me.txtID.TabIndex = 1
         '
         'Label4
@@ -259,9 +284,10 @@ Partial Class popAddFacultyDaily
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label4.Location = New System.Drawing.Point(6, 104)
+        Me.Label4.Location = New System.Drawing.Point(8, 128)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(151, 18)
+        Me.Label4.Size = New System.Drawing.Size(189, 23)
         Me.Label4.TabIndex = 43
         Me.Label4.Text = "Date of Absence:"
         '
@@ -270,9 +296,10 @@ Partial Class popAddFacultyDaily
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label3.Location = New System.Drawing.Point(58, 78)
+        Me.Label3.Location = New System.Drawing.Point(77, 96)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(99, 18)
+        Me.Label3.Size = New System.Drawing.Size(122, 23)
         Me.Label3.TabIndex = 42
         Me.Label3.Text = "Reference:"
         '
@@ -281,9 +308,10 @@ Partial Class popAddFacultyDaily
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(30, 52)
+        Me.Label2.Location = New System.Drawing.Point(40, 64)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(127, 18)
+        Me.Label2.Size = New System.Drawing.Size(160, 23)
         Me.Label2.TabIndex = 41
         Me.Label2.Text = "Faculty Name:"
         '
@@ -292,17 +320,19 @@ Partial Class popAddFacultyDaily
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Fax", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(31, 26)
+        Me.Label1.Location = New System.Drawing.Point(41, 32)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(98, 18)
+        Me.Label1.Size = New System.Drawing.Size(123, 23)
         Me.Label1.TabIndex = 40
         Me.Label1.Text = "Faculty ID:"
         '
         'popAddFacultyDaily
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(584, 331)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(779, 412)
         Me.Controls.Add(Me.txtEnd)
         Me.Controls.Add(Me.dtpDate)
         Me.Controls.Add(Me.bttnBack)
@@ -332,6 +362,7 @@ Partial Class popAddFacultyDaily
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "popAddFacultyDaily"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Faculty Daily Attendance"

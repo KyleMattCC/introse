@@ -325,6 +325,7 @@ Partial Class wdwMainMenu
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.lblAY)
         Me.Panel2.Controls.Add(Me.lblDate)
         Me.Panel2.Controls.Add(Me.Panel8)
