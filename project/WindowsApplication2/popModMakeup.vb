@@ -246,15 +246,17 @@
         validateInput("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ", e)
     End Sub
 
-    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String) As Boolean
+    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String, ref As Integer) As Boolean
         Dim makeupCheck As New List(Of Object)()
         Dim b As Boolean = False
 
         makeupCheck = dbAccess.Get_Multiple_Row_Data("select makeupid
                                          from introse.makeup
                                          where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "';")
-        If makeupCheck.Count = 1 Then
-            b = True
+        If makeupCheck.Count < 2 Then
+            If makeupCheck(0) = ref Then
+                b = True
+            End If
         Else
             MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
         End If
@@ -268,7 +270,7 @@
         Dim absentHours As Double = dbAccess.Get_Data("Select sum(co.hours)
                                                       From introse.attendance a, introse.courseoffering co, introse.course c
                                                       where co.status = 'A' and a.status = 'A' and c.course_cd = '" & cmbbxCourse.SelectedItem & "' and c.course_id = co.course_id and co.section = '" & cmbbxSection.SelectedItem & "' and a.courseoffering_id = co.courseoffering_id;", "sum(co.hours)")
-        Dim ref = wdwFacultyMakeUp.getRefNo()
+        Dim ref As Integer = wdwFacultyMakeUp.getRefNo()
 
         If Convert.ToInt32(ref) > 0 Then
             If String.IsNullOrEmpty(cmbbxReason.Text) Or String.IsNullOrEmpty(txtbxStart.Text) Or String.IsNullOrEmpty(txtbxEnd.Text) Or String.IsNullOrEmpty(txtbxRoom.Text) Or String.IsNullOrEmpty(dtp.Value.Date.ToString("yyyy-MM-dd")) Then
@@ -307,7 +309,7 @@
                                                            from introse.courseoffering c, introse.course cl 
                                                             where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
-                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId)) Then
+                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, ref)) Then
                             dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  '" & wdwLogin.Get_Encoder & "' WHERE makeupid = '" & ref & "' and status = 'A';")
                             Me.Close()
                         End If

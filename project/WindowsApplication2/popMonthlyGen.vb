@@ -57,10 +57,28 @@
 
         cmbbxTerm.SelectedIndex = -1
 
+        If (cmbbxYear.SelectedIndex <> -1 And cmbbxTerm.SelectedIndex <> -1 And cmbbxMonth.SelectedIndex <> -1) Then
+            bttnGenerate.Enabled = True
+
+        Else
+            bttnGenerate.Enabled = False
+
+        End If
+
+    End Sub
+
+    Private Sub cmbbxTerm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
+        If (cmbbxYear.SelectedIndex <> -1 And cmbbxTerm.SelectedIndex <> -1 And cmbbxMonth.SelectedIndex <> -1) Then
+            bttnGenerate.Enabled = True
+
+        Else
+            bttnGenerate.Enabled = False
+
+        End If
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxMonth.SelectedIndexChanged
-        If (cmbbxYear.SelectedIndex <> -1 And cmbbxTerm.SelectedIndex <> -1) Then
+        If (cmbbxYear.SelectedIndex <> -1 And cmbbxTerm.SelectedIndex <> -1 And cmbbxMonth.SelectedIndex <> -1) Then
             bttnGenerate.Enabled = True
 
         Else

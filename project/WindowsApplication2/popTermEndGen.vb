@@ -55,11 +55,18 @@
 
         cmbbxTerm.SelectedIndex = -1
 
+        If (cmbbxTerm.SelectedIndex <> -1) Then
+            bttnGenerate.Enabled = True
+
+        Else
+            bttnGenerate.Enabled = False
+        End If
+
     End Sub
 
     Private Sub cmbbxTerm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
-        If (cmbbxTerm.SelectedIndex = -1) Then
-            bttnGenerate.Enabled = False
+        If (cmbbxTerm.SelectedIndex <> -1) Then
+            bttnGenerate.Enabled = True
 
         Else
             bttnGenerate.Enabled = False

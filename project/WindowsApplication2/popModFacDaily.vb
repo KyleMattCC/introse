@@ -280,13 +280,15 @@
 
     End Sub
 
-    Private Function Check_Entry(absent As String, courseOfferingId As String, stat As String, remarks As String, checker As String) As Boolean
+    Private Function Check_Entry(absent As String, courseOfferingId As String, stat As String, remarks As String, checker As String, ref As Integer) As Boolean
         Dim att As New List(Of Object)()
         Dim bool As Boolean = False
         att = dbAccess.Get_Multiple_Row_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseOfferingId & "' and status = '" & stat & "';")
 
         If att.Count < 2 Then
-            bool = True
+            If att(0) = ref Then
+                bool = True
+            End If
 
         Else
             MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
@@ -351,7 +353,7 @@
                     checker = txtbxChecker.Text
                     courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
-                    If (Check_Entry(absentDate, courseOfferingId, "A", remarks, checker) = True) Then
+                    If (Check_Entry(absentDate, courseOfferingId, "A", remarks, checker, ref)) Then
                         dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' where attendanceid = '" & ref & "' and status = 'A';")
                         Me.Close()
 

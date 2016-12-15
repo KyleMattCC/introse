@@ -10,7 +10,7 @@
         End If
 
     End Sub
-    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String) As Boolean
+    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String, ref As Integer) As Boolean
         Dim makeupCheck As New List(Of Object)()
         Dim check As Boolean = False
 
@@ -18,10 +18,14 @@
                                          from introse.makeup
                                          where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "';")
         If makeupCheck.Count < 2 Then
-            check = True
+            If makeupCheck(0) = ref Then
+                check = True
+            End If
+
         Else
             MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
         End If
+
         Return check
 
     End Function
@@ -460,7 +464,7 @@
                                                             where c.termid = '" & termId & "' and (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
                         attStatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
-                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId) And Check_Entry(makeupDate, startTime, endTime, room, "R", courseOfferingId)) Then
+                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, ref) And Check_Entry(makeupDate, startTime, endTime, room, "R", courseOfferingId, ref)) Then
                             dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  '" & wdwLogin.Get_Encoder & "' WHERE makeupid = '" & ref & "' and status = '" & attStatus & "';")
                             wdwAttendanceHistoryLog.Load_Form(wdwAttendanceHistoryLog.facultyId)
                             Me.Close()
