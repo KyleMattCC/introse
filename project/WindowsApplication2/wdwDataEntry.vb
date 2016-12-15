@@ -1,4 +1,12 @@
-﻿Public Class wdwDataEntry
+﻿Imports System.Data.Odbc
+Imports System.Data.Sql
+Imports System.Data.SqlClient
+Imports MySql.Data
+Imports MySql.Data.MySqlClient
+Imports System.Data.OleDb
+
+
+Public Class wdwDataEntry
     Dim dbAccess As New databaseAccessor
     Private Sub wdwDataEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim College As New List(Of Object)
@@ -8,13 +16,16 @@
 
         College = dbAccess.Get_Multiple_Row_Data("Select college_name from College")
 
+        cmbbxDeptCol.Items.Clear()
+        cmbbxFacCol.Items.Clear()
+
         For i As Integer = 0 To College.Count - 1
             cmbbxFacCol.Items.Add(College(i))
             cmbbxDeptCol.Items.Add(College(i))
-            cmbbxCourseCol.Items.Add(College(i))
+
         Next
 
-
+        txtbxFacName.Enabled = False
 
         year = dbAccess.Get_Multiple_Row_Data("Select concat(yearstart, ' - ', yearend) from academicyear")
         For i As Integer = 0 To year.Count - 1
@@ -395,13 +406,17 @@
 
     Private Sub txtbxCourseFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxCourseFacID.TextChanged
 
-        Dim FacID As String = Nothing
+        Dim FacName As String = Nothing
 
-        FacID = dbAccess.Get_Data("Select facultyid from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facultyid")
+        FacName = dbAccess.Get_Data("Select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
 
+        If (FacName <> Nothing) Then
+            txtbxFacName.Text = FacName
+        Else
+            txtbxFacName.Text = Nothing
+        End If
 
-
-        If (txtbxCourseFacID.Text = Nothing Or FacID = Nothing) Then
+        If (txtbxCourseFacID.Text = Nothing Or FacName = Nothing) Then
             txtbxCourseCode.Enabled = False
             txtbxSection.Enabled = False
             txtbxUnit.Enabled = False
@@ -409,7 +424,7 @@
             txtbxRoom.Enabled = False
             txtbxStartTime.Enabled = False
             txtbxEndTime.Enabled = False
-        ElseIf (FacID <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text <> Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text <> Nothing) Then
+        ElseIf (FacName <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text <> Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text <> Nothing) Then
             txtbxCourseCode.Enabled = True
             txtbxSection.Enabled = True
             txtbxUnit.Enabled = True
@@ -418,25 +433,25 @@
             txtbxStartTime.Enabled = True
             txtbxEndTime.Enabled = True
 
-        ElseIf (FacID <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text <> Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text = Nothing) Then
+        ElseIf (FacName <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text <> Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text = Nothing) Then
             txtbxCourseCode.Enabled = True
             txtbxSection.Enabled = True
             txtbxUnit.Enabled = True
 
-        ElseIf (FacID <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text = Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text = Nothing) Then
+        ElseIf (FacName <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text = Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text = Nothing) Then
             txtbxCourseCode.Enabled = True
 
-        ElseIf (FacID <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text = Nothing And txtbxSection.Text = Nothing And txtbxUnit.Text = Nothing) Then
+        ElseIf (FacName <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text = Nothing And txtbxSection.Text = Nothing And txtbxUnit.Text = Nothing) Then
             txtbxCourseCode.Enabled = True
 
-        ElseIf (FacID <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text = Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text <> Nothing) Then
+        ElseIf (FacName <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text = Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text <> Nothing) Then
             txtbxCourseCode.Enabled = True
 
-        ElseIf (FacID <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text <> Nothing And txtbxSection.Text = Nothing And txtbxUnit.Text = Nothing) Then
+        ElseIf (FacName <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text <> Nothing And txtbxSection.Text = Nothing And txtbxUnit.Text = Nothing) Then
             txtbxCourseCode.Enabled = True
             txtbxSection.Enabled = True
 
-        ElseIf (FacID <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text <> Nothing And txtbxSection.Text = Nothing And txtbxUnit.Text <> Nothing) Then
+        ElseIf (FacName <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text <> Nothing And txtbxSection.Text = Nothing And txtbxUnit.Text <> Nothing) Then
             txtbxCourseCode.Enabled = True
             txtbxSection.Enabled = True
 
@@ -554,22 +569,27 @@
 
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles bttnBackTerm.Click
+        wdwFacPlantilia.Enable_Form()
         Me.Close()
     End Sub
 
     Private Sub bttnCourseBack_Click(sender As Object, e As EventArgs) Handles bttnCourseBack.Click
+        wdwFacPlantilia.Enable_Form()
         Me.Close()
     End Sub
 
     Private Sub bttnDeptBack_Click(sender As Object, e As EventArgs) Handles bttnDeptBack.Click
+        wdwFacPlantilia.Enable_Form()
         Me.Close()
     End Sub
 
     Private Sub bttnCollegeBack_Click(sender As Object, e As EventArgs) Handles bttnCollegeBack.Click
+        wdwFacPlantilia.Enable_Form()
         Me.Close()
     End Sub
 
     Private Sub bttnFacBack_Click(sender As Object, e As EventArgs) Handles bttnFacBack.Click
+        wdwFacPlantilia.Enable_Form()
         Me.Close()
     End Sub
 
@@ -647,14 +667,39 @@
 
     End Sub
 
-    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
-        OpenFileDialog1.Title = "Open Excel File"
-        OpenFileDialog1.Filter = "Microsoft Excel|*.xl*"
-        OpenFileDialog1.ShowDialog()
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles filediaSearch.Click
+        Dim dialog As New OpenFileDialog
+        dialog.Title = "Open Excel File"
+        dialog.Filter = "Microsoft Excel|*.xl*"
+        If (dialog.ShowDialog() = DialogResult.OK) Then
+
+
+            Try
+
+                Dim MyConnection As System.Data.OleDb.OleDbConnection
+                Dim dataSet As System.Data.DataSet
+                Dim MyCommand As System.Data.OleDb.OleDbDataAdapter
+                Dim path As String = dialog.FileName
+
+                MyConnection = New System.Data.OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties=Excel 12.0;")
+                MyCommand = New System.Data.OleDb.OleDbDataAdapter("select * from [Sheet1$]", MyConnection)
+
+                dataSet = New System.Data.DataSet
+                MyCommand.Fill(dataSet)
+                grid.DataSource = dataSet.Tables(0)
+
+
+                MyConnection.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End If
 
     End Sub
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        wdwFacPlantilia.Enable_Form()
         Me.Close()
     End Sub
 
@@ -703,11 +748,68 @@
         validateInput("0123456789", e)
     End Sub
 
-    Private Sub TabControl1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TabControl1.KeyPress
-        validateInput("ABCDEFGHIJKLMNOPQRST", e)
-    End Sub
+
 
     Private Sub txtbxEndTime_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles txtbxEndTime.KeyPress
         validateInput("0123456789", e)
     End Sub
+
+    Private Sub txtbxCollegeCode_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxCollegeCode.KeyPress
+        validateInput("ABCDEFGHIJKLMNOPQRST", e)
+    End Sub
+
+    Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
+        wdwFacPlantilia.Enable_Form()
+        Me.Close()
+    End Sub
+
+    Private Sub bttnUpload_Click(sender As Object, e As EventArgs) Handles bttnUpload.Click
+
+
+        Dim courseID As Integer
+        Dim termID As Integer
+        Dim facrefNo As Integer
+        Dim section As String
+        Dim room As String
+        Dim daySched As String
+        Dim timeStart As Integer
+        Dim timeEnd As Integer
+        Dim hours As Integer
+        Dim status As String
+
+
+
+
+
+
+
+        For i As Integer = 0 To grid.RowCount - 1
+
+            If (IsDBNull(grid.Rows(i).Cells(0).Value)) Then
+            Else
+                courseID = grid.Rows(i).Cells(0).Value
+                termID = grid.Rows(i).Cells(1).Value
+                facrefNo = grid.Rows(i).Cells(2).Value
+                section = grid.Rows(i).Cells(3).Value
+                room = grid.Rows(i).Cells(4).Value
+                daySched = grid.Rows(i).Cells(5).Value
+                timeStart = grid.Rows(i).Cells(6).Value
+                timeEnd = grid.Rows(i).Cells(7).Value
+                hours = grid.Rows(i).Cells(8).Value
+                status = grid.Rows(i).Cells(9).Value
+
+
+                dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & courseID & "', '" & termID & "', '" & facrefNo & "', '" & section & "', '" & room & "', '" & daySched & "', '" & timeStart & "', '" & timeEnd & "', '" & hours & "', '" & status & "');")
+            End If
+
+        Next
+
+
+
+
+
+    End Sub
+
+
+
 End Class

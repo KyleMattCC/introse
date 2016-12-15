@@ -12,17 +12,23 @@
 
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Hide()
         wdwMainMenu.Show()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles bttnDataEntry.Click
         wdwDataEntry.Show()
     End Sub
 
     Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
 
+    End Sub
+
+    Public Sub Enable_Form()
+        Me.Enabled = True
+        Load_form()
+        Me.Focus()
     End Sub
 
     Private Sub wdwFacPlantilia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -83,12 +89,26 @@
 
         dbAccess.Fill_Data_Grid("Select co.courseoffering_id 'Reference No.', course_cd 'Course', concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty Name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status' 
                                 from courseoffering co, course c, term t, academicyear a, faculty f 
-                                where c.course_id = courseoffering_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'
+                                where c.course_id = co.course_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'
                                 order by 10, 1, 3", grid)
+
+        If (wdwLogin.Get_accountType = "Regular") Then
+            bttnDataEntry.Enabled = False
+            bttnModify.Enabled = False
+            bttnDelete.Enabled = False
+        End If
 
 
 
     End Sub
+
+    Public Function getTermID() As String
+
+        Dim TermID As String = dbAccess.Get_Data("Select termid from academicyear a, term t where  concat(a.yearstart, ' - ', a.yearend) = '" & cmbbxAcadYear.SelectedItem & "' and t.term_no = '" & cmbbxTerm.SelectedItem & "' and a.yearid = t.yearid", "termid")
+
+        Return TermID
+
+    End Function
 
     Private Sub cmbbxAcadYear_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxAcadYear.SelectedIndexChanged
         Dim YearID As Integer
@@ -112,7 +132,7 @@
 
         dbAccess.Fill_Data_Grid("Select co.courseoffering_id 'Reference No.', course_cd 'Course',  concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty Name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status' 
                                 from courseoffering co, course c, term t, academicyear a, faculty f 
-                                where c.course_id = courseoffering_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'
+                                where c.course_id = co.course_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'
                                 order by 10, 1, 3", grid)
 
     End Sub
@@ -120,11 +140,11 @@
     Private Sub cmbbxTerm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
         dbAccess.Fill_Data_Grid("Select co.courseoffering_id 'Reference No.', course_cd 'Course',  concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty Name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status'
                                 from courseoffering co, course c, term t, academicyear a, faculty f 
-                                where c.course_id = courseoffering_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'
+                                where c.course_id = co.course_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "'
                                 order by 10, 1, 3", grid)
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
 
         With grid
             rowData.Clear()
@@ -149,14 +169,19 @@
                 Me.Enabled = False
                 popModifyPlantilla.Load_Form(rowData)
 
+
             Else
                 MsgBox("Too many rows selected!", MsgBoxStyle.Critical, "")
 
             End If
         End With
 
-        popModifyPlantilla.Show()
+
     End Sub
+
+    Public Function get_CourseOfferingID() As Object
+        Return rowData(0)
+    End Function
 
     Private Sub bttnSearch_Click(sender As Object, e As EventArgs) Handles bttnSearch.Click
         Dim Search As String = Nothing
@@ -167,7 +192,7 @@
 
         dbAccess.Fill_Data_Grid("Select co.courseoffering_id 'Reference No.', course_cd 'Course', concat(f.f_lastname, ', ', f_firstname, ' ', f_middlename) 'Faculty Name', co.section 'Section', co.room 'Room', co.daysched 'Day Sched', co.timestart 'Start Time', co.timeend 'End Time', co.hours 'Hours', co.status 'Status' 
                                 from courseoffering co, course c, term t, academicyear a, faculty f 
-                                where c.course_id = courseoffering_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "' and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "')  or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "') or (concat(f_lastname,' ', f_firstname) like '" + Search.ToString + "') or (concat(f_lastname,' ', ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' ,f_firstname) like '" + Search.ToString + "'))
+                                where c.course_id = co.course_id and t.termid = co.termid and t.yearid = a.yearid and f.facref_no = co.facref_no and t.termid = '" & cmbbxTerm.SelectedItem & "' and  concat(yearstart, ' - ', yearend) = '" & cmbbxAcadYear.SelectedItem & "' and ((facultyid LIKE '" + Search.ToString + "') or (f_firstname LIKE '" + Search.ToString + "') or (f_middlename LIKE '" + Search.ToString + "') or (f_lastname LIKE '" + Search.ToString + "')  or (concat(f_firstname,' ', f_middlename, ' ', f_lastname) like '" + Search.ToString + "') or (concat(f_firstname,' ', f_lastname) like '" + Search.ToString + "') or (concat(f_lastname,' ', f_firstname) like '" + Search.ToString + "') or (concat(f_lastname,' ', ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' , ' ',f_firstname) like '" + Search.ToString + "') or (concat(f_lastname, ',' ,f_firstname) like '" + Search.ToString + "'))
                                 order by 10, 1, 3", grid)
 
 
@@ -188,7 +213,7 @@
         txtbxSearch.Text = Nothing
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
         With grid
             Dim result As DialogResult
             Dim selectedRow As DataGridViewRow
@@ -210,4 +235,16 @@
             End If
         End With
     End Sub
+
+    Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
+        rindexValue = e.RowIndex
+        Dim selectedRow As DataGridViewRow
+
+
+        If (rindexValue <> -1) Then
+            selectedRow = grid.Rows(rindexValue)
+        End If
+    End Sub
+
+
 End Class

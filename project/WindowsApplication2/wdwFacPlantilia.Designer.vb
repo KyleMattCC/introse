@@ -28,10 +28,10 @@ Partial Class wdwFacPlantilia
         Me.Label2 = New System.Windows.Forms.Label()
         Me.bttnSearch = New System.Windows.Forms.Button()
         Me.grid = New System.Windows.Forms.DataGridView()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.bttnDataEntry = New System.Windows.Forms.Button()
+        Me.bttnModify = New System.Windows.Forms.Button()
+        Me.bttnDelete = New System.Windows.Forms.Button()
+        Me.bttnBack = New System.Windows.Forms.Button()
         Me.txtbxSearch = New System.Windows.Forms.TextBox()
         Me.bttnClear = New System.Windows.Forms.Button()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +65,7 @@ Partial Class wdwFacPlantilia
         Me.cmbbxTerm.Location = New System.Drawing.Point(359, 46)
         Me.cmbbxTerm.Name = "cmbbxTerm"
         Me.cmbbxTerm.Size = New System.Drawing.Size(119, 23)
-        Me.cmbbxTerm.TabIndex = 2
+        Me.cmbbxTerm.TabIndex = 3
         '
         'Label2
         '
@@ -92,48 +92,50 @@ Partial Class wdwFacPlantilia
         Me.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grid.Location = New System.Drawing.Point(23, 96)
         Me.grid.Name = "grid"
+        Me.grid.ReadOnly = True
+        Me.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grid.Size = New System.Drawing.Size(931, 339)
         Me.grid.TabIndex = 5
         '
-        'Button2
+        'bttnDataEntry
         '
-        Me.Button2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(189, 485)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(105, 28)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Data Entry"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.bttnDataEntry.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnDataEntry.Location = New System.Drawing.Point(189, 485)
+        Me.bttnDataEntry.Name = "bttnDataEntry"
+        Me.bttnDataEntry.Size = New System.Drawing.Size(105, 28)
+        Me.bttnDataEntry.TabIndex = 6
+        Me.bttnDataEntry.Text = "Data Entry"
+        Me.bttnDataEntry.UseVisualStyleBackColor = True
         '
-        'Button4
+        'bttnModify
         '
-        Me.Button4.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(336, 485)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(105, 28)
-        Me.Button4.TabIndex = 8
-        Me.Button4.Text = "Modify"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.bttnModify.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnModify.Location = New System.Drawing.Point(336, 485)
+        Me.bttnModify.Name = "bttnModify"
+        Me.bttnModify.Size = New System.Drawing.Size(105, 28)
+        Me.bttnModify.TabIndex = 8
+        Me.bttnModify.Text = "Modify"
+        Me.bttnModify.UseVisualStyleBackColor = True
         '
-        'Button6
+        'bttnDelete
         '
-        Me.Button6.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(484, 485)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(105, 28)
-        Me.Button6.TabIndex = 10
-        Me.Button6.Text = "Delete"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.bttnDelete.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnDelete.Location = New System.Drawing.Point(484, 485)
+        Me.bttnDelete.Name = "bttnDelete"
+        Me.bttnDelete.Size = New System.Drawing.Size(105, 28)
+        Me.bttnDelete.TabIndex = 10
+        Me.bttnDelete.Text = "Delete"
+        Me.bttnDelete.UseVisualStyleBackColor = True
         '
-        'Button1
+        'bttnBack
         '
-        Me.Button1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(630, 485)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 28)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "Back"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnBack.Location = New System.Drawing.Point(630, 485)
+        Me.bttnBack.Name = "bttnBack"
+        Me.bttnBack.Size = New System.Drawing.Size(105, 28)
+        Me.bttnBack.TabIndex = 11
+        Me.bttnBack.Text = "Back"
+        Me.bttnBack.UseVisualStyleBackColor = True
         '
         'txtbxSearch
         '
@@ -141,7 +143,7 @@ Partial Class wdwFacPlantilia
         Me.txtbxSearch.Location = New System.Drawing.Point(514, 44)
         Me.txtbxSearch.Name = "txtbxSearch"
         Me.txtbxSearch.Size = New System.Drawing.Size(211, 26)
-        Me.txtbxSearch.TabIndex = 3
+        Me.txtbxSearch.TabIndex = 15
         '
         'bttnClear
         '
@@ -160,10 +162,10 @@ Partial Class wdwFacPlantilia
         Me.ClientSize = New System.Drawing.Size(1009, 552)
         Me.Controls.Add(Me.bttnClear)
         Me.Controls.Add(Me.txtbxSearch)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.bttnBack)
+        Me.Controls.Add(Me.bttnDelete)
+        Me.Controls.Add(Me.bttnModify)
+        Me.Controls.Add(Me.bttnDataEntry)
         Me.Controls.Add(Me.grid)
         Me.Controls.Add(Me.bttnSearch)
         Me.Controls.Add(Me.cmbbxTerm)
@@ -185,10 +187,10 @@ Partial Class wdwFacPlantilia
     Friend WithEvents Label2 As Label
     Friend WithEvents bttnSearch As Button
     Friend WithEvents grid As DataGridView
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents bttnDataEntry As Button
+    Friend WithEvents bttnModify As Button
+    Friend WithEvents bttnDelete As Button
+    Friend WithEvents bttnBack As Button
     Friend WithEvents txtbxSearch As TextBox
     Friend WithEvents bttnClear As Button
 End Class
