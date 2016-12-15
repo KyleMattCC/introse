@@ -10,10 +10,10 @@
         End If
 
     End Sub
-    Private Function Check_Entry(absent As String, courseofferingid As String, stat As String, remarks As String, checker As String) As Boolean
+    Private Function Check_Entry(absent As String, courseOfferingId As String, stat As String, remarks As String, checker As String) As Boolean
         Dim att As New List(Of Object)()
         Dim b As Boolean = False
-        att = dbAccess.Get_Multiple_Row_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "';")
+        att = dbAccess.Get_Multiple_Row_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseOfferingId & "' and status = '" & stat & "';")
         If att.Count < 2 Then
             b = True
         Else
@@ -25,10 +25,10 @@
 
     Private Sub Check_Enable()
         If String.IsNullOrEmpty(txtbxFacID.Text) Or String.IsNullOrEmpty(txtbxName.Text) Or cmbbxCourse.SelectedIndex = -1 Or cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.SelectedIndex = -1 Or cmbbxSection.SelectedIndex = -1 Or cmbbxRemarks.SelectedIndex = -1 Or String.IsNullOrEmpty(txtbxChecker.Text) Then
-            bttnAdd.Enabled = False
+            bttnModify.Enabled = False
 
         Else
-            bttnAdd.Enabled = True
+            bttnModify.Enabled = True
 
         End If
 
@@ -142,7 +142,7 @@
 
         Me.Show()
     End Sub
-    Private Sub Add_Faculty_Name(facultyid As String, ByVal text As TextBox)
+    Private Sub Add_Faculty_Name(facultyId As String, ByVal text As TextBox)
         Dim facName As New List(Of Object)
         Dim fname As String
         Dim MI As String
@@ -155,7 +155,7 @@
         lname = ""
         Try
 
-            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyid & "';", 3)
+            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyId & "';", 3)
             If facName.Count > 0 Then
                 fname = facName(0).ToString
                 MI = facName(1).ToString
@@ -174,20 +174,19 @@
     End Sub
 
     Private Sub Add_Term(schoolYear As String, ByVal combo As ComboBox)
-        Dim termno As New List(Of Object)()
-        Dim yearid As New Object
+        Dim termNo As New List(Of Object)()
+        Dim yearId As New Object
         Dim years() As String
         combo.Enabled = True
         combo.Items.Clear()
-        'combo.ResetText()
 
         Try
             years = schoolYear.Split("-")
-            yearid = dbAccess.Get_Data("select yearid from introse.academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
-            termno = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where status = 'A' and yearid = '" & yearid & "';")
+            yearId = dbAccess.Get_Data("select yearid from introse.academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
+            termNo = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where status = 'A' and yearid = '" & yearId & "';")
 
-            For j As Integer = 0 To termno.Count - 1
-                combo.Items.Add(termno(j))
+            For ctr As Integer = 0 To termNo.Count - 1
+                combo.Items.Add(termNo(ctr))
             Next
         Catch ex As Exception
 
@@ -196,49 +195,45 @@
 
     Private Sub Add_SchoolYear(ByVal combo As ComboBox)
 
-        Dim schoolyear As New List(Of Object)()
+        Dim schoolYear As New List(Of Object)()
         combo.Items.Clear()
-        'combo.ResetText()
 
         Try
+            schoolYear = dbAccess.Get_Multiple_Row_Data("select concat(yearstart, '-', yearend) from introse.academicyear;")
 
-            schoolyear = dbAccess.Get_Multiple_Row_Data("select concat(yearstart, '-', yearend) from introse.academicyear;")
-
-            For j As Integer = 0 To schoolyear.Count - 1
-                combo.Items.Add(schoolyear(j))
+            For ctr As Integer = 0 To schoolYear.Count - 1
+                combo.Items.Add(schoolYear(ctr))
             Next
         Catch ex As Exception
         End Try
 
     End Sub
-    Private Function Get_termID(schoolYear As String, termNo As String) As Object
-        Dim termid As New Object()
+    Private Function Get_TermId(schoolYear As String, termNo As String) As Object
+        Dim termId As New Object()
         Dim years() As String
 
         Try
             years = schoolYear.Split("-")
-            termid = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.status = 'A' and t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
+            termId = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.status = 'A' and t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
         Catch ex As Exception
 
         End Try
-
-        Return termid
+        Return termId
     End Function
-    Private Sub Add_Course(facultyid As String, schoolYear As String, termNo As String, ByVal combo As ComboBox)
-        Dim coursecode As New List(Of Object)()
-        Dim termid As Object
+    Private Sub Add_Course(facultyId As String, schoolYear As String, termNo As String, ByVal combo As ComboBox)
+        Dim courseCode As New List(Of Object)()
+        Dim termId As Object
         Dim fac As Integer
         combo.Enabled = True
         combo.Items.Clear()
-        'combo.ResetText()
 
         Try
-            termid = Get_termID(schoolYear, termNo)
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) from introse.course c, introse.courseoffering co where (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.termid = '" & termid & "' order by 1;")
+            termId = Get_TermId(schoolYear, termNo)
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            courseCode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) from introse.course c, introse.courseoffering co where (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.termid = '" & termId & "' order by 1;")
 
-            For j As Integer = 0 To coursecode.Count - 1
-                combo.Items.Add(coursecode(j))
+            For ctr As Integer = 0 To courseCode.Count - 1
+                combo.Items.Add(courseCode(ctr))
             Next
             dtp.Enabled = True
 
@@ -248,21 +243,20 @@
 
     End Sub
 
-    Private Sub Add_Section(facultyid As String, course As String, schoolYear As String, termNo As String, ByVal combo As ComboBox)
+    Private Sub Add_Section(facultyId As String, course As String, schoolYear As String, termNo As String, ByVal combo As ComboBox)
         Dim section As New List(Of Object)()
-        Dim termid As Object
+        Dim termId As Object
         Dim fac As String
         combo.Enabled = True
         combo.Items.Clear()
-        'combo.ResetText()
 
         Try
-            termid = Get_termID(schoolYear, termNo)
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) from introse.course c, introse.courseoffering co WHERE (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.termid = '" & termid & "' order by 1;")
+            termId = Get_TermId(schoolYear, termNo)
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) from introse.course c, introse.courseoffering co where (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.termid = '" & termId & "' order by 1;")
 
-            For j As Integer = 0 To section.Count - 1
-                combo.Items.Add(section(j))
+            For ctr As Integer = 0 To section.Count - 1
+                combo.Items.Add(section(ctr))
             Next
         Catch ex As Exception
 
@@ -286,14 +280,14 @@
         End Try
 
     End Sub
-    Private Sub Fill_Room(facultyid As String, course As String, section As String, schoolYear As String, termNo As String, ByVal text As TextBox)
+    Private Sub Fill_Room(facultyId As String, course As String, section As String, schoolYear As String, termNo As String, ByVal text As TextBox)
         Dim room As String = ""
         Dim fac As String = ""
-        Dim termid As Object
+        Dim termId As Object
         Try
-            termid = Get_termID(schoolYear, termNo)
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' AND facultyid = '" & facultyid & "';", "facref_no")
-            room = dbAccess.Get_Data("select co.room from introse.courseoffering co, introse.course c WHERE (co.status = 'A' or co.status = 'R') and c.course_cd = '" & course & "' AND c.course_id = co.course_id AND co.facref_no = '" & fac & "'  AND co.section = '" & section & "' AND co.termid = '" & termid & "';", "room")
+            termId = Get_TermId(schoolYear, termNo)
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            room = dbAccess.Get_Data("select co.room from introse.courseoffering co, introse.course c where (co.status = 'A' or co.status = 'R') and c.course_cd = '" & course & "' and c.course_id = co.course_id and co.facref_no = '" & fac & "'  and co.section = '" & section & "' and co.termid = '" & termId & "';", "room")
 
             text.Text = room
         Catch ex As Exception
@@ -301,24 +295,24 @@
         End Try
 
     End Sub
-    Private Sub Fill_Sched(facultyid As String, course As String, section As String, schoolYear As String, termNo As String, ByVal TimeStart As TextBox, ByVal TimeEnd As TextBox, ByVal DaySched As TextBox)
+    Private Sub Fill_Sched(facultyId As String, course As String, section As String, schoolYear As String, termNo As String, ByVal timeStart As TextBox, ByVal timeEnd As TextBox, ByVal daySched As TextBox)
         Dim courseSched As New List(Of Object)
-        Dim starttime As String
-        Dim endtime As String
+        Dim startTime As String
+        Dim endTime As String
         Dim fac As String
         Dim sched As String = ""
-        Dim termid As Object
+        Dim termId As Object
         Try
-            termid = Get_termID(schoolYear, termNo)
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            courseSched = dbAccess.Get_Multiple_Column_Data("select co.timestart, co.timeend, co.daysched from introse.courseoffering co, introse.course c where (co.status = 'A' or co.status = 'R') and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.termid = '" & termid & "' and co.section = '" & section & "';", 3)
-            starttime = courseSched(0)
-            endtime = courseSched(1)
+            termId = Get_TermId(schoolYear, termNo)
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            courseSched = dbAccess.Get_Multiple_Column_Data("select co.timestart, co.timeend, co.daysched from introse.courseoffering co, introse.course c where (co.status = 'A' or co.status = 'R') and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.termid = '" & termId & "' and co.section = '" & section & "';", 3)
+            startTime = courseSched(0)
+            endTime = courseSched(1)
             sched = courseSched(2)
 
-            TimeStart.Text = starttime
-            TimeEnd.Text = endtime
-            DaySched.Text = sched
+            timeStart.Text = startTime
+            timeEnd.Text = endTime
+            daySched.Text = sched
         Catch ex As Exception
 
         End Try
@@ -333,7 +327,6 @@
             txtbxStart.Clear()
             txtbxDay.Clear()
             txtbxRoom.Clear()
-            ' txtbxChecker.Clear()
             Try
                 If String.IsNullOrEmpty(cmbbxSY.SelectedItem) Then
                     cmbbxTerm.Enabled = False
@@ -428,14 +421,14 @@
 
     End Sub
 
-    Private Sub bttnAdd_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
-        Dim absentDate, schoolyear, termNo, checker, course, section, courseOfferingId, rem_code As String
-        Dim ref As String = wdwAttendanceHistoryLog.getRefNo()
+    Private Sub bttnAdd_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
+        Dim absentDate, schoolYear, termNo, checker, course, section, courseOfferingId, remCode As String
+        Dim ref As String = wdwAttendanceHistoryLog.Get_Ref_No()
         Dim currentDate As Date
         currentDate = DateTime.Now.Date
         Dim daySched As New List(Of String)
         Dim tempBool As Boolean = False
-        Dim termid As Object
+        Dim termId As Object
         Dim attStatus As String
 
         If txtbxDay.Text.Contains("M") Then
@@ -476,15 +469,15 @@
                 section = cmbbxSection.SelectedItem
                 checker = txtbxChecker.Text
 
-                rem_code = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
-                termid = Get_termID(schoolYear, termNo)
+                remCode = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
+                termId = Get_termID(schoolYear, termNo)
 
                 courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.termid = '" & termid & "' and c.section = '" & section & "';", "courseoffering_id")
                 attStatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
-                If (Check_Entry(absentDate, courseOfferingId, "A", rem_code, checker) = True And Check_Entry(absentDate, courseOfferingId, "R", rem_code, checker) = True) Then
-                    dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & rem_code & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = '" & attStatus & "';")
-                    wdwAttendanceHistoryLog.Load_form(wdwAttendanceHistoryLog.facultyID)
+                If (Check_Entry(absentDate, courseOfferingId, "A", remCode, checker) = True And Check_Entry(absentDate, courseOfferingId, "R", remCode, checker) = True) Then
+                    dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & remCode & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = '" & attStatus & "';")
+                    wdwAttendanceHistoryLog.Load_Form(wdwAttendanceHistoryLog.facultyId)
                     Me.Close()
 
                     txtbxFacID.Clear()
@@ -514,7 +507,7 @@
     End Sub
 
     Private Sub popModifyAttendanceHistory_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        wdwAttendanceHistoryLog.Enable_After_Search_Form()
+        wdwAttendanceHistoryLog.Enable_Only_Form()
     End Sub
 
     Private Sub txtbxFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacID.TextChanged

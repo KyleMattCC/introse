@@ -229,7 +229,7 @@ Partial Class popAddAttendanceHistory
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxName.Location = New System.Drawing.Point(198, 40)
         Me.txtbxName.Name = "txtbxName"
-        Me.txtbxName.Size = New System.Drawing.Size(313, 26)
+        Me.txtbxName.Size = New System.Drawing.Size(315, 26)
         Me.txtbxName.TabIndex = 2
         '
         'dtp
@@ -237,7 +237,7 @@ Partial Class popAddAttendanceHistory
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Location = New System.Drawing.Point(198, 130)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(313, 26)
+        Me.dtp.Size = New System.Drawing.Size(315, 26)
         Me.dtp.TabIndex = 5
         '
         'cmbbxSY

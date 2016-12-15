@@ -88,7 +88,7 @@ Partial Class popAddMakeUpHistory
         Me.txtbxFacName.Location = New System.Drawing.Point(216, 40)
         Me.txtbxFacName.Name = "txtbxFacName"
         Me.txtbxFacName.ReadOnly = True
-        Me.txtbxFacName.Size = New System.Drawing.Size(313, 26)
+        Me.txtbxFacName.Size = New System.Drawing.Size(315, 26)
         Me.txtbxFacName.TabIndex = 2
         '
         'Label4
@@ -108,7 +108,7 @@ Partial Class popAddMakeUpHistory
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Location = New System.Drawing.Point(216, 130)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(313, 26)
+        Me.dtp.Size = New System.Drawing.Size(315, 26)
         Me.dtp.TabIndex = 5
         '
         'Label1
@@ -298,7 +298,7 @@ Partial Class popAddMakeUpHistory
         Me.cmbbxReason.FormattingEnabled = True
         Me.cmbbxReason.Location = New System.Drawing.Point(216, 310)
         Me.cmbbxReason.Name = "cmbbxReason"
-        Me.cmbbxReason.Size = New System.Drawing.Size(313, 28)
+        Me.cmbbxReason.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxReason.TabIndex = 11
         '
         'popAddMakeUpHistory

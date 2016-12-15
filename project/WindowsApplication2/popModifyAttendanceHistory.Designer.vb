@@ -36,7 +36,7 @@ Partial Class popModifyAttendanceHistory
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.bttnAdd = New System.Windows.Forms.Button()
+        Me.bttnModify = New System.Windows.Forms.Button()
         Me.bttnBack = New System.Windows.Forms.Button()
         Me.txtbxFacID = New System.Windows.Forms.TextBox()
         Me.txtbxName = New System.Windows.Forms.TextBox()
@@ -183,15 +183,15 @@ Partial Class popModifyAttendanceHistory
         Me.Label13.TabIndex = 232
         Me.Label13.Text = "Checker:"
         '
-        'bttnAdd
+        'bttnModify
         '
-        Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAdd.Location = New System.Drawing.Point(65, 410)
-        Me.bttnAdd.Name = "bttnAdd"
-        Me.bttnAdd.Size = New System.Drawing.Size(90, 30)
-        Me.bttnAdd.TabIndex = 233
-        Me.bttnAdd.Text = "Modify"
-        Me.bttnAdd.UseVisualStyleBackColor = True
+        Me.bttnModify.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnModify.Location = New System.Drawing.Point(65, 410)
+        Me.bttnModify.Name = "bttnModify"
+        Me.bttnModify.Size = New System.Drawing.Size(90, 30)
+        Me.bttnModify.TabIndex = 233
+        Me.bttnModify.Text = "Modify"
+        Me.bttnModify.UseVisualStyleBackColor = True
         '
         'bttnBack
         '
@@ -218,7 +218,7 @@ Partial Class popModifyAttendanceHistory
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxName.Location = New System.Drawing.Point(198, 40)
         Me.txtbxName.Name = "txtbxName"
-        Me.txtbxName.Size = New System.Drawing.Size(313, 26)
+        Me.txtbxName.Size = New System.Drawing.Size(315, 26)
         Me.txtbxName.TabIndex = 2
         '
         'dtp
@@ -226,7 +226,7 @@ Partial Class popModifyAttendanceHistory
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Location = New System.Drawing.Point(198, 130)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(313, 26)
+        Me.dtp.Size = New System.Drawing.Size(315, 26)
         Me.dtp.TabIndex = 5
         '
         'cmbbxSY
@@ -342,7 +342,7 @@ Partial Class popModifyAttendanceHistory
         Me.Controls.Add(Me.txtbxName)
         Me.Controls.Add(Me.txtbxFacID)
         Me.Controls.Add(Me.bttnBack)
-        Me.Controls.Add(Me.bttnAdd)
+        Me.Controls.Add(Me.bttnModify)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label9)
@@ -379,7 +379,7 @@ Partial Class popModifyAttendanceHistory
     Friend WithEvents Label9 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents bttnAdd As Button
+    Friend WithEvents bttnModify As Button
     Friend WithEvents bttnBack As Button
     Friend WithEvents txtbxFacID As TextBox
     Friend WithEvents txtbxName As TextBox

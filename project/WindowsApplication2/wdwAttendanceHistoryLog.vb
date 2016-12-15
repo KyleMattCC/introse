@@ -3,10 +3,10 @@
     Public dgAttID As String
     Public rowData As List(Of String) = New List(Of String)
     Dim rindexValue As Integer
-    Public facultyID As String
-    Dim AttendanceView, MakeupView As Boolean
+    Public facultyId As String
+    Dim attendanceView, makeupView As Boolean
 
-    Private Function Check_fac(id As String) As Boolean
+    Private Function Check_Fac(id As String) As Boolean
         Dim checkFac As Boolean = False
         Dim fac As New Object
         fac = dbAccess.Get_Data("select facref_no from introse.faculty where facultyid = '" & id & "';", "facref_no")
@@ -17,7 +17,7 @@
             bttnModify.Enabled = False
             bttnDelete.Enabled = False
 
-            MsgBox("No Records matched!", MsgBoxStyle.Critical, "")
+            MsgBox("No records matched!", MsgBoxStyle.Critical, "")
         Else
             bttnAdd.Enabled = True
             bttnModify.Enabled = True
@@ -27,9 +27,9 @@
         Return checkFac
     End Function
 
-    Public Sub Load_form(id As String)
+    Public Sub Load_Form(id As String)
         rindexValue = 0
-        If Check_fac(id) Then
+        If Check_Fac(id) Then
             txtbxFacID.Text = id
             txtbxName.Text = dbAccess.Get_Data("select concat(f_lastname, ', ', f_firstname, ' ', f_middlename) from introse.faculty where facultyid = '" & id & "';", "concat(f_lastname, ', ', f_firstname, ' ', f_middlename)")
             facultyID = txtbxFacID.Text
@@ -44,7 +44,7 @@
                 bttnModify.Enabled = True
             End If
 
-            If AttendanceView = True Then
+            If attendanceView = True Then
                 dbAccess.Fill_Data_Grid("select a.attendanceid 'Attendance reference no.', concat(ac.yearstart, '-', ac.yearend) 'Academic year', t.term_no 'Term', a.absent_date 'Absent date', cl.course_cd 'Course', c.section 'Section', r.remark_des 'Remark'
                                 from introse.attendance a, introse.courseoffering c, introse.term t, introse.academicyear ac, introse.course cl, introse.faculty f, introse.remarks r
                                 where a.courseoffering_id = c.courseoffering_id and (c.status = 'A' or c.status = 'R') and (a.status = 'A' or a.status = 'R') and c.course_id = cl.course_id and c.termid = t.termid and t.yearid = ac.yearid and f.facultyid = '" + id + "' and f.facref_no = c.facref_no and a.remarks_cd = r.remark_cd
@@ -70,11 +70,11 @@
     Public Sub Enable_Form()
         Me.Show()
         Me.Enabled = True
-        Load_form(popFacSearch.get_Faculty_id)
+        Load_Form(popFacSearch.get_Faculty_Id)
         Me.Focus()
     End Sub
 
-    Public Sub Enable_After_Search_Form()
+    Public Sub Enable_Only_Form()
         Me.Show()
         Me.Enabled = True
         Me.Focus()
@@ -89,7 +89,7 @@
     Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
         Me.Enabled = False
 
-        If AttendanceView = True Then
+        If attendanceView = True Then
             popAddAttendanceHistory.Show()
         ElseIf makeupView = True Then
             popAddMakeUpHistory.Show()
@@ -106,14 +106,14 @@
 
                     For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
                         selectedRow = grid.Rows(.SelectedRows(ctr).Index)
-                        If AttendanceView = True Then
-                            dbAccess.Update_Data("UPDATE `introse`.`attendance` SET `status` = 'D' WHERE `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
-                        ElseIf MakeupView = True Then
-                            dbAccess.Update_Data("UPDATE `introse`.`makeup` SET `status` = 'D' WHERE `makeupid` = '" & selectedRow.Cells(0).Value & "';")
+                        If attendanceView = True Then
+                            dbAccess.Update_Data("update `introse`.`attendance` set `status` = 'D' where `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
+                        ElseIf makeupView = True Then
+                            dbAccess.Update_Data("update `introse`.`makeup` set `status` = 'D' where `makeupid` = '" & selectedRow.Cells(0).Value & "';")
                         End If
                     Next
 
-                    Load_form(txtbxFacID.Text)
+                    Load_Form(txtbxFacID.Text)
                 End If
 
             Else
@@ -130,7 +130,7 @@
         wdwMainMenu.Show()
     End Sub
 
-    Public Function getRefNo() As Integer
+    Public Function Get_Ref_No() As Integer
         Return rowData(0)
     End Function
 
@@ -138,23 +138,23 @@
         BttnAttendance.Enabled = False
         BttnMakeup.Enabled = True
 
-        AttendanceView = True
-        MakeupView = False
-        Load_form(txtbxFacID.Text)
+        attendanceView = True
+        makeupView = False
+        Load_Form(txtbxFacID.Text)
     End Sub
 
     Private Sub BttnMakeup_Click(sender As Object, e As EventArgs) Handles BttnMakeup.Click
         BttnAttendance.Enabled = True
         BttnMakeup.Enabled = False
 
-        AttendanceView = False
-        MakeupView = True
-        Load_form(txtbxFacID.Text)
+        attendanceView = False
+        makeupView = True
+        Load_Form(txtbxFacID.Text)
     End Sub
 
     Private Sub wdwAttendanceHistoryLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        AttendanceView = True
-        MakeupView = False
+        attendanceView = True
+        makeupView = False
     End Sub
 
     Private Sub bttnModify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
@@ -179,9 +179,9 @@
                 Next
 
                 Me.Enabled = False
-                If AttendanceView = True Then
+                If attendanceView = True Then
                     popModifyAttendanceHistory.Load_Form(rowData)
-                ElseIf MakeupView = True Then
+                ElseIf makeupView = True Then
                     popModifyMakeUpHistory.Load_Form(rowData)
                 End If
 
@@ -213,10 +213,10 @@
             Next
 
             Me.Enabled = False
-            If AttendanceView = True Then
-                wdwMoreInfo.Load_Attendance_Form(rowData)
-            ElseIf MakeupView = True Then
-                wdwMoreInfoMakeupClass.Load_Makeup_Form(rowData)
+            If attendanceView = True Then
+                popMoreInfo.Load_Attendance_Form(rowData)
+            ElseIf makeupView = True Then
+                popMoreInfoMakeupClass.Load_Makeup_Form(rowData)
             End If
 
         End With

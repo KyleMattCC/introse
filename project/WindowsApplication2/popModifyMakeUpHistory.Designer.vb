@@ -34,7 +34,7 @@ Partial Class popModifyMakeUpHistory
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.bttnAdd = New System.Windows.Forms.Button()
+        Me.bttnModify = New System.Windows.Forms.Button()
         Me.txtbxFacID = New System.Windows.Forms.TextBox()
         Me.txtbxFacName = New System.Windows.Forms.TextBox()
         Me.dtp = New System.Windows.Forms.DateTimePicker()
@@ -168,15 +168,15 @@ Partial Class popModifyMakeUpHistory
         Me.Label2.TabIndex = 248
         Me.Label2.Text = "Reason for absence:"
         '
-        'bttnAdd
+        'bttnModify
         '
-        Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnAdd.Location = New System.Drawing.Point(132, 350)
-        Me.bttnAdd.Name = "bttnAdd"
-        Me.bttnAdd.Size = New System.Drawing.Size(90, 30)
-        Me.bttnAdd.TabIndex = 249
-        Me.bttnAdd.Text = "Modify"
-        Me.bttnAdd.UseVisualStyleBackColor = True
+        Me.bttnModify.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnModify.Location = New System.Drawing.Point(132, 350)
+        Me.bttnModify.Name = "bttnModify"
+        Me.bttnModify.Size = New System.Drawing.Size(90, 30)
+        Me.bttnModify.TabIndex = 249
+        Me.bttnModify.Text = "Modify"
+        Me.bttnModify.UseVisualStyleBackColor = True
         '
         'txtbxFacID
         '
@@ -194,7 +194,7 @@ Partial Class popModifyMakeUpHistory
         Me.txtbxFacName.Location = New System.Drawing.Point(216, 40)
         Me.txtbxFacName.Name = "txtbxFacName"
         Me.txtbxFacName.ReadOnly = True
-        Me.txtbxFacName.Size = New System.Drawing.Size(313, 26)
+        Me.txtbxFacName.Size = New System.Drawing.Size(315, 26)
         Me.txtbxFacName.TabIndex = 2
         '
         'dtp
@@ -203,7 +203,7 @@ Partial Class popModifyMakeUpHistory
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Location = New System.Drawing.Point(216, 130)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(313, 26)
+        Me.dtp.Size = New System.Drawing.Size(315, 26)
         Me.dtp.TabIndex = 5
         '
         'cmbbxSY
@@ -281,7 +281,7 @@ Partial Class popModifyMakeUpHistory
         Me.cmbbxReason.FormattingEnabled = True
         Me.cmbbxReason.Location = New System.Drawing.Point(216, 310)
         Me.cmbbxReason.Name = "cmbbxReason"
-        Me.cmbbxReason.Size = New System.Drawing.Size(313, 28)
+        Me.cmbbxReason.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxReason.TabIndex = 11
         '
         'bttnBack
@@ -311,7 +311,7 @@ Partial Class popModifyMakeUpHistory
         Me.Controls.Add(Me.dtp)
         Me.Controls.Add(Me.txtbxFacName)
         Me.Controls.Add(Me.txtbxFacID)
-        Me.Controls.Add(Me.bttnAdd)
+        Me.Controls.Add(Me.bttnModify)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label13)
@@ -344,7 +344,7 @@ Partial Class popModifyMakeUpHistory
     Friend WithEvents Label13 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents bttnAdd As Button
+    Friend WithEvents bttnModify As Button
     Friend WithEvents txtbxFacID As TextBox
     Friend WithEvents txtbxFacName As TextBox
     Friend WithEvents dtp As DateTimePicker

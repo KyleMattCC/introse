@@ -1,17 +1,17 @@
 ﻿Public Class popFacSearch
-    Public Faculty_id As String
+    Public facultyId As String
     Dim tempPath As String
 
     Public Sub Set_Path(path As String)
         tempPath = path
     End Sub
 
-    Private Sub load_form()
+    Private Sub Load_Form()
         Me.Show()
         bttnSearch.Enabled = False
     End Sub
-    Public Function get_Faculty_id() As String
-        Return Faculty_id
+    Public Function get_Faculty_Id() As String
+        Return facultyId
     End Function
     Private Sub Validate_Input(allowed As String, e As KeyPressEventArgs)
         If Not (Asc(e.KeyChar) = 8) Then
@@ -47,7 +47,7 @@
     Private Sub txtFacID_TextChanged(sender As Object, e As EventArgs) Handles txtFacID.TextChanged
         If String.IsNullOrEmpty(txtFacID.Text) = False Then
             bttnSearch.Enabled = True
-            Faculty_id = txtFacID.Text
+            facultyId = txtFacID.Text
         Else
             bttnSearch.Enabled = False
         End If
@@ -61,7 +61,7 @@
         If tempPath.Equals("Main") Then
             wdwMainMenu.Enable_Form()
         ElseIf tempPath.Equals("History") Then
-            wdwAttendanceHistoryLog.Enable_After_Search_Form()
+            wdwAttendanceHistoryLog.Enable_Only_Form()
         End If
 
     End Sub

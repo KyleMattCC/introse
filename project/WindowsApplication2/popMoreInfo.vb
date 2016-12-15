@@ -1,4 +1,4 @@
-﻿Public Class wdwMoreInfo
+﻿Public Class popMoreInfo
     Dim dbAccess As databaseAccessor = New databaseAccessor
 
     Public Sub Load_Attendance_Form(rowData As List(Of String))
@@ -9,7 +9,7 @@
         Label18.Location = New Point(103, 429)
         moreInfo = dbAccess.Get_Multiple_Column_Data("select f.facultyid, concat(f_lastname, ', ', f.f_firstname, ' ', f_middlename), co.college_name, d.departmentname,  c.room, c.daysched, c.timestart, c.timeend, r.remark_des, a.enc_date, a.encoder, a.checker
         from introse.attendance a, introse.courseoffering c, introse.course cl, introse.faculty f, introse.remarks r, introse.department d, introse.college co
-        where a.courseoffering_id = c.courseoffering_id and (c.status = 'A' or c.status = 'R') and c.facref_no = f.facref_no and c.course_id = cl.course_id and a.remarks_cd = r.remark_cd and (a.status = 'A' or a.status = 'R') and f.departmentid = d.departmentid and d.college_code = co.college_code and a.attendanceid = '" & wdwAttendanceHistoryLog.getRefNo & "';", "12")
+        where a.courseoffering_id = c.courseoffering_id and (c.status = 'A' or c.status = 'R') and c.facref_no = f.facref_no and c.course_id = cl.course_id and a.remarks_cd = r.remark_cd and (a.status = 'A' or a.status = 'R') and f.departmentid = d.departmentid and d.college_code = co.college_code and a.attendanceid = '" & wdwAttendanceHistoryLog.Get_Ref_No & "';", "12")
 
         If rowData.Count > 0 Then
             txtbxRef.Text = rowData(0)
@@ -44,6 +44,6 @@
         Me.Close()
     End Sub
     Private Sub wdwMoreInfo_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        wdwAttendanceHistoryLog.Enable_After_Search_Form()
+        wdwAttendanceHistoryLog.Enable_Only_Form()
     End Sub
 End Class

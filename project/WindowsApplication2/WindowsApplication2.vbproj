@@ -109,6 +109,12 @@
     <Compile Include="popAddAccount.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="popAddAttendanceHistory.designer.vb">
+      <DependentUpon>popAddAttendanceHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popAddAttendanceHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="popAddMakeUpHistory.designer.vb">
       <DependentUpon>popAddMakeUpHistory.vb</DependentUpon>
     </Compile>
@@ -121,13 +127,19 @@
     <Compile Include="popEditAccount.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="popModifyAttendanceHistory.Designer.vb">
+    <Compile Include="popFacSearch.designer.vb">
+      <DependentUpon>popFacSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popFacSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popModifyAttendanceHistory.designer.vb">
       <DependentUpon>popModifyAttendanceHistory.vb</DependentUpon>
     </Compile>
     <Compile Include="popModifyAttendanceHistory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="popModifyMakeUpHistory.Designer.vb">
+    <Compile Include="popModifyMakeUpHistory.designer.vb">
       <DependentUpon>popModifyMakeUpHistory.vb</DependentUpon>
     </Compile>
     <Compile Include="popModifyMakeUpHistory.vb">
@@ -137,6 +149,24 @@
       <DependentUpon>popModifyPlantilla.vb</DependentUpon>
     </Compile>
     <Compile Include="popModifyPlantilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popMoreInfo.designer.vb">
+      <DependentUpon>popMoreInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popMoreInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popMoreInfoMakeupClass.designer.vb">
+      <DependentUpon>popMoreInfoMakeupClass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popMoreInfoMakeupClass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwAttendanceHistoryLog.designer.vb">
+      <DependentUpon>wdwAttendanceHistoryLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwAttendanceHistoryLog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wdwDataEntry.Designer.vb">
@@ -149,24 +179,6 @@
       <DependentUpon>wdwLogin.vb</DependentUpon>
     </Compile>
     <Compile Include="wdwLogin.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwMoreInfo.Designer.vb">
-      <DependentUpon>wdwMoreInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwMoreInfo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popAddAttendanceHistory.Designer.vb">
-      <DependentUpon>popAddAttendanceHistory.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popAddAttendanceHistory.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwAttendanceHistoryLog.Designer.vb">
-      <DependentUpon>wdwAttendanceHistoryLog.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwAttendanceHistoryLog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="reportGenerator.vb" />
@@ -218,12 +230,6 @@
       <DependentUpon>popNoticeOfAbsence.vb</DependentUpon>
     </Compile>
     <Compile Include="popNoticeOfAbsence.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popFacSearch.Designer.vb">
-      <DependentUpon>popFacSearch.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popFacSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="popAddMakeUp.Designer.vb">
@@ -323,12 +329,6 @@
     <Compile Include="wdwFacDailyAtt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wdwMoreInfoMakeupClass.Designer.vb">
-      <DependentUpon>wdwMoreInfoMakeupClass.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwMoreInfoMakeupClass.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="wdwSearchByName.Designer.vb">
       <DependentUpon>wdwSearchByName.vb</DependentUpon>
     </Compile>
@@ -382,11 +382,17 @@
     <EmbeddedResource Include="popAddAccount.resx">
       <DependentUpon>popAddAccount.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="popAddAttendanceHistory.resx">
+      <DependentUpon>popAddAttendanceHistory.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="popAddMakeUpHistory.resx">
       <DependentUpon>popAddMakeUpHistory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popEditAccount.resx">
       <DependentUpon>popEditAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popFacSearch.resx">
+      <DependentUpon>popFacSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popModifyAttendanceHistory.resx">
       <DependentUpon>popModifyAttendanceHistory.vb</DependentUpon>
@@ -397,20 +403,20 @@
     <EmbeddedResource Include="popModifyPlantilla.resx">
       <DependentUpon>popModifyPlantilla.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="popMoreInfo.resx">
+      <DependentUpon>popMoreInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popMoreInfoMakeupClass.resx">
+      <DependentUpon>popMoreInfoMakeupClass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwAttendanceHistoryLog.resx">
+      <DependentUpon>wdwAttendanceHistoryLog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="wdwDataEntry.resx">
       <DependentUpon>wdwDataEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwLogin.resx">
       <DependentUpon>wdwLogin.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwMoreInfo.resx">
-      <DependentUpon>wdwMoreInfo.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popAddAttendanceHistory.resx">
-      <DependentUpon>popAddAttendanceHistory.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwAttendanceHistoryLog.resx">
-      <DependentUpon>wdwAttendanceHistoryLog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwEmailReports.resx">
       <DependentUpon>wdwEmailReports.vb</DependentUpon>
@@ -420,9 +426,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="popMonthlyGen.resx">
       <DependentUpon>popMonthlyGen.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popFacSearch.resx">
-      <DependentUpon>popFacSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popAddMakeUp.resx">
       <DependentUpon>popAddMakeUp.vb</DependentUpon>
@@ -483,9 +486,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wdwFacDailyAtt.resx">
       <DependentUpon>wdwFacDailyAtt.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwMoreInfoMakeupClass.resx">
-      <DependentUpon>wdwMoreInfoMakeupClass.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwSearchByName.resx">
       <DependentUpon>wdwSearchByName.vb</DependentUpon>

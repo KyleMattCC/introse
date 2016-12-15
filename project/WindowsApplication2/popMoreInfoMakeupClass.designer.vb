@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class wdwMoreInfoMakeupClass
+Partial Class popMoreInfoMakeupClass
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class wdwMoreInfoMakeupClass
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wdwMoreInfoMakeupClass))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popMoreInfoMakeupClass))
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -233,9 +233,9 @@ Partial Class wdwMoreInfoMakeupClass
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(161, 544)
+        Me.bttnBack.Location = New System.Drawing.Point(243, 546)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(204, 40)
+        Me.bttnBack.Size = New System.Drawing.Size(90, 30)
         Me.bttnBack.TabIndex = 183
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = True
@@ -264,7 +264,7 @@ Partial Class wdwMoreInfoMakeupClass
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxName.Location = New System.Drawing.Point(199, 69)
         Me.txtbxName.Name = "txtbxName"
-        Me.txtbxName.Size = New System.Drawing.Size(313, 26)
+        Me.txtbxName.Size = New System.Drawing.Size(315, 26)
         Me.txtbxName.TabIndex = 3
         '
         'txtbxCollege
@@ -273,7 +273,7 @@ Partial Class wdwMoreInfoMakeupClass
         Me.txtbxCollege.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxCollege.Location = New System.Drawing.Point(199, 99)
         Me.txtbxCollege.Name = "txtbxCollege"
-        Me.txtbxCollege.Size = New System.Drawing.Size(313, 26)
+        Me.txtbxCollege.Size = New System.Drawing.Size(315, 26)
         Me.txtbxCollege.TabIndex = 4
         '
         'txtbxDept
@@ -282,7 +282,7 @@ Partial Class wdwMoreInfoMakeupClass
         Me.txtbxDept.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDept.Location = New System.Drawing.Point(199, 129)
         Me.txtbxDept.Name = "txtbxDept"
-        Me.txtbxDept.Size = New System.Drawing.Size(313, 26)
+        Me.txtbxDept.Size = New System.Drawing.Size(315, 26)
         Me.txtbxDept.TabIndex = 5
         '
         'txtbxSY
@@ -393,7 +393,7 @@ Partial Class wdwMoreInfoMakeupClass
         Me.txtbxEncoder.Size = New System.Drawing.Size(165, 26)
         Me.txtbxEncoder.TabIndex = 17
         '
-        'wdwMoreInfoMakeupClass
+        'popMoreInfoMakeupClass
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -435,7 +435,7 @@ Partial Class wdwMoreInfoMakeupClass
         Me.Controls.Add(Me.Label5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "wdwMoreInfoMakeupClass"
+        Me.Name = "popMoreInfoMakeupClass"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "More Information"
         Me.ResumeLayout(False)
