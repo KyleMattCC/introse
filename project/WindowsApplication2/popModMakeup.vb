@@ -253,7 +253,7 @@
         makeupCheck = dbAccess.Get_Multiple_Row_Data("select makeupid
                                          from introse.makeup
                                          where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "';")
-        If makeupCheck.Count < 2 Then
+        If makeupCheck.Count = 1 Then
             b = True
         Else
             MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")

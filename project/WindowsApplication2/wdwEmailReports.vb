@@ -11,10 +11,17 @@ Public Class wdwEmailReports
 
     Public Sub Load_Form(filename As String, reportType As Integer, reportFor As String, reportDay As Date)
         file = filename
-        Dim emailAdd As String
+        Dim emailAdd As String = Nothing
 
         If reportType = 1 Then
-            'emailAdd = dbAccess.Get_Data("select email from introse.faculty where ")
+            emailAdd = dbAccess.Get_Data("select email from introse.faculty where concat(f_lastname, ', ', f_fistname, ' ', f_middlename) = '" & reportFor & ";", "email")
+            If String.IsNullOrEmpty(emailAdd) Then
+                txtbxTo.Text = Nothing
+
+            Else
+                txtbxTo.Text = emailAdd
+            End If
+
             txtbxSubject.Text = "[OUR] (" & reportFor & " Copy) Daily Attendance Notice"
             txtbxBody.Text = "Attached is a notice of your absence."
 
@@ -48,14 +55,25 @@ Public Class wdwEmailReports
 
         End If
 
+        Me.Show()
     End Sub
 
-    Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
+    Private Sub txtbxTo_TextChanged(sender As Object, e As EventArgs) Handles txtbxTo.TextChanged
+        If String.IsNullOrEmpty(txtbxTo.Text) Then
+            bttnSend.Enabled = False
+
+        Else
+            bttnSend.Enabled = True
+        End If
+
+    End Sub
+
+    Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles bttnSend.Click
         Try
             Dim SMTPcl As New SmtpClient
             Dim SendMail As New MailMessage()
-            Dim Email As String = "harison@gmail.com"
-            Dim Passwordss As String = "allahuakbar"
+            Dim Email As String = "kyle.daman19@gmail.com"
+            Dim Passwordss As String = "k09225451486"
             SMTPcl.UseDefaultCredentials = False
             SMTPcl.Credentials = New Net.NetworkCredential(Email, Passwordss)
             SMTPcl.Port = 587
@@ -63,11 +81,13 @@ Public Class wdwEmailReports
             SMTPcl.Host = "smtp.gmail.com"
 
             SendMail = New MailMessage()
-            SendMail.From = New MailAddress("harison@gmail.com")
+            SendMail.From = New MailAddress("kyle.daman19@gmail.com")
             SendMail.To.Add(txtbxTo.Text)
             SendMail.Subject = txtbxSubject.Text
             SendMail.IsBodyHtml = False
             SendMail.Body = txtbxBody.Text
+            'Dim msgAtt As New Attachment(file)
+            'SendMail.Attachments.Add(msgAtt)
             SMTPcl.Send(SendMail)
             MsgBox("E-mail sent!", MsgBoxStyle.OkOnly, "")
 
@@ -78,10 +98,13 @@ Public Class wdwEmailReports
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnCancel.Click
         Me.Close()
-        wdwReportGen.Enable_Form()
 
     End Sub
 
+    Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
+        wdwReportGen.Enable_Form()
+
+    End Sub
 End Class

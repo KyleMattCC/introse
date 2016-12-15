@@ -23,24 +23,24 @@ Partial Class wdwEmailReports
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wdwEmailReports))
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.bttnCancel = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnSend = New System.Windows.Forms.Button()
+        Me.bttnSend = New System.Windows.Forms.Button()
         Me.txtbxSubject = New System.Windows.Forms.TextBox()
         Me.txtbxTo = New System.Windows.Forms.TextBox()
         Me.txtbxBody = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
-        'Button1
+        'bttnCancel
         '
-        Me.Button1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(243, 382)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 30)
-        Me.Button1.TabIndex = 36
-        Me.Button1.Text = "Cancel"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.bttnCancel.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnCancel.Location = New System.Drawing.Point(243, 382)
+        Me.bttnCancel.Name = "bttnCancel"
+        Me.bttnCancel.Size = New System.Drawing.Size(90, 30)
+        Me.bttnCancel.TabIndex = 36
+        Me.bttnCancel.Text = "Cancel"
+        Me.bttnCancel.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -62,15 +62,15 @@ Partial Class wdwEmailReports
         Me.Label1.TabIndex = 34
         Me.Label1.Text = "To:"
         '
-        'btnSend
+        'bttnSend
         '
-        Me.btnSend.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSend.Location = New System.Drawing.Point(101, 382)
-        Me.btnSend.Name = "btnSend"
-        Me.btnSend.Size = New System.Drawing.Size(90, 30)
-        Me.btnSend.TabIndex = 33
-        Me.btnSend.Text = "Send"
-        Me.btnSend.UseVisualStyleBackColor = True
+        Me.bttnSend.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnSend.Location = New System.Drawing.Point(101, 382)
+        Me.bttnSend.Name = "bttnSend"
+        Me.bttnSend.Size = New System.Drawing.Size(90, 30)
+        Me.bttnSend.TabIndex = 33
+        Me.bttnSend.Text = "Send"
+        Me.bttnSend.UseVisualStyleBackColor = True
         '
         'txtbxSubject
         '
@@ -102,10 +102,10 @@ Partial Class wdwEmailReports
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(428, 420)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.bttnCancel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnSend)
+        Me.Controls.Add(Me.bttnSend)
         Me.Controls.Add(Me.txtbxBody)
         Me.Controls.Add(Me.txtbxSubject)
         Me.Controls.Add(Me.txtbxTo)
@@ -119,10 +119,10 @@ Partial Class wdwEmailReports
 
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents bttnCancel As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents btnSend As Button
+    Friend WithEvents bttnSend As Button
     Friend WithEvents txtbxSubject As TextBox
     Friend WithEvents txtbxTo As TextBox
     Friend WithEvents txtbxBody As RichTextBox

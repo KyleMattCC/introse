@@ -209,7 +209,4 @@
         Return dtp.Value
     End Function
 
-    Private Sub grid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellContentClick
-
-    End Sub
 End Class

@@ -25,6 +25,8 @@
     End Sub
 
     Private Sub EmailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmailToolStripMenuItem.Click
+        wdwEmailReports.Load_Form(file, type, recipient, day)
+        Me.Enabled = False
 
     End Sub
 
@@ -35,5 +37,6 @@
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwSelectReport.Enable_Form()
+
     End Sub
 End Class

@@ -66,7 +66,6 @@ Partial Class popTermEndGen
         Me.cmbbxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxYear.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxYear.FormattingEnabled = True
-        Me.cmbbxYear.Items.AddRange(New Object() {"1", "2", "3"})
         Me.cmbbxYear.Location = New System.Drawing.Point(160, 12)
         Me.cmbbxYear.Name = "cmbbxYear"
         Me.cmbbxYear.Size = New System.Drawing.Size(165, 28)

@@ -184,6 +184,7 @@ Partial Class wdwDailyAttendanceLog
         'txtbxDept
         '
         Me.txtbxDept.AcceptsTab = True
+        Me.txtbxDept.Enabled = False
         Me.txtbxDept.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDept.Location = New System.Drawing.Point(216, 85)
         Me.txtbxDept.Name = "txtbxDept"

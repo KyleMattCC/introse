@@ -132,7 +132,7 @@
             popMonthlyGen.Load_Form(offeredType, reportFor)
 
         ElseIf reportType = 3 Then
-            popTermEndGen.Show()
+            popTermEndGen.Load_Form(offeredType, reportFor)
         End If
 
     End Sub
