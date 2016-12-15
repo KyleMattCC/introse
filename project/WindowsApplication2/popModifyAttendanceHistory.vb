@@ -183,7 +183,7 @@
         Try
             years = schoolYear.Split("-")
             yearId = dbAccess.Get_Data("select yearid from introse.academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
-            termNo = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where status = 'A' and yearid = '" & yearId & "';")
+            termNo = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where yearid = '" & yearId & "';")
 
             For ctr As Integer = 0 To termNo.Count - 1
                 combo.Items.Add(termNo(ctr))
@@ -214,7 +214,7 @@
 
         Try
             years = schoolYear.Split("-")
-            termId = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.status = 'A' and t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
+            termId = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
         Catch ex As Exception
 
         End Try
@@ -463,16 +463,16 @@
                 MsgBox("Absent date does Not match class schedule!", MsgBoxStyle.Critical, "")
             Else
                 absentDate = dtp.Value.Date.ToString("yyyy-MM-dd")
-                schoolyear = cmbbxSY.SelectedItem
+                schoolYear = cmbbxSY.SelectedItem
                 termNo = cmbbxTerm.SelectedItem
                 course = cmbbxCourse.SelectedItem
                 section = cmbbxSection.SelectedItem
                 checker = txtbxChecker.Text
 
                 remCode = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
-                termId = Get_termID(schoolYear, termNo)
+                termId = Get_TermId(schoolYear, termNo)
 
-                courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.termid = '" & termid & "' and c.section = '" & section & "';", "courseoffering_id")
+                courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.termid = '" & termId & "' and c.section = '" & section & "';", "courseoffering_id")
                 attStatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
                 If (Check_Entry(absentDate, courseOfferingId, "A", remCode, checker) = True And Check_Entry(absentDate, courseOfferingId, "R", remCode, checker) = True) Then

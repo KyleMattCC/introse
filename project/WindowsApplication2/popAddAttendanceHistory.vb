@@ -94,12 +94,12 @@
         Try
             years = schoolYear.Split("-")
             yearId = dbAccess.Get_Data("select yearid from introse.academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
-            termNo = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where status = 'A' and yearid = '" & yearId & "';")
+            termNo = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where yearid = '" & yearId & "';")
 
             For ctr As Integer = 0 To termNo.Count - 1
                 combo.Items.Add(termNo(ctr))
             Next
-
+            combo.SelectedItem = dbAccess.Get_Data("select term_no from introse.term where yearid = '" & yearId & "' and status = 'A';", "term_no")
         Catch ex As Exception
 
         End Try
@@ -119,6 +119,7 @@
             For ctr As Integer = 0 To schoolYear.Count - 1
                 combo.Items.Add(schoolYear(ctr))
             Next
+            combo.SelectedItem = dbAccess.Get_Data("select concat(yearstart, '-', yearend) from introse.academicyear where status = 'A';", "concat(yearstart, '-', yearend)")
         Catch ex As Exception
         End Try
 
@@ -130,7 +131,7 @@
         Try
 
             years = schoolYear.Split("-")
-            termId = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.status = 'A' and t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
+            termId = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
         Catch ex As Exception
 
         End Try
