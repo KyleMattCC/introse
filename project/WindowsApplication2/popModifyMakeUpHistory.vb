@@ -193,7 +193,7 @@
         Try
             years = schoolYear.Split("-")
             yearId = dbAccess.Get_Data("select yearid from introse.academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
-            termNo = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where status = 'A' and yearid = '" & yearId & "';")
+            termNo = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where yearid = '" & yearId & "';")
 
             For ctr As Integer = 0 To termNo.Count - 1
                 combo.Items.Add(termNo(ctr))
@@ -224,7 +224,7 @@
 
         Try
             years = schoolYear.Split("-")
-            termId = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.status = 'A' and t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
+            termId = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
         Catch ex As Exception
 
         End Try
@@ -457,7 +457,7 @@
                         reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
                         courseOfferingId = dbAccess.Get_Data("select courseoffering_id 
                                                             from introse.courseoffering c, introse.course cl 
-                                                            where c.termid = '" & termid & "' and (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
+                                                            where c.termid = '" & termId & "' and (c.status = 'A' or c.status = 'R') and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
                         attStatus = dbAccess.Get_Data("select status from introse.courseoffering where courseoffering_id = '" & courseOfferingId & "';", "status")
 
                         If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId) And Check_Entry(makeupDate, startTime, endTime, room, "R", courseOfferingId)) Then

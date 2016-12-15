@@ -55,23 +55,25 @@ Partial Class popMonthlyGen
         '
         'bttnGenerate
         '
+        Me.bttnGenerate.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnGenerate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnGenerate.Location = New System.Drawing.Point(65, 140)
         Me.bttnGenerate.Name = "bttnGenerate"
         Me.bttnGenerate.Size = New System.Drawing.Size(90, 30)
         Me.bttnGenerate.TabIndex = 4
         Me.bttnGenerate.Text = "Generate"
-        Me.bttnGenerate.UseVisualStyleBackColor = True
+        Me.bttnGenerate.UseVisualStyleBackColor = False
         '
         'bttnBack
         '
+        Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(185, 140)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(90, 30)
         Me.bttnBack.TabIndex = 5
         Me.bttnBack.Text = "Back"
-        Me.bttnBack.UseVisualStyleBackColor = True
+        Me.bttnBack.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -89,7 +91,7 @@ Partial Class popMonthlyGen
         Me.cmbbxMonth.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxMonth.FormattingEnabled = True
         Me.cmbbxMonth.Items.AddRange(New Object() {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
-        Me.cmbbxMonth.Location = New System.Drawing.Point(161, 90)
+        Me.cmbbxMonth.Location = New System.Drawing.Point(161, 89)
         Me.cmbbxMonth.MaxDropDownItems = 12
         Me.cmbbxMonth.Name = "cmbbxMonth"
         Me.cmbbxMonth.Size = New System.Drawing.Size(165, 28)
@@ -119,6 +121,7 @@ Partial Class popMonthlyGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(339, 188)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbbxTerm)

@@ -5,26 +5,21 @@ Public Class popEditAccount
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnChange.Click
 
-        Dim User As String = Nothing
-        Dim Name As String = Nothing
-        Dim ID As String
+        Dim user As String = Nothing
+        Dim name As String = Nothing
+        Dim id As String
 
+        user = dbAccess.Get_Data("select username from account where username = '" & txtbxUser.Text & "'", "username")
+        id = dbAccess.Get_Data("select id from account where username = '" & wdwLogin.Get_Encoder & "'", "id")
 
-        User = dbAccess.Get_Data("select username from account where username = '" & txtbxUser.Text & "'", "username")
-        ID = dbAccess.Get_Data("select id from account where username = '" & wdwLogin.Get_Encoder & "'", "id")
+        If (user = Nothing) Then
 
-        If (User = Nothing) Then
-
-            dbAccess.Update_Data("UPDATE `introse`.`account` SET `encodername`= '" & txtbxName.Text & "', `password`= '" & txtbxPass.Text & "', `username`= '" & txtbxUser.Text & "' WHERE `id`='" & ID & "';")
+            dbAccess.Update_Data("UPDATE `introse`.`account` SET `encodername`= '" & txtbxName.Text & "', `password`= '" & txtbxPass.Text & "', `username`= '" & txtbxUser.Text & "' WHERE `id`='" & id & "';")
             MsgBox("Credentials Successfully Changed!")
             Me.Close()
         Else
             MsgBox("Username already taken. Try again!")
         End If
-
-
-
-
 
     End Sub
 
@@ -36,15 +31,9 @@ Public Class popEditAccount
         Else
             bttnChange.Enabled = False
         End If
-
-
-
-
     End Sub
 
     Private Sub popEditAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
         txtbxName.Text = wdwLogin.Get_Encoder
         txtbxUser.Text = wdwLogin.Get_User
         txtbxPass.Text = wdwLogin.Get_Pass

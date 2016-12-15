@@ -36,7 +36,7 @@ Partial Class popTermEndGen
         Me.cmbbxTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxTerm.FormattingEnabled = True
-        Me.cmbbxTerm.Location = New System.Drawing.Point(137, 49)
+        Me.cmbbxTerm.Location = New System.Drawing.Point(160, 46)
         Me.cmbbxTerm.Name = "cmbbxTerm"
         Me.cmbbxTerm.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxTerm.TabIndex = 1
@@ -45,17 +45,17 @@ Partial Class popTermEndGen
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 17)
+        Me.Label2.Location = New System.Drawing.Point(9, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(119, 20)
+        Me.Label2.Size = New System.Drawing.Size(145, 20)
         Me.Label2.TabIndex = 8
-        Me.Label2.Text = "School Year:"
+        Me.Label2.Text = "Academic Year:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(70, 51)
+        Me.Label1.Location = New System.Drawing.Point(93, 50)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 20)
         Me.Label1.TabIndex = 7
@@ -66,7 +66,8 @@ Partial Class popTermEndGen
         Me.cmbbxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxYear.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxYear.FormattingEnabled = True
-        Me.cmbbxYear.Location = New System.Drawing.Point(137, 15)
+        Me.cmbbxYear.Items.AddRange(New Object() {"1", "2", "3"})
+        Me.cmbbxYear.Location = New System.Drawing.Point(160, 12)
         Me.cmbbxYear.Name = "cmbbxYear"
         Me.cmbbxYear.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxYear.TabIndex = 6
@@ -74,7 +75,8 @@ Partial Class popTermEndGen
         'bttnBack
         '
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(174, 89)
+        Me.bttnBack.Location = New System.Drawing.Point(190, 90)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(90, 30)
         Me.bttnBack.TabIndex = 4
@@ -84,7 +86,8 @@ Partial Class popTermEndGen
         'bttnGenerate
         '
         Me.bttnGenerate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnGenerate.Location = New System.Drawing.Point(55, 89)
+        Me.bttnGenerate.Location = New System.Drawing.Point(64, 90)
+        Me.bttnGenerate.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.bttnGenerate.Name = "bttnGenerate"
         Me.bttnGenerate.Size = New System.Drawing.Size(90, 30)
         Me.bttnGenerate.TabIndex = 3
@@ -95,7 +98,8 @@ Partial Class popTermEndGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(318, 131)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(342, 131)
         Me.Controls.Add(Me.bttnBack)
         Me.Controls.Add(Me.bttnGenerate)
         Me.Controls.Add(Me.cmbbxTerm)

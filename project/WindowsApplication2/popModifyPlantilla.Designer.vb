@@ -22,6 +22,7 @@ Partial Class popModifyPlantilla
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popModifyPlantilla))
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -197,23 +198,25 @@ Partial Class popModifyPlantilla
         '
         'bttnCourseModify
         '
+        Me.bttnCourseModify.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnCourseModify.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnCourseModify.Location = New System.Drawing.Point(167, 339)
         Me.bttnCourseModify.Name = "bttnCourseModify"
         Me.bttnCourseModify.Size = New System.Drawing.Size(105, 29)
         Me.bttnCourseModify.TabIndex = 27
         Me.bttnCourseModify.Text = "Modify"
-        Me.bttnCourseModify.UseVisualStyleBackColor = True
+        Me.bttnCourseModify.UseVisualStyleBackColor = False
         '
         'bttnCourseBack
         '
+        Me.bttnCourseBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnCourseBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnCourseBack.Location = New System.Drawing.Point(308, 339)
         Me.bttnCourseBack.Name = "bttnCourseBack"
         Me.bttnCourseBack.Size = New System.Drawing.Size(105, 29)
         Me.bttnCourseBack.TabIndex = 28
         Me.bttnCourseBack.Text = "Back"
-        Me.bttnCourseBack.UseVisualStyleBackColor = True
+        Me.bttnCourseBack.UseVisualStyleBackColor = False
         '
         'Label22
         '
@@ -255,7 +258,9 @@ Partial Class popModifyPlantilla
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(555, 434)
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(555, 385)
         Me.Controls.Add(Me.txtbxFacName)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txtbxCourseFacID)
@@ -269,8 +274,13 @@ Partial Class popModifyPlantilla
         Me.Controls.Add(Me.bttnCourseBack)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label22)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popModifyPlantilla"
-        Me.Text = "popModifyPlantilla"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Modify Plantilla"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

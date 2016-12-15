@@ -1,7 +1,7 @@
 ﻿Public Class popAddMakeUpHistory
     Dim dbAccess As New databaseAccessor
     Public Sub Load_Form(id As String)
-        If Check_fac(id) Then
+        If Check_Fac(id) Then
             txtbxFacID.Text = id
         End If
     End Sub
@@ -165,12 +165,12 @@
         Try
             years = schoolYear.Split("-")
             yearId = dbAccess.Get_Data("select yearid from introse.academicyear where yearstart = '" & years(0) & "' and yearend = '" & years(1) & "';", "yearid")
-            termNo = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where status = 'A' and yearid = '" & yearId & "';")
-
+            termNo = dbAccess.Get_Multiple_Row_Data("select term_no from introse.term where yearid = '" & yearId & "';")
 
             For ctr As Integer = 0 To termNo.Count - 1
                 combo.Items.Add(termNo(ctr))
             Next
+            combo.SelectedItem = dbAccess.Get_Data("select term_no from introse.term where yearid = '" & yearId & "' and status = 'A';", "term_no")
         Catch ex As Exception
 
         End Try
@@ -189,6 +189,7 @@
             For ctr As Integer = 0 To schoolYear.Count - 1
                 combo.Items.Add(schoolYear(ctr))
             Next
+            combo.SelectedItem = dbAccess.Get_Data("select concat(yearstart, '-', yearend) from introse.academicyear where status = 'A';", "concat(yearstart, '-', yearend)")
         Catch ex As Exception
         End Try
 
@@ -199,7 +200,7 @@
 
         Try
             years = schoolYear.Split("-")
-            termId = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.status = 'A' and t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
+            termId = dbAccess.Get_Data("select t.termid from introse.term t, introse.academicyear a where t.yearid = a.yearid and t.term_no = '" & termNo & "' and  a.yearstart = '" & years(0) & "' and a.yearend = '" & years(1) & "';", "termid")
         Catch ex As Exception
 
         End Try
@@ -221,8 +222,8 @@
                                                     from introse.course c, introse.courseoffering co, introse.attendance a 
                                                     where co.termid = '" & termId & "' and (co.status = 'A' or co.status = 'R') and (a.status = 'A' or a.status = 'R') and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;")
 
-            For ctr As Integer = 0 To coursecode.Count - 1
-                combo.Items.Add(coursecode(ctr))
+            For ctr As Integer = 0 To courseCode.Count - 1
+                combo.Items.Add(courseCode(ctr))
             Next
             dtp.Enabled = True
         Catch ex As Exception
@@ -259,7 +260,7 @@
         Dim startTime, endTime, tempStart, tempEnd As Integer
         Dim termId As Object
 
-        termId = Get_termID(cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString)
+        termId = Get_termId(cmbbxSY.SelectedItem.ToString, cmbbxTerm.SelectedItem.ToString)
 
         Dim absentHours As Double = dbAccess.Get_Data("select sum(co.hours) 
                                                       from introse.attendance a, introse.courseoffering co, introse.course c

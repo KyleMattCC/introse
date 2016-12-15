@@ -27,17 +27,17 @@ Partial Class wdwEmailReports
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnSend = New System.Windows.Forms.Button()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.txtSubject = New System.Windows.Forms.TextBox()
-        Me.txtTo = New System.Windows.Forms.TextBox()
+        Me.txtbxSubject = New System.Windows.Forms.TextBox()
+        Me.txtbxTo = New System.Windows.Forms.TextBox()
+        Me.txtbxBody = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(236, 382)
+        Me.Button1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(243, 382)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(90, 30)
         Me.Button1.TabIndex = 36
         Me.Button1.Text = "Cancel"
         Me.Button1.UseVisualStyleBackColor = True
@@ -45,72 +45,75 @@ Partial Class wdwEmailReports
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(9, 57)
+        Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 47)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(70, 20)
+        Me.Label2.Size = New System.Drawing.Size(80, 20)
         Me.Label2.TabIndex = 35
-        Me.Label2.Text = "Subject"
+        Me.Label2.Text = "Subject:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(46, 17)
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(55, 14)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 20)
+        Me.Label1.Size = New System.Drawing.Size(37, 20)
         Me.Label1.TabIndex = 34
-        Me.Label1.Text = "To "
+        Me.Label1.Text = "To:"
         '
         'btnSend
         '
-        Me.btnSend.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSend.Location = New System.Drawing.Point(317, 382)
+        Me.btnSend.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSend.Location = New System.Drawing.Point(101, 382)
         Me.btnSend.Name = "btnSend"
-        Me.btnSend.Size = New System.Drawing.Size(75, 23)
+        Me.btnSend.Size = New System.Drawing.Size(90, 30)
         Me.btnSend.TabIndex = 33
         Me.btnSend.Text = "Send"
         Me.btnSend.UseVisualStyleBackColor = True
         '
-        'RichTextBox1
+        'txtbxSubject
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 82)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(380, 294)
-        Me.RichTextBox1.TabIndex = 3
-        Me.RichTextBox1.Text = ""
+        Me.txtbxSubject.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxSubject.Location = New System.Drawing.Point(101, 45)
+        Me.txtbxSubject.Name = "txtbxSubject"
+        Me.txtbxSubject.Size = New System.Drawing.Size(315, 26)
+        Me.txtbxSubject.TabIndex = 2
         '
-        'txtSubject
+        'txtbxTo
         '
-        Me.txtSubject.Location = New System.Drawing.Point(87, 56)
-        Me.txtSubject.Name = "txtSubject"
-        Me.txtSubject.Size = New System.Drawing.Size(295, 20)
-        Me.txtSubject.TabIndex = 2
+        Me.txtbxTo.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxTo.Location = New System.Drawing.Point(101, 12)
+        Me.txtbxTo.Name = "txtbxTo"
+        Me.txtbxTo.Size = New System.Drawing.Size(315, 26)
+        Me.txtbxTo.TabIndex = 1
         '
-        'txtTo
+        'txtbxBody
         '
-        Me.txtTo.Location = New System.Drawing.Point(87, 17)
-        Me.txtTo.Name = "txtTo"
-        Me.txtTo.Size = New System.Drawing.Size(295, 20)
-        Me.txtTo.TabIndex = 1
+        Me.txtbxBody.Font = New System.Drawing.Font("Lucida Bright", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbxBody.Location = New System.Drawing.Point(12, 82)
+        Me.txtbxBody.Name = "txtbxBody"
+        Me.txtbxBody.Size = New System.Drawing.Size(404, 294)
+        Me.txtbxBody.TabIndex = 3
+        Me.txtbxBody.Text = ""
         '
         'wdwEmailReports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(405, 420)
+        Me.ClientSize = New System.Drawing.Size(428, 420)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnSend)
-        Me.Controls.Add(Me.RichTextBox1)
-        Me.Controls.Add(Me.txtSubject)
-        Me.Controls.Add(Me.txtTo)
+        Me.Controls.Add(Me.txtbxBody)
+        Me.Controls.Add(Me.txtbxSubject)
+        Me.Controls.Add(Me.txtbxTo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "wdwEmailReports"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Email Reports"
+        Me.Text = "Email"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -120,7 +123,7 @@ Partial Class wdwEmailReports
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents btnSend As Button
-    Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents txtSubject As TextBox
-    Friend WithEvents txtTo As TextBox
+    Friend WithEvents txtbxSubject As TextBox
+    Friend WithEvents txtbxTo As TextBox
+    Friend WithEvents txtbxBody As RichTextBox
 End Class
