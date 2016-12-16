@@ -22,145 +22,85 @@ Partial Class popFacSearch
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popFacSearch))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtFirstname = New System.Windows.Forms.TextBox()
-        Me.txtLastname = New System.Windows.Forms.TextBox()
-        Me.rbttnName = New System.Windows.Forms.RadioButton()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.bttnCancel = New System.Windows.Forms.Button()
-        Me.txtSec = New System.Windows.Forms.TextBox()
-        Me.txtCourse = New System.Windows.Forms.TextBox()
         Me.bttnSearch = New System.Windows.Forms.Button()
-        Me.rbttnID = New System.Windows.Forms.RadioButton()
         Me.txtFacID = New System.Windows.Forms.TextBox()
-        Me.rbttnCourse = New System.Windows.Forms.RadioButton()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.txtFirstname)
-        Me.GroupBox1.Controls.Add(Me.txtLastname)
-        Me.GroupBox1.Controls.Add(Me.rbttnName)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.bttnCancel)
-        Me.GroupBox1.Controls.Add(Me.txtSec)
-        Me.GroupBox1.Controls.Add(Me.txtCourse)
         Me.GroupBox1.Controls.Add(Me.bttnSearch)
-        Me.GroupBox1.Controls.Add(Me.rbttnID)
         Me.GroupBox1.Controls.Add(Me.txtFacID)
-        Me.GroupBox1.Controls.Add(Me.rbttnCourse)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 6)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(260, 248)
+        Me.GroupBox1.Size = New System.Drawing.Size(265, 126)
         Me.GroupBox1.TabIndex = 43
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Search "
         '
-        'txtFirstname
+        'Label1
         '
-        Me.txtFirstname.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFirstname.Location = New System.Drawing.Point(133, 49)
-        Me.txtFirstname.Name = "txtFirstname"
-        Me.txtFirstname.Size = New System.Drawing.Size(114, 20)
-        Me.txtFirstname.TabIndex = 47
-        '
-        'txtLastname
-        '
-        Me.txtLastname.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLastname.Location = New System.Drawing.Point(13, 49)
-        Me.txtLastname.Name = "txtLastname"
-        Me.txtLastname.Size = New System.Drawing.Size(114, 20)
-        Me.txtLastname.TabIndex = 46
-        '
-        'rbttnName
-        '
-        Me.rbttnName.AutoSize = True
-        Me.rbttnName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnName.Location = New System.Drawing.Point(13, 26)
-        Me.rbttnName.Name = "rbttnName"
-        Me.rbttnName.Size = New System.Drawing.Size(174, 20)
-        Me.rbttnName.TabIndex = 45
-        Me.rbttnName.Text = "Lastname / Firstname"
-        Me.rbttnName.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(7, 22)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(102, 20)
+        Me.Label1.TabIndex = 44
+        Me.Label1.Text = "Faculty ID:"
         '
         'bttnCancel
         '
-        Me.bttnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnCancel.Location = New System.Drawing.Point(134, 206)
+        Me.bttnCancel.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnCancel.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnCancel.Location = New System.Drawing.Point(135, 81)
         Me.bttnCancel.Name = "bttnCancel"
-        Me.bttnCancel.Size = New System.Drawing.Size(90, 23)
+        Me.bttnCancel.Size = New System.Drawing.Size(90, 30)
         Me.bttnCancel.TabIndex = 44
         Me.bttnCancel.Text = "Cancel"
-        Me.bttnCancel.UseVisualStyleBackColor = True
-        '
-        'txtSec
-        '
-        Me.txtSec.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSec.Location = New System.Drawing.Point(93, 160)
-        Me.txtSec.Name = "txtSec"
-        Me.txtSec.Size = New System.Drawing.Size(50, 20)
-        Me.txtSec.TabIndex = 10
-        '
-        'txtCourse
-        '
-        Me.txtCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCourse.Location = New System.Drawing.Point(11, 160)
-        Me.txtCourse.Name = "txtCourse"
-        Me.txtCourse.Size = New System.Drawing.Size(76, 20)
-        Me.txtCourse.TabIndex = 9
+        Me.bttnCancel.UseVisualStyleBackColor = False
         '
         'bttnSearch
         '
-        Me.bttnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnSearch.Location = New System.Drawing.Point(28, 206)
+        Me.bttnSearch.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnSearch.Location = New System.Drawing.Point(40, 81)
         Me.bttnSearch.Name = "bttnSearch"
-        Me.bttnSearch.Size = New System.Drawing.Size(90, 23)
+        Me.bttnSearch.Size = New System.Drawing.Size(90, 30)
         Me.bttnSearch.TabIndex = 1
         Me.bttnSearch.Text = "Search"
-        Me.bttnSearch.UseVisualStyleBackColor = True
-        '
-        'rbttnID
-        '
-        Me.rbttnID.AutoSize = True
-        Me.rbttnID.Checked = True
-        Me.rbttnID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnID.Location = New System.Drawing.Point(11, 79)
-        Me.rbttnID.Name = "rbttnID"
-        Me.rbttnID.Size = New System.Drawing.Size(95, 20)
-        Me.rbttnID.TabIndex = 4
-        Me.rbttnID.TabStop = True
-        Me.rbttnID.Text = "Faculty ID"
-        Me.rbttnID.UseVisualStyleBackColor = True
+        Me.bttnSearch.UseVisualStyleBackColor = False
         '
         'txtFacID
         '
-        Me.txtFacID.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFacID.Location = New System.Drawing.Point(11, 102)
+        Me.txtFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFacID.Location = New System.Drawing.Point(11, 45)
         Me.txtFacID.Name = "txtFacID"
-        Me.txtFacID.Size = New System.Drawing.Size(234, 20)
-        Me.txtFacID.TabIndex = 7
-        '
-        'rbttnCourse
-        '
-        Me.rbttnCourse.AutoSize = True
-        Me.rbttnCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbttnCourse.Location = New System.Drawing.Point(11, 137)
-        Me.rbttnCourse.Name = "rbttnCourse"
-        Me.rbttnCourse.Size = New System.Drawing.Size(132, 20)
-        Me.rbttnCourse.TabIndex = 6
-        Me.rbttnCourse.Text = "Course/Section"
-        Me.rbttnCourse.UseVisualStyleBackColor = True
+        Me.txtFacID.Size = New System.Drawing.Size(243, 26)
+        Me.txtFacID.TabIndex = 1
         '
         'popFacSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(289, 144)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popFacSearch"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Find Daily Faculty Attendance"
+        Me.Text = "Search Faculty"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -168,15 +108,9 @@ Partial Class popFacSearch
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents txtSec As TextBox
-    Friend WithEvents txtCourse As TextBox
     Friend WithEvents bttnSearch As Button
-    Friend WithEvents rbttnID As RadioButton
-    Friend WithEvents rbttnCourse As RadioButton
     Friend WithEvents txtFacID As TextBox
     Friend WithEvents bttnCancel As Button
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents txtFirstname As TextBox
-    Friend WithEvents txtLastname As TextBox
-    Friend WithEvents rbttnName As RadioButton
+    Friend WithEvents Label1 As Label
 End Class

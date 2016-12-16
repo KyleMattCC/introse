@@ -23,6 +23,7 @@ Partial Class wdwDailyAttendanceLog
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wdwDailyAttendanceLog))
         Me.grid = New System.Windows.Forms.DataGridView()
         Me.bttnAdd = New System.Windows.Forms.Button()
         Me.bttnModify = New System.Windows.Forms.Button()
@@ -70,43 +71,47 @@ Partial Class wdwDailyAttendanceLog
         '
         'bttnAdd
         '
+        Me.bttnAdd.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAdd.Location = New System.Drawing.Point(52, 612)
         Me.bttnAdd.Name = "bttnAdd"
         Me.bttnAdd.Size = New System.Drawing.Size(204, 40)
         Me.bttnAdd.TabIndex = 46
         Me.bttnAdd.Text = "Add"
-        Me.bttnAdd.UseVisualStyleBackColor = True
+        Me.bttnAdd.UseVisualStyleBackColor = False
         '
         'bttnModify
         '
+        Me.bttnModify.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnModify.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnModify.Location = New System.Drawing.Point(391, 612)
         Me.bttnModify.Name = "bttnModify"
         Me.bttnModify.Size = New System.Drawing.Size(204, 40)
         Me.bttnModify.TabIndex = 45
         Me.bttnModify.Text = "Modify"
-        Me.bttnModify.UseVisualStyleBackColor = True
+        Me.bttnModify.UseVisualStyleBackColor = False
         '
         'bttnDelete
         '
+        Me.bttnDelete.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnDelete.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnDelete.Location = New System.Drawing.Point(729, 612)
         Me.bttnDelete.Name = "bttnDelete"
         Me.bttnDelete.Size = New System.Drawing.Size(204, 40)
         Me.bttnDelete.TabIndex = 44
         Me.bttnDelete.Text = "Delete"
-        Me.bttnDelete.UseVisualStyleBackColor = True
+        Me.bttnDelete.UseVisualStyleBackColor = False
         '
         'bttnBack
         '
+        Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(1067, 612)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(204, 40)
         Me.bttnBack.TabIndex = 43
         Me.bttnBack.Text = "Back"
-        Me.bttnBack.UseVisualStyleBackColor = True
+        Me.bttnBack.UseVisualStyleBackColor = False
         '
         'Label5
         '
@@ -124,7 +129,7 @@ Partial Class wdwDailyAttendanceLog
         Me.dtp.Location = New System.Drawing.Point(86, 17)
         Me.dtp.Name = "dtp"
         Me.dtp.Size = New System.Drawing.Size(300, 26)
-        Me.dtp.TabIndex = 161
+        Me.dtp.TabIndex = 1
         '
         'Label7
         '
@@ -137,7 +142,7 @@ Partial Class wdwDailyAttendanceLog
         '
         'bttnClear
         '
-        Me.bttnClear.BackColor = System.Drawing.SystemColors.Control
+        Me.bttnClear.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnClear.Location = New System.Drawing.Point(1189, 16)
         Me.bttnClear.Name = "bttnClear"
@@ -148,13 +153,14 @@ Partial Class wdwDailyAttendanceLog
         '
         'bttnSearch
         '
+        Me.bttnSearch.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnSearch.Location = New System.Drawing.Point(1078, 16)
         Me.bttnSearch.Name = "bttnSearch"
         Me.bttnSearch.Size = New System.Drawing.Size(105, 29)
         Me.bttnSearch.TabIndex = 1
         Me.bttnSearch.Text = "Search"
-        Me.bttnSearch.UseVisualStyleBackColor = True
+        Me.bttnSearch.UseVisualStyleBackColor = False
         '
         'txtbxSearch
         '
@@ -162,7 +168,7 @@ Partial Class wdwDailyAttendanceLog
         Me.txtbxSearch.Location = New System.Drawing.Point(722, 17)
         Me.txtbxSearch.Name = "txtbxSearch"
         Me.txtbxSearch.Size = New System.Drawing.Size(350, 26)
-        Me.txtbxSearch.TabIndex = 7
+        Me.txtbxSearch.TabIndex = 2
         '
         'GroupBox4
         '
@@ -182,12 +188,13 @@ Partial Class wdwDailyAttendanceLog
         '
         'txtbxDept
         '
+        Me.txtbxDept.AcceptsTab = True
         Me.txtbxDept.Enabled = False
         Me.txtbxDept.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDept.Location = New System.Drawing.Point(216, 85)
         Me.txtbxDept.Name = "txtbxDept"
         Me.txtbxDept.Size = New System.Drawing.Size(350, 26)
-        Me.txtbxDept.TabIndex = 177
+        Me.txtbxDept.TabIndex = 5
         '
         'Label3
         '
@@ -206,7 +213,7 @@ Partial Class wdwDailyAttendanceLog
         Me.txtbxFacID.Location = New System.Drawing.Point(216, 25)
         Me.txtbxFacID.Name = "txtbxFacID"
         Me.txtbxFacID.Size = New System.Drawing.Size(350, 26)
-        Me.txtbxFacID.TabIndex = 175
+        Me.txtbxFacID.TabIndex = 3
         '
         'txtbxName
         '
@@ -215,7 +222,7 @@ Partial Class wdwDailyAttendanceLog
         Me.txtbxName.Location = New System.Drawing.Point(216, 55)
         Me.txtbxName.Name = "txtbxName"
         Me.txtbxName.Size = New System.Drawing.Size(350, 26)
-        Me.txtbxName.TabIndex = 174
+        Me.txtbxName.TabIndex = 4
         '
         'Label1
         '
@@ -241,6 +248,8 @@ Partial Class wdwDailyAttendanceLog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1323, 670)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.bttnClear)
@@ -255,8 +264,13 @@ Partial Class wdwDailyAttendanceLog
         Me.Controls.Add(Me.bttnDelete)
         Me.Controls.Add(Me.bttnBack)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(189, 25)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "wdwDailyAttendanceLog"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Daily Attendance Log"
         CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)

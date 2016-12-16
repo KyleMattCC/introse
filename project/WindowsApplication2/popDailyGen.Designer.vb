@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class popDailyGen
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class popDailyGen
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popDailyGen))
         Me.dtp = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnBack = New System.Windows.Forms.Button()
@@ -30,51 +31,64 @@ Partial Class popDailyGen
         '
         'dtp
         '
-        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp.Location = New System.Drawing.Point(90, 34)
+        Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp.Location = New System.Drawing.Point(99, 25)
+        Me.dtp.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(217, 22)
+        Me.dtp.Size = New System.Drawing.Size(419, 31)
         Me.dtp.TabIndex = 162
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(32, 34)
+        Me.Label1.Location = New System.Drawing.Point(16, 25)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(56, 20)
+        Me.Label1.Size = New System.Drawing.Size(65, 23)
         Me.Label1.TabIndex = 163
         Me.Label1.Text = "Date:"
         '
         'btnBack
         '
+        Me.btnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(185, 69)
+        Me.btnBack.Location = New System.Drawing.Point(293, 70)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(4)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(90, 30)
+        Me.btnBack.Size = New System.Drawing.Size(120, 37)
         Me.btnBack.TabIndex = 165
         Me.btnBack.Text = "Back"
-        Me.btnBack.UseVisualStyleBackColor = True
+        Me.btnBack.UseVisualStyleBackColor = False
         '
         'btnGenerate
         '
+        Me.btnGenerate.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnGenerate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(65, 69)
+        Me.btnGenerate.Location = New System.Drawing.Point(125, 70)
+        Me.btnGenerate.Margin = New System.Windows.Forms.Padding(4)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(90, 30)
+        Me.btnGenerate.Size = New System.Drawing.Size(120, 37)
         Me.btnGenerate.TabIndex = 164
         Me.btnGenerate.Text = "Generate"
-        Me.btnGenerate.UseVisualStyleBackColor = True
+        Me.btnGenerate.UseVisualStyleBackColor = False
         '
         'popDailyGen
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(344, 131)
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(540, 124)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtp)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popDailyGen"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select Date"

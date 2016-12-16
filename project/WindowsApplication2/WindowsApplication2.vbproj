@@ -61,6 +61,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DLSU_Logo_Clear_Background.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -100,32 +103,86 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="wdwMoreInfo.Designer.vb">
-      <DependentUpon>wdwMoreInfo.vb</DependentUpon>
+    <Compile Include="popAddAccount.Designer.vb">
+      <DependentUpon>popAddAccount.vb</DependentUpon>
     </Compile>
-    <Compile Include="wdwMoreInfo.vb">
+    <Compile Include="popAddAccount.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="popAddAttendanceHistory.Designer.vb">
+    <Compile Include="popAddAttendanceHistory.designer.vb">
       <DependentUpon>popAddAttendanceHistory.vb</DependentUpon>
     </Compile>
     <Compile Include="popAddAttendanceHistory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wdwAttendanceHistoryLog.Designer.vb">
+    <Compile Include="popAddMakeUpHistory.designer.vb">
+      <DependentUpon>popAddMakeUpHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popAddMakeUpHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popEditAccount.Designer.vb">
+      <DependentUpon>popEditAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popEditAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popFacSearch.designer.vb">
+      <DependentUpon>popFacSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popFacSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popModifyAttendanceHistory.designer.vb">
+      <DependentUpon>popModifyAttendanceHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popModifyAttendanceHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popModifyMakeUpHistory.designer.vb">
+      <DependentUpon>popModifyMakeUpHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popModifyMakeUpHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popModifyPlantilla.Designer.vb">
+      <DependentUpon>popModifyPlantilla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popModifyPlantilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popMoreInfo.designer.vb">
+      <DependentUpon>popMoreInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popMoreInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popMoreInfoMakeupClass.designer.vb">
+      <DependentUpon>popMoreInfoMakeupClass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="popMoreInfoMakeupClass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wdwAttendanceHistoryLog.designer.vb">
       <DependentUpon>wdwAttendanceHistoryLog.vb</DependentUpon>
     </Compile>
     <Compile Include="wdwAttendanceHistoryLog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="reportGenerator.vb" />
-    <Compile Include="databaseAccessor.vb" />
-    <Compile Include="EmailNotices.Designer.vb">
-      <DependentUpon>EmailNotices.vb</DependentUpon>
+    <Compile Include="wdwDataEntry.Designer.vb">
+      <DependentUpon>wdwDataEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="EmailNotices.vb">
+    <Compile Include="wdwDataEntry.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="wdwLogin.Designer.vb">
+      <DependentUpon>wdwLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wdwLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportGenerator.vb" />
+    <Compile Include="databaseAccessor.vb" />
     <Compile Include="MySql\Data.vb" />
     <Compile Include="wdwEmailReports.Designer.vb">
       <DependentUpon>wdwEmailReports.vb</DependentUpon>
@@ -157,58 +214,10 @@
     <Compile Include="wdwFacPlantilia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wdwGenServiceReport.Designer.vb">
-      <DependentUpon>wdwGenServiceReport.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwGenServiceReport.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popNoticeOfAbsence.Designer.vb">
-      <DependentUpon>popNoticeOfAbsence.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popNoticeOfAbsence.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popFacSearch.Designer.vb">
-      <DependentUpon>popFacSearch.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popFacSearch.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="popAddMakeUp.Designer.vb">
       <DependentUpon>popAddMakeUp.vb</DependentUpon>
     </Compile>
     <Compile Include="popAddMakeUp.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popNoticeOfTardiness.Designer.vb">
-      <DependentUpon>popNoticeOfTardiness.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popNoticeOfTardiness.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popServiceRecord.Designer.vb">
-      <DependentUpon>popServiceRecord.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popServiceRecord.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwEncodeFacMakeUp.Designer.vb">
-      <DependentUpon>wdwEncodeFacMakeUp.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwEncodeFacMakeUp.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popFindCourse.Designer.vb">
-      <DependentUpon>popFindCourse.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popFindCourse.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwClassInfo.Designer.vb">
-      <DependentUpon>wdwClassInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwClassInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wdwDailyAttendanceLog.Designer.vb">
@@ -223,29 +232,11 @@
     <Compile Include="popAddFacultyDaily.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wdwGenAbsNotice.Designer.vb">
-      <DependentUpon>wdwGenAbsNotice.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwGenAbsNotice.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwEmailNotice.Designer.vb">
-      <DependentUpon>wdwEmailNotice.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwEmailNotice.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="wdwMainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wdwMainMenu.Designer.vb">
       <DependentUpon>wdwMainMenu.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popFindFacAtt.Designer.vb">
-      <DependentUpon>popFindFacAtt.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popFindFacAtt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="popEncFacDaily.Designer.vb">
@@ -264,18 +255,6 @@
       <DependentUpon>wdwFacultyMakeUp.vb</DependentUpon>
     </Compile>
     <Compile Include="wdwFacultyMakeUp.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwFacDailyAtt.Designer.vb">
-      <DependentUpon>wdwFacDailyAtt.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwFacDailyAtt.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwSearchByName.Designer.vb">
-      <DependentUpon>wdwSearchByName.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwSearchByName.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wdwSelectReport.Designer.vb">
@@ -319,17 +298,44 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EmailNotices.resx">
-      <DependentUpon>EmailNotices.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwMoreInfo.resx">
-      <DependentUpon>wdwMoreInfo.vb</DependentUpon>
+    <EmbeddedResource Include="popAddAccount.resx">
+      <DependentUpon>popAddAccount.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popAddAttendanceHistory.resx">
       <DependentUpon>popAddAttendanceHistory.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="popAddMakeUpHistory.resx">
+      <DependentUpon>popAddMakeUpHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popEditAccount.resx">
+      <DependentUpon>popEditAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popFacSearch.resx">
+      <DependentUpon>popFacSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popModifyAttendanceHistory.resx">
+      <DependentUpon>popModifyAttendanceHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popModifyMakeUpHistory.resx">
+      <DependentUpon>popModifyMakeUpHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popModifyPlantilla.resx">
+      <DependentUpon>popModifyPlantilla.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popMoreInfo.resx">
+      <DependentUpon>popMoreInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popMoreInfoMakeupClass.resx">
+      <DependentUpon>popMoreInfoMakeupClass.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="wdwAttendanceHistoryLog.resx">
       <DependentUpon>wdwAttendanceHistoryLog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwDataEntry.resx">
+      <DependentUpon>wdwDataEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wdwLogin.resx">
+      <DependentUpon>wdwLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwEmailReports.resx">
       <DependentUpon>wdwEmailReports.vb</DependentUpon>
@@ -340,32 +346,11 @@
     <EmbeddedResource Include="popMonthlyGen.resx">
       <DependentUpon>popMonthlyGen.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="popFacSearch.resx">
-      <DependentUpon>popFacSearch.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="popAddMakeUp.resx">
       <DependentUpon>popAddMakeUp.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="popNoticeOfAbsence.resx">
-      <DependentUpon>popNoticeOfAbsence.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popNoticeOfTardiness.resx">
-      <DependentUpon>popNoticeOfTardiness.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popServiceRecord.resx">
-      <DependentUpon>popServiceRecord.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="popTermEndGen.resx">
       <DependentUpon>popTermEndGen.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwEncodeFacMakeUp.resx">
-      <DependentUpon>wdwEncodeFacMakeUp.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popFindCourse.resx">
-      <DependentUpon>popFindCourse.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwClassInfo.resx">
-      <DependentUpon>wdwClassInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwDailyAttendanceLog.resx">
       <DependentUpon>wdwDailyAttendanceLog.vb</DependentUpon>
@@ -376,20 +361,8 @@
     <EmbeddedResource Include="wdwFacPlantilia.resx">
       <DependentUpon>wdwFacPlantilia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="wdwGenAbsNotice.resx">
-      <DependentUpon>wdwGenAbsNotice.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwGenServiceReport.resx">
-      <DependentUpon>wdwGenServiceReport.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwEmailNotice.resx">
-      <DependentUpon>wdwEmailNotice.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="wdwMainMenu.resx">
       <DependentUpon>wdwMainMenu.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popFindFacAtt.resx">
-      <DependentUpon>popFindFacAtt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popEncFacDaily.resx">
       <DependentUpon>popEncFacDaily.vb</DependentUpon>
@@ -399,12 +372,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wdwFacultyMakeUp.resx">
       <DependentUpon>wdwFacultyMakeUp.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwFacDailyAtt.resx">
-      <DependentUpon>wdwFacDailyAtt.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwSearchByName.resx">
-      <DependentUpon>wdwSearchByName.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwSelectReport.resx">
       <DependentUpon>wdwSelectReport.vb</DependentUpon>
@@ -457,6 +424,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="itextsharp.xtra.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLSU_Logo_Clear_Background.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

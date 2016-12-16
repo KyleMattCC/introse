@@ -23,6 +23,7 @@
                 txtbxStart.Text = rowData(7) 'start
                 txtbxEnd.Text = rowData(8) ' end
                 cmbbxReason.SelectedItem = rowData(10)
+
             Else
                 convertedDate = Convert.ToDateTime(rowData(3))
                 day = convertedDate.Day.ToString()
@@ -39,82 +40,89 @@
                 cmbbxReason.SelectedItem = rowData(10)
 
                 dtp.Value = New Date(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day))
-
             End If
+
         End If
 
         Me.Show()
     End Sub
 
-    Private Sub Add_Faculty_Name(facultyid As String, ByVal text As TextBox)
+    Private Sub Add_Faculty_Name(facultyId As String, ByVal text As TextBox)
         Dim facName As New List(Of Object)
         Dim fname As String
         Dim MI As String
         Dim lname As String
         Dim name As String
 
-        name = ""
-        fname = ""
-        MI = ""
-        lname = ""
+        name = Nothing
+        fname = Nothing
+        MI = Nothing
+        lname = Nothing
         Try
 
-            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyid & "';", 3)
-            fname = facName(0).ToString
-            MI = facName(1).ToString
-            lname = facName(2).ToString
+            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyId & "';", 3)
+            If facName.Count > 0 Then
+                fname = facName(0).ToString
+                MI = facName(1).ToString
+                lname = facName(2).ToString
+            End If
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
                 dtp.Enabled = True
                 cmbbxCourse.Enabled = True
+
             Else
-                text.Text = fname + " " + MI + " " + lname
+                text.Text = Nothing
             End If
+
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
     End Sub
 
-    Private Sub Add_Course(facultyid As String, ByVal combo As ComboBox)
-        Dim coursecode As New List(Of Object)()
+    Private Sub Add_Course(facultyId As String, ByVal combo As ComboBox)
+        Dim courseCode As New List(Of Object)()
         Dim fac As Integer
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
-            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) 
+            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            courseCode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) 
                                                     from introse.course c, introse.courseoffering co, introse.attendance a 
-                                                    where co.status = 'A' and a.status = 'A' and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;")
+                                                    where co.status = 'A' and a.status = 'A' and co.courseoffering_id = a.courseoffering_id and co.facref_no = '" & fac & "' and co.course_id = c.course_id order by 1;")
 
-            For ctr As Integer = 0 To coursecode.Count - 1
-                combo.Items.Add(coursecode(ctr))
+            For ctr As Integer = 0 To courseCode.Count - 1
+                combo.Items.Add(courseCode(ctr))
             Next
+
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
     End Sub
 
-    Private Sub Add_Section(facultyid As String, course As String, ByVal combo As ComboBox)
+    Private Sub Add_Section(facultyId As String, course As String, ByVal combo As ComboBox)
         Dim section As New List(Of Object)()
         Dim fac As String
         combo.Enabled = True
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
             section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) 
                                                 from introse.course c, introse.courseoffering co, introse.attendance a 
-                                                where co.status = 'A' and a.status = 'A' and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.courseoffering_id = a.courseoffering_id order by 1;")
+                                                where co.status = 'A' and a.status = 'A' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.courseoffering_id = a.courseoffering_id order by 1;")
 
             For ctr As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(ctr))
             Next
+
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
@@ -123,7 +131,6 @@
     Private Sub Add_Reasons(ByVal combo As ComboBox)
         Dim reasons As New List(Of Object)()
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
             reasons = dbAccess.Get_Multiple_Row_Data("select reason_des from introse.reasons order by 1;")
@@ -133,6 +140,7 @@
             Next
 
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
@@ -141,9 +149,7 @@
     Private Sub txtbxFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacID.TextChanged
         txtbxName.Clear()
         cmbbxCourse.Items.Clear()
-        cmbbxCourse.ResetText()
         cmbbxSection.Items.Clear()
-        cmbbxSection.ResetText()
         txtbxEnd.Clear()
         txtbxStart.Clear()
         txtbxRoom.Clear()
@@ -160,7 +166,6 @@
 
     Private Sub cmbbxCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxCourse.SelectedIndexChanged
         cmbbxSection.Items.Clear()
-        cmbbxSection.ResetText()
         txtbxEnd.Clear()
         txtbxStart.Clear()
         txtbxRoom.Clear()
@@ -182,18 +187,22 @@
 
     Private Sub txtbxRoom_TextChanged(sender As Object, e As EventArgs) Handles txtbxRoom.TextChanged
         Check_Enable()
+
     End Sub
 
     Private Sub txtbxStart_TextChanged(sender As Object, e As EventArgs) Handles txtbxStart.TextChanged
         Check_Enable()
+
     End Sub
 
     Private Sub txtbxEnd_TextChanged(sender As Object, e As EventArgs) Handles txtbxEnd.TextChanged
         Check_Enable()
+
     End Sub
 
     Private Sub cmbReason_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxReason.SelectedIndexChanged
         Check_Enable()
+
     End Sub
 
     Private Sub Check_Enable()
@@ -202,7 +211,6 @@
 
         Else
             bttnModify.Enabled = True
-
         End If
 
     End Sub
@@ -217,8 +225,8 @@
             txtbxRoom.Enabled = False
             txtbxStart.Enabled = False
             txtbxEnd.Enabled = False
-
         End If
+
     End Sub
 
     Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
@@ -227,81 +235,128 @@
                 e.KeyChar = ChrW(0)
                 e.Handled = True
             End If
+
         End If
+
     End Sub
 
     Private Sub txtFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxFacID.KeyPress
         validateInput("1234567890", e)
+
     End Sub
 
     Private Sub txtbxStart_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxStart.KeyPress
         validateInput("0123456789", e)
+
     End Sub
 
     Private Sub txtbxEnd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxEnd.KeyPress
         validateInput("0123456789", e)
+
     End Sub
 
     Private Sub txtbxRoom_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxRoom.KeyPress
         validateInput("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", e)
+
     End Sub
 
     Private Sub txtbxEncoder_KeyPress(sender As Object, e As KeyPressEventArgs)
         validateInput("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ", e)
+
     End Sub
 
-    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, reason As String, stat As String) As Boolean
-        Dim att As String = ""
+    Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String, ref As Integer) As Boolean
+        Dim makeupCheck As New List(Of Object)()
         Dim b As Boolean = False
-        att = dbAccess.Get_Data("select makeupid 
-                                from introse.makeup 
-                                where makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "' and reason_cd = '" & reason & "' and status = '" & stat & "';", "attendanceid")
-        If String.IsNullOrEmpty(att) Then
+
+        makeupCheck = dbAccess.Get_Multiple_Row_Data("select makeupid
+                                         from introse.makeup
+                                         where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "';")
+        If makeupCheck.Count = 0 Then
             b = True
+
+        ElseIf makeupCheck.Count < 2 Then
+            If makeupCheck(0) = ref Then
+                b = True
+
+            Else
+                MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
+            End If
+
         Else
             MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
         End If
+
         Return b
 
     End Function
 
     Private Sub bttnModify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
         Dim makeupDate, course, section, room, reason, courseOfferingId As String
-        Dim ref As String = wdwFacultyMakeUp.getRefNo()
-        Dim startTime, endTime As Integer
-        Dim absentHours As Double = dbAccess.Get_Data("select SUM(co.hours) 
-                                                      from introse.attendance a, introse.courseoffering co, introse.course c
-                                                      where co.status = 'A' and a.status = 'A' and c.course_cd = '" & cmbbxCourse.SelectedItem & "' and c.course_id = co.course_id And co.section = '" & cmbbxSection.SelectedItem & "' and a.courseoffering_id = co.courseoffering_id;", "SUM(co.hours)")
+        Dim startTime, endTime, tempStart, tempEnd As Integer
+        Dim absentHours As Double = dbAccess.Get_Data("Select sum(co.hours)
+                                                      From introse.attendance a, introse.courseoffering co, introse.course c
+                                                      where co.status = 'A' and a.status = 'A' and c.course_cd = '" & cmbbxCourse.SelectedItem & "' and c.course_id = co.course_id and co.section = '" & cmbbxSection.SelectedItem & "' and a.courseoffering_id = co.courseoffering_id;", "sum(co.hours)")
+        Dim ref As Integer = wdwFacultyMakeUp.getRefNo()
 
         If Convert.ToInt32(ref) > 0 Then
             If String.IsNullOrEmpty(cmbbxReason.Text) Or String.IsNullOrEmpty(txtbxStart.Text) Or String.IsNullOrEmpty(txtbxEnd.Text) Or String.IsNullOrEmpty(txtbxRoom.Text) Or String.IsNullOrEmpty(dtp.Value.Date.ToString("yyyy-MM-dd")) Then
                 MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
+
             Else
                 Dim wholeNumber As Integer
                 startTime = Convert.ToInt32(txtbxStart.Text)
                 endTime = Convert.ToInt32(txtbxEnd.Text)
-                wholeNumber = (endTime - startTime) / 100
+                tempStart = startTime
+                tempEnd = endTime
+                If ((tempStart Mod 100) > tempEnd Mod 100) Then
+                    Dim tempMinutes As Integer = startTime Mod 100
+                    tempStart -= tempMinutes
+                    tempEnd -= (tempMinutes + 40)
+                End If
+
+                wholeNumber = (tempEnd - tempStart) / 100
+
                 If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
                     MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
+
                 ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                     MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
-                ElseIf ((wholeNumber + ((endTime - startTime) Mod 100) / 60) > absentHours) Then
-                    MsgBox("Makeup hours exceed absent hours!", MsgBoxStyle.Critical, "")
-                Else
-                    makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
-                    course = cmbbxCourse.SelectedItem
-                    section = cmbbxSection.SelectedItem
-                    room = txtbxRoom.Text
-                    reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
-                    courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
-                    If (Check_Entry(makeupDate, startTime, endTime, room, reason, "A")) Then
-                        dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((endTime - startTime) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  'unknown' WHERE makeupid = '" & ref & "' and status = 'A';")
-                        Me.Close()
-                    End If
+                ElseIf (endTime < startTime) Then
+                    MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
+
+                ElseIf (startTime = endTime) Then
+                    MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
+
+                ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) And Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
+                    MsgBox("Makeup hours is not exact!", MsgBoxStyle.Critical, "")
+
+                Else
+
+                    Try
+                        makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
+                        course = cmbbxCourse.SelectedItem
+                        section = cmbbxSection.SelectedItem
+                        room = txtbxRoom.Text
+                        reason = dbAccess.Get_Data("select reason_cd from introse.reasons where reason_des = '" & cmbbxReason.SelectedItem.ToString & "';", "reason_cd")
+                        courseOfferingId = dbAccess.Get_Data("select courseoffering_id 
+                                                           from introse.courseoffering c, introse.course cl 
+                                                            where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
+
+                        If (Check_Entry(makeupDate, startTime, endTime, room, "A", courseOfferingId, ref)) Then
+                            dbAccess.Update_Data("update `introse`.`makeup` set `courseoffering_id` = " & courseOfferingId & ", `timestart` = " & txtbxStart.Text & ", `timeend` = " & txtbxEnd.Text & ", `hours` = " & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & ", `room` = '" & room & "', `reason_cd` = '" & reason & "', `makeup_date` = '" & makeupDate & "', `enc_date` = '" & Date.Now.Date.ToString("yyyy-MM-dd") & "', `encoder` =  '" & wdwLogin.Get_Encoder & "' WHERE makeupid = '" & ref & "' and status = 'A';")
+                            Me.Close()
+                        End If
+
+                    Catch Ex As Exception
+                        System.Windows.Forms.MessageBox.Show(Ex.Message)
+
+                    End Try
                 End If
             End If
         End If
+
     End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
@@ -311,6 +366,7 @@
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwFacultyMakeUp.Enable_Form()
+
     End Sub
 
 End Class

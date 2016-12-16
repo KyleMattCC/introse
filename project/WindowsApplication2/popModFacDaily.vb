@@ -25,6 +25,7 @@
                 txtbxEnd.Text = rowData(9) ' end
                 cmbbxRemarks.SelectedItem = rowData(10)
                 txtbxChecker.Text = rowData(13)
+
             Else
                 convertedDate = Convert.ToDateTime(rowData(3))
                 day = convertedDate.Day.ToString()
@@ -45,76 +46,90 @@
                 dtp.Value = New Date(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day))
 
             End If
+
         End If
 
         Me.Show()
+
     End Sub
 
-    Private Sub Add_Faculty_Name(facultyid As String, ByVal text As TextBox)
+    Private Sub Add_Faculty_Name(facultyId As String, ByVal text As TextBox)
         Dim facName As New List(Of Object)
         Dim fname As String
         Dim MI As String
         Dim lname As String
         Dim name As String
 
-        name = ""
-        fname = ""
-        MI = ""
-        lname = ""
+        name = Nothing
+        fname = Nothing
+        MI = Nothing
+        lname = Nothing
         Try
 
-            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyid & "';", 3)
-            fname = facName(0).ToString
-            MI = facName(1).ToString
-            lname = facName(2).ToString
+            facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyId & "';", 3)
+
+            If facName.Count > 0 Then
+                fname = facName(0).ToString
+                MI = facName(1).ToString
+                lname = facName(2).ToString
+
+            End If
 
             If (Not (String.IsNullOrEmpty(fname)) Or Not (String.IsNullOrWhiteSpace(fname))) Then
                 text.Text = fname + " " + MI + " " + lname
                 dtp.Enabled = True
                 cmbbxCourse.Enabled = True
+
             Else
-                text.Text = fname + " " + MI + " " + lname
+                text.Text = Nothing
+
             End If
+
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
     End Sub
 
-    Private Sub Add_Course(facultyid As String, ByVal combo As ComboBox)
-        Dim coursecode As New List(Of Object)()
+    Private Sub Add_Course(facultyId As String, ByVal combo As ComboBox)
+        Dim courseCode As New List(Of Object)()
         Dim fac As Integer
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
-            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            coursecode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) from introse.course c, introse.courseoffering co where co.status = 'A' and co.facref_no = '" & fac & "' and co.course_id = c.course_id order by 1;")
+            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            courseCode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) from introse.course c, introse.courseoffering co where co.status = 'A' and co.facref_no = '" & fac & "' and co.course_id = c.course_id order by 1;")
 
-            For j As Integer = 0 To coursecode.Count - 1
-                combo.Items.Add(coursecode(j))
+            For ctr As Integer = 0 To courseCode.Count - 1
+                combo.Items.Add(courseCode(ctr))
             Next
+
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
     End Sub
 
-    Private Sub Add_Section(facultyid As String, course As String, ByVal combo As ComboBox)
+    Private Sub Add_Section(facultyId As String, course As String, ByVal combo As ComboBox)
         Dim section As New List(Of Object)()
         Dim fac As String
         combo.Enabled = True
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
-            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) from introse.course c, introse.courseoffering co where co.status = 'A' and co.facref_no = '" & fac & "' and c.course_cd = '" & course & "' order by 1;")
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) 
+                                                from introse.course c, introse.courseoffering co 
+                                                where co.status = 'A' and c.course_cd = '" & course & "' and c.course_id = co.course_id and co.facref_no = '" & fac & "' order by 1;")
 
-            For j As Integer = 0 To section.Count - 1
-                combo.Items.Add(section(j))
+            For ctr As Integer = 0 To section.Count - 1
+                combo.Items.Add(section(ctr))
             Next
+
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
@@ -123,52 +138,57 @@
     Private Sub Add_Remarks(ByVal combo As ComboBox)
         Dim remarks As New List(Of Object)()
         combo.Items.Clear()
-        combo.ResetText()
 
         Try
             remarks = dbAccess.Get_Multiple_Row_Data("select remark_des from introse.remarks order by 1;")
 
-            For j As Integer = 0 To remarks.Count - 1
-                combo.Items.Add(remarks(j))
+            For ctr As Integer = 0 To remarks.Count - 1
+                combo.Items.Add(remarks(ctr))
             Next
 
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
     End Sub
 
-    Private Sub Fill_Room(facultyid As String, course As String, section As String, ByVal text As TextBox)
+    Private Sub Fill_Room(facultyId As String, course As String, section As String, ByVal text As TextBox)
         Dim room As String = ""
         Dim fac As String = ""
-        Try
-            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            room = dbAccess.Get_Data("select co.room from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and c.course_id = co.course_id and co.facref_no = '" & fac & "' and co.section = '" & section & "';", "room")
 
+        Try
+            fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            room = dbAccess.Get_Data("select co.room from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and c.course_id = co.course_id and co.facref_no = '" & fac & "' and co.section = '" & section & "';", "room")
             text.Text = room
+
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
     End Sub
 
-    Private Sub Fill_Sched(facultyid As String, course As String, section As String, ByVal TimeStart As TextBox, ByVal TimeEnd As TextBox, ByVal DaySched As TextBox)
+    Private Sub Fill_Sched(facultyId As String, course As String, section As String, ByVal timeStart As TextBox, ByVal timeEnd As TextBox, ByVal daySched As TextBox)
         Dim courseSched As New List(Of Object)
-        Dim starttime As String
-        Dim endtime As String
+        Dim startTime As String
+        Dim endTime As String
         Dim fac As String
         Dim sched As String = ""
+
         Try
-            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyid & "';", "facref_no")
-            courseSched = dbAccess.Get_Multiple_Column_Data("select co.timestart, co.timeend, co.daysched from introse.courseoffering co, introse.course c where co.status = 'A' AND c.course_cd = '" & course & "' AND co.course_id = c.course_id AND co.facref_no = '" & fac & "' AND co.section = '" & section & "';", 3)
-            starttime = courseSched(0)
-            endtime = courseSched(1)
+            fac = dbAccess.Get_Data("select facref_no from faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
+            courseSched = dbAccess.Get_Multiple_Column_Data("select co.timestart, co.timeend, co.daysched from introse.courseoffering co, introse.course c where co.status = 'A' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.section = '" & section & "';", 3)
+            startTime = courseSched(0)
+            endTime = courseSched(1)
             sched = courseSched(2)
 
-            TimeStart.Text = starttime
-            TimeEnd.Text = endtime
-            DaySched.Text = sched
+            timeStart.Text = startTime
+            timeEnd.Text = endTime
+            daySched.Text = sched
+
         Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
 
         End Try
 
@@ -182,9 +202,7 @@
     Private Sub txtbxFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacID.TextChanged
         txtbxName.Clear()
         cmbbxCourse.Items.Clear()
-        cmbbxCourse.ResetText()
         cmbbxSection.Items.Clear()
-        cmbbxSection.ResetText()
         txtbxEnd.Clear()
         txtbxStart.Clear()
         txtbxDay.Clear()
@@ -198,7 +216,6 @@
 
     Private Sub cmbbxCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxCourse.SelectedIndexChanged
         cmbbxSection.Items.Clear()
-        cmbbxSection.ResetText()
         txtbxEnd.Clear()
         txtbxStart.Clear()
         txtbxDay.Clear()
@@ -242,6 +259,7 @@
             cmbbxRemarks.Enabled = False
 
         End If
+
     End Sub
 
     Private Sub Validate_Input(allowed As String, e As KeyPressEventArgs)
@@ -250,6 +268,7 @@
                 e.KeyChar = ChrW(0)
                 e.Handled = True
             End If
+
         End If
 
     End Sub
@@ -264,16 +283,28 @@
 
     End Sub
 
-    Private Function Check_Entry(absent As String, courseofferingid As String, stat As String, remarks As String) As Boolean
-        Dim att As String = ""
-        Dim b As Boolean = False
-        att = dbAccess.Get_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseofferingid & "' and status = '" & stat & "' and remarks_cd = '" & remarks & "';", "attendanceid")
-        If String.IsNullOrEmpty(att) Then
-            b = True
+    Private Function Check_Entry(absent As String, courseOfferingId As String, stat As String, remarks As String, checker As String, ref As Integer) As Boolean
+        Dim att As New List(Of Object)()
+        Dim bool As Boolean = False
+        att = dbAccess.Get_Multiple_Row_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseOfferingId & "' and status = '" & stat & "';")
+
+        If att.Count = 0 Then
+            bool = True
+
+        ElseIf att.Count < 2 Then
+            If att(0) = ref Then
+                bool = True
+
+            Else
+                MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
+            End If
+
         Else
             MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
+
         End If
-        Return b
+
+        Return bool
 
     End Function
 
@@ -281,27 +312,30 @@
         Dim absentDate, checker, course, section, courseOfferingId, remarks As String
         Dim ref As String = wdwDailyAttendanceLog.getRefNo()
         Dim currentDate As Date
-        Dim result As Integer
         currentDate = DateTime.Now.Date
-        result = DateTime.Compare(dtp.Value.Date, currentDate)
         Dim daySched As New List(Of String)
         Dim tempBool As Boolean = False
 
         If txtbxDay.Text.Contains("M") Then
             daySched.Add("Monday")
         End If
+
         If txtbxDay.Text.Contains("T") Then
             daySched.Add("Tuesday")
         End If
+
         If txtbxDay.Text.Contains("W") Then
             daySched.Add("Wednesday")
         End If
+
         If txtbxDay.Text.Contains("H") Then
             daySched.Add("Thursday")
         End If
+
         If txtbxDay.Text.Contains("F") Then
             daySched.Add("Friday")
         End If
+
         If txtbxDay.Text.Contains("S") Then
             daySched.Add("Saturday")
         End If
@@ -315,38 +349,42 @@
         If Convert.ToInt32(ref) > 0 Then
             If String.IsNullOrEmpty(cmbbxCourse.SelectedItem) Or String.IsNullOrEmpty(cmbbxSection.SelectedItem) Or String.IsNullOrEmpty(cmbbxRemarks.SelectedItem) Or String.IsNullOrEmpty(txtbxChecker.Text) Then
                 MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
-            ElseIf result > 0 Then
-                MsgBox("Absent date Is earlier than the current date!", MsgBoxStyle.Critical, "")
+
             ElseIf Not (tempBool) Then
                 MsgBox("Absent date does Not match class schedule!", MsgBoxStyle.Critical, "")
+
             Else
+                Try
+                    absentDate = dtp.Value.Date.ToString("yyyy-MM-dd")
+                    course = cmbbxCourse.SelectedItem
+                    section = cmbbxSection.SelectedItem
+                    remarks = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
+                    checker = txtbxChecker.Text
+                    courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
 
-                absentDate = dtp.Value.Date.ToString("yyyy-MM-dd")
-                course = cmbbxCourse.SelectedItem
-                section = cmbbxSection.SelectedItem
-                remarks = dbAccess.Get_Data("select remark_cd from introse.remarks where remark_des = '" & cmbbxRemarks.SelectedItem & "';", "remark_cd")
-        checker = txtbxChecker.Text
+                    If (Check_Entry(absentDate, courseOfferingId, "A", remarks, checker, ref)) Then
+                        dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = '" & wdwLogin.Get_Encoder & "', `checker` = '" & checker & "', `report_status` = 'Pending' where attendanceid = '" & ref & "' and status = 'A';")
+                        Me.Close()
 
-                courseOfferingId = dbAccess.Get_Data("select courseoffering_id from introse.courseoffering c, introse.course cl where c.status = 'A' and cl.course_cd = '" & course & "' and c.course_id = cl.course_id and c.section = '" & section & "';", "courseoffering_id")
-                If (Check_Entry(absentDate, courseOfferingId, "A", remarks) = True) Then
-                    dbAccess.Update_Data("update `attendance` set `absent_date` = '" & absentDate & "', `courseoffering_id` = '" & courseOfferingId & "', `remarks_cd` = '" & remarks & "', `enc_date` = '" & currentDate.ToString("yyyy-MM-dd") & "', `encoder` = 'unknown', `checker` = '" & checker & "', `report_status` = 'Pending' WHERE attendanceid = '" & ref & "' and status = 'A';")
-                    Me.Close()
+                        txtbxFacID.Clear()
+                        txtbxName.Clear()
+                        cmbbxCourse.Items.Clear()
+                        cmbbxSection.Items.Clear()
+                        txtbxRoom.Clear()
+                        txtbxDay.Clear()
+                        txtbxStart.Clear()
+                        txtbxEnd.Clear()
+                        txtbxChecker.Clear()
 
-                    txtbxFacID.Clear()
-                    txtbxName.Clear()
-                    cmbbxCourse.Items.Clear()
-                    cmbbxSection.Items.Clear()
-                    cmbbxCourse.ResetText()
-                    cmbbxRemarks.ResetText()
-                    cmbbxSection.ResetText()
-                    txtbxRoom.Clear()
-                    txtbxDay.Clear()
-                    txtbxStart.Clear()
-                    txtbxEnd.Clear()
-                    txtbxChecker.Clear()
+                    End If
 
-                End If
+                Catch Ex As Exception
+                    System.Windows.Forms.MessageBox.Show(Ex.Message)
+
+                End Try
+
             End If
+
         End If
 
     End Sub
@@ -360,4 +398,5 @@
         wdwDailyAttendanceLog.Enable_Form()
 
     End Sub
+
 End Class
