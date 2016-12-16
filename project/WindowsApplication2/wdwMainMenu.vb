@@ -113,7 +113,7 @@
 
     Private Sub bttnFeedback_Click(sender As Object, e As EventArgs) Handles bttnFeedback.Click
         Close_Forms()
-        System.Diagnostics.Process.Start("https://docs.google.com/a/dlsu.edu.ph/forms/d/e/1FAIpQLSfsiV5oVaVuZJZk_e5bIZ6qjOEdrGjpenFuhPPjXrQQs54szw/viewform?c=0&w=1")
+        System.Diagnostics.Process.Start("https://docs.google.com/spreadsheets/d/13xN3ZwKQ5iFdbcnHqaOK7nesYQJmIn38XSQLAZopprc/edit#gid=1423474703")
 
     End Sub
 
