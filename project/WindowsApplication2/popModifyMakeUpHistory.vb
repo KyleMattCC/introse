@@ -17,6 +17,7 @@
         makeupCheck = dbAccess.Get_Multiple_Row_Data("select makeupid
                                          from introse.makeup
                                          where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "';")
+
         If makeupCheck.Count = 0 Then
             check = True
 
@@ -250,7 +251,9 @@
         Try
             termId = Get_TermID(schoolYear, termNo)
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
-            courseCode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) from introse.course c, introse.courseoffering co where (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.termid = '" & termId & "' order by 1;")
+            courseCode = dbAccess.Get_Multiple_Row_Data("select DISTINCT(c.course_cd) 
+                                                    from introse.course c, introse.courseoffering co, introse.attendance a 
+                                                    where (co.status = 'A' or co.status = 'R') and (a.status = 'A' or a.status = 'R') and co.courseoffering_id = a.courseoffering_id and co.facref_no = '" & fac & "' and co.course_id = c.course_id and co.termid = '" & termId & "' order by 1;")
 
             For ctr As Integer = 0 To courseCode.Count - 1
                 combo.Items.Add(courseCode(ctr))
@@ -272,7 +275,9 @@
         Try
             termId = Get_TermID(schoolYear, termNo)
             fac = dbAccess.Get_Data("select facref_no from introse.faculty where status = 'A' and facultyid = '" & facultyId & "';", "facref_no")
-            section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) from introse.course c, introse.courseoffering co WHERE (co.status = 'A' or co.status = 'R') and co.facref_no = '" & fac & "' and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.termid = '" & termId & "' order by 1;")
+            section = dbAccess.Get_Multiple_Row_Data("select DISTINCT(co.section) 
+                                                from introse.course c, introse.courseoffering co, introse.attendance a 
+                                                where (co.status = 'A' or co.status = 'R') and (a.status = 'A' or a.status = 'R') and c.course_cd = '" & course & "' and co.course_id = c.course_id and co.facref_no = '" & fac & "' and co.courseoffering_id = a.courseoffering_id and co.termid = '" & termId & "' order by 1;")
 
             For ctr As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(ctr))
@@ -431,7 +436,6 @@
                                                       from introse.attendance a, introse.courseoffering co, introse.course c
                                                       where co.termid = '" & termId & "' and (co.status = 'A' or co.status = 'R') and (a.status = 'A' or a.status = 'R') and c.course_cd = '" & cmbbxCourse.SelectedItem & "' and c.course_id = co.course_id And co.section = '" & cmbbxSec.SelectedItem & "' And a.courseoffering_id = co.courseoffering_id;", "sum(co.hours)")
             Dim ref = wdwAttendanceHistoryLog.Get_Ref_No()
-
             If Convert.ToInt32(ref) > 0 Then
                 If String.IsNullOrEmpty(cmbbxSY.Text) Or String.IsNullOrEmpty(cmbbxTerm.Text) Or String.IsNullOrEmpty(cmbbxReason.Text) Or String.IsNullOrEmpty(txtbxStart.Text) Or String.IsNullOrEmpty(txtbxEnd.Text) Or String.IsNullOrEmpty(txtbxRoom.Text) Or String.IsNullOrEmpty(dtp.Value.Date.ToString("yyyy-MM-dd")) Then
                     MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")

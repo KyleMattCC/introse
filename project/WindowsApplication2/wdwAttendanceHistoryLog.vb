@@ -10,19 +10,28 @@
         Dim checkFac As Boolean = False
         Dim fac As New Object
         fac = dbAccess.Get_Data("select facref_no from introse.faculty where facultyid = '" & id & "';", "facref_no")
-        If String.IsNullOrEmpty(fac) Then
-            checkFac = False
-            bttnAdd.Enabled = False
-            bttnModify.Enabled = False
-            bttnDelete.Enabled = False
 
-            MsgBox("No records matched!", MsgBoxStyle.Critical, "")
+        If Not String.IsNullOrEmpty(id) Then
+            If String.IsNullOrEmpty(fac) Then
+                checkFac = False
+                bttnAdd.Enabled = False
+                bttnModify.Enabled = False
+                bttnDelete.Enabled = False
+                rbttnAttendace.Enabled = False
+                rbttnMakeUp.Enabled = False
 
-        Else
-            bttnAdd.Enabled = True
-            bttnModify.Enabled = True
-            bttnDelete.Enabled = True
-            checkFac = True
+                MsgBox("here No records matched!", MsgBoxStyle.Critical, "")
+
+            Else
+                bttnAdd.Enabled = True
+                bttnModify.Enabled = True
+                bttnDelete.Enabled = True
+                rbttnAttendace.Enabled = True
+                rbttnMakeUp.Enabled = True
+
+                checkFac = True
+            End If
+
         End If
 
         Return checkFac
@@ -97,25 +106,6 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BttnAttendance.Click
-        BttnAttendance.Enabled = False
-        BttnMakeup.Enabled = True
-
-        attendanceView = True
-        makeupView = False
-        Load_Form(txtbxFacID.Text)
-
-    End Sub
-
-    Private Sub BttnMakeup_Click(sender As Object, e As EventArgs) Handles BttnMakeup.Click
-        BttnAttendance.Enabled = True
-        BttnMakeup.Enabled = False
-
-        attendanceView = False
-        makeupView = True
-        Load_Form(txtbxFacID.Text)
-
-    End Sub
 
     Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
         Me.Enabled = False
@@ -199,6 +189,7 @@
     End Sub
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
+
         wdwMainMenu.Show()
 
     End Sub
@@ -236,6 +227,18 @@
 
         End With
 
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnAttendace.CheckedChanged
+        attendanceView = True
+        makeupView = False
+        Load_Form(txtbxFacID.Text)
+    End Sub
+
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnMakeUp.CheckedChanged
+        attendanceView = False
+        makeupView = True
+        Load_Form(txtbxFacID.Text)
     End Sub
 
     Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick

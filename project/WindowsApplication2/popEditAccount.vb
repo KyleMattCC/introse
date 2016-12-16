@@ -33,6 +33,7 @@ Public Class popEditAccount
     End Sub
 
     Private Sub txtbxPass_TextChanged(sender As Object, e As EventArgs) Handles txtbxPass.TextChanged
+        txtbxPass.PasswordChar = "*"
         If (txtbxUser.Text <> wdwLogin.Get_User Or txtbxName.Text <> wdwLogin.Get_Encoder Or txtbxPass.Text <> wdwLogin.Get_Pass) Then
             bttnChange.Enabled = True
 

@@ -30,13 +30,13 @@ Partial Class wdwAttendanceHistoryLog
         Me.bttnModify = New System.Windows.Forms.Button()
         Me.bttnDelete = New System.Windows.Forms.Button()
         Me.bttnBack = New System.Windows.Forms.Button()
-        Me.BttnAttendance = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.txtbxFacID = New System.Windows.Forms.TextBox()
         Me.txtbxName = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.BttnMakeup = New System.Windows.Forms.Button()
+        Me.rbttnAttendace = New System.Windows.Forms.RadioButton()
+        Me.rbttnMakeUp = New System.Windows.Forms.RadioButton()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
@@ -120,18 +120,6 @@ Partial Class wdwAttendanceHistoryLog
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = False
         '
-        'BttnAttendance
-        '
-        Me.BttnAttendance.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.BttnAttendance.Enabled = False
-        Me.BttnAttendance.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BttnAttendance.Location = New System.Drawing.Point(391, 142)
-        Me.BttnAttendance.Name = "BttnAttendance"
-        Me.BttnAttendance.Size = New System.Drawing.Size(204, 40)
-        Me.BttnAttendance.TabIndex = 3
-        Me.BttnAttendance.Text = "Attendance"
-        Me.BttnAttendance.UseVisualStyleBackColor = False
-        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.txtbxFacID)
@@ -184,16 +172,27 @@ Partial Class wdwAttendanceHistoryLog
         Me.Label6.TabIndex = 172
         Me.Label6.Text = "Faculty ID:"
         '
-        'BttnMakeup
+        'rbttnAttendace
         '
-        Me.BttnMakeup.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.BttnMakeup.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BttnMakeup.Location = New System.Drawing.Point(776, 142)
-        Me.BttnMakeup.Name = "BttnMakeup"
-        Me.BttnMakeup.Size = New System.Drawing.Size(204, 40)
-        Me.BttnMakeup.TabIndex = 4
-        Me.BttnMakeup.Text = "Make-Up Class"
-        Me.BttnMakeup.UseVisualStyleBackColor = False
+        Me.rbttnAttendace.AutoSize = True
+        Me.rbttnAttendace.Checked = True
+        Me.rbttnAttendace.Location = New System.Drawing.Point(505, 160)
+        Me.rbttnAttendace.Name = "rbttnAttendace"
+        Me.rbttnAttendace.Size = New System.Drawing.Size(80, 17)
+        Me.rbttnAttendace.TabIndex = 184
+        Me.rbttnAttendace.TabStop = True
+        Me.rbttnAttendace.Text = "Attendance"
+        Me.rbttnAttendace.UseVisualStyleBackColor = True
+        '
+        'rbttnMakeUp
+        '
+        Me.rbttnMakeUp.AutoSize = True
+        Me.rbttnMakeUp.Location = New System.Drawing.Point(752, 160)
+        Me.rbttnMakeUp.Name = "rbttnMakeUp"
+        Me.rbttnMakeUp.Size = New System.Drawing.Size(95, 17)
+        Me.rbttnMakeUp.TabIndex = 185
+        Me.rbttnMakeUp.Text = "Make-up Class"
+        Me.rbttnMakeUp.UseVisualStyleBackColor = True
         '
         'wdwAttendanceHistoryLog
         '
@@ -202,9 +201,9 @@ Partial Class wdwAttendanceHistoryLog
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1324, 670)
-        Me.Controls.Add(Me.BttnMakeup)
+        Me.Controls.Add(Me.rbttnMakeUp)
+        Me.Controls.Add(Me.rbttnAttendace)
         Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.BttnAttendance)
         Me.Controls.Add(Me.bttnBack)
         Me.Controls.Add(Me.bttnDelete)
         Me.Controls.Add(Me.bttnModify)
@@ -222,6 +221,7 @@ Partial Class wdwAttendanceHistoryLog
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents bttnSearch As Button
@@ -230,11 +230,11 @@ Partial Class wdwAttendanceHistoryLog
     Friend WithEvents bttnModify As Button
     Friend WithEvents bttnDelete As Button
     Friend WithEvents bttnBack As Button
-    Friend WithEvents BttnAttendance As Button
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents txtbxFacID As TextBox
     Friend WithEvents txtbxName As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents BttnMakeup As Button
+    Friend WithEvents rbttnAttendace As RadioButton
+    Friend WithEvents rbttnMakeUp As RadioButton
 End Class
