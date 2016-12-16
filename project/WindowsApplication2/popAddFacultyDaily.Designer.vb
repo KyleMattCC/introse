@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class popAddFacultyDaily
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class popAddFacultyDaily
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popAddFacultyDaily))
         Me.txtEnd = New System.Windows.Forms.TextBox()
@@ -55,7 +55,7 @@ Partial Class popAddFacultyDaily
         'txtEnd
         '
         Me.txtEnd.Location = New System.Drawing.Point(533, 225)
-        Me.txtEnd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtEnd.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEnd.Name = "txtEnd"
         Me.txtEnd.Size = New System.Drawing.Size(160, 22)
         Me.txtEnd.TabIndex = 9
@@ -63,7 +63,7 @@ Partial Class popAddFacultyDaily
         'dtpDate
         '
         Me.dtpDate.Location = New System.Drawing.Point(223, 128)
-        Me.dtpDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtpDate.Margin = New System.Windows.Forms.Padding(4)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(265, 22)
         Me.dtpDate.TabIndex = 4
@@ -73,7 +73,7 @@ Partial Class popAddFacultyDaily
         Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(403, 341)
-        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(127, 60)
         Me.bttnBack.TabIndex = 64
@@ -85,7 +85,7 @@ Partial Class popAddFacultyDaily
         Me.bttnAdd.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAdd.Location = New System.Drawing.Point(167, 341)
-        Me.bttnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnAdd.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnAdd.Name = "bttnAdd"
         Me.bttnAdd.Size = New System.Drawing.Size(127, 60)
         Me.bttnAdd.TabIndex = 63
@@ -95,7 +95,7 @@ Partial Class popAddFacultyDaily
         'txtStartT
         '
         Me.txtStartT.Location = New System.Drawing.Point(223, 225)
-        Me.txtStartT.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtStartT.Margin = New System.Windows.Forms.Padding(4)
         Me.txtStartT.Name = "txtStartT"
         Me.txtStartT.Size = New System.Drawing.Size(160, 22)
         Me.txtStartT.TabIndex = 8
@@ -127,7 +127,7 @@ Partial Class popAddFacultyDaily
         'txtChecker
         '
         Me.txtChecker.Location = New System.Drawing.Point(533, 292)
-        Me.txtChecker.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtChecker.Margin = New System.Windows.Forms.Padding(4)
         Me.txtChecker.Name = "txtChecker"
         Me.txtChecker.Size = New System.Drawing.Size(160, 22)
         Me.txtChecker.TabIndex = 13
@@ -147,7 +147,7 @@ Partial Class popAddFacultyDaily
         'txtEncoder
         '
         Me.txtEncoder.Location = New System.Drawing.Point(223, 290)
-        Me.txtEncoder.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtEncoder.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEncoder.Name = "txtEncoder"
         Me.txtEncoder.Size = New System.Drawing.Size(160, 22)
         Me.txtEncoder.TabIndex = 12
@@ -155,7 +155,7 @@ Partial Class popAddFacultyDaily
         'txtRem
         '
         Me.txtRem.Location = New System.Drawing.Point(301, 257)
-        Me.txtRem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtRem.Margin = New System.Windows.Forms.Padding(4)
         Me.txtRem.Name = "txtRem"
         Me.txtRem.Size = New System.Drawing.Size(392, 22)
         Me.txtRem.TabIndex = 11
@@ -165,7 +165,7 @@ Partial Class popAddFacultyDaily
         Me.cmbRem.FormattingEnabled = True
         Me.cmbRem.Items.AddRange(New Object() {"ABS"})
         Me.cmbRem.Location = New System.Drawing.Point(223, 257)
-        Me.cmbRem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbRem.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbRem.Name = "cmbRem"
         Me.cmbRem.Size = New System.Drawing.Size(69, 24)
         Me.cmbRem.TabIndex = 10
@@ -173,7 +173,7 @@ Partial Class popAddFacultyDaily
         'txtRoom
         '
         Me.txtRoom.Location = New System.Drawing.Point(533, 193)
-        Me.txtRoom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtRoom.Margin = New System.Windows.Forms.Padding(4)
         Me.txtRoom.Name = "txtRoom"
         Me.txtRoom.Size = New System.Drawing.Size(160, 22)
         Me.txtRoom.TabIndex = 7
@@ -181,7 +181,7 @@ Partial Class popAddFacultyDaily
         'txtSection
         '
         Me.txtSection.Location = New System.Drawing.Point(223, 193)
-        Me.txtSection.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSection.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSection.Name = "txtSection"
         Me.txtSection.Size = New System.Drawing.Size(160, 22)
         Me.txtSection.TabIndex = 6
@@ -238,7 +238,7 @@ Partial Class popAddFacultyDaily
         '
         Me.cmbCourse.FormattingEnabled = True
         Me.cmbCourse.Location = New System.Drawing.Point(223, 160)
-        Me.cmbCourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbCourse.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbCourse.Name = "cmbCourse"
         Me.cmbCourse.Size = New System.Drawing.Size(160, 24)
         Me.cmbCourse.TabIndex = 5
@@ -258,7 +258,7 @@ Partial Class popAddFacultyDaily
         'txtRef
         '
         Me.txtRef.Location = New System.Drawing.Point(223, 96)
-        Me.txtRef.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtRef.Margin = New System.Windows.Forms.Padding(4)
         Me.txtRef.Name = "txtRef"
         Me.txtRef.Size = New System.Drawing.Size(160, 22)
         Me.txtRef.TabIndex = 3
@@ -266,7 +266,7 @@ Partial Class popAddFacultyDaily
         'txtName
         '
         Me.txtName.Location = New System.Drawing.Point(223, 64)
-        Me.txtName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(471, 22)
         Me.txtName.TabIndex = 2
@@ -274,7 +274,7 @@ Partial Class popAddFacultyDaily
         'txtID
         '
         Me.txtID.Location = New System.Drawing.Point(223, 32)
-        Me.txtID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(160, 22)
         Me.txtID.TabIndex = 1
@@ -331,6 +331,7 @@ Partial Class popAddFacultyDaily
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(779, 412)
         Me.Controls.Add(Me.txtEnd)
@@ -362,7 +363,9 @@ Partial Class popAddFacultyDaily
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popAddFacultyDaily"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Faculty Daily Attendance"

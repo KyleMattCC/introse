@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class popAddAttendanceHistory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class popAddAttendanceHistory
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popAddAttendanceHistory))
         Me.Label2 = New System.Windows.Forms.Label()
@@ -200,9 +200,9 @@ Partial Class popAddAttendanceHistory
         'bttnAdd
         '
         Me.bttnAdd.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.bttnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAdd.Location = New System.Drawing.Point(87, 505)
-        Me.bttnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnAdd.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnAdd.Name = "bttnAdd"
         Me.bttnAdd.Size = New System.Drawing.Size(120, 37)
         Me.bttnAdd.TabIndex = 14
@@ -212,9 +212,9 @@ Partial Class popAddAttendanceHistory
         'bttnAddClear
         '
         Me.bttnAddClear.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.bttnAddClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnAddClear.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAddClear.Location = New System.Drawing.Point(276, 505)
-        Me.bttnAddClear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnAddClear.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnAddClear.Name = "bttnAddClear"
         Me.bttnAddClear.Size = New System.Drawing.Size(187, 37)
         Me.bttnAddClear.TabIndex = 15
@@ -224,9 +224,9 @@ Partial Class popAddAttendanceHistory
         'bttnBack
         '
         Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.bttnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bttnBack.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(529, 505)
-        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(120, 37)
         Me.bttnBack.TabIndex = 16
@@ -238,7 +238,7 @@ Partial Class popAddAttendanceHistory
         Me.txtbxFacID.Enabled = False
         Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacID.Location = New System.Drawing.Point(264, 12)
-        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxFacID.Name = "txtbxFacID"
         Me.txtbxFacID.Size = New System.Drawing.Size(219, 31)
         Me.txtbxFacID.TabIndex = 1
@@ -248,7 +248,7 @@ Partial Class popAddAttendanceHistory
         Me.txtbxName.Enabled = False
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxName.Location = New System.Drawing.Point(264, 49)
-        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxName.Name = "txtbxName"
         Me.txtbxName.Size = New System.Drawing.Size(419, 31)
         Me.txtbxName.TabIndex = 2
@@ -257,7 +257,7 @@ Partial Class popAddAttendanceHistory
         '
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Location = New System.Drawing.Point(264, 160)
-        Me.dtp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtp.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp.Name = "dtp"
         Me.dtp.Size = New System.Drawing.Size(419, 31)
         Me.dtp.TabIndex = 5
@@ -268,7 +268,7 @@ Partial Class popAddAttendanceHistory
         Me.cmbbxSY.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSY.FormattingEnabled = True
         Me.cmbbxSY.Location = New System.Drawing.Point(264, 86)
-        Me.cmbbxSY.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxSY.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxSY.Name = "cmbbxSY"
         Me.cmbbxSY.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxSY.TabIndex = 3
@@ -279,7 +279,7 @@ Partial Class popAddAttendanceHistory
         Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxTerm.FormattingEnabled = True
         Me.cmbbxTerm.Location = New System.Drawing.Point(264, 123)
-        Me.cmbbxTerm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxTerm.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxTerm.Name = "cmbbxTerm"
         Me.cmbbxTerm.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxTerm.TabIndex = 4
@@ -290,7 +290,7 @@ Partial Class popAddAttendanceHistory
         Me.cmbbxCourse.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxCourse.FormattingEnabled = True
         Me.cmbbxCourse.Location = New System.Drawing.Point(264, 197)
-        Me.cmbbxCourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxCourse.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxCourse.Name = "cmbbxCourse"
         Me.cmbbxCourse.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxCourse.TabIndex = 6
@@ -301,7 +301,7 @@ Partial Class popAddAttendanceHistory
         Me.cmbbxSection.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSection.FormattingEnabled = True
         Me.cmbbxSection.Location = New System.Drawing.Point(264, 234)
-        Me.cmbbxSection.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxSection.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxSection.Name = "cmbbxSection"
         Me.cmbbxSection.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxSection.TabIndex = 7
@@ -311,7 +311,7 @@ Partial Class popAddAttendanceHistory
         Me.txtbxRoom.Enabled = False
         Me.txtbxRoom.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxRoom.Location = New System.Drawing.Point(264, 272)
-        Me.txtbxRoom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxRoom.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxRoom.Name = "txtbxRoom"
         Me.txtbxRoom.Size = New System.Drawing.Size(219, 31)
         Me.txtbxRoom.TabIndex = 8
@@ -321,7 +321,7 @@ Partial Class popAddAttendanceHistory
         Me.txtbxDay.Enabled = False
         Me.txtbxDay.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDay.Location = New System.Drawing.Point(264, 309)
-        Me.txtbxDay.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxDay.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxDay.Name = "txtbxDay"
         Me.txtbxDay.Size = New System.Drawing.Size(219, 31)
         Me.txtbxDay.TabIndex = 9
@@ -331,7 +331,7 @@ Partial Class popAddAttendanceHistory
         Me.txtbxStart.Enabled = False
         Me.txtbxStart.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxStart.Location = New System.Drawing.Point(264, 346)
-        Me.txtbxStart.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxStart.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxStart.Name = "txtbxStart"
         Me.txtbxStart.Size = New System.Drawing.Size(219, 31)
         Me.txtbxStart.TabIndex = 10
@@ -341,7 +341,7 @@ Partial Class popAddAttendanceHistory
         Me.txtbxEnd.Enabled = False
         Me.txtbxEnd.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxEnd.Location = New System.Drawing.Point(264, 382)
-        Me.txtbxEnd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxEnd.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxEnd.Name = "txtbxEnd"
         Me.txtbxEnd.Size = New System.Drawing.Size(219, 31)
         Me.txtbxEnd.TabIndex = 11
@@ -352,7 +352,7 @@ Partial Class popAddAttendanceHistory
         Me.cmbbxRemarks.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxRemarks.FormattingEnabled = True
         Me.cmbbxRemarks.Location = New System.Drawing.Point(264, 418)
-        Me.cmbbxRemarks.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxRemarks.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxRemarks.Name = "cmbbxRemarks"
         Me.cmbbxRemarks.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxRemarks.TabIndex = 12
@@ -361,7 +361,7 @@ Partial Class popAddAttendanceHistory
         '
         Me.txtbxChecker.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxChecker.Location = New System.Drawing.Point(264, 455)
-        Me.txtbxChecker.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxChecker.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxChecker.Name = "txtbxChecker"
         Me.txtbxChecker.Size = New System.Drawing.Size(219, 31)
         Me.txtbxChecker.TabIndex = 13
@@ -370,6 +370,7 @@ Partial Class popAddAttendanceHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(745, 558)
         Me.Controls.Add(Me.txtbxChecker)
@@ -403,7 +404,9 @@ Partial Class popAddAttendanceHistory
         Me.Controls.Add(Me.Label2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popAddAttendanceHistory"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Attendance History"

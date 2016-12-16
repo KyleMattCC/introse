@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class popEditAccount
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class popEditAccount
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popEditAccount))
         Me.Label1 = New System.Windows.Forms.Label()
@@ -37,7 +37,7 @@ Partial Class popEditAccount
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(32, 116)
+        Me.Label1.Location = New System.Drawing.Point(27, 91)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(121, 23)
@@ -47,8 +47,8 @@ Partial Class popEditAccount
         'txtbxName
         '
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxName.Location = New System.Drawing.Point(177, 73)
-        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxName.Location = New System.Drawing.Point(172, 48)
+        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxName.Name = "txtbxName"
         Me.txtbxName.Size = New System.Drawing.Size(419, 31)
         Me.txtbxName.TabIndex = 1
@@ -57,7 +57,7 @@ Partial Class popEditAccount
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(40, 164)
+        Me.Label2.Location = New System.Drawing.Point(35, 139)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(115, 23)
@@ -67,8 +67,8 @@ Partial Class popEditAccount
         'txtbxPass
         '
         Me.txtbxPass.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxPass.Location = New System.Drawing.Point(177, 164)
-        Me.txtbxPass.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxPass.Location = New System.Drawing.Point(172, 139)
+        Me.txtbxPass.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxPass.Name = "txtbxPass"
         Me.txtbxPass.Size = New System.Drawing.Size(419, 31)
         Me.txtbxPass.TabIndex = 3
@@ -77,7 +77,7 @@ Partial Class popEditAccount
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(83, 73)
+        Me.Label3.Location = New System.Drawing.Point(78, 48)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(77, 23)
@@ -87,8 +87,8 @@ Partial Class popEditAccount
         'txtbxUser
         '
         Me.txtbxUser.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxUser.Location = New System.Drawing.Point(177, 116)
-        Me.txtbxUser.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxUser.Location = New System.Drawing.Point(172, 91)
+        Me.txtbxUser.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxUser.Name = "txtbxUser"
         Me.txtbxUser.Size = New System.Drawing.Size(419, 31)
         Me.txtbxUser.TabIndex = 2
@@ -97,8 +97,8 @@ Partial Class popEditAccount
         '
         Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(347, 271)
-        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnBack.Location = New System.Drawing.Point(327, 206)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(120, 37)
         Me.bttnBack.TabIndex = 17
@@ -109,8 +109,8 @@ Partial Class popEditAccount
         '
         Me.bttnChange.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnChange.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnChange.Location = New System.Drawing.Point(177, 271)
-        Me.bttnChange.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnChange.Location = New System.Drawing.Point(157, 206)
+        Me.bttnChange.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnChange.Name = "bttnChange"
         Me.bttnChange.Size = New System.Drawing.Size(120, 37)
         Me.bttnChange.TabIndex = 18
@@ -121,8 +121,9 @@ Partial Class popEditAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(631, 377)
+        Me.ClientSize = New System.Drawing.Size(631, 270)
         Me.Controls.Add(Me.bttnChange)
         Me.Controls.Add(Me.bttnBack)
         Me.Controls.Add(Me.txtbxUser)
@@ -133,7 +134,9 @@ Partial Class popEditAccount
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popEditAccount"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Edit Account"

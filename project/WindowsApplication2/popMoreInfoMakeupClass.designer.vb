@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class popMoreInfoMakeupClass
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class popMoreInfoMakeupClass
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popMoreInfoMakeupClass))
         Me.Label5 = New System.Windows.Forms.Label()
@@ -64,7 +64,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(16, 11)
+        Me.Label5.Location = New System.Drawing.Point(34, 11)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(211, 23)
@@ -75,7 +75,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(121, 48)
+        Me.Label1.Location = New System.Drawing.Point(124, 48)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(121, 23)
@@ -86,7 +86,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(80, 85)
+        Me.Label2.Location = New System.Drawing.Point(87, 85)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(158, 23)
@@ -97,7 +97,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(97, 159)
+        Me.Label3.Location = New System.Drawing.Point(106, 159)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(141, 23)
@@ -108,7 +108,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(147, 122)
+        Me.Label4.Location = New System.Drawing.Point(149, 122)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(96, 23)
@@ -130,7 +130,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(64, 196)
+        Me.Label8.Location = New System.Drawing.Point(75, 196)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(172, 23)
@@ -141,7 +141,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(84, 270)
+        Me.Label7.Location = New System.Drawing.Point(94, 270)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(154, 23)
@@ -152,7 +152,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(155, 306)
+        Me.Label13.Location = New System.Drawing.Point(159, 306)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(90, 23)
@@ -163,7 +163,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(151, 343)
+        Me.Label12.Location = New System.Drawing.Point(156, 343)
         Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(93, 23)
@@ -185,7 +185,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(168, 417)
+        Me.Label10.Location = New System.Drawing.Point(169, 417)
         Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(79, 23)
@@ -196,7 +196,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(115, 454)
+        Me.Label6.Location = New System.Drawing.Point(120, 454)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(126, 23)
@@ -207,7 +207,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(128, 491)
+        Me.Label14.Location = New System.Drawing.Point(130, 491)
         Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(116, 23)
@@ -229,7 +229,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(76, 565)
+        Me.Label17.Location = New System.Drawing.Point(83, 565)
         Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(161, 23)
@@ -240,7 +240,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(143, 602)
+        Me.Label16.Location = New System.Drawing.Point(142, 602)
         Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(101, 23)
@@ -252,7 +252,7 @@ Partial Class popMoreInfoMakeupClass
         Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(311, 672)
-        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(120, 37)
         Me.bttnBack.TabIndex = 183
@@ -264,7 +264,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxRef.Enabled = False
         Me.txtbxRef.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxRef.Location = New System.Drawing.Point(265, 11)
-        Me.txtbxRef.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxRef.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxRef.Name = "txtbxRef"
         Me.txtbxRef.Size = New System.Drawing.Size(219, 31)
         Me.txtbxRef.TabIndex = 1
@@ -274,7 +274,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxFacID.Enabled = False
         Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacID.Location = New System.Drawing.Point(265, 48)
-        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxFacID.Name = "txtbxFacID"
         Me.txtbxFacID.Size = New System.Drawing.Size(219, 31)
         Me.txtbxFacID.TabIndex = 2
@@ -284,7 +284,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxName.Enabled = False
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxName.Location = New System.Drawing.Point(265, 85)
-        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxName.Name = "txtbxName"
         Me.txtbxName.Size = New System.Drawing.Size(419, 31)
         Me.txtbxName.TabIndex = 3
@@ -294,7 +294,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxCollege.Enabled = False
         Me.txtbxCollege.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxCollege.Location = New System.Drawing.Point(265, 122)
-        Me.txtbxCollege.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxCollege.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxCollege.Name = "txtbxCollege"
         Me.txtbxCollege.Size = New System.Drawing.Size(419, 31)
         Me.txtbxCollege.TabIndex = 4
@@ -304,7 +304,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxDept.Enabled = False
         Me.txtbxDept.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDept.Location = New System.Drawing.Point(265, 159)
-        Me.txtbxDept.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxDept.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxDept.Name = "txtbxDept"
         Me.txtbxDept.Size = New System.Drawing.Size(419, 31)
         Me.txtbxDept.TabIndex = 5
@@ -314,7 +314,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxSY.Enabled = False
         Me.txtbxSY.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxSY.Location = New System.Drawing.Point(265, 196)
-        Me.txtbxSY.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxSY.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxSY.Name = "txtbxSY"
         Me.txtbxSY.Size = New System.Drawing.Size(219, 31)
         Me.txtbxSY.TabIndex = 6
@@ -324,7 +324,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxTerm.Enabled = False
         Me.txtbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxTerm.Location = New System.Drawing.Point(265, 233)
-        Me.txtbxTerm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxTerm.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxTerm.Name = "txtbxTerm"
         Me.txtbxTerm.Size = New System.Drawing.Size(219, 31)
         Me.txtbxTerm.TabIndex = 7
@@ -334,7 +334,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxADate.Enabled = False
         Me.txtbxADate.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxADate.Location = New System.Drawing.Point(265, 270)
-        Me.txtbxADate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxADate.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxADate.Name = "txtbxADate"
         Me.txtbxADate.Size = New System.Drawing.Size(219, 31)
         Me.txtbxADate.TabIndex = 8
@@ -344,7 +344,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxCourse.Enabled = False
         Me.txtbxCourse.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxCourse.Location = New System.Drawing.Point(265, 306)
-        Me.txtbxCourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxCourse.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxCourse.Name = "txtbxCourse"
         Me.txtbxCourse.Size = New System.Drawing.Size(219, 31)
         Me.txtbxCourse.TabIndex = 9
@@ -354,7 +354,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxSec.Enabled = False
         Me.txtbxSec.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxSec.Location = New System.Drawing.Point(265, 343)
-        Me.txtbxSec.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxSec.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxSec.Name = "txtbxSec"
         Me.txtbxSec.Size = New System.Drawing.Size(219, 31)
         Me.txtbxSec.TabIndex = 10
@@ -364,7 +364,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxRoom.Enabled = False
         Me.txtbxRoom.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxRoom.Location = New System.Drawing.Point(265, 380)
-        Me.txtbxRoom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxRoom.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxRoom.Name = "txtbxRoom"
         Me.txtbxRoom.Size = New System.Drawing.Size(219, 31)
         Me.txtbxRoom.TabIndex = 11
@@ -374,7 +374,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxDay.Enabled = False
         Me.txtbxDay.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDay.Location = New System.Drawing.Point(265, 417)
-        Me.txtbxDay.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxDay.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxDay.Name = "txtbxDay"
         Me.txtbxDay.Size = New System.Drawing.Size(219, 31)
         Me.txtbxDay.TabIndex = 12
@@ -384,7 +384,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxStart.Enabled = False
         Me.txtbxStart.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxStart.Location = New System.Drawing.Point(265, 454)
-        Me.txtbxStart.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxStart.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxStart.Name = "txtbxStart"
         Me.txtbxStart.Size = New System.Drawing.Size(219, 31)
         Me.txtbxStart.TabIndex = 13
@@ -394,7 +394,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxEnd.Enabled = False
         Me.txtbxEnd.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxEnd.Location = New System.Drawing.Point(265, 491)
-        Me.txtbxEnd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxEnd.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxEnd.Name = "txtbxEnd"
         Me.txtbxEnd.Size = New System.Drawing.Size(219, 31)
         Me.txtbxEnd.TabIndex = 14
@@ -404,7 +404,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxRemarks.Enabled = False
         Me.txtbxRemarks.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxRemarks.Location = New System.Drawing.Point(265, 528)
-        Me.txtbxRemarks.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxRemarks.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxRemarks.Name = "txtbxRemarks"
         Me.txtbxRemarks.Size = New System.Drawing.Size(219, 31)
         Me.txtbxRemarks.TabIndex = 15
@@ -414,7 +414,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxDEncoded.Enabled = False
         Me.txtbxDEncoded.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDEncoded.Location = New System.Drawing.Point(265, 565)
-        Me.txtbxDEncoded.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxDEncoded.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxDEncoded.Name = "txtbxDEncoded"
         Me.txtbxDEncoded.Size = New System.Drawing.Size(219, 31)
         Me.txtbxDEncoded.TabIndex = 16
@@ -424,7 +424,7 @@ Partial Class popMoreInfoMakeupClass
         Me.txtbxEncoder.Enabled = False
         Me.txtbxEncoder.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxEncoder.Location = New System.Drawing.Point(265, 602)
-        Me.txtbxEncoder.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxEncoder.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxEncoder.Name = "txtbxEncoder"
         Me.txtbxEncoder.Size = New System.Drawing.Size(219, 31)
         Me.txtbxEncoder.TabIndex = 17
@@ -433,6 +433,7 @@ Partial Class popMoreInfoMakeupClass
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(712, 746)
         Me.Controls.Add(Me.txtbxEncoder)
@@ -472,7 +473,9 @@ Partial Class popMoreInfoMakeupClass
         Me.Controls.Add(Me.Label5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popMoreInfoMakeupClass"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "More Information"

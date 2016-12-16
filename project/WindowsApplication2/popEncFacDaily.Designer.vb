@@ -55,7 +55,7 @@ Partial Class popEncFacDaily
         Me.txtbxStart.Enabled = False
         Me.txtbxStart.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxStart.Location = New System.Drawing.Point(264, 271)
-        Me.txtbxStart.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxStart.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxStart.Name = "txtbxStart"
         Me.txtbxStart.Size = New System.Drawing.Size(219, 31)
         Me.txtbxStart.TabIndex = 8
@@ -64,7 +64,7 @@ Partial Class popEncFacDaily
         '
         Me.txtbxChecker.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxChecker.Location = New System.Drawing.Point(264, 382)
-        Me.txtbxChecker.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxChecker.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxChecker.Name = "txtbxChecker"
         Me.txtbxChecker.Size = New System.Drawing.Size(219, 31)
         Me.txtbxChecker.TabIndex = 11
@@ -74,7 +74,7 @@ Partial Class popEncFacDaily
         Me.bttnAdd.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnAdd.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAdd.Location = New System.Drawing.Point(87, 431)
-        Me.bttnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnAdd.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnAdd.Name = "bttnAdd"
         Me.bttnAdd.Size = New System.Drawing.Size(120, 37)
         Me.bttnAdd.TabIndex = 100
@@ -86,7 +86,7 @@ Partial Class popEncFacDaily
         Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(529, 431)
-        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(120, 37)
         Me.bttnBack.TabIndex = 101
@@ -99,7 +99,7 @@ Partial Class popEncFacDaily
         Me.cmbbxRemarks.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxRemarks.FormattingEnabled = True
         Me.cmbbxRemarks.Location = New System.Drawing.Point(264, 345)
-        Me.cmbbxRemarks.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxRemarks.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxRemarks.Name = "cmbbxRemarks"
         Me.cmbbxRemarks.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxRemarks.TabIndex = 10
@@ -109,7 +109,7 @@ Partial Class popEncFacDaily
         Me.txtbxName.Enabled = False
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxName.Location = New System.Drawing.Point(264, 49)
-        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxName.Name = "txtbxName"
         Me.txtbxName.Size = New System.Drawing.Size(419, 31)
         Me.txtbxName.TabIndex = 2
@@ -120,7 +120,7 @@ Partial Class popEncFacDaily
         Me.cmbbxCourse.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxCourse.FormattingEnabled = True
         Me.cmbbxCourse.Location = New System.Drawing.Point(264, 123)
-        Me.cmbbxCourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxCourse.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxCourse.Name = "cmbbxCourse"
         Me.cmbbxCourse.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxCourse.TabIndex = 4
@@ -131,7 +131,7 @@ Partial Class popEncFacDaily
         Me.cmbbxSection.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSection.FormattingEnabled = True
         Me.cmbbxSection.Location = New System.Drawing.Point(264, 160)
-        Me.cmbbxSection.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxSection.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxSection.Name = "cmbbxSection"
         Me.cmbbxSection.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxSection.TabIndex = 5
@@ -141,7 +141,7 @@ Partial Class popEncFacDaily
         Me.txtbxFacID.AllowDrop = True
         Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacID.Location = New System.Drawing.Point(264, 12)
-        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxFacID.Name = "txtbxFacID"
         Me.txtbxFacID.Size = New System.Drawing.Size(219, 31)
         Me.txtbxFacID.TabIndex = 1
@@ -150,7 +150,7 @@ Partial Class popEncFacDaily
         '
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Location = New System.Drawing.Point(264, 86)
-        Me.dtp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtp.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp.Name = "dtp"
         Me.dtp.Size = New System.Drawing.Size(419, 31)
         Me.dtp.TabIndex = 3
@@ -259,7 +259,7 @@ Partial Class popEncFacDaily
         Me.txtbxEnd.Enabled = False
         Me.txtbxEnd.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxEnd.Location = New System.Drawing.Point(264, 308)
-        Me.txtbxEnd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxEnd.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxEnd.Name = "txtbxEnd"
         Me.txtbxEnd.Size = New System.Drawing.Size(219, 31)
         Me.txtbxEnd.TabIndex = 9
@@ -280,7 +280,7 @@ Partial Class popEncFacDaily
         Me.txtbxRoom.Enabled = False
         Me.txtbxRoom.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxRoom.Location = New System.Drawing.Point(264, 197)
-        Me.txtbxRoom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxRoom.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxRoom.Name = "txtbxRoom"
         Me.txtbxRoom.Size = New System.Drawing.Size(219, 31)
         Me.txtbxRoom.TabIndex = 6
@@ -301,7 +301,7 @@ Partial Class popEncFacDaily
         Me.txtbxDay.Enabled = False
         Me.txtbxDay.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxDay.Location = New System.Drawing.Point(264, 234)
-        Me.txtbxDay.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxDay.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxDay.Name = "txtbxDay"
         Me.txtbxDay.Size = New System.Drawing.Size(219, 31)
         Me.txtbxDay.TabIndex = 7
@@ -311,7 +311,7 @@ Partial Class popEncFacDaily
         Me.bttnAddClear.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnAddClear.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnAddClear.Location = New System.Drawing.Point(276, 431)
-        Me.bttnAddClear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnAddClear.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnAddClear.Name = "bttnAddClear"
         Me.bttnAddClear.Size = New System.Drawing.Size(187, 37)
         Me.bttnAddClear.TabIndex = 227
@@ -322,6 +322,7 @@ Partial Class popEncFacDaily
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(745, 487)
         Me.Controls.Add(Me.bttnAddClear)
@@ -351,7 +352,9 @@ Partial Class popEncFacDaily
         Me.Controls.Add(Me.txtbxStart)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popEncFacDaily"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Faculty Daily Attendance"

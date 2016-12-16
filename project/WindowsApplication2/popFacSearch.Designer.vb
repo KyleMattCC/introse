@@ -40,9 +40,9 @@ Partial Class popFacSearch
         Me.GroupBox1.Controls.Add(Me.txtFacID)
         Me.GroupBox1.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(16, 7)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(353, 155)
         Me.GroupBox1.TabIndex = 43
         Me.GroupBox1.TabStop = False
@@ -64,7 +64,7 @@ Partial Class popFacSearch
         Me.bttnCancel.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnCancel.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnCancel.Location = New System.Drawing.Point(180, 100)
-        Me.bttnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnCancel.Name = "bttnCancel"
         Me.bttnCancel.Size = New System.Drawing.Size(120, 37)
         Me.bttnCancel.TabIndex = 44
@@ -76,7 +76,7 @@ Partial Class popFacSearch
         Me.bttnSearch.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnSearch.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnSearch.Location = New System.Drawing.Point(53, 100)
-        Me.bttnSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnSearch.Name = "bttnSearch"
         Me.bttnSearch.Size = New System.Drawing.Size(120, 37)
         Me.bttnSearch.TabIndex = 1
@@ -87,7 +87,7 @@ Partial Class popFacSearch
         '
         Me.txtFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFacID.Location = New System.Drawing.Point(15, 55)
-        Me.txtFacID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtFacID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFacID.Name = "txtFacID"
         Me.txtFacID.Size = New System.Drawing.Size(323, 31)
         Me.txtFacID.TabIndex = 1
@@ -96,12 +96,15 @@ Partial Class popFacSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(385, 177)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popFacSearch"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Search Faculty"

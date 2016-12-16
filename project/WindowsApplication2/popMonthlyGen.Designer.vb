@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class popMonthlyGen
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class popMonthlyGen
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popMonthlyGen))
         Me.cmbbxYear = New System.Windows.Forms.ComboBox()
@@ -38,18 +38,20 @@ Partial Class popMonthlyGen
         Me.cmbbxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxYear.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxYear.FormattingEnabled = True
-        Me.cmbbxYear.Location = New System.Drawing.Point(161, 19)
+        Me.cmbbxYear.Location = New System.Drawing.Point(215, 23)
+        Me.cmbbxYear.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxYear.Name = "cmbbxYear"
-        Me.cmbbxYear.Size = New System.Drawing.Size(165, 28)
+        Me.cmbbxYear.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxYear.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(85, 90)
+        Me.Label1.Location = New System.Drawing.Point(115, 111)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 20)
+        Me.Label1.Size = New System.Drawing.Size(82, 23)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Month:"
         '
@@ -57,9 +59,10 @@ Partial Class popMonthlyGen
         '
         Me.bttnGenerate.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnGenerate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnGenerate.Location = New System.Drawing.Point(65, 140)
+        Me.bttnGenerate.Location = New System.Drawing.Point(87, 172)
+        Me.bttnGenerate.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnGenerate.Name = "bttnGenerate"
-        Me.bttnGenerate.Size = New System.Drawing.Size(90, 30)
+        Me.bttnGenerate.Size = New System.Drawing.Size(120, 37)
         Me.bttnGenerate.TabIndex = 4
         Me.bttnGenerate.Text = "Generate"
         Me.bttnGenerate.UseVisualStyleBackColor = False
@@ -68,9 +71,10 @@ Partial Class popMonthlyGen
         '
         Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(185, 140)
+        Me.bttnBack.Location = New System.Drawing.Point(247, 172)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(90, 30)
+        Me.bttnBack.Size = New System.Drawing.Size(120, 37)
         Me.bttnBack.TabIndex = 5
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = False
@@ -79,9 +83,10 @@ Partial Class popMonthlyGen
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 20)
+        Me.Label2.Location = New System.Drawing.Point(27, 25)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(143, 20)
+        Me.Label2.Size = New System.Drawing.Size(170, 23)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Academic year:"
         '
@@ -91,10 +96,10 @@ Partial Class popMonthlyGen
         Me.cmbbxMonth.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxMonth.FormattingEnabled = True
         Me.cmbbxMonth.Items.AddRange(New Object() {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
-        Me.cmbbxMonth.Location = New System.Drawing.Point(161, 89)
-        Me.cmbbxMonth.MaxDropDownItems = 12
+        Me.cmbbxMonth.Location = New System.Drawing.Point(215, 111)
+        Me.cmbbxMonth.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxMonth.Name = "cmbbxMonth"
-        Me.cmbbxMonth.Size = New System.Drawing.Size(165, 28)
+        Me.cmbbxMonth.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxMonth.TabIndex = 3
         '
         'cmbbxTerm
@@ -102,27 +107,30 @@ Partial Class popMonthlyGen
         Me.cmbbxTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxTerm.FormattingEnabled = True
-        Me.cmbbxTerm.Location = New System.Drawing.Point(161, 55)
+        Me.cmbbxTerm.Location = New System.Drawing.Point(215, 68)
+        Me.cmbbxTerm.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxTerm.Name = "cmbbxTerm"
-        Me.cmbbxTerm.Size = New System.Drawing.Size(165, 28)
+        Me.cmbbxTerm.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxTerm.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(94, 55)
+        Me.Label3.Location = New System.Drawing.Point(125, 68)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 20)
+        Me.Label3.Size = New System.Drawing.Size(72, 23)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Term:"
         '
         'popMonthlyGen
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(339, 188)
+        Me.ClientSize = New System.Drawing.Size(452, 231)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbbxTerm)
         Me.Controls.Add(Me.cmbbxMonth)
@@ -133,6 +141,9 @@ Partial Class popMonthlyGen
         Me.Controls.Add(Me.cmbbxYear)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popMonthlyGen"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select Month"

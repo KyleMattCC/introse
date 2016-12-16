@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class popModifyMakeUpHistory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class popModifyMakeUpHistory
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popModifyMakeUpHistory))
         Me.Label5 = New System.Windows.Forms.Label()
@@ -66,7 +66,7 @@ Partial Class popModifyMakeUpHistory
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label3.Location = New System.Drawing.Point(108, 49)
+        Me.Label3.Location = New System.Drawing.Point(112, 49)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(155, 23)
@@ -89,7 +89,7 @@ Partial Class popModifyMakeUpHistory
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(89, 86)
+        Me.Label1.Location = New System.Drawing.Point(93, 86)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(172, 23)
@@ -100,7 +100,7 @@ Partial Class popModifyMakeUpHistory
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(201, 123)
+        Me.Label10.Location = New System.Drawing.Point(192, 123)
         Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(72, 23)
@@ -112,7 +112,7 @@ Partial Class popModifyMakeUpHistory
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label8.Location = New System.Drawing.Point(180, 197)
+        Me.Label8.Location = New System.Drawing.Point(172, 197)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(90, 23)
@@ -124,7 +124,7 @@ Partial Class popModifyMakeUpHistory
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label11.Location = New System.Drawing.Point(176, 234)
+        Me.Label11.Location = New System.Drawing.Point(169, 234)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(93, 23)
@@ -136,7 +136,7 @@ Partial Class popModifyMakeUpHistory
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label7.Location = New System.Drawing.Point(197, 271)
+        Me.Label7.Location = New System.Drawing.Point(184, 271)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(77, 23)
@@ -148,7 +148,7 @@ Partial Class popModifyMakeUpHistory
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label13.Location = New System.Drawing.Point(145, 308)
+        Me.Label13.Location = New System.Drawing.Point(140, 308)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(120, 23)
@@ -160,7 +160,7 @@ Partial Class popModifyMakeUpHistory
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label9.Location = New System.Drawing.Point(159, 345)
+        Me.Label9.Location = New System.Drawing.Point(149, 345)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(110, 23)
@@ -172,7 +172,7 @@ Partial Class popModifyMakeUpHistory
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(32, 382)
+        Me.Label2.Location = New System.Drawing.Point(39, 382)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(221, 23)
@@ -184,7 +184,7 @@ Partial Class popModifyMakeUpHistory
         Me.bttnModify.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnModify.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnModify.Location = New System.Drawing.Point(176, 431)
-        Me.bttnModify.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnModify.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnModify.Name = "bttnModify"
         Me.bttnModify.Size = New System.Drawing.Size(120, 37)
         Me.bttnModify.TabIndex = 249
@@ -196,7 +196,7 @@ Partial Class popModifyMakeUpHistory
         Me.txtbxFacID.Enabled = False
         Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacID.Location = New System.Drawing.Point(288, 12)
-        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxFacID.Name = "txtbxFacID"
         Me.txtbxFacID.Size = New System.Drawing.Size(219, 31)
         Me.txtbxFacID.TabIndex = 1
@@ -206,7 +206,7 @@ Partial Class popModifyMakeUpHistory
         Me.txtbxFacName.Enabled = False
         Me.txtbxFacName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxFacName.Location = New System.Drawing.Point(288, 49)
-        Me.txtbxFacName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxFacName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxFacName.Name = "txtbxFacName"
         Me.txtbxFacName.ReadOnly = True
         Me.txtbxFacName.Size = New System.Drawing.Size(419, 31)
@@ -217,7 +217,7 @@ Partial Class popModifyMakeUpHistory
         Me.dtp.CalendarFont = New System.Drawing.Font("Goudy Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp.Location = New System.Drawing.Point(288, 160)
-        Me.dtp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtp.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp.Name = "dtp"
         Me.dtp.Size = New System.Drawing.Size(419, 31)
         Me.dtp.TabIndex = 5
@@ -229,7 +229,7 @@ Partial Class popModifyMakeUpHistory
         Me.cmbbxSY.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSY.FormattingEnabled = True
         Me.cmbbxSY.Location = New System.Drawing.Point(288, 86)
-        Me.cmbbxSY.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxSY.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxSY.Name = "cmbbxSY"
         Me.cmbbxSY.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxSY.TabIndex = 3
@@ -241,7 +241,7 @@ Partial Class popModifyMakeUpHistory
         Me.cmbbxTerm.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxTerm.FormattingEnabled = True
         Me.cmbbxTerm.Location = New System.Drawing.Point(288, 123)
-        Me.cmbbxTerm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxTerm.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxTerm.Name = "cmbbxTerm"
         Me.cmbbxTerm.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxTerm.TabIndex = 4
@@ -253,7 +253,7 @@ Partial Class popModifyMakeUpHistory
         Me.cmbbxCourse.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxCourse.FormattingEnabled = True
         Me.cmbbxCourse.Location = New System.Drawing.Point(288, 197)
-        Me.cmbbxCourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxCourse.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxCourse.Name = "cmbbxCourse"
         Me.cmbbxCourse.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxCourse.TabIndex = 6
@@ -265,7 +265,7 @@ Partial Class popModifyMakeUpHistory
         Me.cmbbxSec.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSec.FormattingEnabled = True
         Me.cmbbxSec.Location = New System.Drawing.Point(288, 234)
-        Me.cmbbxSec.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxSec.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxSec.Name = "cmbbxSec"
         Me.cmbbxSec.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxSec.TabIndex = 7
@@ -274,7 +274,7 @@ Partial Class popModifyMakeUpHistory
         '
         Me.txtbxRoom.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxRoom.Location = New System.Drawing.Point(288, 271)
-        Me.txtbxRoom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxRoom.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxRoom.Name = "txtbxRoom"
         Me.txtbxRoom.Size = New System.Drawing.Size(219, 31)
         Me.txtbxRoom.TabIndex = 8
@@ -283,7 +283,7 @@ Partial Class popModifyMakeUpHistory
         '
         Me.txtbxStart.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxStart.Location = New System.Drawing.Point(288, 308)
-        Me.txtbxStart.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxStart.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxStart.Name = "txtbxStart"
         Me.txtbxStart.Size = New System.Drawing.Size(219, 31)
         Me.txtbxStart.TabIndex = 9
@@ -292,7 +292,7 @@ Partial Class popModifyMakeUpHistory
         '
         Me.txtbxEnd.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbxEnd.Location = New System.Drawing.Point(288, 345)
-        Me.txtbxEnd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtbxEnd.Margin = New System.Windows.Forms.Padding(4)
         Me.txtbxEnd.Name = "txtbxEnd"
         Me.txtbxEnd.Size = New System.Drawing.Size(219, 31)
         Me.txtbxEnd.TabIndex = 10
@@ -303,7 +303,7 @@ Partial Class popModifyMakeUpHistory
         Me.cmbbxReason.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxReason.FormattingEnabled = True
         Me.cmbbxReason.Location = New System.Drawing.Point(288, 382)
-        Me.cmbbxReason.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbbxReason.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbbxReason.Name = "cmbbxReason"
         Me.cmbbxReason.Size = New System.Drawing.Size(219, 31)
         Me.cmbbxReason.TabIndex = 11
@@ -313,7 +313,7 @@ Partial Class popModifyMakeUpHistory
         Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bttnBack.Location = New System.Drawing.Point(440, 431)
-        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4)
         Me.bttnBack.Name = "bttnBack"
         Me.bttnBack.Size = New System.Drawing.Size(120, 37)
         Me.bttnBack.TabIndex = 261
@@ -324,6 +324,7 @@ Partial Class popModifyMakeUpHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(745, 475)
         Me.Controls.Add(Me.bttnBack)
@@ -352,7 +353,9 @@ Partial Class popModifyMakeUpHistory
         Me.Controls.Add(Me.Label5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "popModifyMakeUpHistory"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Modify Make-Up History"

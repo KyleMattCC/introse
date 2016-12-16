@@ -36,9 +36,10 @@ Partial Class wdwEmailNotice
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(19, 58)
+        Me.Label2.Location = New System.Drawing.Point(25, 71)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(70, 20)
+        Me.Label2.Size = New System.Drawing.Size(85, 25)
         Me.Label2.TabIndex = 33
         Me.Label2.Text = "Subject"
         '
@@ -46,59 +47,69 @@ Partial Class wdwEmailNotice
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(19, 25)
+        Me.Label1.Location = New System.Drawing.Point(25, 31)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 20)
+        Me.Label1.Size = New System.Drawing.Size(44, 25)
         Me.Label1.TabIndex = 32
         Me.Label1.Text = "To "
         '
         'btnSend
         '
+        Me.btnSend.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnSend.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSend.Location = New System.Drawing.Point(233, 405)
+        Me.btnSend.Location = New System.Drawing.Point(311, 498)
+        Me.btnSend.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSend.Name = "btnSend"
-        Me.btnSend.Size = New System.Drawing.Size(75, 23)
+        Me.btnSend.Size = New System.Drawing.Size(100, 28)
         Me.btnSend.TabIndex = 27
         Me.btnSend.Text = "Send"
-        Me.btnSend.UseVisualStyleBackColor = True
+        Me.btnSend.UseVisualStyleBackColor = False
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(22, 96)
+        Me.RichTextBox1.Location = New System.Drawing.Point(29, 118)
+        Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(380, 294)
+        Me.RichTextBox1.Size = New System.Drawing.Size(505, 361)
         Me.RichTextBox1.TabIndex = 3
         Me.RichTextBox1.Text = ""
         '
         'txtSubject
         '
-        Me.txtSubject.Location = New System.Drawing.Point(97, 58)
+        Me.txtSubject.Location = New System.Drawing.Point(129, 71)
+        Me.txtSubject.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtSubject.Name = "txtSubject"
-        Me.txtSubject.Size = New System.Drawing.Size(295, 20)
+        Me.txtSubject.Size = New System.Drawing.Size(392, 22)
         Me.txtSubject.TabIndex = 2
         '
         'txtTo
         '
-        Me.txtTo.Location = New System.Drawing.Point(97, 23)
+        Me.txtTo.Location = New System.Drawing.Point(129, 28)
+        Me.txtTo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtTo.Name = "txtTo"
-        Me.txtTo.Size = New System.Drawing.Size(295, 20)
+        Me.txtTo.Size = New System.Drawing.Size(392, 22)
         Me.txtTo.TabIndex = 1
         '
         'btnCancel
         '
+        Me.btnCancel.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(327, 405)
+        Me.btnCancel.Location = New System.Drawing.Point(436, 498)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCancel.TabIndex = 34
         Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
+        Me.btnCancel.UseVisualStyleBackColor = False
         '
         'wdwEmailNotice
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(417, 457)
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(556, 544)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -108,6 +119,9 @@ Partial Class wdwEmailNotice
         Me.Controls.Add(Me.txtTo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "wdwEmailNotice"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Email Notice"
