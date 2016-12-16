@@ -4,8 +4,6 @@ Imports System.Data.SqlClient
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
 Imports System.Data.OleDb
-
-
 Public Class wdwDataEntry
     Dim dbAccess As New databaseAccessor
 
@@ -98,6 +96,7 @@ Public Class wdwDataEntry
             txtbxStartTime.Enabled = True
             txtbxEndTime.Enabled = True
         End If
+
     End Sub
 
     Private Sub cmbbxCourseDept_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxDeptCol.SelectedIndexChanged
@@ -125,6 +124,7 @@ Public Class wdwDataEntry
                 e.KeyChar = ChrW(0)
                 e.Handled = True
             End If
+
         End If
 
     End Sub
@@ -146,201 +146,6 @@ Public Class wdwDataEntry
 
     Private Sub txtbxCourseFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxCourseFacID.KeyPress
         validateInput("0123456789", e)
-
-    End Sub
-
-    Private Sub bttnFacAdd_Click(sender As Object, e As EventArgs) Handles bttnFacAdd.Click
-
-        Dim departmentID As Integer = 0
-        Dim idNum As String = Nothing
-        Dim name As String = Nothing
-        Dim email As String = Nothing
-
-
-        If (txtbxIDNumber.Text <> Nothing And txtbxFirstName.Text <> Nothing And txtbxMI.Text <> Nothing And txtbxLastName.Text <> Nothing And txtbxEmail.Text <> Nothing) Then
-
-            idNum = dbAccess.Get_Data("select facultyid from faculty where facultyid = '" & txtbxIDNumber.Text & "' ", "facultyid")
-            name = dbAccess.Get_Data("select concat(f_firstname, f_middlename, f_lastname) from faculty where concat(f_firstname, f_middlename, f_lastname) = concat('" & txtbxFirstName.Text & "', '" & txtbxMI.Text & "', '" & txtbxLastName.Text & "')", "concat(f_firstname, f_middlename, f_lastname)")
-            email = dbAccess.Get_Data("select email from faculty where email = '" & txtbxEmail.Text & "' ", "email")
-
-
-            If (idNum = Nothing And name = Nothing And email = Nothing) Then
-                departmentID = dbAccess.Get_Data("select departmentid from department where departmentname = '" & cmbbxDeptCol.SelectedItem & "'", "departmentid")
-                dbAccess.Add_Data("INSERT INTO `introse`.`faculty` (`facultyid`, `f_firstname`, `f_middlename`, `f_lastname`, `email`, `departmentid`, `status`) VALUES ('" & txtbxIDNumber.Text & "', '" & txtbxFirstName.Text & "', '" & txtbxMI.Text & "', '" & txtbxLastName.Text & "', '" & txtbxEmail.Text & "', '" & departmentID & "', 'A');")
-
-                txtbxIDNumber.Text = Nothing
-                txtbxFirstName.Text = Nothing
-                txtbxMI.Text = Nothing
-                txtbxLastName.Text = Nothing
-                txtbxEmail.Text = Nothing
-
-
-            ElseIf (idNum <> Nothing And name = Nothing And email = Nothing) Then
-                MsgBox("ID Number has already been taken. Try again!")
-
-            ElseIf (idNum = Nothing And name <> Nothing And email = Nothing) Then
-                MsgBox("Name already exists. Try again!")
-
-            ElseIf (idNum = Nothing And name = Nothing And email <> Nothing) Then
-                MsgBox("Email has already been taken. Try again!")
-
-            ElseIf (idNum = Nothing And name <> Nothing And email <> Nothing) Then
-                MsgBox("Email and name have already been taken. Try again!")
-
-            ElseIf (idNum <> Nothing And name = Nothing And email <> Nothing) Then
-                MsgBox("Email and ID Number have already been taken. Try again!")
-
-            ElseIf (idNum <> Nothing And name <> Nothing And email = Nothing) Then
-                MsgBox("Name and ID Number have already been taken. Try again!")
-
-            ElseIf (idNum <> Nothing And name <> Nothing And email <> Nothing) Then
-                MsgBox("Credentials already been taken. Try again!")
-            End If
-
-        Else
-            MsgBox("Some textboxes are empty.")
-        End If
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnCollegeAdd.Click
-        Dim collegeCode As String = Nothing
-        Dim collegeName As String = Nothing
-
-        If (txtbxCollegeCode.Text <> Nothing And txtbxCollegeName.Text <> Nothing) Then
-
-
-            collegeCode = dbAccess.Get_Data("college_code from College where college_code = '" & txtbxCollegeCode.Text & "'", "college_code")
-            collegeName = dbAccess.Get_Data("select college_Name from College where college_name = '" & txtbxCollegeName.Text & "'", "college_name")
-
-            If (collegeCode = Nothing And collegeName = Nothing) Then
-                dbAccess.Add_Data(" INSERT INTO `introse`.`college` (`college_code`, `college_name`) VALUES ('" & txtbxCollegeCode.Text & "', '" & txtbxCollegeName.Text & "');")
-
-                txtbxCollegeCode.Text = Nothing
-                txtbxCollegeName.Text = Nothing
-
-
-            ElseIf (collegeCode = Nothing And collegeName <> Nothing) Then
-                MsgBox("College name already exists. Try Again!")
-            ElseIf (collegeName = Nothing And collegeCode <> Nothing) Then
-                MsgBox(collegeCode)
-                MsgBox("College code already exists. Try Again!")
-            ElseIf (collegeCode <> Nothing And collegeName <> Nothing) Then
-                MsgBox("College already exists. Try Again!")
-            End If
-        End If
-
-    End Sub
-
-    Private Sub bttnDeptAdd_Click(sender As Object, e As EventArgs) Handles bttnDeptAdd.Click
-        Dim College As String = Nothing
-        Dim Department As String = Nothing
-
-        If (txtbxDeptName.Text <> Nothing) Then
-            College = dbAccess.Get_Data("select college_code from college where college_name = '" & cmbbxDeptCol.SelectedItem & "'", "college_code")
-            Department = dbAccess.Get_Data("select departmentname from department where departmentname = '" & txtbxDeptName.Text & "'", "departmentname")
-
-            If (Department = Nothing) Then
-                dbAccess.Add_Data("INSERT INTO `introse`.`department` (`departmentname`, `college_code`) VALUES ('" & txtbxDeptName.Text & "', '" & College & "');")
-                txtbxDeptName.Text = Nothing
-                cmbbxFacCol.SelectedIndex = 1
-                cmbbxFacCol.SelectedIndex = 0
-
-            Else
-                MsgBox("Department already exists. Try again!")
-            End If
-
-
-        Else
-            MsgBox("Department textbox is empty. Try Again!")
-
-        End If
-
-    End Sub
-
-    Private Sub rbttnUndergrad_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnUndergrad.CheckedChanged
-
-    End Sub
-
-    Private Sub bttnCourseAdd_Click(sender As Object, e As EventArgs) Handles bttnCourseAdd.Click
-
-        If (txtbxCourseFacID.Text = Nothing Or txtbxCourseCode.Text = Nothing Or txtbxSection.Text = Nothing Or txtbxUnit.Text = Nothing Or txtbxDay.Text = Nothing Or txtbxStartTime.Text = Nothing Or txtbxRoom.Text = Nothing Or txtbxEndTime.Text = Nothing) Then
-            MsgBox("Some textboxes are empty. Try Again!")
-        Else
-
-            Dim Course As Integer = Nothing
-            Dim offeredTo As Char = "U"
-
-            Dim term As Integer
-            Dim tempDate As Date = Date.Now
-            Dim dateToday As String = tempDate.ToString("yyyy-MM-dd")
-            Dim facrefNo As String = Nothing
-            Dim startTime As Integer
-            Dim endTime As Integer
-            Dim tempStart As Integer
-            Dim tempEnd As Integer
-
-
-
-            Course = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
-            If (Course = Nothing) Then
-
-                If (rbttnGrad.Checked = True) Then
-                    offeredTo = "G"
-                End If
-
-                dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & txtbxCourseCode.Text & "' , '" & txtbxUnit.Text & "', '" & offeredTo & "');")
-            End If
-
-            facrefNo = dbAccess.Get_Data("select facref_no from introse.faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
-            term = dbAccess.Get_Data("select termid from introse.term where '" & dateToday & "' between start and end", "termid")
-            Course = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
-
-            If (facrefNo <> Nothing And term <> Nothing) Then
-                Dim wholeNumber As Integer
-                startTime = Convert.ToInt32(txtbxStartTime.Text)
-                endTime = Convert.ToInt32(txtbxEndTime.Text)
-                tempStart = startTime
-                tempEnd = endTime
-                If ((tempStart Mod 100) > tempEnd Mod 100) Then
-                    Dim tempMinutes As Integer = startTime Mod 100
-                    tempStart -= tempMinutes
-                    tempEnd -= (tempMinutes + 40)
-                End If
-                wholeNumber = (tempEnd - tempStart) / 100
-
-                If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
-                    MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
-
-                ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
-                    MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
-
-                ElseIf (endTime < startTime) Then
-                    MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
-
-                ElseIf (startTime = endTime) Then
-                    MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
-
-                Else
-
-
-                    dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & Course & "', '" & term & "', '" & facrefNo & "', '" & txtbxSection.Text & "', '" & txtbxRoom.Text & "', '" & txtbxDay.Text & "', '" & txtbxStartTime.Text & "', '" & txtbxEndTime.Text & "', '" & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & "', 'A');")
-                    wdwFacPlantilia.Load_form()
-                    Me.Close()
-                End If
-
-            Else
-                If (facrefNo = Nothing) Then
-                    MsgBox("Faculty ID does not exist. Try again!")
-
-                ElseIf (term = Nothing) Then
-                    MsgBox("Create a new term first.")
-
-                End If
-
-            End If
-
-        End If
 
     End Sub
 
@@ -369,8 +174,9 @@ Public Class wdwDataEntry
             txtbxSection.Enabled = True
 
         ElseIf (txtbxCourseCode.Text <> Nothing And txtbxSection.Text = Nothing And txtbxUnit.Text <> Nothing) Then
-            txtbxSection.Enabled = Tru
+            txtbxSection.Enabled = True
         End If
+
     End Sub
 
     Private Sub txtbxCourseFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxCourseFacID.TextChanged
@@ -485,6 +291,195 @@ Public Class wdwDataEntry
 
     Private Sub txtbxCollegeCode_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxCollegeCode.KeyPress
         validateInput("ABCDEFGHIJKLMNOPQRST", e)
+
+    End Sub
+
+    Private Sub bttnFacAdd_Click(sender As Object, e As EventArgs) Handles bttnFacAdd.Click
+        Dim departmentID As Integer = 0
+        Dim idNum As String = Nothing
+        Dim name As String = Nothing
+        Dim email As String = Nothing
+
+
+        If (txtbxIDNumber.Text <> Nothing And txtbxFirstName.Text <> Nothing And txtbxMI.Text <> Nothing And txtbxLastName.Text <> Nothing And txtbxEmail.Text <> Nothing) Then
+
+            idNum = dbAccess.Get_Data("select facultyid from faculty where facultyid = '" & txtbxIDNumber.Text & "' ", "facultyid")
+            name = dbAccess.Get_Data("select concat(f_firstname, f_middlename, f_lastname) from faculty where concat(f_firstname, f_middlename, f_lastname) = concat('" & txtbxFirstName.Text & "', '" & txtbxMI.Text & "', '" & txtbxLastName.Text & "')", "concat(f_firstname, f_middlename, f_lastname)")
+            email = dbAccess.Get_Data("select email from faculty where email = '" & txtbxEmail.Text & "' ", "email")
+
+
+            If (idNum = Nothing And name = Nothing And email = Nothing) Then
+                departmentID = dbAccess.Get_Data("select departmentid from department where departmentname = '" & cmbbxDeptCol.SelectedItem & "'", "departmentid")
+                dbAccess.Add_Data("INSERT INTO `introse`.`faculty` (`facultyid`, `f_firstname`, `f_middlename`, `f_lastname`, `email`, `departmentid`, `status`) VALUES ('" & txtbxIDNumber.Text & "', '" & txtbxFirstName.Text & "', '" & txtbxMI.Text & "', '" & txtbxLastName.Text & "', '" & txtbxEmail.Text & "', '" & departmentID & "', 'A');")
+
+                txtbxIDNumber.Text = Nothing
+                txtbxFirstName.Text = Nothing
+                txtbxMI.Text = Nothing
+                txtbxLastName.Text = Nothing
+                txtbxEmail.Text = Nothing
+
+
+            ElseIf (idNum <> Nothing And name = Nothing And email = Nothing) Then
+                MsgBox("ID Number has already been taken. Try again!")
+
+            ElseIf (idNum = Nothing And name <> Nothing And email = Nothing) Then
+                MsgBox("Name already exists. Try again!")
+
+            ElseIf (idNum = Nothing And name = Nothing And email <> Nothing) Then
+                MsgBox("Email has already been taken. Try again!")
+
+            ElseIf (idNum = Nothing And name <> Nothing And email <> Nothing) Then
+                MsgBox("Email and name have already been taken. Try again!")
+
+            ElseIf (idNum <> Nothing And name = Nothing And email <> Nothing) Then
+                MsgBox("Email and ID Number have already been taken. Try again!")
+
+            ElseIf (idNum <> Nothing And name <> Nothing And email = Nothing) Then
+                MsgBox("Name and ID Number have already been taken. Try again!")
+
+            ElseIf (idNum <> Nothing And name <> Nothing And email <> Nothing) Then
+                MsgBox("Credentials already been taken. Try again!")
+            End If
+
+        Else
+            MsgBox("Some textboxes are empty.")
+        End If
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnCollegeAdd.Click
+        Dim collegeCode As String = Nothing
+        Dim collegeName As String = Nothing
+
+        If (txtbxCollegeCode.Text <> Nothing And txtbxCollegeName.Text <> Nothing) Then
+            collegeCode = dbAccess.Get_Data("college_code from College where college_code = '" & txtbxCollegeCode.Text & "'", "college_code")
+            collegeName = dbAccess.Get_Data("select college_Name from College where college_name = '" & txtbxCollegeName.Text & "'", "college_name")
+
+            If (collegeCode = Nothing And collegeName = Nothing) Then
+                dbAccess.Add_Data(" INSERT INTO `introse`.`college` (`college_code`, `college_name`) VALUES ('" & txtbxCollegeCode.Text & "', '" & txtbxCollegeName.Text & "');")
+
+                txtbxCollegeCode.Text = Nothing
+                txtbxCollegeName.Text = Nothing
+
+            ElseIf (collegeCode = Nothing And collegeName <> Nothing) Then
+                MsgBox("College name already exists. Try Again!")
+
+            ElseIf (collegeName = Nothing And collegeCode <> Nothing) Then
+                MsgBox(collegeCode)
+                MsgBox("College code already exists. Try Again!")
+
+            ElseIf (collegeCode <> Nothing And collegeName <> Nothing) Then
+                MsgBox("College already exists. Try Again!")
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub bttnDeptAdd_Click(sender As Object, e As EventArgs) Handles bttnDeptAdd.Click
+        Dim College As String = Nothing
+        Dim Department As String = Nothing
+
+        If (txtbxDeptName.Text <> Nothing) Then
+            College = dbAccess.Get_Data("select college_code from college where college_name = '" & cmbbxDeptCol.SelectedItem & "'", "college_code")
+            Department = dbAccess.Get_Data("select departmentname from department where departmentname = '" & txtbxDeptName.Text & "'", "departmentname")
+
+            If (Department = Nothing) Then
+                dbAccess.Add_Data("INSERT INTO `introse`.`department` (`departmentname`, `college_code`) VALUES ('" & txtbxDeptName.Text & "', '" & College & "');")
+                txtbxDeptName.Text = Nothing
+                cmbbxFacCol.SelectedIndex = 1
+                cmbbxFacCol.SelectedIndex = 0
+
+            Else
+                MsgBox("Department already exists. Try again!")
+            End If
+
+        Else
+            MsgBox("Department textbox is empty. Try Again!")
+
+        End If
+
+    End Sub
+
+    Private Sub rbttnUndergrad_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnUndergrad.CheckedChanged
+
+    End Sub
+
+    Private Sub bttnCourseAdd_Click(sender As Object, e As EventArgs) Handles bttnCourseAdd.Click
+
+        If (txtbxCourseFacID.Text = Nothing Or txtbxCourseCode.Text = Nothing Or txtbxSection.Text = Nothing Or txtbxUnit.Text = Nothing Or txtbxDay.Text = Nothing Or txtbxStartTime.Text = Nothing Or txtbxRoom.Text = Nothing Or txtbxEndTime.Text = Nothing) Then
+            MsgBox("Some textboxes are empty. Try Again!")
+        Else
+
+            Dim Course As Integer = Nothing
+            Dim offeredTo As Char = "U"
+
+            Dim term As Integer
+            Dim tempDate As Date = Date.Now
+            Dim dateToday As String = tempDate.ToString("yyyy-MM-dd")
+            Dim facrefNo As String = Nothing
+            Dim startTime As Integer
+            Dim endTime As Integer
+            Dim tempStart As Integer
+            Dim tempEnd As Integer
+
+            Course = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
+            If (Course = Nothing) Then
+
+                If (rbttnGrad.Checked = True) Then
+                    offeredTo = "G"
+                End If
+
+                dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & txtbxCourseCode.Text & "' , '" & txtbxUnit.Text & "', '" & offeredTo & "');")
+            End If
+
+            facrefNo = dbAccess.Get_Data("select facref_no from introse.faculty where facultyid = '" & txtbxCourseFacID.Text & "'", "facref_no")
+            term = dbAccess.Get_Data("select termid from introse.term where '" & dateToday & "' between start and end", "termid")
+            Course = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
+
+            If (facrefNo <> Nothing And term <> Nothing) Then
+                Dim wholeNumber As Integer
+                startTime = Convert.ToInt32(txtbxStartTime.Text)
+                endTime = Convert.ToInt32(txtbxEndTime.Text)
+                tempStart = startTime
+                tempEnd = endTime
+                If ((tempStart Mod 100) > tempEnd Mod 100) Then
+                    Dim tempMinutes As Integer = startTime Mod 100
+                    tempStart -= tempMinutes
+                    tempEnd -= (tempMinutes + 40)
+                End If
+                wholeNumber = (tempEnd - tempStart) / 100
+
+                If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
+                    MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
+
+                ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
+                    MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
+
+                ElseIf (endTime < startTime) Then
+                    MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
+
+                ElseIf (startTime = endTime) Then
+                    MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
+
+                Else
+                    dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & Course & "', '" & term & "', '" & facrefNo & "', '" & txtbxSection.Text & "', '" & txtbxRoom.Text & "', '" & txtbxDay.Text & "', '" & txtbxStartTime.Text & "', '" & txtbxEndTime.Text & "', '" & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & "', 'A');")
+                    wdwFacPlantilia.Load_form()
+                    Me.Close()
+                End If
+
+            Else
+                If (facrefNo = Nothing) Then
+                    MsgBox("Faculty ID does not exist. Try again!")
+
+                ElseIf (term = Nothing) Then
+                    MsgBox("Create a new term first.")
+
+                End If
+
+            End If
+
+        End If
 
     End Sub
 
