@@ -836,7 +836,7 @@ Public Class wdwDataEntry
                 End If
 
                 courseID = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & courseCode & "';", "course_id")
-
+                facrefNo = dbAccess.Get_Data("select facref_no from introse.faculty where concat(f_lastname, ', ', f_firstname, ' ', f_middlename) = '" & facultyName & "';", "facref_no")
                 dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & courseID & "', '" & termID & "', '" & facrefNo & "', '" & section & "', '" & room & "', '" & daySched & "', '" & startTime & "', '" & endTime & "', '" & (wholeNumber + ((time2 - time1) Mod 100) / 60) & "', 'A');")
 
             End If
