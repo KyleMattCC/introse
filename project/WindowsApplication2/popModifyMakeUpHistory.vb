@@ -17,7 +17,10 @@
         makeupCheck = dbAccess.Get_Multiple_Row_Data("select makeupid
                                          from introse.makeup
                                          where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "';")
-        If makeupCheck.Count < 2 Then
+        If makeupCheck.Count = 0 Then
+            check = True
+
+        ElseIf makeupCheck.Count < 2 Then
             If makeupCheck(0) = ref Then
                 check = True
             End If

@@ -859,7 +859,6 @@ Public Class reportGenerator
                         depCell.HorizontalAlignment = 0
                         cell.VerticalAlignment = 1
                         table.AddCell(depCell)
-                        MsgBox(absentResults(absCtr))
 
                         ctrLines = 0
                         While ctrLines < 30 And (absCtr < absentResults.Count Or makeupCtr < makeupResults.Count)
@@ -1322,7 +1321,6 @@ Public Class reportGenerator
                 depCell.HorizontalAlignment = 0
                 cell.VerticalAlignment = 1
                 table.AddCell(depCell)
-                MsgBox(absentResults(absCtr))
 
                 ctrLines = 0
                 While ctrLines < 30 And (absCtr < absentResults.Count Or makeupCtr < makeupResults.Count)
@@ -1783,7 +1781,6 @@ Public Class reportGenerator
                         depCell.HorizontalAlignment = 0
                         cell.VerticalAlignment = 1
                         table.AddCell(depCell)
-                        MsgBox(absentResults(absCtr))
 
                         ctrLines = 0
                         While ctrLines < 30 And (absCtr < absentResults.Count Or makeupCtr < makeupResults.Count)
@@ -2247,7 +2244,6 @@ Public Class reportGenerator
                         depCell.HorizontalAlignment = 0
                         cell.VerticalAlignment = 1
                         table.AddCell(depCell)
-                        MsgBox(absentResults(absCtr))
 
                         ctrLines = 0
                         While ctrLines < 30 And (absCtr < absentResults.Count Or makeupCtr < makeupResults.Count)
@@ -2711,7 +2707,6 @@ Public Class reportGenerator
                         depCell.HorizontalAlignment = 0
                         cell.VerticalAlignment = 1
                         table.AddCell(depCell)
-                        MsgBox(absentResults(absCtr))
 
                         ctrLines = 0
                         While ctrLines < 30 And (absCtr < absentResults.Count Or makeupCtr < makeupResults.Count)
@@ -3173,10 +3168,9 @@ Public Class reportGenerator
                 depCell.Colspan = colNum
                         depCell.HorizontalAlignment = 0
                         cell.VerticalAlignment = 1
-                        table.AddCell(depCell)
-                        MsgBox(absentResults(absCtr))
+                table.AddCell(depCell)
 
-                        ctrLines = 0
+                ctrLines = 0
                         While ctrLines < 30 And (absCtr < absentResults.Count Or makeupCtr < makeupResults.Count)
                             If (absentResults.Count > 0 And makeupResults.Count > 0) And (absCtr < absentResults.Count And makeupCtr < makeupResults.Count) Then
                                 Dim result As Integer = String.Compare(absentResults(absCtr), makeupResults(makeupCtr))

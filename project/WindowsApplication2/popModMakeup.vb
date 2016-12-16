@@ -253,13 +253,21 @@
         makeupCheck = dbAccess.Get_Multiple_Row_Data("select makeupid
                                          from introse.makeup
                                          where status = '" & stat & "' and courseoffering_id = " & courseOfferingId & " and makeup_date = '" & makeup & "' and timestart = " & startTime & " and timeend = " & endTime & " and room = '" & room & "';")
-        If makeupCheck.Count < 2 Then
+        If makeupCheck.Count = 0 Then
+            b = True
+
+        ElseIf makeupCheck.Count < 2 Then
             If makeupCheck(0) = ref Then
                 b = True
+
+            Else
+                MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
             End If
+
         Else
             MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
         End If
+
         Return b
 
     End Function

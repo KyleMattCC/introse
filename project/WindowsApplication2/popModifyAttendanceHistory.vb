@@ -15,9 +15,15 @@
         Dim b As Boolean = False
         att = dbAccess.Get_Multiple_Row_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseOfferingId & "' and status = '" & stat & "';")
 
-        If att.Count < 2 Then
+        If att.Count = 0 Then
+            b = True
+
+        ElseIf att.Count < 2 Then
             If att(0) = ref Then
                 b = True
+
+            Else
+                MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
             End If
 
         Else
