@@ -6,6 +6,7 @@
 
     Private Sub wdwDailyAttendanceLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Load_form()
+
     End Sub
 
     Private Sub Load_form()
@@ -31,12 +32,14 @@
             txtbxFacID.Text = Nothing
             txtbxName.Text = Nothing
             txtbxDept.Text = Nothing
+
         ElseIf grid.RowCount >= 1 Then
             txtbxFacID.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
             txtbxName.Text = grid.Rows(0).Cells("Name").Value.ToString
             DeptValue = dbAccess.Get_Data("select departmentname from introse.department, introse.faculty where status = 'A' and facultyid = '" + txtbxFacID.Text + "' and department.departmentid = faculty.departmentid;", "departmentname")
             txtbxDept.Text = DeptValue.ToString
         End If
+
     End Sub
 
     Public Sub Enable_Form()
@@ -49,6 +52,7 @@
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtp.ValueChanged
         If txtbxSearch.Text = Nothing Then
             Load_form()
+
         Else
             Search_Click(sender, e)
         End If
@@ -57,8 +61,8 @@
 
     Private Sub txtbxSearch_TextChanged(sender As Object, e As EventArgs) Handles txtbxSearch.TextChanged
         If (String.IsNullOrEmpty(txtbxSearch.Text) Or String.IsNullOrWhiteSpace(txtbxSearch.Text)) Then
-
             bttnSearch.Enabled = False
+
         Else
             bttnSearch.Enabled = True
         End If
@@ -66,16 +70,14 @@
         If (txtbxSearch.Text = Nothing) Then
             Load_form()
         End If
+
     End Sub
 
     Private Sub Search_Click(sender As Object, e As EventArgs) Handles bttnSearch.Click
 
         Dim DeptValue As String
-
         Dim Search As String = Nothing
         Dim Comma As Char = ","
-
-
 
         Search += "%"
         Search += txtbxSearch.Text
@@ -91,6 +93,7 @@
             txtbxFacID.Text = Nothing
             txtbxName.Text = Nothing
             txtbxDept.Text = Nothing
+
         ElseIf grid.RowCount >= 1 Then
             txtbxFacID.Text = grid.Rows(0).Cells("Faculty ID").Value.ToString
             txtbxName.Text = grid.Rows(0).Cells("Name").Value.ToString
@@ -98,17 +101,18 @@
             txtbxDept.Text = DeptValue.ToString
         End If
 
-
     End Sub
 
     Private Sub bttnClear_Click(sender As Object, e As EventArgs) Handles bttnClear.Click
         txtbxSearch.Text = Nothing
         Load_form()
+
     End Sub
 
     Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
         Me.Enabled = False
         popEncFacDaily.Show()
+
     End Sub
 
     Private Sub Modify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
@@ -140,6 +144,7 @@
 
             End If
         End With
+
     End Sub
 
     Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
@@ -163,10 +168,12 @@
 
             End If
         End With
+
     End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Close()
+
     End Sub
 
     Private Sub grid_MouseClick(sender As Object, e As MouseEventArgs) Handles grid.MouseClick
@@ -193,20 +200,24 @@
 
             End If
         End If
+
     End Sub
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwMainMenu.Enable_Form()
         popEncFacDaily.Close()
         wdwModFacultyDaily.Close()
+
     End Sub
 
     Public Function getRefNo() As Integer
         Return rowData(0)
+
     End Function
 
     Public Function getDTPValue() As Date
         Return dtp.Value
+
     End Function
 
 End Class

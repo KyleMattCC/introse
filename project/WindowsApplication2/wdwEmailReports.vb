@@ -23,7 +23,7 @@ Public Class wdwEmailReports
             End If
 
             txtbxSubject.Text = "[OUR] (" & reportFor & " Copy) Daily Attendance Notice"
-            txtbxBody.Text = "Attached is a notice of your absence."
+            txtbxBody.Text = "Attached is a notice of your absence. If incorrect, please rectify this report by filling up the online feedback form. https://goo.gl/forms/PoBhcMxBFkGZFh0g1"
 
         ElseIf reportType = 2 Then
             txtbxSubject.Text = "[OUR] (" & reportFor & " Copy) Daily Faculty Attendance Report"
@@ -92,7 +92,7 @@ Public Class wdwEmailReports
             MsgBox("E-mail sent!", MsgBoxStyle.OkOnly, "")
 
         Catch ex As Exception
-            MsgBox(ex.ToString, MsgBoxStyle.Critical, "")
+            MsgBox("E-mail failed!", MsgBoxStyle.Critical, "")
 
         End Try
 

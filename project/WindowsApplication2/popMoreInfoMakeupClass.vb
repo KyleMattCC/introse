@@ -1,5 +1,10 @@
 ﻿Public Class popMoreInfoMakeupClass
-    Dim dbAccess As databaseAccessor = New databaseAccessor
+    Dim dbAccess As New databaseAccessor
+
+    Private Sub wdwMoreInfoMakeupClass_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
     Public Sub Load_Makeup_Form(rowData As List(Of String))
         Dim moreInfo As New List(Of Object)
 
@@ -29,20 +34,16 @@
             txtbxDay.Text = moreInfo(10)
         End If
         Me.Show()
+
     End Sub
+
     Private Sub bttnBack_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Close()
+
     End Sub
 
     Private Sub wdwMoreInfoMakeupClass_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         wdwAttendanceHistoryLog.Enable_Only_Form()
     End Sub
 
-    Private Sub wdwMoreInfoMakeupClass_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub txtbxRef_TextChanged(sender As Object, e As EventArgs) Handles txtbxRef.TextChanged
-
-    End Sub
 End Class

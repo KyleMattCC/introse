@@ -8,6 +8,7 @@ Imports System.Data.OleDb
 
 Public Class wdwDataEntry
     Dim dbAccess As New databaseAccessor
+
     Private Sub wdwDataEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim college As New List(Of Object)
         Dim year As New List(Of Object)
@@ -85,45 +86,6 @@ Public Class wdwDataEntry
 
     End Sub
 
-    Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
-        If Not (Asc(e.KeyChar) = 8) Then
-            If Not allowed.Contains(e.KeyChar.ToString) Then
-                e.KeyChar = ChrW(0)
-                e.Handled = True
-            End If
-        End If
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnCollegeAdd.Click
-        Dim collegeCode As String = Nothing
-        Dim collegeName As String = Nothing
-
-        If (txtbxCollegeCode.Text <> Nothing And txtbxCollegeName.Text <> Nothing) Then
-
-
-            collegeCode = dbAccess.Get_Data("college_code from College where college_code = '" & txtbxCollegeCode.Text & "'", "college_code")
-            collegeName = dbAccess.Get_Data("select college_Name from College where college_name = '" & txtbxCollegeName.Text & "'", "college_name")
-
-            If (collegeCode = Nothing And collegeName = Nothing) Then
-                dbAccess.Add_Data(" INSERT INTO `introse`.`college` (`college_code`, `college_name`) VALUES ('" & txtbxCollegeCode.Text & "', '" & txtbxCollegeName.Text & "');")
-
-                txtbxCollegeCode.Text = Nothing
-                txtbxCollegeName.Text = Nothing
-
-
-            ElseIf (collegeCode = Nothing And collegeName <> Nothing) Then
-                MsgBox("College name already exists. Try Again!")
-            ElseIf (collegeName = Nothing And collegeCode <> Nothing) Then
-                MsgBox(collegeCode)
-                MsgBox("College code already exists. Try Again!")
-            ElseIf (collegeCode <> Nothing And collegeName <> Nothing) Then
-                MsgBox("College already exists. Try Again!")
-
-
-            End If
-        End If
-    End Sub
-
     Private Sub TextBox6_TextChanged(sender As Object, e As EventArgs) Handles txtbxUnit.TextChanged
         If (txtbxUnit.Text = Nothing) Then
             txtbxDay.Enabled = False
@@ -138,8 +100,52 @@ Public Class wdwDataEntry
         End If
     End Sub
 
-
     Private Sub cmbbxCourseDept_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxDeptCol.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cmbbxFacCol_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxFacCol.SelectedIndexChanged
+        Dim Department As New List(Of Object)
+        Dim collegeCode As String
+
+        cmbbxFacDept.Items.Clear()
+
+        collegeCode = dbAccess.Get_Data("select college_code from college where college_name = '" & cmbbxFacCol.SelectedItem & "'", "college_code")
+
+        Department = dbAccess.Get_Multiple_Row_Data("select departmentname from Department where college_code = '" & collegeCode & "'")
+        For i As Integer = 0 To Department.Count - 1
+            cmbbxFacDept.Items.Add(Department(i))
+        Next
+
+    End Sub
+
+    Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
+        If Not (Asc(e.KeyChar) = 8) Then
+            If Not allowed.Contains(e.KeyChar.ToString) Then
+                e.KeyChar = ChrW(0)
+                e.Handled = True
+            End If
+        End If
+
+    End Sub
+
+    Private Sub txtbxIDNumber_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxIDNumber.KeyPress
+        validateInput("0123456789", e)
+
+    End Sub
+
+    Private Sub txtbxUnit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxUnit.KeyPress
+        validateInput("0123456789", e)
+
+    End Sub
+
+    Private Sub txtbxStartTime_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxStartTime.KeyPress
+        validateInput("0123456789", e)
+
+    End Sub
+
+    Private Sub txtbxCourseFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxCourseFacID.KeyPress
+        validateInput("0123456789", e)
 
     End Sub
 
@@ -189,32 +195,40 @@ Public Class wdwDataEntry
 
             ElseIf (idNum <> Nothing And name <> Nothing And email <> Nothing) Then
                 MsgBox("Credentials already been taken. Try again!")
-
-
-
             End If
 
         Else
             MsgBox("Some textboxes are empty.")
         End If
+
     End Sub
 
-    Private Sub cmbbxFacCol_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxFacCol.SelectedIndexChanged
-        Dim Department As New List(Of Object)
-        Dim collegeCode As String
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles bttnCollegeAdd.Click
+        Dim collegeCode As String = Nothing
+        Dim collegeName As String = Nothing
 
-        cmbbxFacDept.Items.Clear()
-
-        collegeCode = dbAccess.Get_Data("select college_code from college where college_name = '" & cmbbxFacCol.SelectedItem & "'", "college_code")
-
-        Department = dbAccess.Get_Multiple_Row_Data("select departmentname from Department where college_code = '" & collegeCode & "'")
-        For i As Integer = 0 To Department.Count - 1
-            cmbbxFacDept.Items.Add(Department(i))
-        Next
+        If (txtbxCollegeCode.Text <> Nothing And txtbxCollegeName.Text <> Nothing) Then
 
 
+            collegeCode = dbAccess.Get_Data("college_code from College where college_code = '" & txtbxCollegeCode.Text & "'", "college_code")
+            collegeName = dbAccess.Get_Data("select college_Name from College where college_name = '" & txtbxCollegeName.Text & "'", "college_name")
+
+            If (collegeCode = Nothing And collegeName = Nothing) Then
+                dbAccess.Add_Data(" INSERT INTO `introse`.`college` (`college_code`, `college_name`) VALUES ('" & txtbxCollegeCode.Text & "', '" & txtbxCollegeName.Text & "');")
+
+                txtbxCollegeCode.Text = Nothing
+                txtbxCollegeName.Text = Nothing
 
 
+            ElseIf (collegeCode = Nothing And collegeName <> Nothing) Then
+                MsgBox("College name already exists. Try Again!")
+            ElseIf (collegeName = Nothing And collegeCode <> Nothing) Then
+                MsgBox(collegeCode)
+                MsgBox("College code already exists. Try Again!")
+            ElseIf (collegeCode <> Nothing And collegeName <> Nothing) Then
+                MsgBox("College already exists. Try Again!")
+            End If
+        End If
 
     End Sub
 
@@ -242,25 +256,6 @@ Public Class wdwDataEntry
 
         End If
 
-
-
-
-    End Sub
-
-    Private Sub txtbxIDNumber_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxIDNumber.KeyPress
-        validateInput("0123456789", e)
-    End Sub
-
-    Private Sub txtbxUnit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxUnit.KeyPress
-        validateInput("0123456789", e)
-    End Sub
-
-    Private Sub txtbxStartTime_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxStartTime.KeyPress
-        validateInput("0123456789", e)
-    End Sub
-
-    Private Sub txtbxCourseFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxCourseFacID.KeyPress
-        validateInput("0123456789", e)
     End Sub
 
     Private Sub rbttnUndergrad_CheckedChanged(sender As Object, e As EventArgs) Handles rbttnUndergrad.CheckedChanged
@@ -347,9 +342,6 @@ Public Class wdwDataEntry
 
         End If
 
-
-
-
     End Sub
 
     Private Sub txtbxCourseCode_TextChanged(sender As Object, e As EventArgs) Handles txtbxCourseCode.TextChanged
@@ -360,6 +352,7 @@ Public Class wdwDataEntry
             txtbxRoom.Enabled = False
             txtbxStartTime.Enabled = False
             txtbxEndTime.Enabled = False
+
         ElseIf (txtbxCourseCode.Text <> Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text <> Nothing) Then
             txtbxSection.Enabled = True
             txtbxUnit.Enabled = True
@@ -367,6 +360,7 @@ Public Class wdwDataEntry
             txtbxRoom.Enabled = True
             txtbxStartTime.Enabled = True
             txtbxEndTime.Enabled = True
+
         ElseIf (txtbxCourseCode.Text <> Nothing And txtbxSection.Text <> Nothing And txtbxUnit.Text = Nothing) Then
             txtbxSection.Enabled = True
             txtbxUnit.Enabled = True
@@ -375,8 +369,7 @@ Public Class wdwDataEntry
             txtbxSection.Enabled = True
 
         ElseIf (txtbxCourseCode.Text <> Nothing And txtbxSection.Text = Nothing And txtbxUnit.Text <> Nothing) Then
-            txtbxSection.Enabled = True
-
+            txtbxSection.Enabled = Tru
         End If
     End Sub
 
@@ -430,10 +423,7 @@ Public Class wdwDataEntry
         ElseIf (FacName <> Nothing And txtbxCourseFacID.Text <> Nothing And txtbxCourseCode.Text <> Nothing And txtbxSection.Text = Nothing And txtbxUnit.Text <> Nothing) Then
             txtbxCourseCode.Enabled = True
             txtbxSection.Enabled = True
-
-
         End If
-
 
     End Sub
 
@@ -454,10 +444,51 @@ Public Class wdwDataEntry
         ElseIf (txtbxSection.Text <> Nothing And txtbxUnit.Text = Nothing) Then
             txtbxUnit.Enabled = True
         End If
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
+        If (cmbbxTerm.SelectedIndex <> -1 And cmbbxAcadYear.SelectedIndex <> -1) Then
+            dtpStart.Enabled = True
+            dtpEnd.Enabled = True
+        End If
+
+    End Sub
+
+    Private Sub cmbbxAcadYear_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxAcadYear.SelectedIndexChanged
+        If (cmbbxTerm.SelectedIndex <> -1 And cmbbxAcadYear.SelectedIndex <> -1) Then
+            dtpStart.Enabled = True
+            dtpEnd.Enabled = True
+        End If
+
+    End Sub
+
+    Private Sub txtbxYearStart_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxYearStart.KeyPress
+        validateInput("0123456789", e)
+
+    End Sub
+
+    Private Sub txtbxYearEnd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxYearEnd.KeyPress
+        validateInput("0123456789", e)
+
+    End Sub
+
+    Private Sub txtbxTerm_KeyPress(sender As Object, e As KeyPressEventArgs)
+        validateInput("0123456789", e)
+
+    End Sub
+
+    Private Sub txtbxEndTime_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles txtbxEndTime.KeyPress
+        validateInput("0123456789", e)
+
+    End Sub
+
+    Private Sub txtbxCollegeCode_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxCollegeCode.KeyPress
+        validateInput("ABCDEFGHIJKLMNOPQRST", e)
+
     End Sub
 
     Private Sub bttnAddClear_Click(sender As Object, e As EventArgs) Handles bttnAddClear.Click
-
         If (txtbxCourseFacID.Text = Nothing Or txtbxCourseCode.Text = Nothing Or txtbxSection.Text = Nothing Or txtbxUnit.Text = Nothing Or txtbxDay.Text = Nothing Or txtbxStartTime.Text = Nothing Or txtbxRoom.Text = Nothing Or txtbxEndTime.Text = Nothing) Then
             MsgBox("Some textboxes are empty. Try Again!")
         Else
@@ -473,8 +504,6 @@ Public Class wdwDataEntry
             Dim endTime As Integer
             Dim tempStart As Integer
             Dim tempEnd As Integer
-
-
 
             Course = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & txtbxCourseCode.Text & "'", "course_id")
             If (Course = Nothing) Then
@@ -516,8 +545,6 @@ Public Class wdwDataEntry
                     MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
 
                 Else
-
-
                     dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & Course & "', '" & term & "', '" & facrefNo & "', '" & txtbxSection.Text & "', '" & txtbxRoom.Text & "', '" & txtbxDay.Text & "', '" & txtbxStartTime.Text & "', '" & txtbxEndTime.Text & "', '" & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & "', 'A');")
                     txtbxCourseCode.Text = Nothing
                     txtbxCourseFacID.Text = Nothing
@@ -530,7 +557,6 @@ Public Class wdwDataEntry
                     rbttnUndergrad.Checked = True
 
                     wdwFacPlantilia.Load_form()
-
 
                 End If
 
@@ -549,37 +575,37 @@ Public Class wdwDataEntry
 
     End Sub
 
-
-
-
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles bttnBackTerm.Click
         wdwFacPlantilia.Enable_Form()
         Me.Close()
+
     End Sub
 
     Private Sub bttnCourseBack_Click(sender As Object, e As EventArgs) Handles bttnCourseBack.Click
         wdwFacPlantilia.Enable_Form()
         Me.Close()
+
     End Sub
 
     Private Sub bttnDeptBack_Click(sender As Object, e As EventArgs) Handles bttnDeptBack.Click
         wdwFacPlantilia.Enable_Form()
         Me.Close()
+
     End Sub
 
     Private Sub bttnCollegeBack_Click(sender As Object, e As EventArgs) Handles bttnCollegeBack.Click
         wdwFacPlantilia.Enable_Form()
         Me.Close()
+
     End Sub
 
     Private Sub bttnFacBack_Click(sender As Object, e As EventArgs) Handles bttnFacBack.Click
         wdwFacPlantilia.Enable_Form()
         Me.Close()
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles bttnAddTerm.Click
-
-
         Dim term As Integer = Nothing
         Dim yearID As Integer = Nothing
         Dim termDate As Integer = Nothing
@@ -594,7 +620,6 @@ Public Class wdwDataEntry
             term = dbAccess.Get_Data("select term_no from introse.term where Term_no = '" & cmbbxTerm.SelectedItem & "' and yearID = '" & yearID & "'", "term_no")
             termDate = dbAccess.Get_Data("select termid from introse.term where '" & dtpStart.Value.Date.ToString("yyyy-MM-dd") & "' between start and end and '" & dtpEnd.Value.Date.ToString("yyyy-MM-dd") & "' between start and end", "termid")
             yearStatus = dbAccess.Get_Data("select status from introse.academicyear where yearID = '" & yearID & "'", "status")
-
 
             MsgBox(yearStatus)
             If (dtpStart.Value.Date.ToString("yyyy-MM-dd") >= dtpEnd.Value.Date.ToString("yyyy-MM-dd")) Then
@@ -646,25 +671,19 @@ Public Class wdwDataEntry
             MsgBox("Term textbox is empty. Try again.")
         End If
 
-
-
-
     End Sub
 
     Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles filediaSearch.Click
         Dim dialog As New OpenFileDialog
         dialog.Title = "Open Excel File"
         dialog.Filter = "Microsoft Excel|*.xl*"
-        If (txtbxUploadSearch.Text <> Nothing) Then
 
+        If (txtbxUploadSearch.Text <> Nothing) Then
             dialog.InitialDirectory = txtbxUploadSearch.Text
         End If
 
         If (dialog.ShowDialog() = DialogResult.OK) Then
-
-
             Try
-
                 Dim MyConnection As System.Data.OleDb.OleDbConnection
                 Dim dataSet As System.Data.DataSet
                 Dim MyCommand As System.Data.OleDb.OleDbDataAdapter
@@ -677,8 +696,8 @@ Public Class wdwDataEntry
                 MyCommand.Fill(dataSet)
                 grid.DataSource = dataSet.Tables(0)
 
-
                 MyConnection.Close()
+
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try
@@ -690,6 +709,7 @@ Public Class wdwDataEntry
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         wdwFacPlantilia.Enable_Form()
         Me.Close()
+
     End Sub
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
@@ -725,36 +745,13 @@ Public Class wdwDataEntry
 
     End Sub
 
-    Private Sub txtbxYearStart_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxYearStart.KeyPress
-        validateInput("0123456789", e)
-    End Sub
-
-    Private Sub txtbxYearEnd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxYearEnd.KeyPress
-        validateInput("0123456789", e)
-    End Sub
-
-    Private Sub txtbxTerm_KeyPress(sender As Object, e As KeyPressEventArgs)
-        validateInput("0123456789", e)
-    End Sub
-
-
-
-    Private Sub txtbxEndTime_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles txtbxEndTime.KeyPress
-        validateInput("0123456789", e)
-    End Sub
-
-    Private Sub txtbxCollegeCode_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxCollegeCode.KeyPress
-        validateInput("ABCDEFGHIJKLMNOPQRST", e)
-    End Sub
-
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
         wdwFacPlantilia.Enable_Form()
         Me.Close()
+
     End Sub
 
     Private Sub bttnUpload_Click(sender As Object, e As EventArgs) Handles bttnUpload.Click
-
-
         Dim courseID As Integer
         Dim termID As Integer
         Dim facrefNo As Integer
@@ -780,7 +777,6 @@ Public Class wdwDataEntry
         Dim department As String
         Dim departmentID As String
 
-
         For i As Integer = 0 To grid.RowCount - 2
 
             If (IsDBNull(grid.Rows(i).Cells(0).Value)) Then
@@ -803,10 +799,8 @@ Public Class wdwDataEntry
                     time1 -= tempMinutes
                     time2 -= (tempMinutes + 40)
                 End If
+
                 wholeNumber = (time2 - time1) / 100
-
-
-
                 courseID = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & courseCode & "';", "course_id")
                 facrefNo = dbAccess.Get_Data("select facref_no from introse.faculty where concat(f_lastname, ', ', f_firstname, ' ', f_middlename) = '" & facultyName & "';", "facref_no")
                 termID = dbAccess.Get_Data("select termid from introse.term where status = 'A';", "termid")
@@ -819,6 +813,7 @@ Public Class wdwDataEntry
 
                     If (offeredTo = "us") Then
                         dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & courseCode & "' , '" & units & "', 'U');")
+
                     ElseIf (offeredTo = "gs") Then
                         dbAccess.Add_Data("INSERT INTO `introse`.`course` (`course_cd`, `units`, `offered_to`) VALUES ('" & courseCode & "' , '" & units & "', 'G');")
                     End If
@@ -836,7 +831,6 @@ Public Class wdwDataEntry
                     middleName = temp1(1)
                     firstName = temp1(0)
 
-
                     facultyID = grid.Rows(i).Cells(2).Value
                     email = grid.Rows(i).Cells(3).Value
                     department = grid.Rows(i).Cells(0).Value
@@ -844,8 +838,8 @@ Public Class wdwDataEntry
                     departmentID = dbAccess.Get_Data("select departmentid from introse.department where departmentname = '" & department & "'", "departmentid")
 
                     dbAccess.Add_Data("INSERT INTO `introse`.`faculty` (`facultyid`, `f_firstname`, `f_middlename`, `f_lastname`, `email`, `departmentid`, `status`) VALUES ('" & facultyID & "', '" & firstName & "', '" & middleName & "', '" & lastName & "', '" & email & "', '" & departmentID & "', 'A');")
-
                 End If
+
                 courseID = dbAccess.Get_Data("select course_id from introse.course where course_cd = '" & courseCode & "';", "course_id")
 
                 dbAccess.Add_Data("INSERT INTO `introse`.`courseoffering` (`course_id`, `termid`, `facref_no`, `section`, `room`, `daysched`, `timestart`, `timeend`, `hours`, `status`) VALUES ('" & courseID & "', '" & termID & "', '" & facrefNo & "', '" & section & "', '" & room & "', '" & daySched & "', '" & startTime & "', '" & endTime & "', '" & (wholeNumber + ((time2 - time1) Mod 100) / 60) & "', 'A');")
@@ -856,21 +850,4 @@ Public Class wdwDataEntry
 
     End Sub
 
-    Private Sub txtbxTerm_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxTerm.SelectedIndexChanged
-        If (cmbbxTerm.SelectedIndex <> -1 And cmbbxAcadYear.SelectedIndex <> -1) Then
-            dtpStart.Enabled = True
-            dtpEnd.Enabled = True
-        End If
-    End Sub
-
-    Private Sub cmbbxAcadYear_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxAcadYear.SelectedIndexChanged
-        If (cmbbxTerm.SelectedIndex <> -1 And cmbbxAcadYear.SelectedIndex <> -1) Then
-            dtpStart.Enabled = True
-            dtpEnd.Enabled = True
-        End If
-    End Sub
 End Class

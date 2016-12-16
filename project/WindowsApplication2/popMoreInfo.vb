@@ -1,5 +1,9 @@
 ﻿Public Class popMoreInfo
-    Dim dbAccess As databaseAccessor = New databaseAccessor
+    Dim dbAccess As New databaseAccessor
+
+    Private Sub wdwMoreInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 
     Public Sub Load_Attendance_Form(rowData As List(Of String))
         Dim moreInfo As New List(Of Object)
@@ -35,15 +39,15 @@
 
         End If
         Me.Show()
-    End Sub
-    Private Sub wdwMoreInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
     Private Sub bttnBack_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Close()
+
     End Sub
     Private Sub wdwMoreInfo_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         wdwAttendanceHistoryLog.Enable_Only_Form()
+
     End Sub
 End Class

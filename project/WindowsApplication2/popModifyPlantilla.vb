@@ -102,7 +102,7 @@
                         MsgBox("Faculty ID does not exist. Try again")
                     Else
                         dbAccess.Update_Data("UPDATE `introse`.`courseoffering` SET `course_id`='" & courseID & "', `facref_no`='" & facrefNo & "', `section`='" & txtbxSection.Text & "', `room`='" & txtbxRoom.Text & "', `daysched`='" & txtbxDay.Text & "', `timestart`='" & txtbxStartTime.Text & "', `timeend`='" & txtbxEndTime.Text & "', `hours`='" & (wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) & "' WHERE `courseoffering_id`='" & courseOfferingID & "';")
-                        MsgBox("Successfully Modified!")
+
                     End If
                 End If
 

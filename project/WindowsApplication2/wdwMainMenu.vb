@@ -8,8 +8,11 @@
         Close_Forms()
         If wdwLogin.Get_accountType.Equals("Regular") Then
             bttnAddAccount.Enabled = False
+            bttnFeedback.Enabled = False
+
         Else
             bttnAddAccount.Enabled = True
+            bttnFeedback.Enabled = True
         End If
 
         Label6.Text = "Welcome, " + wdwLogin.Get_Encoder() + "!"

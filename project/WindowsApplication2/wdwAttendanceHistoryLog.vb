@@ -12,20 +12,27 @@
         fac = dbAccess.Get_Data("select facref_no from introse.faculty where facultyid = '" & id & "';", "facref_no")
         If String.IsNullOrEmpty(fac) Then
             checkFac = False
-
             bttnAdd.Enabled = False
             bttnModify.Enabled = False
             bttnDelete.Enabled = False
 
             MsgBox("No records matched!", MsgBoxStyle.Critical, "")
+
         Else
             bttnAdd.Enabled = True
             bttnModify.Enabled = True
             bttnDelete.Enabled = True
             checkFac = True
         End If
+
         Return checkFac
+
     End Function
+
+    Private Sub wdwAttendanceHistoryLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        attendanceView = True
+        makeupView = False
+    End Sub
 
     Public Sub Load_Form(id As String)
         rindexValue = 0
@@ -38,6 +45,7 @@
                 bttnAdd.Enabled = True
                 bttnDelete.Enabled = False
                 bttnModify.Enabled = False
+
             Else
                 bttnAdd.Enabled = True
                 bttnDelete.Enabled = True
@@ -55,14 +63,13 @@
                                 from introse.makeup m, introse.faculty f, introse.courseoffering c , introse.term t, introse.academicyear ac, introse.course cl, introse.reasons r
                                 where m.courseoffering_id = c.courseoffering_id and c.facref_no = f.facref_no and (c.status = 'A' or c.status = 'R') and (m.status = 'A' or m.status = 'R') and cl.course_id = c.course_id and c.termid = t.termid and t.yearid = ac.yearid  and m.reason_cd = r.reason_cd and f.facultyid = '" + id + "'
                                 order by concat(ac.yearstart, '-', ac.yearend) and t.term_no asc LIMIT 1000 ;", grid)
-
             End If
+
         Else
             txtbxFacID.Clear()
             txtbxName.Clear()
             grid.DataSource = Nothing
             grid.Rows.Clear()
-
         End If
 
     End Sub
@@ -72,12 +79,14 @@
         Me.Enabled = True
         Load_Form(popFacSearch.get_Faculty_Id)
         Me.Focus()
+
     End Sub
 
     Public Sub Enable_Only_Form()
         Me.Show()
         Me.Enabled = True
         Me.Focus()
+
     End Sub
 
     Private Sub Search_Click(sender As Object, e As EventArgs) Handles bttnSearch.Click
@@ -85,54 +94,8 @@
         popFacSearch.Enable_Form()
         popFacSearch.Set_Path("History")
         Me.Enabled = False
+
     End Sub
-    Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
-        Me.Enabled = False
-
-        If attendanceView = True Then
-            popAddAttendanceHistory.Show()
-        ElseIf makeupView = True Then
-            popAddMakeUpHistory.Show()
-        End If
-    End Sub
-    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
-
-        With grid
-            Dim result As DialogResult
-            Dim selectedRow As DataGridViewRow
-            If .SelectedRows.Count > 0 Then
-                result = MsgBox("Are you sure you want to delete " & .SelectedRows.Count & " row/s?", MsgBoxStyle.YesNo, "")
-                If result = DialogResult.Yes Then
-
-                    For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
-                        selectedRow = grid.Rows(.SelectedRows(ctr).Index)
-                        If attendanceView = True Then
-                            dbAccess.Update_Data("update `introse`.`attendance` set `status` = 'D' where `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
-                        ElseIf makeupView = True Then
-                            dbAccess.Update_Data("update `introse`.`makeup` set `status` = 'D' where `makeupid` = '" & selectedRow.Cells(0).Value & "';")
-                        End If
-                    Next
-
-                    Load_Form(txtbxFacID.Text)
-                End If
-
-            Else
-                MsgBox("No row/s selected!", MsgBoxStyle.Critical, "")
-
-            End If
-        End With
-    End Sub
-    Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
-        Me.Close()
-    End Sub
-
-    Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
-        wdwMainMenu.Show()
-    End Sub
-
-    Public Function Get_Ref_No() As Integer
-        Return rowData(0)
-    End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BttnAttendance.Click
         BttnAttendance.Enabled = False
@@ -141,6 +104,7 @@
         attendanceView = True
         makeupView = False
         Load_Form(txtbxFacID.Text)
+
     End Sub
 
     Private Sub BttnMakeup_Click(sender As Object, e As EventArgs) Handles BttnMakeup.Click
@@ -150,11 +114,19 @@
         attendanceView = False
         makeupView = True
         Load_Form(txtbxFacID.Text)
+
     End Sub
 
-    Private Sub wdwAttendanceHistoryLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        attendanceView = True
-        makeupView = False
+    Private Sub Encode_Click(sender As Object, e As EventArgs) Handles bttnAdd.Click
+        Me.Enabled = False
+
+        If attendanceView = True Then
+            popAddAttendanceHistory.Show()
+
+        ElseIf makeupView = True Then
+            popAddMakeUpHistory.Show()
+        End If
+
     End Sub
 
     Private Sub bttnModify_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
@@ -192,6 +164,49 @@
         End With
     End Sub
 
+    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles bttnDelete.Click
+
+        With grid
+            Dim result As DialogResult
+            Dim selectedRow As DataGridViewRow
+            If .SelectedRows.Count > 0 Then
+                result = MsgBox("Are you sure you want to delete " & .SelectedRows.Count & " row/s?", MsgBoxStyle.YesNo, "")
+                If result = DialogResult.Yes Then
+
+                    For ctr As Integer = .SelectedRows.Count - 1 To 0 Step -1
+                        selectedRow = grid.Rows(.SelectedRows(ctr).Index)
+                        If attendanceView = True Then
+                            dbAccess.Update_Data("update `introse`.`attendance` set `status` = 'D' where `attendanceid` = '" & selectedRow.Cells(0).Value & "';")
+                        ElseIf makeupView = True Then
+                            dbAccess.Update_Data("update `introse`.`makeup` set `status` = 'D' where `makeupid` = '" & selectedRow.Cells(0).Value & "';")
+                        End If
+                    Next
+
+                    Load_Form(txtbxFacID.Text)
+                End If
+
+            Else
+                MsgBox("No row/s selected!", MsgBoxStyle.Critical, "")
+
+            End If
+        End With
+
+    End Sub
+
+    Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
+        Me.Close()
+
+    End Sub
+
+    Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
+        wdwMainMenu.Show()
+
+    End Sub
+
+    Public Function Get_Ref_No() As Integer
+        Return rowData(0)
+    End Function
+
     Private Sub grid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellDoubleClick
         With grid
             rindexValue = e.RowIndex
@@ -227,4 +242,5 @@
         rindexValue = e.RowIndex
 
     End Sub
+
 End Class

@@ -1,96 +1,11 @@
 ﻿Public Class popModifyAttendanceHistory
-    Dim dbAccess As databaseAccessor = New databaseAccessor
+    Dim dbAccess As New databaseAccessor
     Dim bool As Boolean = False
-    Private Sub Validate_Input(allowed As String, e As KeyPressEventArgs)
-        If Not (Asc(e.KeyChar) = 8) Then
-            If Not allowed.Contains(e.KeyChar.ToString) Then
-                e.KeyChar = ChrW(0)
-                e.Handled = True
-            End If
-        End If
+
+    Private Sub popModifyAttendanceHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
-    Private Function Check_Entry(absent As String, courseOfferingId As String, stat As String, remarks As String, checker As String, ref As Integer) As Boolean
-        Dim att As New List(Of Object)()
-        Dim b As Boolean = False
-        att = dbAccess.Get_Multiple_Row_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseOfferingId & "' and status = '" & stat & "';")
 
-        If att.Count = 0 Then
-            b = True
-
-        ElseIf att.Count < 2 Then
-            If att(0) = ref Then
-                b = True
-
-            Else
-                MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
-            End If
-
-        Else
-            MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
-        End If
-
-        Return b
-
-    End Function
-
-    Private Sub Check_Enable()
-        If String.IsNullOrEmpty(txtbxFacID.Text) Or String.IsNullOrEmpty(txtbxName.Text) Or cmbbxCourse.SelectedIndex = -1 Or cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.SelectedIndex = -1 Or cmbbxSection.SelectedIndex = -1 Or cmbbxRemarks.SelectedIndex = -1 Or String.IsNullOrEmpty(txtbxChecker.Text) Then
-            bttnModify.Enabled = False
-
-        Else
-            bttnModify.Enabled = True
-
-        End If
-
-    End Sub
-    Private Sub Check_Element_Enable()
-        If String.IsNullOrEmpty(txtbxFacID.Text) Then
-            cmbbxSY.Enabled = False
-            cmbbxTerm.Enabled = False
-            cmbbxCourse.Enabled = False
-            cmbbxSection.Enabled = False
-            dtp.Enabled = False
-            cmbbxRemarks.SelectedIndex = -1
-            cmbbxRemarks.Enabled = False
-
-        End If
-        If cmbbxCourse.SelectedIndex = -1 Or cmbbxSection.Items.Count = 0 Then
-            cmbbxSection.Enabled = False
-            cmbbxRemarks.SelectedIndex = -1
-            cmbbxRemarks.Enabled = False
-
-
-        End If
-        If cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.Items.Count = 0 Then
-            dtp.Enabled = False
-            cmbbxTerm.Enabled = False
-            cmbbxCourse.Enabled = False
-            cmbbxSection.Enabled = False
-            cmbbxRemarks.SelectedIndex = -1
-            cmbbxRemarks.Enabled = False
-
-        End If
-        If cmbbxTerm.SelectedIndex = -1 Or cmbbxCourse.Items.Count = 0 Then
-            dtp.Enabled = False
-            cmbbxCourse.Enabled = False
-            cmbbxSection.Enabled = False
-            cmbbxRemarks.SelectedIndex = -1
-            cmbbxRemarks.Enabled = False
-
-        End If
-        If cmbbxSection.SelectedIndex = -1 Then
-            cmbbxRemarks.SelectedIndex = -1
-            cmbbxRemarks.Enabled = False
-        End If
-    End Sub
-    Private Function get_termindex(termno As String) As Integer
-        Dim index As Integer = 0
-
-        index = Convert.ToInt32(termno) - 1
-
-        Return index
-    End Function
     Public Sub Load_Form(rowData As List(Of String))
         Dim convertedDate As Date
         Dim day, month, year As String
@@ -152,6 +67,7 @@
         End If
 
         Me.Show()
+
     End Sub
     Private Sub Add_Faculty_Name(facultyId As String, ByVal text As TextBox)
         Dim facName As New List(Of Object)
@@ -433,6 +349,91 @@
 
     End Sub
 
+    Private Sub Validate_Input(allowed As String, e As KeyPressEventArgs)
+        If Not (Asc(e.KeyChar) = 8) Then
+            If Not allowed.Contains(e.KeyChar.ToString) Then
+                e.KeyChar = ChrW(0)
+                e.Handled = True
+            End If
+        End If
+
+    End Sub
+
+    Private Function Check_Entry(absent As String, courseOfferingId As String, stat As String, remarks As String, checker As String, ref As Integer) As Boolean
+        Dim att As New List(Of Object)()
+        Dim b As Boolean = False
+        att = dbAccess.Get_Multiple_Row_Data("select attendanceid from introse.attendance where absent_date = '" & absent & "'and courseoffering_id = '" & courseOfferingId & "' and status = '" & stat & "';")
+
+        If att.Count = 0 Then
+            b = True
+
+        ElseIf att.Count < 2 Then
+            If att(0) = ref Then
+                b = True
+
+            Else
+                MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
+            End If
+
+        Else
+            MsgBox("Duplicate attendance entry!", MsgBoxStyle.Critical, "")
+        End If
+
+        Return b
+
+    End Function
+
+    Private Sub Check_Enable()
+        If String.IsNullOrEmpty(txtbxFacID.Text) Or String.IsNullOrEmpty(txtbxName.Text) Or cmbbxCourse.SelectedIndex = -1 Or cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.SelectedIndex = -1 Or cmbbxSection.SelectedIndex = -1 Or cmbbxRemarks.SelectedIndex = -1 Or String.IsNullOrEmpty(txtbxChecker.Text) Then
+            bttnModify.Enabled = False
+
+        Else
+            bttnModify.Enabled = True
+        End If
+
+    End Sub
+
+    Private Sub Check_Element_Enable()
+        If String.IsNullOrEmpty(txtbxFacID.Text) Then
+            cmbbxSY.Enabled = False
+            cmbbxTerm.Enabled = False
+            cmbbxCourse.Enabled = False
+            cmbbxSection.Enabled = False
+            dtp.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+        End If
+
+        If cmbbxCourse.SelectedIndex = -1 Or cmbbxSection.Items.Count = 0 Then
+            cmbbxSection.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+        End If
+
+        If cmbbxSY.SelectedIndex = -1 Or cmbbxTerm.Items.Count = 0 Then
+            dtp.Enabled = False
+            cmbbxTerm.Enabled = False
+            cmbbxCourse.Enabled = False
+            cmbbxSection.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+        End If
+
+        If cmbbxTerm.SelectedIndex = -1 Or cmbbxCourse.Items.Count = 0 Then
+            dtp.Enabled = False
+            cmbbxCourse.Enabled = False
+            cmbbxSection.Enabled = False
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+        End If
+
+        If cmbbxSection.SelectedIndex = -1 Then
+            cmbbxRemarks.SelectedIndex = -1
+            cmbbxRemarks.Enabled = False
+        End If
+
+    End Sub
+
     Private Sub bttnAdd_Click(sender As Object, e As EventArgs) Handles bttnModify.Click
         Dim absentDate, schoolYear, termNo, checker, course, section, courseOfferingId, remCode As String
         Dim ref As String = wdwAttendanceHistoryLog.Get_Ref_No()
@@ -512,17 +513,20 @@
 
     Private Sub bttnBack_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
         Me.Close()
-    End Sub
-
-    Private Sub popModifyAttendanceHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
 
     Private Sub popModifyAttendanceHistory_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         wdwAttendanceHistoryLog.Enable_Only_Form()
-    End Sub
-
-    Private Sub txtbxFacID_TextChanged(sender As Object, e As EventArgs) Handles txtbxFacID.TextChanged
 
     End Sub
+
+    Private Function get_termindex(termno As String) As Integer
+        Dim index As Integer = 0
+
+        index = Convert.ToInt32(termno) - 1
+
+        Return index
+    End Function
 End Class

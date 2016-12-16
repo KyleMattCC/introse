@@ -398,4 +398,5 @@
         wdwDailyAttendanceLog.Enable_Form()
 
     End Sub
+
 End Class

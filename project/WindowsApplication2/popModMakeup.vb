@@ -23,6 +23,7 @@
                 txtbxStart.Text = rowData(7) 'start
                 txtbxEnd.Text = rowData(8) ' end
                 cmbbxReason.SelectedItem = rowData(10)
+
             Else
                 convertedDate = Convert.ToDateTime(rowData(3))
                 day = convertedDate.Day.ToString()
@@ -39,8 +40,8 @@
                 cmbbxReason.SelectedItem = rowData(10)
 
                 dtp.Value = New Date(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day))
-
             End If
+
         End If
 
         Me.Show()
@@ -53,10 +54,10 @@
         Dim lname As String
         Dim name As String
 
-        name = ""
-        fname = ""
-        MI = ""
-        lname = ""
+        name = Nothing
+        fname = Nothing
+        MI = Nothing
+        lname = Nothing
         Try
 
             facName = dbAccess.Get_Multiple_Column_Data("select f_firstname, f_middlename, f_lastname from faculty where status = 'A' and facultyid = '" & facultyId & "';", 3)
@@ -70,11 +71,14 @@
                 text.Text = fname + " " + MI + " " + lname
                 dtp.Enabled = True
                 cmbbxCourse.Enabled = True
+
             Else
-                text.Text = fname + " " + MI + " " + lname
+                text.Text = Nothing
             End If
+
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
+
         End Try
 
     End Sub
@@ -93,8 +97,10 @@
             For ctr As Integer = 0 To courseCode.Count - 1
                 combo.Items.Add(courseCode(ctr))
             Next
+
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
+
         End Try
 
     End Sub
@@ -114,8 +120,10 @@
             For ctr As Integer = 0 To section.Count - 1
                 combo.Items.Add(section(ctr))
             Next
+
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
+
         End Try
 
     End Sub
@@ -133,6 +141,7 @@
 
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
+
         End Try
 
     End Sub
@@ -178,18 +187,22 @@
 
     Private Sub txtbxRoom_TextChanged(sender As Object, e As EventArgs) Handles txtbxRoom.TextChanged
         Check_Enable()
+
     End Sub
 
     Private Sub txtbxStart_TextChanged(sender As Object, e As EventArgs) Handles txtbxStart.TextChanged
         Check_Enable()
+
     End Sub
 
     Private Sub txtbxEnd_TextChanged(sender As Object, e As EventArgs) Handles txtbxEnd.TextChanged
         Check_Enable()
+
     End Sub
 
     Private Sub cmbReason_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbbxReason.SelectedIndexChanged
         Check_Enable()
+
     End Sub
 
     Private Sub Check_Enable()
@@ -198,7 +211,6 @@
 
         Else
             bttnModify.Enabled = True
-
         End If
 
     End Sub
@@ -213,8 +225,8 @@
             txtbxRoom.Enabled = False
             txtbxStart.Enabled = False
             txtbxEnd.Enabled = False
-
         End If
+
     End Sub
 
     Private Sub validateInput(allowed As String, e As KeyPressEventArgs)
@@ -223,27 +235,34 @@
                 e.KeyChar = ChrW(0)
                 e.Handled = True
             End If
+
         End If
+
     End Sub
 
     Private Sub txtFacID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxFacID.KeyPress
         validateInput("1234567890", e)
+
     End Sub
 
     Private Sub txtbxStart_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxStart.KeyPress
         validateInput("0123456789", e)
+
     End Sub
 
     Private Sub txtbxEnd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxEnd.KeyPress
         validateInput("0123456789", e)
+
     End Sub
 
     Private Sub txtbxRoom_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbxRoom.KeyPress
         validateInput("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", e)
+
     End Sub
 
     Private Sub txtbxEncoder_KeyPress(sender As Object, e As KeyPressEventArgs)
         validateInput("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ", e)
+
     End Sub
 
     Private Function Check_Entry(makeup As String, startTime As Integer, endTime As Integer, room As String, stat As String, courseOfferingId As String, ref As Integer) As Boolean
@@ -283,6 +302,7 @@
         If Convert.ToInt32(ref) > 0 Then
             If String.IsNullOrEmpty(cmbbxReason.Text) Or String.IsNullOrEmpty(txtbxStart.Text) Or String.IsNullOrEmpty(txtbxEnd.Text) Or String.IsNullOrEmpty(txtbxRoom.Text) Or String.IsNullOrEmpty(dtp.Value.Date.ToString("yyyy-MM-dd")) Then
                 MsgBox("Incomplete fields!", MsgBoxStyle.Critical, "")
+
             Else
                 Dim wholeNumber As Integer
                 startTime = Convert.ToInt32(txtbxStart.Text)
@@ -294,19 +314,26 @@
                     tempStart -= tempMinutes
                     tempEnd -= (tempMinutes + 40)
                 End If
+
                 wholeNumber = (tempEnd - tempStart) / 100
 
                 If ((startTime < 0 Or startTime > 2359) Or (startTime / 100 > 24 Or startTime Mod 100 > 59)) Then
                     MsgBox("Invalid start time input!", MsgBoxStyle.Critical, "")
+
                 ElseIf ((endTime < 0 Or endTime > 2359) Or (endTime / 100 > 24 Or endTime Mod 100 > 59)) Then
                     MsgBox("Invalid end time input!", MsgBoxStyle.Critical, "")
+
                 ElseIf (endTime < startTime) Then
                     MsgBox("End time cannot be less than start time!", MsgBoxStyle.Critical, "")
+
                 ElseIf (startTime = endTime) Then
                     MsgBox("Start and end time cannot be the same!", MsgBoxStyle.Critical, "")
+
                 ElseIf (Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = .0) And Not (((wholeNumber + ((tempEnd - tempStart) Mod 100) / 60) Mod 1) = 0.5)) Then
                     MsgBox("Makeup hours is not exact!", MsgBoxStyle.Critical, "")
+
                 Else
+
                     Try
                         makeupDate = dtp.Value.Date.ToString("yyyy-MM-dd")
                         course = cmbbxCourse.SelectedItem
@@ -324,10 +351,12 @@
 
                     Catch Ex As Exception
                         System.Windows.Forms.MessageBox.Show(Ex.Message)
+
                     End Try
                 End If
             End If
         End If
+
     End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles bttnBack.Click
@@ -337,6 +366,7 @@
 
     Private Sub Form_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.Closed
         wdwFacultyMakeUp.Enable_Form()
+
     End Sub
 
 End Class

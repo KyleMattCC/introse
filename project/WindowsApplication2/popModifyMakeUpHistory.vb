@@ -23,6 +23,9 @@
         ElseIf makeupCheck.Count < 2 Then
             If makeupCheck(0) = ref Then
                 check = True
+
+            Else
+                MsgBox("Duplicate makeup class entry!", MsgBoxStyle.Critical, "")
             End If
 
         Else

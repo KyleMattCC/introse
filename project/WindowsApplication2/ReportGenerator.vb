@@ -24,6 +24,7 @@ Public Class reportGenerator
             Dim fntTableFont As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.NORMAL, BaseColor.BLACK)
 
             pdfDoc.Open()
+
             Dim header As New Paragraph("Daily Faculty Attendance Report", fntTableFontHdr)
             header.Alignment = 1
             pdfDoc.Add(header)
@@ -166,13 +167,14 @@ Public Class reportGenerator
                          and a.remarks_cd = r.remark_cd and co.facref_no = f.facref_no and co.course_id = c.course_id and f.departmentid = dep.departmentid and dep.college_code = col.college_code
                          order by 1, 2, 3, c.offered_to;"
                 header = "Daily Faculty Attendance Report (Undergraduate and Graduate)"
-
             End If
+
             Try
                 reportColumns = dbAccess.Get_Multiple_Column_Data(query, 9)
                 termAY = dbAccess.Get_Multiple_Column_Data("select t.term_no, a.yearstart, a.yearend
                                                         from introse.term t, introse.academicyear a
                                                         where t.status = 'A' and a.status = 'A';", 3)
+
             Catch ex As Exception
                 System.Windows.Forms.MessageBox.Show(ex.Message)
             End Try
@@ -180,6 +182,7 @@ Public Class reportGenerator
             If reportColumns.Count = 0 Then
                 MsgBox("No existing record to be generated!", MsgBoxStyle.OkOnly, "")
                 Return False
+
             Else
                 Dim ctrLines As Integer = 0
                 Dim ctr As Integer = 0
@@ -232,6 +235,7 @@ Public Class reportGenerator
                             ctrLines += 1
                             collegeGroup = reportColumns(ctr)
                         End If
+
                         ctr += 1
                         If Not (reportColumns(ctr).Equals(deptGroup)) Then
                             Dim depCell As New PdfPCell(New Phrase(reportColumns(ctr), fntTableFontHdr))
@@ -241,6 +245,7 @@ Public Class reportGenerator
                             ctrLines += 1
                             deptGroup = reportColumns(ctr)
                         End If
+
                         ctr += 1
                         table.AddCell(New Phrase(reportColumns(ctr), fntTableFont))
                         table.AddCell(New Phrase(reportColumns(ctr + 1), fntTableFont))
@@ -260,6 +265,7 @@ Public Class reportGenerator
                         collegeGroup = Nothing
                         deptGroup = Nothing
                     End If
+
                 End While
                 pdfDoc.Close()
                 wdwReportGen.Load_Form(fileName, 2, "Registrar", Date.Now)
@@ -269,7 +275,9 @@ Public Class reportGenerator
         Catch ex As Exception
             MsgBox("Notice generation failed!", MsgBoxStyle.Critical, "")
         End Try
+
         Return False
+
     End Function
 
     Public Function Generate_College_Daily_Report(college As String, offeredType As Integer, encDate As Date) As Boolean
@@ -324,7 +332,6 @@ Public Class reportGenerator
                          and a.remarks_cd = r.remark_cd and co.facref_no = f.facref_no and co.course_id = c.course_id and f.departmentid = dep.departmentid and dep.college_code = col.college_code and col.college_name = '" & collegeGroup & "'
                          order by 1, 2, 3, c.offered_to;"
                 header = "Daily Faculty Attendance Report (Undergraduate and Graduate)"
-
             End If
 
             Try
@@ -338,6 +345,7 @@ Public Class reportGenerator
             If reportColumns.Count = 0 Then
                 MsgBox("No existing record to be generated!", MsgBoxStyle.OkOnly, "")
                 Return False
+
             Else
                 Dim ctrLines As Integer = 0
                 Dim ctr As Integer = 0
@@ -396,6 +404,7 @@ Public Class reportGenerator
                             ctrLines += 1
                             deptGroup = reportColumns(ctr)
                         End If
+
                         ctr += 1
                         table.AddCell(New Phrase(reportColumns(ctr), fntTableFont))
                         table.AddCell(New Phrase(reportColumns(ctr + 1), fntTableFont))
@@ -414,15 +423,20 @@ Public Class reportGenerator
                         pdfDoc.NewPage()
                         deptGroup = Nothing
                     End If
+
                 End While
+
                 pdfDoc.Close()
                 wdwReportGen.Load_Form(fileName, 3, collegeGroup, Date.Now)
                 Return True
             End If
+
         Catch ex As Exception
             MsgBox("Notice generation failed!", MsgBoxStyle.Critical, "")
         End Try
+
         Return False
+
     End Function
 
     Public Function Generate_Chair_Daily_Report(department As String, offeredType As Integer, encDate As Date) As Boolean
@@ -442,14 +456,15 @@ Public Class reportGenerator
             Dim collegeGroup As String = Nothing
             Try
                 collegeGroup = dbAccess.Get_Data("select c.college_name from introse.college c, introse.department d where d.departmentname = '" & deptGroup & "' and d.college_code = c.college_code;", "college_name")
+
             Catch ex As Exception
                 System.Windows.Forms.MessageBox.Show(ex.Message)
             End Try
+
             Dim fileName As String = "C:\Fams Reports\" & encDate.ToString("MM-dd-yyyy") & " " & deptGroup & " Department-Daily-Report.pdf"
             Dim pageNo As Integer = 1
             Dim pdfDoc As New Document(PageSize.A4, 20.0F, 20.0F, 20.0F, 20.0F)
             Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(fileName, FileMode.Create))
-
             Dim fntTableFontHdr As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.BOLD, BaseColor.BLACK)
             Dim fntTableFont As itextsharp.text.Font = FontFactory.GetFont("Times New Roman", 12, itextsharp.text.Font.NORMAL, BaseColor.BLACK)
 
@@ -483,7 +498,6 @@ Public Class reportGenerator
                          and a.remarks_cd = r.remark_cd and co.facref_no = f.facref_no and co.course_id = c.course_id and dep.departmentname = '" & deptGroup & "' and f.departmentid = dep.departmentid
                          order by 1, 2, 3, c.offered_to;"
                 header = "Daily Faculty Attendance Report (Undergraduate and Graduate)"
-
             End If
 
             Try
@@ -494,9 +508,11 @@ Public Class reportGenerator
             Catch ex As Exception
                 System.Windows.Forms.MessageBox.Show(ex.Message)
             End Try
+
             If reportColumns.Count = 0 Then
                 MsgBox("No existing record to be generated!", MsgBoxStyle.OkOnly, "")
                 Return False
+
             Else
                 Dim ctrLines As Integer = 0
                 Dim ctr As Integer = 0
@@ -577,6 +593,7 @@ Public Class reportGenerator
                 wdwReportGen.Load_Form(fileName, 4, deptGroup, Date.Now)
                 Return True
             End If
+
         Catch ex As Exception
             MsgBox("Notice generation failed!", MsgBoxStyle.Critical, "")
 
@@ -636,7 +653,6 @@ Public Class reportGenerator
 
             Else
                 header = "FACULTY ATTENDANCE REPORT (Undergraduate and Graduate)"
-
             End If
 
             Try
@@ -646,9 +662,11 @@ Public Class reportGenerator
                 remarks = dbAccess.Get_Multiple_Column_Data("select * from introse.remarks", 2)
                 reasons = dbAccess.Get_Multiple_Column_Data("select * from introse.reasons", 2)
                 colleges = dbAccess.Get_Multiple_Column_Data("select * from introse.college", 2)
+
             Catch ex As Exception
                 System.Windows.Forms.MessageBox.Show(ex.Message)
             End Try
+
             For collegeCtr As Integer = 0 To colleges.Count - 1 Step 2
                 departments = dbAccess.Get_Multiple_Column_Data("select departmentid, departmentname from introse.department where college_code = '" & colleges(collegeCtr) & "';", 2)
                 For depCtr As Integer = 0 To departments.Count - 1 Step 2
@@ -825,6 +843,7 @@ Public Class reportGenerator
                                 table.AddCell(cell)
                             End If
                         Next
+
                         cell = New PdfPCell(New Phrase("TOTAL", fntTableFontHdr))
                         cell.HorizontalAlignment = 1
                         cell.VerticalAlignment = 1
@@ -836,6 +855,7 @@ Public Class reportGenerator
                             cell.VerticalAlignment = 1
                             table.AddCell(cell)
                         Next
+
                         cell = New PdfPCell(New Phrase("TOTAL", fntTableFontHdr))
                         cell.HorizontalAlignment = 1
                         cell.VerticalAlignment = 1
@@ -877,7 +897,6 @@ Public Class reportGenerator
 
                             ElseIf makeupResults.Count = 0 Or makeupCtr = makeupResults.Count Then
                                 currentFaculty = absentResults(absCtr)
-
                             End If
 
                             hours = 0
@@ -910,12 +929,15 @@ Public Class reportGenerator
                                             If (remarks(remCtr).Equals("LA")) Then
                                                 absCtr += 2
                                                 lateNum += 1
+
                                             ElseIf (remarks(remCtr).Equals("VR")) Then
                                                 absCtr += 2
                                                 vrNum += 1
+
                                             ElseIf (remarks(remCtr).Equals("ED")) Then
                                                 absCtr += 2
                                                 edNum += 1
+
                                             Else
                                                 absCtr += 1
                                                 cell = New PdfPCell(New Phrase(absentResults(absCtr), fntTableFont))
@@ -926,6 +948,7 @@ Public Class reportGenerator
                                                 absCtr += 1
                                                 remCol += 1
                                             End If
+
                                         ElseIf Not (remarks(remCtr).Equals("LA") Or remarks(remCtr).Equals("VR") Or remarks(remCtr).Equals("ED")) Then
                                             cell = New PdfPCell(New Phrase("-", fntTableFont))
                                             cell.HorizontalAlignment = 1
@@ -933,11 +956,13 @@ Public Class reportGenerator
                                             table.AddCell(cell)
                                             absCtr -= 1
                                             remCol += 1
+
                                         Else
                                             absCtr -= 1
                                         End If
 
                                     End If
+
                                 Else
                                     While remCol < remarks.Count / 2 - 3
                                         cell = New PdfPCell(New Phrase("-", fntTableFont))
@@ -980,6 +1005,7 @@ Public Class reportGenerator
                                             hours += makeupResults(makeupCtr)
                                             makeupCtr += 1
                                             reaCol += 1
+
                                         Else
                                             cell = New PdfPCell(New Phrase("-", fntTableFont))
                                             cell.HorizontalAlignment = 1
@@ -988,8 +1014,8 @@ Public Class reportGenerator
                                             makeupCtr -= 1
                                             reaCol += 1
                                         End If
-                                    End If
 
+                                    End If
 
                                 Else
                                     While reaCol < reasons.Count / 2

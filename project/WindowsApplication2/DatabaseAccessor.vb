@@ -17,7 +17,7 @@ Public Class databaseAccessor
 
             MysqlConn.Close()
         Catch ex As MySqlException
-            MsgBox("Add Error!", MsgBoxStyle.Critical, "")
+            MsgBox("Error!", MsgBoxStyle.Critical, "")
         Finally
             MysqlConn.Dispose()
         End Try
@@ -55,10 +55,12 @@ Public Class databaseAccessor
             MysqlConn.Open()
             Command = New MySqlCommand(query, MysqlConn)
             Reader = Command.ExecuteReader
+            MsgBox("Successfully Updated!", MsgBoxStyle.OkOnly, "")
 
             MysqlConn.Close()
+
         Catch ex As MySqlException
-            MsgBox("Error! Update", MsgBoxStyle.Critical, "")
+            MsgBox("Error!", MsgBoxStyle.Critical, "")
         Finally
             MysqlConn.Dispose()
         End Try
@@ -82,7 +84,7 @@ Public Class databaseAccessor
 
             MysqlConn.Close()
         Catch ex As MySqlException
-            MsgBox("Error! Get", MsgBoxStyle.Critical, "")
+            MsgBox("Error!", MsgBoxStyle.Critical, "")
         Finally
             MysqlConn.Dispose()
         End Try
