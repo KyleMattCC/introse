@@ -183,12 +183,6 @@
     </Compile>
     <Compile Include="reportGenerator.vb" />
     <Compile Include="databaseAccessor.vb" />
-    <Compile Include="EmailNotices.Designer.vb">
-      <DependentUpon>EmailNotices.vb</DependentUpon>
-    </Compile>
-    <Compile Include="EmailNotices.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MySql\Data.vb" />
     <Compile Include="wdwEmailReports.Designer.vb">
       <DependentUpon>wdwEmailReports.vb</DependentUpon>
@@ -220,52 +214,10 @@
     <Compile Include="wdwFacPlantilia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wdwGenServiceReport.Designer.vb">
-      <DependentUpon>wdwGenServiceReport.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwGenServiceReport.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popNoticeOfAbsence.Designer.vb">
-      <DependentUpon>popNoticeOfAbsence.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popNoticeOfAbsence.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="popAddMakeUp.Designer.vb">
       <DependentUpon>popAddMakeUp.vb</DependentUpon>
     </Compile>
     <Compile Include="popAddMakeUp.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popNoticeOfTardiness.Designer.vb">
-      <DependentUpon>popNoticeOfTardiness.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popNoticeOfTardiness.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popServiceRecord.Designer.vb">
-      <DependentUpon>popServiceRecord.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popServiceRecord.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwEncodeFacMakeUp.Designer.vb">
-      <DependentUpon>wdwEncodeFacMakeUp.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwEncodeFacMakeUp.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popFindCourse.Designer.vb">
-      <DependentUpon>popFindCourse.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popFindCourse.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwClassInfo.Designer.vb">
-      <DependentUpon>wdwClassInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwClassInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wdwDailyAttendanceLog.Designer.vb">
@@ -280,29 +232,11 @@
     <Compile Include="popAddFacultyDaily.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wdwGenAbsNotice.Designer.vb">
-      <DependentUpon>wdwGenAbsNotice.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwGenAbsNotice.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwEmailNotice.Designer.vb">
-      <DependentUpon>wdwEmailNotice.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwEmailNotice.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="wdwMainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wdwMainMenu.Designer.vb">
       <DependentUpon>wdwMainMenu.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="popFindFacAtt.Designer.vb">
-      <DependentUpon>popFindFacAtt.vb</DependentUpon>
-    </Compile>
-    <Compile Include="popFindFacAtt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="popEncFacDaily.Designer.vb">
@@ -321,18 +255,6 @@
       <DependentUpon>wdwFacultyMakeUp.vb</DependentUpon>
     </Compile>
     <Compile Include="wdwFacultyMakeUp.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwFacDailyAtt.Designer.vb">
-      <DependentUpon>wdwFacDailyAtt.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwFacDailyAtt.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wdwSearchByName.Designer.vb">
-      <DependentUpon>wdwSearchByName.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wdwSearchByName.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wdwSelectReport.Designer.vb">
@@ -376,9 +298,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EmailNotices.resx">
-      <DependentUpon>EmailNotices.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="popAddAccount.resx">
       <DependentUpon>popAddAccount.vb</DependentUpon>
     </EmbeddedResource>
@@ -430,26 +349,8 @@
     <EmbeddedResource Include="popAddMakeUp.resx">
       <DependentUpon>popAddMakeUp.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="popNoticeOfAbsence.resx">
-      <DependentUpon>popNoticeOfAbsence.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popNoticeOfTardiness.resx">
-      <DependentUpon>popNoticeOfTardiness.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popServiceRecord.resx">
-      <DependentUpon>popServiceRecord.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="popTermEndGen.resx">
       <DependentUpon>popTermEndGen.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwEncodeFacMakeUp.resx">
-      <DependentUpon>wdwEncodeFacMakeUp.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popFindCourse.resx">
-      <DependentUpon>popFindCourse.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwClassInfo.resx">
-      <DependentUpon>wdwClassInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwDailyAttendanceLog.resx">
       <DependentUpon>wdwDailyAttendanceLog.vb</DependentUpon>
@@ -460,20 +361,8 @@
     <EmbeddedResource Include="wdwFacPlantilia.resx">
       <DependentUpon>wdwFacPlantilia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="wdwGenAbsNotice.resx">
-      <DependentUpon>wdwGenAbsNotice.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwGenServiceReport.resx">
-      <DependentUpon>wdwGenServiceReport.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwEmailNotice.resx">
-      <DependentUpon>wdwEmailNotice.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="wdwMainMenu.resx">
       <DependentUpon>wdwMainMenu.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="popFindFacAtt.resx">
-      <DependentUpon>popFindFacAtt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popEncFacDaily.resx">
       <DependentUpon>popEncFacDaily.vb</DependentUpon>
@@ -483,12 +372,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wdwFacultyMakeUp.resx">
       <DependentUpon>wdwFacultyMakeUp.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwFacDailyAtt.resx">
-      <DependentUpon>wdwFacDailyAtt.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wdwSearchByName.resx">
-      <DependentUpon>wdwSearchByName.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wdwSelectReport.resx">
       <DependentUpon>wdwSelectReport.vb</DependentUpon>
