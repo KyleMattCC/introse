@@ -282,7 +282,7 @@ Partial Class popModifyMakeUpHistory
         Me.cmbbxReason.FormattingEnabled = True
         Me.cmbbxReason.Location = New System.Drawing.Point(216, 310)
         Me.cmbbxReason.Name = "cmbbxReason"
-        Me.cmbbxReason.Size = New System.Drawing.Size(165, 28)
+        Me.cmbbxReason.Size = New System.Drawing.Size(315, 28)
         Me.cmbbxReason.TabIndex = 11
         '
         'bttnBack

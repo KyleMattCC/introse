@@ -54,10 +54,9 @@ Partial Class wdwModFacultyDaily
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(123, 12)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(92, 10)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(121, 23)
+        Me.Label1.Size = New System.Drawing.Size(102, 20)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Faculty ID:"
         '
@@ -66,10 +65,9 @@ Partial Class wdwModFacultyDaily
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(88, 49)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(66, 40)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(155, 23)
+        Me.Label2.Size = New System.Drawing.Size(131, 20)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Faculty name:"
         '
@@ -78,31 +76,28 @@ Partial Class wdwModFacultyDaily
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label4.Location = New System.Drawing.Point(101, 86)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(76, 70)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(143, 23)
+        Me.Label4.Size = New System.Drawing.Size(121, 20)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Absent date:"
         '
         'txtbxFacID
         '
         Me.txtbxFacID.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxFacID.Location = New System.Drawing.Point(264, 12)
-        Me.txtbxFacID.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtbxFacID.Location = New System.Drawing.Point(198, 10)
         Me.txtbxFacID.Name = "txtbxFacID"
-        Me.txtbxFacID.Size = New System.Drawing.Size(219, 31)
+        Me.txtbxFacID.Size = New System.Drawing.Size(165, 26)
         Me.txtbxFacID.TabIndex = 1
         '
         'txtbxName
         '
         Me.txtbxName.Enabled = False
         Me.txtbxName.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxName.Location = New System.Drawing.Point(264, 49)
-        Me.txtbxName.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtbxName.Location = New System.Drawing.Point(198, 40)
         Me.txtbxName.Name = "txtbxName"
         Me.txtbxName.ReadOnly = True
-        Me.txtbxName.Size = New System.Drawing.Size(419, 31)
+        Me.txtbxName.Size = New System.Drawing.Size(315, 26)
         Me.txtbxName.TabIndex = 2
         '
         'Label6
@@ -110,10 +105,9 @@ Partial Class wdwModFacultyDaily
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label6.Location = New System.Drawing.Point(155, 123)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(116, 100)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(90, 23)
+        Me.Label6.Size = New System.Drawing.Size(77, 20)
         Me.Label6.TabIndex = 16
         Me.Label6.Text = "Course:"
         '
@@ -122,10 +116,9 @@ Partial Class wdwModFacultyDaily
         Me.cmbbxCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxCourse.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxCourse.FormattingEnabled = True
-        Me.cmbbxCourse.Location = New System.Drawing.Point(264, 123)
-        Me.cmbbxCourse.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbbxCourse.Location = New System.Drawing.Point(198, 100)
         Me.cmbbxCourse.Name = "cmbbxCourse"
-        Me.cmbbxCourse.Size = New System.Drawing.Size(219, 31)
+        Me.cmbbxCourse.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxCourse.Sorted = True
         Me.cmbbxCourse.TabIndex = 4
         '
@@ -134,10 +127,9 @@ Partial Class wdwModFacultyDaily
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label7.Location = New System.Drawing.Point(153, 160)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(115, 130)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(93, 23)
+        Me.Label7.Size = New System.Drawing.Size(80, 20)
         Me.Label7.TabIndex = 18
         Me.Label7.Text = "Section:"
         '
@@ -146,10 +138,9 @@ Partial Class wdwModFacultyDaily
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label8.Location = New System.Drawing.Point(170, 197)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(128, 160)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(77, 23)
+        Me.Label8.Size = New System.Drawing.Size(64, 20)
         Me.Label8.TabIndex = 19
         Me.Label8.Text = "Room:"
         '
@@ -158,10 +149,9 @@ Partial Class wdwModFacultyDaily
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label9.Location = New System.Drawing.Point(139, 346)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(104, 281)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(108, 23)
+        Me.Label9.Size = New System.Drawing.Size(90, 20)
         Me.Label9.TabIndex = 20
         Me.Label9.Text = "Remarks:"
         '
@@ -169,11 +159,10 @@ Partial Class wdwModFacultyDaily
         '
         Me.txtbxStart.Enabled = False
         Me.txtbxStart.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxStart.Location = New System.Drawing.Point(264, 271)
-        Me.txtbxStart.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtbxStart.Location = New System.Drawing.Point(198, 220)
         Me.txtbxStart.Name = "txtbxStart"
         Me.txtbxStart.ReadOnly = True
-        Me.txtbxStart.Size = New System.Drawing.Size(219, 31)
+        Me.txtbxStart.Size = New System.Drawing.Size(165, 26)
         Me.txtbxStart.TabIndex = 8
         '
         'cmbbxRemarks
@@ -181,10 +170,9 @@ Partial Class wdwModFacultyDaily
         Me.cmbbxRemarks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxRemarks.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxRemarks.FormattingEnabled = True
-        Me.cmbbxRemarks.Location = New System.Drawing.Point(264, 345)
-        Me.cmbbxRemarks.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbbxRemarks.Location = New System.Drawing.Point(198, 280)
         Me.cmbbxRemarks.Name = "cmbbxRemarks"
-        Me.cmbbxRemarks.Size = New System.Drawing.Size(219, 31)
+        Me.cmbbxRemarks.Size = New System.Drawing.Size(315, 28)
         Me.cmbbxRemarks.TabIndex = 10
         '
         'Label11
@@ -192,10 +180,9 @@ Partial Class wdwModFacultyDaily
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label11.Location = New System.Drawing.Point(144, 383)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(108, 311)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(102, 23)
+        Me.Label11.Size = New System.Drawing.Size(87, 20)
         Me.Label11.TabIndex = 28
         Me.Label11.Text = "Checker:"
         '
@@ -204,10 +191,9 @@ Partial Class wdwModFacultyDaily
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label13.Location = New System.Drawing.Point(124, 271)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Location = New System.Drawing.Point(93, 220)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(120, 23)
+        Me.Label13.Size = New System.Drawing.Size(103, 20)
         Me.Label13.TabIndex = 31
         Me.Label13.Text = "Start time:"
         '
@@ -216,10 +202,9 @@ Partial Class wdwModFacultyDaily
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label14.Location = New System.Drawing.Point(135, 308)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Location = New System.Drawing.Point(101, 250)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(110, 23)
+        Me.Label14.Size = New System.Drawing.Size(93, 20)
         Me.Label14.TabIndex = 32
         Me.Label14.Text = "End time:"
         '
@@ -227,21 +212,19 @@ Partial Class wdwModFacultyDaily
         '
         Me.txtbxEnd.Enabled = False
         Me.txtbxEnd.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxEnd.Location = New System.Drawing.Point(264, 308)
-        Me.txtbxEnd.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtbxEnd.Location = New System.Drawing.Point(198, 250)
         Me.txtbxEnd.Name = "txtbxEnd"
         Me.txtbxEnd.ReadOnly = True
-        Me.txtbxEnd.Size = New System.Drawing.Size(219, 31)
+        Me.txtbxEnd.Size = New System.Drawing.Size(165, 26)
         Me.txtbxEnd.TabIndex = 9
         '
         'bttnModify
         '
         Me.bttnModify.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnModify.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnModify.Location = New System.Drawing.Point(176, 431)
-        Me.bttnModify.Margin = New System.Windows.Forms.Padding(4)
+        Me.bttnModify.Location = New System.Drawing.Point(132, 350)
         Me.bttnModify.Name = "bttnModify"
-        Me.bttnModify.Size = New System.Drawing.Size(120, 37)
+        Me.bttnModify.Size = New System.Drawing.Size(90, 30)
         Me.bttnModify.TabIndex = 36
         Me.bttnModify.Text = "Modify"
         Me.bttnModify.UseVisualStyleBackColor = False
@@ -250,10 +233,9 @@ Partial Class wdwModFacultyDaily
         '
         Me.bttnBack.BackColor = System.Drawing.Color.WhiteSmoke
         Me.bttnBack.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bttnBack.Location = New System.Drawing.Point(440, 431)
-        Me.bttnBack.Margin = New System.Windows.Forms.Padding(4)
+        Me.bttnBack.Location = New System.Drawing.Point(330, 350)
         Me.bttnBack.Name = "bttnBack"
-        Me.bttnBack.Size = New System.Drawing.Size(120, 37)
+        Me.bttnBack.Size = New System.Drawing.Size(90, 30)
         Me.bttnBack.TabIndex = 37
         Me.bttnBack.Text = "Back"
         Me.bttnBack.UseVisualStyleBackColor = False
@@ -261,19 +243,17 @@ Partial Class wdwModFacultyDaily
         'dtp
         '
         Me.dtp.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp.Location = New System.Drawing.Point(264, 86)
-        Me.dtp.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtp.Location = New System.Drawing.Point(198, 70)
         Me.dtp.Name = "dtp"
-        Me.dtp.Size = New System.Drawing.Size(419, 31)
+        Me.dtp.Size = New System.Drawing.Size(315, 26)
         Me.dtp.TabIndex = 3
         '
         'txtbxChecker
         '
         Me.txtbxChecker.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxChecker.Location = New System.Drawing.Point(264, 383)
-        Me.txtbxChecker.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtbxChecker.Location = New System.Drawing.Point(198, 311)
         Me.txtbxChecker.Name = "txtbxChecker"
-        Me.txtbxChecker.Size = New System.Drawing.Size(219, 31)
+        Me.txtbxChecker.Size = New System.Drawing.Size(165, 26)
         Me.txtbxChecker.TabIndex = 11
         '
         'cmbbxSection
@@ -281,10 +261,9 @@ Partial Class wdwModFacultyDaily
         Me.cmbbxSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbxSection.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbxSection.FormattingEnabled = True
-        Me.cmbbxSection.Location = New System.Drawing.Point(264, 160)
-        Me.cmbbxSection.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbbxSection.Location = New System.Drawing.Point(198, 130)
         Me.cmbbxSection.Name = "cmbbxSection"
-        Me.cmbbxSection.Size = New System.Drawing.Size(219, 31)
+        Me.cmbbxSection.Size = New System.Drawing.Size(165, 28)
         Me.cmbbxSection.Sorted = True
         Me.cmbbxSection.TabIndex = 5
         '
@@ -293,10 +272,9 @@ Partial Class wdwModFacultyDaily
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans Unicode", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label3.Location = New System.Drawing.Point(190, 234)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(142, 190)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(56, 23)
+        Me.Label3.Size = New System.Drawing.Size(47, 20)
         Me.Label3.TabIndex = 42
         Me.Label3.Text = "Day:"
         '
@@ -304,31 +282,29 @@ Partial Class wdwModFacultyDaily
         '
         Me.txtbxDay.Enabled = False
         Me.txtbxDay.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxDay.Location = New System.Drawing.Point(264, 234)
-        Me.txtbxDay.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtbxDay.Location = New System.Drawing.Point(198, 190)
         Me.txtbxDay.Name = "txtbxDay"
         Me.txtbxDay.ReadOnly = True
-        Me.txtbxDay.Size = New System.Drawing.Size(219, 31)
+        Me.txtbxDay.Size = New System.Drawing.Size(165, 26)
         Me.txtbxDay.TabIndex = 7
         '
         'txtbxRoom
         '
         Me.txtbxRoom.Enabled = False
         Me.txtbxRoom.Font = New System.Drawing.Font("Lucida Bright", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbxRoom.Location = New System.Drawing.Point(264, 197)
-        Me.txtbxRoom.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtbxRoom.Location = New System.Drawing.Point(198, 160)
         Me.txtbxRoom.Name = "txtbxRoom"
         Me.txtbxRoom.ReadOnly = True
-        Me.txtbxRoom.Size = New System.Drawing.Size(219, 31)
+        Me.txtbxRoom.Size = New System.Drawing.Size(165, 26)
         Me.txtbxRoom.TabIndex = 6
         '
         'wdwModFacultyDaily
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(745, 487)
+        Me.ClientSize = New System.Drawing.Size(559, 396)
         Me.Controls.Add(Me.txtbxRoom)
         Me.Controls.Add(Me.txtbxDay)
         Me.Controls.Add(Me.Label3)
@@ -355,7 +331,6 @@ Partial Class wdwModFacultyDaily
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "wdwModFacultyDaily"
