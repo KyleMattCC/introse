@@ -13,7 +13,7 @@ Public Class databaseAccessor
             MysqlConn.Open()
             Command = New MySqlCommand(query, MysqlConn)
             Reader = Command.ExecuteReader
-            MsgBox("Successfully Added!", MsgBoxStyle.OkOnly, "")
+            ' MsgBox("Successfully Added!", MsgBoxStyle.OkOnly, "")
 
             MysqlConn.Close()
         Catch ex As MySqlException
