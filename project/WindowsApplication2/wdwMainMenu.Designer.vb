@@ -47,9 +47,8 @@ Partial Class wdwMainMenu
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblAY = New System.Windows.Forms.Label()
-        Me.lblDate = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.lblDate = New System.Windows.Forms.Label()
         Me.lblTime = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TimerLoop = New System.Windows.Forms.Timer(Me.components)
@@ -343,7 +342,6 @@ Partial Class wdwMainMenu
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.lblAY)
-        Me.Panel2.Controls.Add(Me.lblDate)
         Me.Panel2.Controls.Add(Me.Panel8)
         Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
@@ -362,37 +360,25 @@ Partial Class wdwMainMenu
         Me.lblAY.TabIndex = 26
         Me.lblAY.Text = "Label10"
         '
-        'lblDate
-        '
-        Me.lblDate.AutoSize = True
-        Me.lblDate.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDate.Location = New System.Drawing.Point(1643, 16)
-        Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(102, 29)
-        Me.lblDate.TabIndex = 1
-        Me.lblDate.Text = "Label7"
-        '
         'Panel8
         '
-        Me.Panel8.Controls.Add(Me.Label9)
+        Me.Panel8.Controls.Add(Me.lblDate)
         Me.Panel8.Controls.Add(Me.lblTime)
         Me.Panel8.Location = New System.Drawing.Point(1279, 12)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(884, 82)
         Me.Panel8.TabIndex = 25
         '
-        'Label9
+        'lblDate
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(127, 21)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(197, 40)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "FillerHere"
-        Me.Label9.Visible = False
+        Me.lblDate.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDate.Location = New System.Drawing.Point(217, 0)
+        Me.lblDate.Name = "lblDate"
+        Me.lblDate.Size = New System.Drawing.Size(533, 34)
+        Me.lblDate.TabIndex = 1
+        Me.lblDate.Text = "Label7"
+        Me.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblDate.UseCompatibleTextRendering = True
         '
         'lblTime
         '
@@ -435,6 +421,7 @@ Partial Class wdwMainMenu
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "wdwMainMenu"
+        Me.RightToLeftLayout = True
         Me.Text = "Main Menu"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
@@ -479,7 +466,6 @@ Partial Class wdwMainMenu
     Friend WithEvents lblTime As Label
     Friend WithEvents lblDate As Label
     Friend WithEvents TimerLoop As Timer
-    Friend WithEvents Label9 As Label
     Friend WithEvents Panel8 As Panel
     Friend WithEvents lblAY As Label
     Friend WithEvents bttnFeedback As Button
